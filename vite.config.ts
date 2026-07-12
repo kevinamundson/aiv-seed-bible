@@ -19,12 +19,10 @@ import { extensionsPlugin } from "./script/lib/vite-plugin-extensions";
 // When the deploy vars are absent (local dev / plain build) `base` falls back
 // to the bare asset root (default "/"), so `pnpm dev` is unaffected.
 const assetRoot = withTrailingSlash(process.env.ASSET_BASE_URL ?? "/");
-const deployBranch = process.env.DEPLOY_BRANCH?.trim();
-const deployBuildId = process.env.DEPLOY_BUILD_ID?.trim();
-const assetBaseUrl =
-  deployBranch && deployBuildId
-    ? `${assetRoot}branches/${deployBranch}/${deployBuildId}/`
-    : assetRoot;
+const deployBranch = process.env.DEPLOY_BRANCH?.trim() || process.env.VERCEL_GIT_COMMIT_REF || "develop";
+const deployBuildId = process.env.DEPLOY_BUILD_ID?.trim() || process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 8) || "local";
+
+const assetBaseUrl = `${assetRoot}branches/${deployBranch}/${deployBuildId}/`;
 
 // The service worker is versioned-base-hostile: VitePWA bakes `base` into the
 // SW scope and registration URLs, so a per-build base would change the SW's
