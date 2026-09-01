@@ -1135,9 +1135,13 @@ export const FREE_USE_BIBLE_API_ENDPOINT = "https://bible.helloao.org/";
 const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org/";
 
 export function getDefaultAPIEndpoint(url: URL): string {
-  return url.searchParams.has("useFreeBibleAPI")
-    ? FREE_USE_BIBLE_API_ENDPOINT
-    : PRIVATE_API_ENDPOINT;
+  // AIV Seed Bible: public Free Use Bible API catalog by default so English
+  // ids (including BSB) are selectable. Private HelloAO catalog remains
+  // available via ?usePrivateBibleAPI. ?useFreeBibleAPI is now a no-op.
+  if (url.searchParams.has("usePrivateBibleAPI")) {
+    return PRIVATE_API_ENDPOINT;
+  }
+  return FREE_USE_BIBLE_API_ENDPOINT;
 }
 
 /** The conventional path to a translation's complete-download file. */
