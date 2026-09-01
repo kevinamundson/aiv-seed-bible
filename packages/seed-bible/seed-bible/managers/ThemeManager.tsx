@@ -511,28 +511,28 @@ const LIGHT_THEME: BibleTheme = {
   id: "light",
   name: "Light",
   variables: {
-    primaryColor: "#e07b4c",
+    primaryColor: "#840000",
     primaryFontColor: "#fff",
 
-    secondaryColor: "#faddd1",
+    secondaryColor: "#9A7B2F",
     secondaryFontColor: "#333",
 
     tertiaryColor: "#f0f0f0",
 
-    linkColor: "#e07b4c",
-    linkVisitedColor: "#8d5a6b",
+    linkColor: "#840000",
+    linkVisitedColor: "#5C1018",
 
-    background: "#f8fafc",
+    background: "#F3EEE6",
 
     sidebarBackground: "transparent",
     sidebarFontFamily: "inherit",
     sidebarFontColor: "inherit",
 
-    readerBackground: "#ffffff",
+    readerBackground: "#F4F1EA",
     readerFontFamily: "inherit",
     readerFontColor: "#333",
 
-    bookSelectorBackground: "#ffffff",
+    bookSelectorBackground: "#F4F1EA",
     bookSelectorFontFamily: "inherit",
     bookSelectorFontColor: "#333",
 
@@ -562,7 +562,7 @@ const LIGHT_THEME: BibleTheme = {
     readerToolbarGap: "0.25rem",
     readerToolbarPadding: "1px 0.3125rem",
     readerToolbarBorderRadius: "1.25rem",
-    readerToolbarBackground: "#ffffff",
+    readerToolbarBackground: "#F4F1EA",
     readerToolbarBorder: "1px solid #00000024",
     readerToolbarBoxShadow:
       "0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08)",
