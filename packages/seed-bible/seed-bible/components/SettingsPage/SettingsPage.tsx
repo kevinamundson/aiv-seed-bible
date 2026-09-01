@@ -2103,7 +2103,7 @@ function SettingsVersionFooter() {
   };
 
   return (
-  
+      // Version button
     <button
       type="button"
       className="sb-settings-version"
