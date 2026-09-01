@@ -2438,6 +2438,22 @@ function SettingsMainView(props: { state: SeedBibleState }) {
             </div>
           </li>
         </ul>
+        <p className="sb-settings-agpl-offer">
+          {t("agpl-offer", {
+            defaultValue:
+              "This hosted instance is licensed under GNU AGPL-3.0.",
+          })}{" "}
+          <a
+            className="sb-settings-agpl-source"
+            href="https://github.com/kevinamundson/aiv-seed-bible"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t("agpl-corresponding-source", {
+              defaultValue: "Corresponding source",
+            })}
+          </a>
+        </p>
         <SettingsVersionFooter />
       </section>
     </div>
