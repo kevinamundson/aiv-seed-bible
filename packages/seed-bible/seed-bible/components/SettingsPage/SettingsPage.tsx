@@ -2103,8 +2103,8 @@ function SettingsVersionFooter() {
   };
 
   return (
-    <p style={{ marginBottom: "0.75rem", fontSize: "0.875rem", fontWeight: 600, lineHeight: 1.4, textAlign: "center" }}>This hosted instance is licensed under GNU AGPL-3.0. Corresponding source:{" "}<a href="https://github.com/kevinamundson/aiv-seed-bible" target="_blank" rel="noopener noreferrer">https://github.com/kevinamundson/aiv-seed-bible</a>a></p>p>
-    </a><button
+    
+    <button
       type="button"
       className="sb-settings-version"
       onClick={onCopy}
