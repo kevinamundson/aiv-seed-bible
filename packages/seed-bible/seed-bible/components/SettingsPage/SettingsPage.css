@@ -1242,6 +1242,23 @@
   white-space: nowrap;
 }
 
+.sb-settings-agpl-offer {
+  align-self: center;
+  margin-top: 1rem;
+  padding: 0 0.75rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--sb-font-color), transparent 25%);
+  max-width: 22rem;
+}
+
+.sb-settings-agpl-source {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 .sb-settings-version {
   align-self: center;
   margin-top: 0.5rem;
