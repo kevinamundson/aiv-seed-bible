@@ -36,6 +36,19 @@ export interface PrecacheManifestEntry {
 export const IMAGE_OR_FONT_RE =
   /\.(png|jpe?g|gif|svg|webp|avif|ico|woff2?|ttf|otf|eot)$/i;
 
+/**
+ * BLB-Draft USX / catalog JSON are linked from an eager `?url` glob so Vite
+ * emits hashed same-origin assets, but they are fetched on demand after boot.
+ * Treating them as core would force multi-MB precache (or fail the build when
+ * they are absent from injectManifest globPatterns).
+ */
+export function isOnDemandStaticAsset(file: string): boolean {
+  if (/\.(usx)$/i.test(file)) return true;
+  // Hashed copy of data/blb-draft/manifest.json via import.meta.glob ?url.
+  if (/^assets\/manifest-[^/]+\.json$/i.test(file)) return true;
+  return false;
+}
+
 /** Where the globbed entries live, and so what a warning can be raised about. */
 const ASSET_DIR_PREFIX = "assets/";
 
@@ -67,7 +80,9 @@ export function selectCoreAssetFiles(
 
     core.add(chunk.file);
     for (const file of chunk.css ?? []) core.add(file);
-    for (const file of chunk.assets ?? []) core.add(file);
+    for (const file of chunk.assets ?? []) {
+      if (!isOnDemandStaticAsset(file)) core.add(file);
+    }
     for (const imported of chunk.imports ?? []) visit(imported);
   }
 

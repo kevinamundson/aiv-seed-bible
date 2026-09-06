@@ -82,6 +82,25 @@ describe("selectCoreAssetFiles()", () => {
 
     expect([...core].sort()).toEqual(["assets/a.js", "assets/b.js"]);
   });
+
+  it("leaves BLB-Draft USX and catalog JSON out of the core set", () => {
+    const core = selectCoreAssetFiles({
+      "app/init.tsx": {
+        file: "assets/index-AAA.js",
+        isEntry: true,
+        assets: [
+          "assets/GEN-hash.usx",
+          "assets/manifest-hash.json",
+          "assets/logo-EEE.svg",
+        ],
+      },
+    });
+
+    expect(core.has("assets/GEN-hash.usx")).toBe(false);
+    expect(core.has("assets/manifest-hash.json")).toBe(false);
+    expect(core.has("assets/logo-EEE.svg")).toBe(true);
+    expect(core.has("assets/index-AAA.js")).toBe(true);
+  });
 });
 
 describe("selectAndRelocateCoreAssets()", () => {

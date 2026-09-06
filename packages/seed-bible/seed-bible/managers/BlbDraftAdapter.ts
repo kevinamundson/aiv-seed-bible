@@ -33,6 +33,17 @@ export const BLB_DRAFT_BADGE = "DRAFT";
  */
 // query+import keep Vite emitting hashed asset URL strings. Local
 // ImportMetaGlob typings only list `{ eager }`, so assert the options.
+// Plain Node (tsx sitemap) has no Vite transform — stub glob to {}.
+const importMetaWithGlob = import.meta as ImportMeta & {
+  glob?: (
+    pattern: string,
+    options?: { eager?: boolean }
+  ) => Record<string, unknown>;
+};
+if (typeof importMetaWithGlob.glob !== "function") {
+  importMetaWithGlob.glob = () => ({});
+}
+
 const BUNDLED_USX_URL_MODULES = import.meta.glob(
   "../../../../data/blb-draft/usx/*.usx",
   { query: "?url", import: "default", eager: true } as {
