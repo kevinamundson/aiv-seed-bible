@@ -22,7 +22,8 @@ import { batch, signal } from "@preact/signals";
 import type { SharedDocument } from "@casual-simulation/aux-common/documents/SharedDocument";
 import type { Mock } from "vitest";
 
-// App defaults to the private API; shared mock maps target the free-use host.
+// App defaults to the free-use API; language-switch mocks key on that host.
+const FREE_API_ENDPOINT = "https://bible.helloao.org";
 const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
 
 const SPA_TRANSLATION: Translation = {
@@ -71,6 +72,10 @@ function booksForTranslation(
   };
 }
 
+function freeUrl(path: string): string {
+  return makeUrl(path, FREE_API_ENDPOINT);
+}
+
 function privateUrl(path: string): string {
   return makeUrl(path, PRIVATE_API_ENDPOINT);
 }
@@ -83,32 +88,32 @@ function createLanguageSwitchResponses(options?: {
   const hinBooks = booksForTranslation(aabBooks, HIN_TRANSLATION);
 
   return {
-    [privateUrl("/api/available_translations.json")]: createResponse({
+    [freeUrl("/api/available_translations.json")]: createResponse({
       translations: [
         ...translations.translations,
         SPA_TRANSLATION,
         HIN_TRANSLATION,
       ],
     }),
-    [privateUrl("/api/AAB/books.json")]: createResponse(aabBooks),
-    [privateUrl("/api/AAB/GEN/1.json")]: createResponse(
+    [freeUrl("/api/AAB/books.json")]: createResponse(aabBooks),
+    [freeUrl("/api/AAB/GEN/1.json")]: createResponse(
       makeChapter(aabBooks, "GEN", 1)
     ),
-    [privateUrl("/api/AAB/EXO/2.json")]: createResponse(
+    [freeUrl("/api/AAB/EXO/2.json")]: createResponse(
       makeChapter(aabBooks, "EXO", 2)
     ),
-    [privateUrl("/api/spa_onbv/books.json")]: createResponse(spaBooks),
-    [privateUrl("/api/spa_onbv/GEN/1.json")]: createResponse(
+    [freeUrl("/api/spa_onbv/books.json")]: createResponse(spaBooks),
+    [freeUrl("/api/spa_onbv/GEN/1.json")]: createResponse(
       makeChapter(spaBooks, "GEN", 1)
     ),
-    [privateUrl("/api/spa_onbv/EXO/2.json")]: createResponse(
+    [freeUrl("/api/spa_onbv/EXO/2.json")]: createResponse(
       makeChapter(spaBooks, "EXO", 2)
     ),
-    [privateUrl("/api/spa_onbv/MAT/1.json")]: createResponse(
+    [freeUrl("/api/spa_onbv/MAT/1.json")]: createResponse(
       makeChapter(spaBooks, "MAT", 1)
     ),
-    [privateUrl("/api/hin_cvb/books.json")]: createResponse(hinBooks),
-    [privateUrl("/api/hin_cvb/EXO/2.json")]: createResponse(
+    [freeUrl("/api/hin_cvb/books.json")]: createResponse(hinBooks),
+    [freeUrl("/api/hin_cvb/EXO/2.json")]: createResponse(
       makeChapter(hinBooks, "EXO", 2)
     ),
   };
@@ -287,37 +292,27 @@ describe("createSeedBibleState", () => {
     expect(state.sessions).toBe(mockSessionsManager);
     expect(typeof state.search.searchVerses).toBe("function");
 
-    expect(state.bibleData.api.endpoint).toBe("https://vmfnri.helloao.org/");
+    expect(state.bibleData.api.endpoint).toBe("https://bible.helloao.org/");
   });
 
-  it("should use the free use bible API if specified in the URL", async () => {
+  it("should use the private bible API when usePrivateBibleAPI is in the URL", async () => {
     jsdom.reconfigure({
-      url: "https://example.com?useFreeBibleAPI=true",
+      url: "https://example.com?usePrivateBibleAPI=true",
     });
 
-    const state = await createState();
+    const state = await createStateWithOptions({
+      responses: {
+        [privateUrl("/api/available_translations.json")]: createResponse(
+          translations
+        ),
+        [privateUrl("/api/AAB/books.json")]: createResponse(aabBooks),
+        [privateUrl("/api/AAB/GEN/1.json")]: createResponse(
+          makeChapter(aabBooks, "GEN", 1)
+        ),
+      },
+    });
 
-    expect(state.settings.settings.value.disablePanels).toBe(false);
-    expect(state.app.panelsEnabled.value).toBe(true);
-
-    expect(state.tabs.tabs.value).toHaveLength(1);
-    expect(state.tabs.selectedTabId.value).toBe("tab-1");
-    expect(state.app.selectedTab.value?.id).toBe("tab-1");
-
-    expect(state.tabsLayout.slots.value).toHaveLength(1);
-    expect(state.tabsLayout.slots.value[0]?.tab?.id).toBe("tab-1");
-    expect(state.tabsLayout.selectedSlotId.value).toBe(
-      state.tabsLayout.slots.value[0]?.id ?? null
-    );
-
-    expect(state.panes.panes.value).toHaveLength(0);
-
-    expect(state.selector.isOpen.value).toBe(false);
-    expect(state.highlights).toBe(mockHighlightsManager as any);
-    expect(state.sessions).toBe(mockSessionsManager);
-    expect(typeof state.search.searchVerses).toBe("function");
-
-    expect(state.bibleData.api.endpoint).toBe("https://bible.helloao.org/");
+    expect(state.bibleData.api.endpoint).toBe("https://vmfnri.helloao.org/");
   });
 
   it("always spells out the language segment in the canonical URL", async () => {
@@ -1700,6 +1695,10 @@ describe("createSeedBibleState", () => {
 
     it("describes the app, not just its name, when no chapter is loaded", async () => {
       const state = await createState();
+      // createState waits for the default chapter to load; clear it so this
+      // asserts the empty-reader marketing meta path.
+      const readingState = state.app.currentReadingState.value!.tab.readingState;
+      readingState.chapterData.value = null;
 
       const description = state.app.description.value;
 
@@ -1969,7 +1968,7 @@ describe("createSeedBibleState", () => {
       const state = await createStateWithOptions({
         responses: {
           ...createLanguageSwitchResponses({ spaBooks: spaMatOnly }),
-          [privateUrl("/api/AAB/EXO/1.json")]: createResponse(
+          [freeUrl("/api/AAB/EXO/1.json")]: createResponse(
             makeChapter(aabBooks, "EXO", 1)
           ),
         },

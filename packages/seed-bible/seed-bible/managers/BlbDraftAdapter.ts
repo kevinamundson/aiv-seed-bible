@@ -31,28 +31,34 @@ export const BLB_DRAFT_BADGE = "DRAFT";
  * Paths are relative to this file → repo `data/blb-draft/` (hashed `?url` assets, not inlined).
  * Eager map keeps book→URL lookup sync; fetch still loads XML on demand.
  */
-// Path includes ?url so Vite emits asset URLs; local ImportMetaGlob typing
-// only allows `{ eager }` (no `query`), so keep the option object minimal.
+// query+import keep Vite emitting hashed asset URL strings. Local
+// ImportMetaGlob typings only list `{ eager }`, so assert the options.
 const BUNDLED_USX_URL_MODULES = import.meta.glob(
-  "../../../../data/blb-draft/usx/*.usx?url",
-  { eager: true }
+  "../../../../data/blb-draft/usx/*.usx",
+  { query: "?url", import: "default", eager: true } as {
+    eager: true;
+  }
 ) as Record<string, string>;
 
 const BUNDLED_MANIFEST_URL_MODULES = import.meta.glob(
-  "../../../../data/blb-draft/manifest.json?url",
-  { eager: true }
+  "../../../../data/blb-draft/manifest.json",
+  { query: "?url", import: "default", eager: true } as {
+    eager: true;
+  }
 ) as Record<string, string>;
 
 const BUNDLED_USX_URLS: Record<string, string> = {};
 for (const [modulePath, url] of Object.entries(BUNDLED_USX_URL_MODULES)) {
   const match = modulePath.match(/\/([A-Za-z0-9]+)\.usx$/);
-  if (match) {
+  if (match && typeof url === "string") {
     BUNDLED_USX_URLS[match[1]!.toUpperCase()] = url;
   }
 }
 
-const BUNDLED_MANIFEST_URL =
-  Object.values(BUNDLED_MANIFEST_URL_MODULES)[0] ?? null;
+const BUNDLED_MANIFEST_URL = (() => {
+  const first = Object.values(BUNDLED_MANIFEST_URL_MODULES)[0];
+  return typeof first === "string" ? first : null;
+})();
 
 type VersePart = string | FormattedText | VerseFootnoteReference;
 

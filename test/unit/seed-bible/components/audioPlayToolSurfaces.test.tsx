@@ -21,7 +21,7 @@ import {
 const MOBILE_VIEWPORT_WIDTH = 400;
 const DESKTOP_VIEWPORT_WIDTH = 1280;
 
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 
 const AUDIO_URL = "https://audio.example/GEN/1.mp3";
 

@@ -82,7 +82,7 @@ describe("BibleSelector", () => {
 
   beforeEach(() => {
     // The mocked Bible API responses are keyed to the free-use endpoint, so
-    // opt into it via the URL (the app otherwise defaults to the private one).
+    // opt into it via the URL (the app otherwise defaults to the free-use API).
     jsdom.reconfigure({ url: "https://seedbible.org/?useFreeBibleAPI" });
 
     // The data manager persists per-translation endpoints to localStorage;
@@ -729,7 +729,7 @@ describe("BibleSelector translation selector", () => {
 
   beforeEach(() => {
     // The mocked Bible API responses are keyed to the free-use endpoint, so
-    // opt into it via the URL (the app otherwise defaults to the private one).
+    // opt into it via the URL (the app otherwise defaults to the free-use API).
     jsdom.reconfigure({ url: "https://seedbible.org/?useFreeBibleAPI" });
 
     // The data manager persists per-translation endpoints to localStorage;

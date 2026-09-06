@@ -10,8 +10,8 @@ import {
   translations,
 } from "./testUtils/mockBibleApiData";
 
-/** The app defaults to the private API endpoint, so responses key on it. */
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+/** The app defaults to the free-use API endpoint, so responses key on it. */
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 
 // A chapter has to actually load, or `readerVisible` is false for that reason
 // alone and these assertions would hold no matter what Today did.

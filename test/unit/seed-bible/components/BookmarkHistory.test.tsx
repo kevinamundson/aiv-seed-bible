@@ -82,7 +82,7 @@ const EXODUS_2_VERSE_BOOKMARK: Bookmark = {
 
 // A tab created after startup resolves its data against the app's default
 // (private) endpoint, so the bookmark's chapter has to be mocked there too.
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 
 function createResponses() {
   return {

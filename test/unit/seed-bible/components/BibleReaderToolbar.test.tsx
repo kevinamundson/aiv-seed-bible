@@ -33,17 +33,16 @@ vi.mock("@packages/seed-bible/seed-bible/managers/Sanitization", () => ({
 /** The width `app.isMobile` needs to see for the bottom tab bar to render. */
 const MOBILE_VIEWPORT_WIDTH = 400;
 
-// The app defaults to the private API endpoint, so the mocked responses have to
-// be keyed on it (the shared default map targets the free-use endpoint).
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+// App defaults to the free-use API; mock responses must key on that host.
+const FREE_API_ENDPOINT = "https://bible.helloao.org";
 
-function createPrivateEndpointResponses() {
+function createFreeEndpointResponses() {
   return {
-    [makeUrl("/api/available_translations.json", PRIVATE_API_ENDPOINT)]:
+    [makeUrl("/api/available_translations.json", FREE_API_ENDPOINT)]:
       createResponse(translations),
-    [makeUrl("/api/AAB/books.json", PRIVATE_API_ENDPOINT)]:
+    [makeUrl("/api/AAB/books.json", FREE_API_ENDPOINT)]:
       createResponse(aabBooks),
-    [makeUrl("/api/AAB/GEN/1.json", PRIVATE_API_ENDPOINT)]: createResponse(
+    [makeUrl("/api/AAB/GEN/1.json", FREE_API_ENDPOINT)]: createResponse(
       makeChapter(aabBooks, "GEN", 1)
     ),
   };
@@ -63,7 +62,7 @@ describe("BibleReaderToolbar — verse toolbar vs. fullscreen panes", () => {
     document.body.appendChild(container);
 
     state = await createTestSeedBibleState({
-      responses: createPrivateEndpointResponses(),
+      responses: createFreeEndpointResponses(),
     });
 
     await act(async () => {
@@ -326,7 +325,7 @@ describe("BibleReaderToolbar — verse selection vs. side panes", () => {
     document.body.appendChild(container);
 
     state = await createTestSeedBibleState({
-      responses: createPrivateEndpointResponses(),
+      responses: createFreeEndpointResponses(),
     });
 
     await act(async () => {
@@ -482,7 +481,7 @@ describe("BibleReaderToolbar — clearing highlights", () => {
     document.body.appendChild(container);
 
     state = await createTestSeedBibleState({
-      responses: createPrivateEndpointResponses(),
+      responses: createFreeEndpointResponses(),
     });
     stubRecords();
     signIn();
@@ -1352,7 +1351,7 @@ describe("BibleReaderToolbar — mobile verse sheet drag", () => {
     document.body.appendChild(container);
 
     state = await createTestSeedBibleState({
-      responses: createPrivateEndpointResponses(),
+      responses: createFreeEndpointResponses(),
     });
 
     // The default tool set renders exactly one row here (highlight, bookmark,
@@ -1789,7 +1788,7 @@ describe("BibleReaderToolbar — mobile verse sheet annotations", () => {
     document.body.appendChild(container);
 
     state = await createTestSeedBibleState({
-      responses: createPrivateEndpointResponses(),
+      responses: createFreeEndpointResponses(),
     });
 
     await act(async () => {

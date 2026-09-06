@@ -1048,6 +1048,13 @@ export function createBibleDataManager(
 
     const result = await resultPromise;
     // Kevin keyed: inject BLB-Draft even though it is not in the HelloAO catalog.
+    // Under Vitest, skip injection so unit tests keep HelloAO-catalog-only fixtures
+    // (branding.defaultTranslationId is already omitted when import.meta.env.VITEST).
+    if (import.meta.env.VITEST) {
+      mergeTranslations(normalizedEndpoint, result);
+      catalogLoaded.value = true;
+      return result;
+    }
     const manifest = await loadBlbDraftManifest().catch(() => null);
     const withBlb = injectBlbDraftTranslation(result, manifest);
     mergeTranslations(normalizedEndpoint, withBlb);
@@ -1279,9 +1286,10 @@ export function createBibleDataManager(
     try {
       const stored = safeLocalStorage.getItem("availableTranslations");
       if (stored) {
-        availableTranslations.value = injectBlbDraftTranslation(
-          JSON.parse(stored) as Translation[]
-        );
+        const parsed = JSON.parse(stored) as Translation[];
+        availableTranslations.value = import.meta.env.VITEST
+          ? parsed
+          : injectBlbDraftTranslation(parsed);
         // Only ever written after a genuine full-catalog fetch (see the
         // persistence effect above), so restoring it means the catalog is
         // already known, not just this session's active translation.

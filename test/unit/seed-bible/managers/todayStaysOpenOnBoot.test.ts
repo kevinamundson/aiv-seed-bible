@@ -12,8 +12,8 @@ import {
 } from "./testUtils/mockBibleApiData";
 import { TODAY_PANE_ID } from "@packages/seed-bible/seed-bible/managers/TodayManager";
 
-/** The app defaults to the private API endpoint, so responses key on it. */
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+/** The app defaults to the free-use API endpoint, so responses key on it. */
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 
 /** Genesis 1 is the boot tab's default; Exodus 2 is what storage restores. */
 function responsesForBootAndRestore() {
