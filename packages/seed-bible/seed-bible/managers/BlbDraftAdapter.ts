@@ -1,9 +1,10 @@
 /**
  * BLB-Draft USX → Seed Bible chapter adapter.
  *
- * Id is exactly `BLB-Draft` (not HelloAO `BLB`). Chapters are converted from USX:
- *   preferred https://aivbible.kevinamundson.me/usx/{BOOK}.usx
- *   fallback  https://cdn.jsdelivr.net/gh/kevinamundson/aiv-seed-bible@develop/data/blb-draft/usx/{BOOK}.usx
+ * Id is exactly `BLB-Draft` (not HelloAO `BLB`). Chapters are converted from USX
+ * bundled into the client build via `import.meta.glob(..., { query: "?url" })`
+ * so production reads are same-origin (seedbible / aiv-seed-bible.vercel.app)
+ * and do not depend on live aivbible or jsDelivr.
  *
  * Marker map:
  *   char@add → FormattedText { text, add: true }
@@ -25,13 +26,31 @@ export const BLB_DRAFT_ID = "BLB-Draft";
 export const BLB_DRAFT_NAME = "Berean Literal Bible (Draft)";
 export const BLB_DRAFT_BADGE = "DRAFT";
 
-const PREFERRED_USX_BASE = "https://aivbible.kevinamundson.me/usx";
-const FALLBACK_USX_BASE =
-  "https://cdn.jsdelivr.net/gh/kevinamundson/aiv-seed-bible@develop/data/blb-draft/usx";
-const FALLBACK_MANIFEST_URL =
-  "https://cdn.jsdelivr.net/gh/kevinamundson/aiv-seed-bible@develop/data/blb-draft/manifest.json";
-const PREFERRED_MANIFEST_URL =
-  "https://aivbible.kevinamundson.me/manifest.json";
+/**
+ * Vite emits each USX/manifest as a hashed static asset URL (not inlined JS).
+ * Paths are relative to this file → repo `data/blb-draft/` (hashed `?url` assets, not inlined).
+ * Eager map keeps book→URL lookup sync; fetch still loads XML on demand.
+ */
+const BUNDLED_USX_URL_MODULES = import.meta.glob(
+  "../../../../data/blb-draft/usx/*.usx",
+  { query: "?url", import: "default", eager: true }
+) as Record<string, string>;
+
+const BUNDLED_MANIFEST_URL_MODULES = import.meta.glob(
+  "../../../../data/blb-draft/manifest.json",
+  { query: "?url", import: "default", eager: true }
+) as Record<string, string>;
+
+const BUNDLED_USX_URLS: Record<string, string> = {};
+for (const [modulePath, url] of Object.entries(BUNDLED_USX_URL_MODULES)) {
+  const match = modulePath.match(/\/([A-Za-z0-9]+)\.usx$/);
+  if (match) {
+    BUNDLED_USX_URLS[match[1]!.toUpperCase()] = url;
+  }
+}
+
+const BUNDLED_MANIFEST_URL =
+  Object.values(BUNDLED_MANIFEST_URL_MODULES)[0] ?? null;
 
 type VersePart = string | FormattedText | VerseFootnoteReference;
 
@@ -533,18 +552,18 @@ function looksLikeJsonObject(text: string): boolean {
 export async function loadBlbDraftManifest(): Promise<BlbManifest> {
   if (!manifestPromise) {
     manifestPromise = (async () => {
-      for (const url of [PREFERRED_MANIFEST_URL, FALLBACK_MANIFEST_URL]) {
-        const text = await fetchText(url);
+      if (BUNDLED_MANIFEST_URL) {
+        const text = await fetchText(BUNDLED_MANIFEST_URL);
         if (text && looksLikeJsonObject(text)) {
           try {
             return JSON.parse(text) as BlbManifest;
           } catch {
-            // try next
+            // fall through to embedded
           }
         }
       }
-      // Prefer the embedded corpus map so books/chapter counts work even when
-      // both remote manifests are unreachable (bot wall / CDN lag).
+      // Embedded corpus map keeps books/chapter counts available even if the
+      // bundled manifest asset fails to fetch (offline / corrupt cache).
       return EMBEDDED_MANIFEST;
     })();
   }
@@ -558,16 +577,21 @@ async function loadUsx(book: string): Promise<string> {
     return cached;
   }
 
-  for (const base of [PREFERRED_USX_BASE, FALLBACK_USX_BASE]) {
-    const text = await fetchText(`${base}/${encodeURIComponent(key)}.usx`);
-    if (text && looksLikeUsx(text)) {
-      usxCache.set(key, text);
-      return text;
-    }
+  const bundledUrl = BUNDLED_USX_URLS[key];
+  if (!bundledUrl) {
+    throw new Error(
+      `BLB-Draft USX missing from client bundle for ${key} (expected data/blb-draft/usx/${key}.usx)`
+    );
+  }
+
+  const text = await fetchText(bundledUrl);
+  if (text && looksLikeUsx(text)) {
+    usxCache.set(key, text);
+    return text;
   }
 
   throw new Error(
-    `BLB-Draft USX unavailable for ${key} (preferred host and jsDelivr fallback both failed)`
+    `BLB-Draft USX unavailable for ${key} (bundled same-origin asset failed to load)`
   );
 }
 
