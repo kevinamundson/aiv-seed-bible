@@ -674,5 +674,7 @@
   "switch-language-never": "Never Ask Again",
   "chat-ai-error": "Sorry, something went wrong generating a response ({{error}}).",
   "playlist-editor": "Playlist Editor",
-  "add-bookmark-modal": "Add bookmark"
+  "add-bookmark-modal": "Add bookmark",
+  "agpl-offer": "This hosted instance is licensed under GNU AGPL-3.0.",
+  "agpl-corresponding-source": "Corresponding source"
 }
