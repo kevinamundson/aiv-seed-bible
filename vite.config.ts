@@ -127,6 +127,10 @@ export default defineConfig(({ isSsrBuild }) => ({
   // is an HTML/SPA build.
   appType: "custom",
   publicDir: false,
+  // Ensure BLB-Draft USX corpus is treated as static assets when imported via ?url
+  // (import.meta.glob in BlbDraftAdapter). Without this, some Vite versions may
+  // try to parse .usx as JS.
+  assetsInclude: ["**/*.usx"],
   base: assetBaseUrl,
 
   define: {
