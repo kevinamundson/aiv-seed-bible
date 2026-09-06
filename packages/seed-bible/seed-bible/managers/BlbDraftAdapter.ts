@@ -31,14 +31,16 @@ export const BLB_DRAFT_BADGE = "DRAFT";
  * Paths are relative to this file → repo `data/blb-draft/` (hashed `?url` assets, not inlined).
  * Eager map keeps book→URL lookup sync; fetch still loads XML on demand.
  */
+// Path includes ?url so Vite emits asset URLs; local ImportMetaGlob typing
+// only allows `{ eager }` (no `query`), so keep the option object minimal.
 const BUNDLED_USX_URL_MODULES = import.meta.glob(
-  "../../../../data/blb-draft/usx/*.usx",
-  { query: "?url", import: "default", eager: true }
+  "../../../../data/blb-draft/usx/*.usx?url",
+  { eager: true }
 ) as Record<string, string>;
 
 const BUNDLED_MANIFEST_URL_MODULES = import.meta.glob(
-  "../../../../data/blb-draft/manifest.json",
-  { query: "?url", import: "default", eager: true }
+  "../../../../data/blb-draft/manifest.json?url",
+  { eager: true }
 ) as Record<string, string>;
 
 const BUNDLED_USX_URLS: Record<string, string> = {};
@@ -607,7 +609,9 @@ function parseAttrs(raw: string): Record<string, string> {
   const re = /([:\w.-]+)\s*=\s*("([^"]*)"|'([^']*)')/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(raw))) {
-    attrs[m[1]] = m[3] ?? m[4] ?? "";
+    const name = m[1];
+    if (!name) continue;
+    attrs[name] = m[3] ?? m[4] ?? "";
   }
   return attrs;
 }
