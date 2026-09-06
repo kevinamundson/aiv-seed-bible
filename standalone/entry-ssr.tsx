@@ -145,7 +145,8 @@ function replacePlaceholder(
  */
 export function legacyReadingUrlRedirect(
   path: string,
-  basePath: string
+  basePath: string,
+  brandingDefaultTranslationId?: string
 ): string | null {
   const url = new URL(path, "http://ssr.local");
 
@@ -216,6 +217,7 @@ export function legacyReadingUrlRedirect(
   const translationId =
     url.searchParams.get("translationId") ??
     url.searchParams.get("translation") ??
+    brandingDefaultTranslationId ??
     getDefaultTranslationForLanguage(language).id;
 
   const readingPath = buildReadingPath({
@@ -275,7 +277,8 @@ export function legacyReadingUrlRedirect(
 export function acceptLanguageRedirect(
   path: string,
   basePath: string,
-  acceptedLanguages: string[]
+  acceptedLanguages: string[],
+  brandingDefaultTranslationId?: string
 ): string | null {
   const url = new URL(path, "http://ssr.local");
 
@@ -356,7 +359,9 @@ export function acceptLanguageRedirect(
   } else {
     language =
       getPreferredSupportedLanguage(acceptedLanguages) ?? DEFAULT_UI_LANGUAGE;
-    translationId = getDefaultTranslationForLanguage(language).id;
+    translationId =
+      brandingDefaultTranslationId ??
+      getDefaultTranslationForLanguage(language).id;
   }
 
   const readingPath = buildReadingPath({
@@ -405,9 +410,14 @@ export async function render(
 > {
   const { config: injectedConfig } = options;
 
+  const brandingDefaultTranslationId =
+    injectedConfig.branding?.defaultTranslationId ??
+    DEFAULT_APP_CONFIG.branding?.defaultTranslationId;
+
   const redirectTo = legacyReadingUrlRedirect(
     options.path,
-    injectedConfig.basePath
+    injectedConfig.basePath,
+    brandingDefaultTranslationId
   );
   if (redirectTo) {
     return { redirectTo };
@@ -416,7 +426,8 @@ export async function render(
   const languageRedirectTo = acceptLanguageRedirect(
     options.path,
     injectedConfig.basePath,
-    injectedConfig.acceptedLanguages
+    injectedConfig.acceptedLanguages,
+    brandingDefaultTranslationId
   );
   if (languageRedirectTo) {
     return {

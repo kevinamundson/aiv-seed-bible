@@ -322,6 +322,26 @@ function TranslationLanguageSection(props: {
                     />
                   )}
                   <span className="translation-description">{`${value.name} (${value.shortName})`}</span>
+                  {(value.id === "BLB-Draft" ||
+                    (value as { draft?: boolean }).draft) && (
+                    <span
+                      className="sb-translation-draft-badge"
+                      style={{
+                        marginLeft: "0.35rem",
+                        padding: "0.05rem 0.35rem",
+                        fontSize: "0.7rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.04em",
+                        borderRadius: "0.25rem",
+                        background: "color-mix(in srgb, var(--sb-secondary, #b8860b) 25%, transparent)",
+                        color: "var(--sb-text, inherit)",
+                        verticalAlign: "middle",
+                      }}
+                      title="Draft translation — not a finished claim"
+                    >
+                      {(value as { draftBadge?: string }).draftBadge || "DRAFT"}
+                    </span>
+                  )}
                   {value?.licenseNotice && onShowInfo && (
                     <span
                       style={{ display: "flex" }}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usx version="3.1">
+<book code="2TI" style="id">BLB-Draft</book>
+<para style="h">2 Timothy</para>
+<para style="toc1">2 Timothy</para>
+<para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+<chapter number="1" style="c" sid="2TI 1"/>
+<para style="s">Paul’s Greeting to Timothy</para>
+<para style="p"><verse number="1" style="v" sid="2TI 1:1"/><note caller="-" style="x"><char style="xt" closed="false">1 Timothy 1:1–2</char></note>Paul, an apostle of Christ Jesus<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> RP, F35, and TR </char><char style="fq" closed="false">of Jesus Christ</char></note> by the will of God, according to the promise of life that <char style="add">is</char> in Christ Jesus, </para>
+<para style="p"><verse number="2" style="v" sid="2TI 1:2"/>To Timothy, <char style="add">my</char> beloved child: </para>
+<para style="p" vid="2TI 1:2">Grace, mercy, <char style="add">and</char> peace from God the Father and Christ Jesus our Lord. </para>
+<para style="s">Faithfulness under PersecutionMatthew 10:16–25</para>
+<para style="p"><verse number="3" style="v" sid="2TI 1:3"/>I have gratitude to God, whom I serve from the forefathers with a pure conscience, as I have unceasing remembrance of you in my prayers night and day, </para>
+<para style="p"><verse number="4" style="v" sid="2TI 1:4"/>longing to see you, recalling your tears, so that I may be filled with joy, </para>
+<para style="p"><verse number="5" style="v" sid="2TI 1:5"/>having taken remembrance of the unfeigned faith in you, which dwelt first in your grandmother Lois and in your mother Eunice, and I am persuaded that <char style="add">it is</char> in you also. </para>
+<para style="p"><verse number="6" style="v" sid="2TI 1:6"/>Because of this reason, I remind you to rekindle the gift of God, which is in you through the laying on of my hands. </para>
+<para style="p"><verse number="7" style="v" sid="2TI 1:7"/>For God did not give us a spirit of timidity,<note caller="+" style="f"><char style="fr" closed="false">1.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">fear</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">cowardice</char></note> but of power and love and soundness of mind.<note caller="+" style="f"><char style="fr" closed="false">1.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">self-control </char></note> </para>
+<para style="p"><verse number="8" style="v" sid="2TI 1:8"/>Therefore you should not be ashamed of the testimony of our Lord, nor of me, His prisoner; but suffer together for the gospel according to the power of God, </para>
+<para style="p"><verse number="9" style="v" sid="2TI 1:9"/>the One having saved us and having called <char style="add">us</char> with a holy calling, not according to our works but according to His own purpose and grace, having been given to us in Christ Jesus before times eternal,<note caller="+" style="f"><char style="fr" closed="false">1.9 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">before time began</char></note> </para>
+<para style="p"><verse number="10" style="v" sid="2TI 1:10"/>and now having been made manifest through the appearing of our Savior Christ Jesus,<note caller="+" style="f"><char style="fr" closed="false">1.10 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Jesus Christ</char></note> having indeed abolished death and having brought to light life and immortality through the gospel, </para>
+<para style="p"><verse number="11" style="v" sid="2TI 1:11"/>to which I was appointed a preacher and an apostle and a teacher.<note caller="+" style="f"><char style="fr" closed="false">1.11 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">of the Gentiles</char><char style="ft" closed="false">.</char></note> </para>
+<para style="p"><verse number="12" style="v" sid="2TI 1:12"/>Because of this reason I also suffer these things. But I am not ashamed, for I know whom I have believed, and I am persuaded that He is able to guard my deposit entrusted<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">what He has entrusted to me</char></note> for that day. </para>
+<para style="s">Holding to Sound Teaching</para>
+<para style="p"><verse number="13" style="v" sid="2TI 1:13"/>Hold the pattern of sound words,<note caller="+" style="f"><char style="fr" closed="false">1.13 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">sound teaching</char></note> which you heard from me, in the faith and love that <char style="add">are</char> in Christ Jesus. </para>
+<para style="p"><verse number="14" style="v" sid="2TI 1:14"/>Guard the good deposit entrusted<note caller="+" style="f"><char style="fr" closed="false">1.14 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the treasure entrusted</char></note> by the Holy Spirit, the One dwelling in us. </para>
+<para style="p"><verse number="15" style="v" sid="2TI 1:15"/>You know this, that all those in Asia<note caller="+" style="f"><char style="fr" closed="false">1.15 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">in the province of Asia</char></note> turned away from me, of whom are Phygelus and Hermogenes. </para>
+<para style="p"><verse number="16" style="v" sid="2TI 1:16"/>May the Lord give mercy to the household of Onesiphorus, because he refreshed me often, and he was not ashamed of my chain. </para>
+<para style="p"><verse number="17" style="v" sid="2TI 1:17"/>But being in Rome, he earnestly sought me<note caller="+" style="f"><char style="fr" closed="false">1.17 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">he searched very diligently for me</char></note> and found <char style="add">me</char>. </para>
+<para style="p"><verse number="18" style="v" sid="2TI 1:18"/>May the Lord give to him to find mercy from the Lord in that day! And you know very well how much he served in Ephesus. </para>
+<chapter eid="2TI 1"/>
+<chapter number="2" style="c" sid="2TI 2"/>
+<para style="s">Grace and Perseverance</para>
+<para style="p"><verse number="1" style="v" sid="2TI 2:1"/><note caller="-" style="x"><char style="xt" closed="false">Hebrews 12:1–3</char></note>You, therefore, my child, be empowered in the grace that <char style="add">is</char> in Christ Jesus. </para>
+<para style="p"><verse number="2" style="v" sid="2TI 2:2"/>And the things that you heard from me through many witnesses, entrust these to faithful men such as will be sufficient to teach others also. </para>
+<para style="p"><verse number="3" style="v" sid="2TI 2:3"/>Share in suffering<note caller="+" style="f"><char style="fr" closed="false">2.3 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">therefore</char></note> as a good soldier of Christ Jesus.<note caller="+" style="f"><char style="fr" closed="false">2.3 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">of Jesus Christ</char></note> </para>
+<para style="p"><verse number="4" style="v" sid="2TI 2:4"/>No one serving as a soldier entangles himself in the affairs of life, so that he might please the one having enlisted him. </para>
+<para style="p"><verse number="5" style="v" sid="2TI 2:5"/>Now also, if anyone competes, he is not crowned unless he shall have competed lawfully. </para>
+<para style="p"><verse number="6" style="v" sid="2TI 2:6"/>It is necessary for the toiling farmer first to partake of the fruits. </para>
+<para style="p"><verse number="7" style="v" sid="2TI 2:7"/>Consider what I say, for the Lord will give you understanding in all things. </para>
+<para style="p"><verse number="8" style="v" sid="2TI 2:8"/>Remember Jesus Christ, having been raised out from the dead, of the seed of David, according to my gospel, </para>
+<para style="p"><verse number="9" style="v" sid="2TI 2:9"/>in which I suffer hardship even to chains as an evildoer. But the word of God has not been bound! </para>
+<para style="p"><verse number="10" style="v" sid="2TI 2:10"/>Because of this, I endure all things because of the chosen ones, so that they also may obtain the salvation that <char style="add">is</char> in Christ Jesus, with eternal glory. </para>
+<para style="p"><verse number="11" style="v" sid="2TI 2:11"/>Trustworthy <char style="add">is</char> the word: </para>
+<para style="q1" vid="2TI 2:11">For if we died together <char style="add">with Him</char>, </para>
+<para style="q2" vid="2TI 2:11">we will also live together <char style="add">with Him</char>; </para>
+<para style="q1"><verse number="12" style="v" sid="2TI 2:12"/>if we endure, </para>
+<para style="q2" vid="2TI 2:12">we will also reign together <char style="add">with Him</char>; </para>
+<para style="q1" vid="2TI 2:12">if we will deny <char style="add">Him</char>, </para>
+<para style="q2" vid="2TI 2:12">He also will deny us; </para>
+<para style="q1"><verse number="13" style="v" sid="2TI 2:13"/>if we are faithless, </para>
+<para style="q2" vid="2TI 2:13">He remains faithful, </para>
+<para style="q2" vid="2TI 2:13">for He is not able to deny Himself. </para>
+<para style="s">The Lord’s Approved Workman</para>
+<para style="p"><verse number="14" style="v" sid="2TI 2:14"/>Remind <char style="add">them</char> these things, earnestly testifying before God<note caller="+" style="f"><char style="fr" closed="false">2.14 </char><char style="ft" closed="false"> SBL, BYZ, and TR </char><char style="fq" closed="false">before the Lord</char></note> not to fight about words, useful for nothing <char style="add">but</char> to the subversion of those hearing. </para>
+<para style="p"><verse number="15" style="v" sid="2TI 2:15"/>Be diligent to present yourself approved to God, a workman unashamed, straightly cutting the word of truth. </para>
+<para style="p"><verse number="16" style="v" sid="2TI 2:16"/>But avoid profane, empty utterances, for they will advance to more ungodliness, </para>
+<para style="p"><verse number="17" style="v" sid="2TI 2:17"/>and their word will have pasture like gangrene, of whom are Hymenaeus and Philetus, </para>
+<para style="p"><verse number="18" style="v" sid="2TI 2:18"/>who missed the mark concerning the truth, saying the resurrection already to have happened; and they are overturning the faith of some. </para>
+<para style="p"><verse number="19" style="v" sid="2TI 2:19"/>Nevertheless, the firm foundation of God has stood, having this seal: “The Lord knows those being His,” and, “Let everyone naming the name of the Lord<note caller="+" style="f"><char style="fr" closed="false">2.19 </char><char style="ft" closed="false"> Numbers 16:5 (see also LXX)</char></note> depart from unrighteousness.” <note caller="+" style="f"><char style="fr" closed="false">2.19 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">of Christ</char></note></para>
+<para style="p"><verse number="20" style="v" sid="2TI 2:20"/>Now in a great house there are not only golden and silver vessels, but also wooden and earthen; and some indeed for honor, but some for dishonor. </para>
+<para style="p"><verse number="21" style="v" sid="2TI 2:21"/>Therefore if anyone shall have cleansed himself from these, he will be a vessel for honor, having been sanctified, useful to the Master, having been prepared for every good work. </para>
+<para style="p"><verse number="22" style="v" sid="2TI 2:22"/>Now flee youthful lusts and pursue righteousness, faith, love, <char style="add">and</char> peace, along with those calling on the Lord out of a pure heart. </para>
+<para style="p"><verse number="23" style="v" sid="2TI 2:23"/>And refuse foolish and ignorant controversies, knowing that they beget quarrels. </para>
+<para style="p"><verse number="24" style="v" sid="2TI 2:24"/>And it is necessary for a servant of the Lord not to quarrel, but to be kind toward all, able to teach, forbearing, </para>
+<para style="p"><verse number="25" style="v" sid="2TI 2:25"/>in gentleness disciplining those opposing, lest ever God may give them repentance unto a knowledge of the truth, </para>
+<para style="p"><verse number="26" style="v" sid="2TI 2:26"/>and they might come to their senses out of the snare of the devil, having been captured by him unto his will. </para>
+<chapter eid="2TI 2"/>
+<chapter number="3" style="c" sid="2TI 3"/>
+<para style="s">Evil in the Last Days</para>
+<para style="p"><verse number="1" style="v" sid="2TI 3:1"/>But know this, that in the last days difficult times will be present. </para>
+<para style="p"><verse number="2" style="v" sid="2TI 3:2"/>For men will be lovers of self, lovers of money, boasters, proud, verbally abusive, disobedient to parents, ungrateful, unholy, </para>
+<para style="p"><verse number="3" style="v" sid="2TI 3:3"/>unloving, unforgiving, slanderous, without control, savage, without love of good, </para>
+<para style="p"><verse number="4" style="v" sid="2TI 3:4"/>betrayers, reckless, having been puffed up, lovers of pleasure rather than lovers of God, </para>
+<para style="p"><verse number="5" style="v" sid="2TI 3:5"/>having a form of godliness but having denied its power. And turn away from these. </para>
+<para style="p"><verse number="6" style="v" sid="2TI 3:6"/>For out of these are those slipping<note caller="+" style="f"><char style="fr" closed="false">3.6 </char><char style="ft" closed="false"> F35 </char><char style="fq" closed="false">those pressing</char></note> into households and taking captive weak women, heaped up with sins, being led by various passions, </para>
+<para style="p"><verse number="7" style="v" sid="2TI 3:7"/>always learning and never being able to come to a knowledge of the truth. </para>
+<para style="p"><verse number="8" style="v" sid="2TI 3:8"/>Now by which way Jannes and Jambres opposed Moses,<note caller="+" style="f"><char style="fr" closed="false">3.8 </char><char style="ft" closed="false"> See Jasher 79:27. </char><char style="fq" closed="false">The Book of Jashar</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Book of the Upright One</char><char style="ft" closed="false"> is often cited as </char><char style="fq" closed="false">Jasher</char><char style="ft" closed="false">.</char></note> so also these oppose the truth, men having been corrupted in mind, disqualified concerning the faith. </para>
+<para style="p"><verse number="9" style="v" sid="2TI 3:9"/>But they will not advance much further, for their folly will be evident to all, as also that of those <char style="add">two</char> became. </para>
+<para style="s">All Scripture Is God-BreathedHebrews 4:12–16</para>
+<para style="p"><verse number="10" style="v" sid="2TI 3:10"/>But you have closely followed my teaching, conduct, purpose, faith, patience, love, endurance, </para>
+<para style="p"><verse number="11" style="v" sid="2TI 3:11"/>persecutions, sufferings, such as happened to me in Antioch, in Iconium, in Lystra; what manner of persecutions I bore up under! And the Lord delivered me out of all. </para>
+<para style="p"><verse number="12" style="v" sid="2TI 3:12"/>And all those also wanting to live godlily in Christ Jesus will be persecuted. </para>
+<para style="p"><verse number="13" style="v" sid="2TI 3:13"/>But evil men and imposters will advance to the worse, deceiving and being deceived. </para>
+<para style="p"><verse number="14" style="v" sid="2TI 3:14"/>But you, abide in the things you learned and were convinced of, having known from whom you learned, </para>
+<para style="p"><verse number="15" style="v" sid="2TI 3:15"/>and that from infancy you have known the sacred writings, which are able to make you wise unto salvation through faith in Christ Jesus. </para>
+<para style="p"><verse number="16" style="v" sid="2TI 3:16"/>Every Scripture <char style="add">is</char> God-breathed and profitable for teaching, for conviction, for correction, <char style="add">and</char> for training in righteousness, </para>
+<para style="p"><verse number="17" style="v" sid="2TI 3:17"/>so that the man of God may be complete, having been completely equipped toward every good work. </para>
+<chapter eid="2TI 3"/>
+<chapter number="4" style="c" sid="2TI 4"/>
+<para style="s">Preach the Word</para>
+<para style="p"><verse number="1" style="v" sid="2TI 4:1"/>I earnestly testify<note caller="+" style="f"><char style="fr" closed="false">4.1 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">therefore</char></note> before God and Christ Jesus, the One being about to judge the living and the dead, and by His appearing and His kingdom: </para>
+<para style="p"><verse number="2" style="v" sid="2TI 4:2"/>Preach the word; be ready in season <char style="add">and</char> out of season; convict, rebuke, exhort, in all patience and teaching. </para>
+<para style="p"><verse number="3" style="v" sid="2TI 4:3"/>For there will be a season when they will not bear with sound teaching, but according to <char style="add">their</char> own passions, having an itching ear, they will heap up teachers to themselves, </para>
+<para style="p"><verse number="4" style="v" sid="2TI 4:4"/>and indeed they will turn away from hearing the truth, and they will be turned aside to myths. </para>
+<para style="p"><verse number="5" style="v" sid="2TI 4:5"/>But you, be sober in all things, suffer hardships, do the work of an evangelist, fully carry out your ministry. </para>
+<para style="p"><verse number="6" style="v" sid="2TI 4:6"/>For I am already being poured out as a drink offering, and the time of my departure has come. </para>
+<para style="p"><verse number="7" style="v" sid="2TI 4:7"/>I have fought the good fight, I have finished the course, I have kept the faith. </para>
+<para style="p"><verse number="8" style="v" sid="2TI 4:8"/>From now on there is laid up for me the crown of righteousness, which the Lord, the righteous Judge, will award to me in that day; but not only to me, but also to all those loving His appearing. </para>
+<para style="s">Personal Concerns</para>
+<para style="p"><verse number="9" style="v" sid="2TI 4:9"/>Be diligent to come to me quickly, </para>
+<para style="p"><verse number="10" style="v" sid="2TI 4:10"/>for Demas deserted me, having loved the present age, and he went to Thessalonica, Crescens to Galatia, <char style="add">and</char> Titus to Dalmatia. </para>
+<para style="p"><verse number="11" style="v" sid="2TI 4:11"/>Luke alone is with me. Having taken Mark, bring <char style="add">him</char> with you, for he is useful to me for the ministry. </para>
+<para style="p"><verse number="12" style="v" sid="2TI 4:12"/>But I sent Tychicus to Ephesus. </para>
+<para style="p"><verse number="13" style="v" sid="2TI 4:13"/><char style="add">Upon</char> coming, bring the cloak that I left in Troas with Carpus, and the books, especially the parchments. </para>
+<para style="p"><verse number="14" style="v" sid="2TI 4:14"/>Alexander the coppersmith did much harm to me. The Lord will repay<note caller="+" style="f"><char style="fr" closed="false">4.14 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">May the Lord repay</char></note> to him according to his works, </para>
+<para style="p"><verse number="15" style="v" sid="2TI 4:15"/>of whom you also beware, for exceedingly he opposed our word. </para>
+<para style="s">The Lord Remains Faithful</para>
+<para style="p"><verse number="16" style="v" sid="2TI 4:16"/>In my first defense, no one came beside me, but all deserted me. May it not be reckoned to them! </para>
+<para style="p"><verse number="17" style="v" sid="2TI 4:17"/>But the Lord stood by me and empowered me, so that through me the proclamation might be fully carried out, and all the Gentiles might hear. And I was delivered out of the mouth of the lion. </para>
+<para style="p"><verse number="18" style="v" sid="2TI 4:18"/>The Lord will deliver me from every evil work and will bring <char style="add">me</char> safely into His heavenly kingdom, to whom <char style="add">is</char> the glory unto the ages of the ages. Amen. </para>
+<para style="s">Final GreetingsEphesians 6:21–24</para>
+<para style="p"><verse number="19" style="v" sid="2TI 4:19"/><note caller="-" style="x"><char style="xt" closed="false">Philippians 4:21–23</char></note>Greet Prisca<note caller="+" style="f"><char style="fr" closed="false">4.19 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Prisca</char><char style="ft" closed="false"> is a variant of </char><char style="fq" closed="false">Priscilla</char><char style="ft" closed="false">; see Acts 18:2.</char></note> and Aquila, and the house of Onesiphorus. </para>
+<para style="p"><verse number="20" style="v" sid="2TI 4:20"/>Erastus remained in Corinth, but Trophimus I left being sick in Miletus. </para>
+<para style="p"><verse number="21" style="v" sid="2TI 4:21"/>Be diligent to come before winter. </para>
+<para style="p" vid="2TI 4:21">Eubulus greets you, and Pudens, and Linus, and Claudia, and all the brothers. </para>
+<para style="p"><verse number="22" style="v" sid="2TI 4:22"/>The Lord<note caller="+" style="f"><char style="fr" closed="false">4.22 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">The Lord Jesus Christ</char></note> <char style="add">be</char> with your spirit. Grace <char style="add">be</char> with you⁺ all.<note caller="+" style="f"><char style="fr" closed="false">4.22 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">Amen.</char></note> </para>
+<chapter eid="2TI 4"/>
+</usx>

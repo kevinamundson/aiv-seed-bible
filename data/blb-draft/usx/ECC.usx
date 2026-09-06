@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usx version="3.1">
+<book code="ECC" style="id">BLB-Draft</book>
+<para style="h">Ecclesiastes</para>
+<para style="toc1">Ecclesiastes</para>
+<para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+<chapter number="1" style="c" sid="ECC 1"/>
+<para style="s">Everything Is Futile</para>
+<para style="p"><verse number="1" style="v" sid="ECC 1:1"/>The words of Qoheleth,<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Teacher</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Convener</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Preacher</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the leader of the assembly</char></note> the son of David, king in Jerusalem. </para>
+<para style="q1"><verse number="2" style="v" sid="ECC 1:2"/>“Vapor<note caller="+" style="f"><char style="fr" closed="false">1.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Breath</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">Vanity</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">Futility</char><char style="ft" closed="false">; the Hebrew words translated in Ecclesiastes as forms of </char><char style="fq" closed="false">vapor</char><char style="ft" closed="false"> can also be translated as </char><char style="fq" closed="false">vanity</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">meaninglessness</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">futility</char><char style="ft" closed="false"> .</char></note> of vapors,” </para>
+<para style="q2" vid="ECC 1:2">says Qoheleth, </para>
+<para style="q1" vid="ECC 1:2">“Vapor of vapors—</para>
+<para style="q2" vid="ECC 1:2">the whole <char style="add">of it</char> <char style="add">is</char> vapor!” </para>
+<para style="q1"><verse number="3" style="v" sid="ECC 1:3"/>What profit <char style="add">is</char> unto the man from all his toil, </para>
+<para style="q2" vid="ECC 1:3">with which he toils under the sun? </para>
+<para style="q1"><verse number="4" style="v" sid="ECC 1:4"/>A generation is going and a generation is coming, </para>
+<para style="q2" vid="ECC 1:4">and the earth is standing forever. </para>
+<para style="q1"><verse number="5" style="v" sid="ECC 1:5"/>And the sun has risen, and the sun has gone in, </para>
+<para style="q2" vid="ECC 1:5">and to its place, panting, it is rising there. </para>
+<para style="q1"><verse number="6" style="v" sid="ECC 1:6"/>Going toward the south, </para>
+<para style="q2" vid="ECC 1:6">and turning about to the north—</para>
+<para style="q1" vid="ECC 1:6">turning about, turning about—the wind is going about, </para>
+<para style="q2" vid="ECC 1:6">and on its round the wind is returning. </para>
+<para style="q1"><verse number="7" style="v" sid="ECC 1:7"/>All the rivers are going to the sea, </para>
+<para style="q2" vid="ECC 1:7">and the sea it has no filling; </para>
+<para style="q1" vid="ECC 1:7">to the place from which the rivers come, </para>
+<para style="q2" vid="ECC 1:7">there they are turning back to go. </para>
+<para style="q1"><verse number="8" style="v" sid="ECC 1:8"/>All the things <char style="add">are</char> wearisome—</para>
+<para style="q2" vid="ECC 1:8">a man is not able to speak; </para>
+<para style="q1" vid="ECC 1:8">the eye is not satisfied from seeing, </para>
+<para style="q2" vid="ECC 1:8">and the ear is not filled from hearing. </para>
+<para style="q1"><verse number="9" style="v" sid="ECC 1:9"/>What has been, it will be; </para>
+<para style="q2" vid="ECC 1:9">and what has been done, it will be done; </para>
+<para style="q2" vid="ECC 1:9">and nothing at all <char style="add">is</char> new under the sun. </para>
+<para style="q1"><verse number="10" style="v" sid="ECC 1:10"/>Is there anything of which one may say, </para>
+<para style="q2" vid="ECC 1:10">“See this? It <char style="add">is</char> new!” </para>
+<para style="q1" vid="ECC 1:10">Already it has been </para>
+<para style="q2" vid="ECC 1:10">in the ages that were from before our faces. </para>
+<para style="q1"><verse number="11" style="v" sid="ECC 1:11"/>There is no remembrance of the former <char style="add">things</char>, </para>
+<para style="q2" vid="ECC 1:11">and of the latter <char style="add">things</char> that will come to be, </para>
+<para style="q1" vid="ECC 1:11">there will be no remembrance of them </para>
+<para style="q2" vid="ECC 1:11">with those who come to be after <char style="add">them</char>. </para>
+<para style="s">With Wisdom Comes Sorrow</para>
+<para style="p"><verse number="12" style="v" sid="ECC 1:12"/>I, Qoheleth, was king over Israel in Jerusalem. </para>
+<para style="p"><verse number="13" style="v" sid="ECC 1:13"/>And I gave my heart to search and spy out by wisdom, concerning all that is done under the heavens. This burdensome task God has given to the sons of man, to be occupied with it! </para>
+<para style="p"><verse number="14" style="v" sid="ECC 1:14"/>I have seen all the deeds that are done under the sun, and indeed, all <char style="add">is</char> vapor and striving after the wind. </para>
+<para style="q1"><verse number="15" style="v" sid="ECC 1:15"/>What is crooked is not able to be straightened, </para>
+<para style="q2" vid="ECC 1:15">and what is lacking is not able to be counted. </para>
+<para style="p"><verse number="16" style="v" sid="ECC 1:16"/>I spoke with my heart, saying, “Behold, I have become great, and I have added wisdom over all who were before me in Jerusalem, and my heart has seen great wisdom and knowledge.” </para>
+<para style="p"><verse number="17" style="v" sid="ECC 1:17"/>And I set my heart to know wisdom, and to know madness and folly; I have known that this also—it <char style="add">is</char> a striving after the wind. </para>
+<para style="q1"><verse number="18" style="v" sid="ECC 1:18"/>For with an abundance of wisdom <char style="add">is</char> much grief, </para>
+<para style="q2" vid="ECC 1:18">and he <char style="add">who</char> adds to knowledge adds to sorrow. </para>
+<chapter eid="ECC 1"/>
+<chapter number="2" style="c" sid="ECC 2"/>
+<para style="s">The Futility of Pleasure</para>
+<para style="p"><verse number="1" style="v" sid="ECC 2:1"/>I said in my heart, “Come now, I will test you with gladness, and look on the good!” </para>
+<para style="p" vid="ECC 2:1">And behold, this also <char style="add">is</char> vapor. </para>
+<para style="p"><verse number="2" style="v" sid="ECC 2:2"/>Of laughter, I said, “It is madness,” and of joy, “What <char style="add">is</char> this accomplishing?” </para>
+<para style="p"><verse number="3" style="v" sid="ECC 2:3"/>I searched in my heart to draw out my flesh with wine, and my heart was guiding me in wisdom, and to lay hold on folly, until that I might see where <char style="add">is</char> this good for the sons of man, that they <char style="add">might</char> do under the heavens the number of the days of their lives. </para>
+<para style="p"><verse number="4" style="v" sid="ECC 2:4"/>I made great my works; I built for myself houses, and I planted for myself vineyards; </para>
+<para style="p"><verse number="5" style="v" sid="ECC 2:5"/>I made for myself gardens and parks, and I planted in them a tree of every fruit. </para>
+<para style="p"><verse number="6" style="v" sid="ECC 2:6"/>I made for myself pools of water, to cause to drink from them a grove of sprouting trees. </para>
+<para style="p"><verse number="7" style="v" sid="ECC 2:7"/>I acquired menservants and maidservants, and sons of the house were unto me; also there were unto me great possessions of cattle and sheep, more than all who were before my face in Jerusalem; </para>
+<para style="p"><verse number="8" style="v" sid="ECC 2:8"/>I gathered for myself also silver and gold, and the property of kings and of the provinces; I appointed for myself male singers and female singers, and the delights of the sons of man—a wife and wives. </para>
+<para style="p"><verse number="9" style="v" sid="ECC 2:9"/>So I became great, and I added more than all who were before my face in Jerusalem. Also, my wisdom stood with me. </para>
+<para style="p"><verse number="10" style="v" sid="ECC 2:10"/>And all that my eyes asked, I did not lay aside from them; I did not withhold my heart from any joy, for my heart rejoiced in all my toil—and this was my portion from all my toil. </para>
+<para style="p"><verse number="11" style="v" sid="ECC 2:11"/>And I turned to all the works that my hands had done, and to the toil that I had toiled to do, and behold—all <char style="add">was</char> vapor and a striving after the wind, and there was no profit under the sun. </para>
+<para style="s">The Wise and the Foolish</para>
+<para style="p"><verse number="12" style="v" sid="ECC 2:12"/>And I turned to look at wisdom and madness and folly. For what <char style="add">is</char> the man who comes after the king—that which already they have done! </para>
+<para style="p"><verse number="13" style="v" sid="ECC 2:13"/>And I saw that there is profit to wisdom above folly, like the profit of the light over the darkness. </para>
+<para style="q1"><verse number="14" style="v" sid="ECC 2:14"/>The wise one, his eyes <char style="add">are</char> in his head, </para>
+<para style="q2" vid="ECC 2:14">and the fool is walking in the darkness. And I also knew of that event—the one that happens to all of them. </para>
+<para style="p"><verse number="15" style="v" sid="ECC 2:15"/>And I said in my heart, “As it happens to the fool, it will also happen to me. Then what <char style="add">is</char> profit to me <char style="add">in</char> being wise?” </para>
+<para style="p" vid="ECC 2:15">And I said in my heart, “This also <char style="add">is</char> vapor.” </para>
+<para style="p"><verse number="16" style="v" sid="ECC 2:16"/>For there is no memory of the wise with the fool, forever, in that already in the days that are coming all will be forgotten. And how a wise one will die like the fool! </para>
+<para style="p"><verse number="17" style="v" sid="ECC 2:17"/>And I have hated this life, because the work <char style="add">was</char> evil to me that was done under the sun—for all <char style="add">is</char> vapor and a striving after the wind. </para>
+<para style="s">The Futility of Work</para>
+<para style="p"><verse number="18" style="v" sid="ECC 2:18"/>And I hated all my toil that I had toiled under the sun, because I must leave it to the man who will come after me. </para>
+<para style="p"><verse number="19" style="v" sid="ECC 2:19"/>And who knows whether he will be wise or a fool? And he will rule over all my toil that I have toiled, and that I have done wisely, under the sun. This also <char style="add">is</char> vapor. </para>
+<para style="p"><verse number="20" style="v" sid="ECC 2:20"/>And I turned around my heart to despair over all the toil that I have toiled under the sun. </para>
+<para style="p"><verse number="21" style="v" sid="ECC 2:21"/>For there is a man whose toil <char style="add">is</char> with wisdom and with knowledge and with skill, and to a man not having toiled for it he must give his portion. This also <char style="add">is</char> vapor and a great evil. </para>
+<para style="p"><verse number="22" style="v" sid="ECC 2:22"/>For what has been for the man for all his toil and for the striving of his heart, with which he toils under the sun? </para>
+<para style="p"><verse number="23" style="v" sid="ECC 2:23"/>For all his days are pains, and anger <char style="add">is</char> his task; even in the night his heart will not find rest. This also is vapor. </para>
+<para style="p"><verse number="24" style="v" sid="ECC 2:24"/>Nothing <char style="add">is</char> better for the man than to eat and drink, and his soul to see good in his toil. This also I saw, that it <char style="add">is</char> from the hand of God; </para>
+<para style="p"><verse number="25" style="v" sid="ECC 2:25"/>for who can eat, and who can enjoy, apart from Him?<note caller="+" style="f"><char style="fr" closed="false">2.25 </char><char style="ft" closed="false"> Some Hebrew manuscripts, LXX, Syriac; most Hebrew manuscripts </char><char style="fq" closed="false">apart from me</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">more than I</char></note> </para>
+<para style="p"><verse number="26" style="v" sid="ECC 2:26"/>For to the man who <char style="add">is</char> good in His eyes, He gives wisdom and knowledge and joy; and to the sinner He gives the task to gather and to heap up, to give to the good before the face of God. This also <char style="add">is</char> vapor, and a striving after the wind. </para>
+<chapter eid="ECC 2"/>
+<chapter number="3" style="c" sid="ECC 3"/>
+<para style="s">To Everything There Is a Season</para>
+<para style="q1"><verse number="1" style="v" sid="ECC 3:1"/>To everything <char style="add">there is</char> a season, </para>
+<para style="q2" vid="ECC 3:1">and a time for every <char style="add">thing</char> desired under the heavens: </para>
+<para style="q1"><verse number="2" style="v" sid="ECC 3:2"/>A time to give birth and a time to die, </para>
+<para style="q2" vid="ECC 3:2">a time to plant and a time to pluck up the planted, </para>
+<para style="q1"><verse number="3" style="v" sid="ECC 3:3"/>a time to kill and a time to heal, </para>
+<para style="q2" vid="ECC 3:3">a time to break down and a time to build up, </para>
+<para style="q1"><verse number="4" style="v" sid="ECC 3:4"/>a time to weep and a time to laugh, </para>
+<para style="q2" vid="ECC 3:4">a time to mourn and a time to dance, </para>
+<para style="q1"><verse number="5" style="v" sid="ECC 3:5"/>a time to cast away stones and a time to gather stones, </para>
+<para style="q2" vid="ECC 3:5">a time to embrace and a time to refrain from embracing, </para>
+<para style="q1"><verse number="6" style="v" sid="ECC 3:6"/>a time to seek and a time to lose, </para>
+<para style="q2" vid="ECC 3:6">a time to keep and a time to cast away, </para>
+<para style="q1"><verse number="7" style="v" sid="ECC 3:7"/>a time to tear and a time to sew, </para>
+<para style="q2" vid="ECC 3:7">a time to be silent and a time to speak, </para>
+<para style="q1"><verse number="8" style="v" sid="ECC 3:8"/>a time to love and a time to hate, </para>
+<para style="q2" vid="ECC 3:8">a time of war and a time of peace. </para>
+<para style="s">God’s Works Remain Forever</para>
+<para style="p"><verse number="9" style="v" sid="ECC 3:9"/>What <char style="add">is</char> the profit of the one making in that which he toils? </para>
+<para style="p"><verse number="10" style="v" sid="ECC 3:10"/>I have seen the task that God has given to the sons of man, to be occupied with it. </para>
+<para style="p"><verse number="11" style="v" sid="ECC 3:11"/>He has made everything beautiful in its time. He has also eternity put in their heart, without which a man cannot find out the work that God has done from beginning even to end. </para>
+<para style="p"><verse number="12" style="v" sid="ECC 3:12"/>I know that there is nothing good for them, but than to rejoice and to do good during their lives, </para>
+<para style="p"><verse number="13" style="v" sid="ECC 3:13"/>and also <char style="add">that</char> every man should eat and drink and see good in all his toil—it <char style="add">is</char> a gift of God. </para>
+<para style="p"><verse number="14" style="v" sid="ECC 3:14"/>I know that everything that God does, it will be forever; to it nothing can be added, and from it nothing can be diminished; and God has done <char style="add">it</char> that they should fear from before His face. </para>
+<para style="p"><verse number="15" style="v" sid="ECC 3:15"/>That which has been already, it <char style="add">is</char>; and that which is to be, it has already been—and God requires that which is pursued. </para>
+<para style="s">From Dust to Dust</para>
+<para style="p"><verse number="16" style="v" sid="ECC 3:16"/>And again I saw under the sun that in the place of judgment there <char style="add">was</char> wickedness, and <char style="add">in</char> the place of righteousness, there <char style="add">was</char> wickedness. </para>
+<para style="p"><verse number="17" style="v" sid="ECC 3:17"/>I said in my heart, “The righteous and the wicked, God will judge, because a time <char style="add">is</char> to every activity, and for every work there.” </para>
+<para style="p"><verse number="18" style="v" sid="ECC 3:18"/>I said in my heart concerning the manner of the sons of man, “God <char style="add">is</char> testing them, that they might see that they <char style="add">are</char> beasts—they themselves.” </para>
+<para style="p"><verse number="19" style="v" sid="ECC 3:19"/>For an event <char style="add">is to</char> the sons of man, and an event <char style="add">is to</char> the beasts, one <char style="add">is</char> and an event for them: As the death of this one, so <char style="add">is</char> the death of this one; and one breath<note caller="+" style="f"><char style="fr" closed="false">3.19 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">one spirit</char></note> <char style="add">is</char> to all, and the advantage of the man over the beast <char style="add">is</char> nothing—for all <char style="add">is</char> vapor. </para>
+<para style="p"><verse number="20" style="v" sid="ECC 3:20"/>All are going to one place; all are from the dust, and all return to the dust. </para>
+<para style="p"><verse number="21" style="v" sid="ECC 3:21"/>Who knows <char style="add">if</char> the spirit of the sons of man, it is ascending upward, and the spirit of the beast, it is desending downward into the earth? </para>
+<para style="p"><verse number="22" style="v" sid="ECC 3:22"/>And I saw that nothing <char style="add">is</char> better than that the man should rejoice in his own works, for that <char style="add">is</char> his portion. For who can bring him to see what will come after him? </para>
+<chapter eid="ECC 3"/>
+<chapter number="4" style="c" sid="ECC 4"/>
+<para style="s">The Evil of Oppression</para>
+<para style="p"><verse number="1" style="v" sid="ECC 4:1"/>And I turned, and I saw all the oppressions that are done under the sun, and behold, the tears of the oppressed, and no one <char style="add">is</char> comforting to them—while from the hand of those oppressing them <char style="add">is</char> strength, and no one <char style="add">is</char> comforting to them. </para>
+<para style="p"><verse number="2" style="v" sid="ECC 4:2"/>I—and I praised those who were dead, who already had died, above the living who are still alive; </para>
+<para style="p"><verse number="3" style="v" sid="ECC 4:3"/>and better than both <char style="add">is</char> the one who has not yet been, who has not seen the evil work that is done under the sun! </para>
+<para style="p"><verse number="4" style="v" sid="ECC 4:4"/>I—and I have seen all the toil and every skillful deed, that it was the envy of each man from his neighbor. This also <char style="add">is</char> vapor and a striving after the wind. </para>
+<para style="q1"><verse number="5" style="v" sid="ECC 4:5"/>The fool is folding his hands </para>
+<para style="q2" vid="ECC 4:5">and is eating his own flesh. </para>
+<para style="q1"><verse number="6" style="v" sid="ECC 4:6"/>Better the fullness of palm <char style="add">with</char> quietness </para>
+<para style="q2" vid="ECC 4:6">than the fullness of two palms <char style="add">with</char> toil and a striving after the wind. </para>
+<para style="p"><verse number="7" style="v" sid="ECC 4:7"/>And I turned, and I saw a vapor under the sun: </para>
+<para style="p"><verse number="8" style="v" sid="ECC 4:8"/>There is one, and there is not a second—there is not even a son or brother for him—and there is not end to all his toils; and his eye is not satisfied with wealth: “For whom <char style="add">am</char> I toiling and depriving my soul of good?” This also <char style="add">is</char> vapor, and it <char style="add">is</char> a task of evil. </para>
+<para style="p"><verse number="9" style="v" sid="ECC 4:9"/>Two <char style="add">are</char> better than the one, because there is for them a good wage for their toil; </para>
+<para style="p"><verse number="10" style="v" sid="ECC 4:10"/>for if they fall, the one raises up his companion—and woe to him, the one who falls, and there is not a second to raise him up! </para>
+<para style="p"><verse number="11" style="v" sid="ECC 4:11"/>Also, if two lie down, then there is warmth for them; but for one, how can he keep warm? </para>
+<para style="p"><verse number="12" style="v" sid="ECC 4:12"/>And though one may be overpowered, the two can stand against him; and a threefold cord cannot quickly be broken. </para>
+<para style="s">The Futility of Power</para>
+<para style="p"><verse number="13" style="v" sid="ECC 4:13"/>Better a youth poor and wise than a king old and foolish, who does not know to be warned anymore. </para>
+<para style="p"><verse number="14" style="v" sid="ECC 4:14"/>For from the house of bondage he came to be king, for even in his kingdom he was born poor. </para>
+<para style="p"><verse number="15" style="v" sid="ECC 4:15"/>I saw all the living who are walking under the sun, with the second youth who stands in his place. </para>
+<para style="p"><verse number="16" style="v" sid="ECC 4:16"/><char style="add">There is</char> no end to all the people, to all who were before their faces, yet those coming after will not rejoice in him. Surely this also <char style="add">is</char> vapor and a striving after the wind. </para>
+<chapter eid="ECC 4"/>
+<chapter number="5" style="c" sid="ECC 5"/>
+<para style="s">Approaching God with Fear</para>
+<para style="p"><verse number="1" style="v" sid="ECC 5:1"/>Guard your feet when you walk to the house of God; and drawing near to listen <char style="add">is</char> above giving the sacrifice of fools, for there are none of them knowing they do evil. </para>
+<para style="p"><verse number="2" style="v" sid="ECC 5:2"/>Do not be rash with your mouth, and do not let your heart hurry to bring out a word before the face of God; for God <char style="add">is</char> in the heavens, and you <char style="add">are</char> upon the earth—upon thus, let your words be few. </para>
+<para style="q1"><verse number="3" style="v" sid="ECC 5:3"/>For <char style="add">as</char> a dream comes with an abundance of business, </para>
+<para style="q2" vid="ECC 5:3">so the voice of a fool with an abundance of words. </para>
+<para style="p"><verse number="4" style="v" sid="ECC 5:4"/>When you vow a vow to God, you should not delay to fulfill it, for <char style="add">there is</char> no delight in fools. What you have vowed, you must fulfill. </para>
+<para style="p"><verse number="5" style="v" sid="ECC 5:5"/>Better that you did not vow, than that you vow and not fulfill <char style="add">it</char>. </para>
+<para style="p"><verse number="6" style="v" sid="ECC 5:6"/>Do not give your mouth to cause your flesh to sin, and do not say before the face of the messenger<note caller="+" style="f"><char style="fr" closed="false">5.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">angel</char></note> that it <char style="add">was</char> an error. Why should God be angry concerning your voice and destroy the work of your hands? </para>
+<para style="p"><verse number="7" style="v" sid="ECC 5:7"/>For in an abundance of dreams, vapors and words abound, but you must fear God. </para>
+<para style="s">The Futility of WealthPsalm 49:1–20</para>
+<para style="p"><verse number="8" style="v" sid="ECC 5:8"/>If you see the oppression of the poor and the robbing of justice and righteousness in a province, you should not be astonished concerning the matter, for one higher is watching over a high one, and higher ones over them. </para>
+<para style="p"><verse number="9" style="v" sid="ECC 5:9"/>And the produce of the land, it <char style="add">is</char> for all: A king is served by the field. </para>
+<para style="p"><verse number="10" style="v" sid="ECC 5:10"/>The one loving silver will not be satisfied with silver, and he who loves increase not <char style="add">with</char> increase. This also <char style="add">is</char> vapor. </para>
+<para style="p"><verse number="11" style="v" sid="ECC 5:11"/>In the multiplying of good those devouring it are multiplied; and what profit <char style="add">is</char> for its owners, but the beholding with his eyes? </para>
+<para style="p"><verse number="12" style="v" sid="ECC 5:12"/>Sweet <char style="add">is</char> the sleep of the one working, whether he eats little or much; but the satsifaction of the rich one will not allow rest for him to sleep. </para>
+<para style="p"><verse number="13" style="v" sid="ECC 5:13"/>There is a sickening evil I have seen under the sun: Riches guarded for their owner, to his harm, </para>
+<para style="p"><verse number="14" style="v" sid="ECC 5:14"/>and that wealth perished in a business of evil, and he begets a son, and <char style="add">there is</char> not anything in his hand. </para>
+<para style="p"><verse number="15" style="v" sid="ECC 5:15"/>As he came forth from the womb of his mother naked, shall he return, to go as he came, and he shall carry nothing for his toil to go in his hand. </para>
+<para style="p"><verse number="16" style="v" sid="ECC 5:16"/>And this also <char style="add">is</char> a sickening evil: Exactly as, he came, so shall he go, and what profit <char style="add">is</char> for him who has toiled for the wind? </para>
+<para style="p"><verse number="17" style="v" sid="ECC 5:17"/>Even all his days he will eat in darkness, and having sorrow abounding, and sickness and anger. </para>
+<para style="p"><verse number="18" style="v" sid="ECC 5:18"/>Behold what I have seen <char style="add">to be</char> good, that which <char style="add">is</char> beautiful: To eat and to drink and to see good in all his toil that he toils under the sun all the days his life that God has given to him, for it <char style="add">is</char> his portion. </para>
+<para style="p"><verse number="19" style="v" sid="ECC 5:19"/>Also every man <char style="add">for</char> whom God has given to him riches and wealth, and given him power to eat from it and to receive his portion and to rejoice in his toil—this, it <char style="add">is</char> a gift of God. </para>
+<para style="p"><verse number="20" style="v" sid="ECC 5:20"/>For he shall not much remember the days of his life, because God occupies him with the joy of his heart. </para>
+<chapter eid="ECC 5"/>
+<chapter number="6" style="c" sid="ECC 6"/>
+<para style="s">The Futility of Life</para>
+<para style="p"><verse number="1" style="v" sid="ECC 6:1"/>There is an evil that I have seen under the sun, and it <char style="add">is</char> great upon mankind: </para>
+<para style="p"><verse number="2" style="v" sid="ECC 6:2"/>A man <char style="add">for</char> whom God has given to him riches and wealth and honor, and he has no lack for his soul from all that; he desires and God does not give him power to eat from it; instead a foreign man eats it. This <char style="add">is</char> vapor, and it <char style="add">is</char> a sickening evil. </para>
+<para style="p"><verse number="3" style="v" sid="ECC 6:3"/>If a man begets a hundred and lives many years, and many are the days of his years, and his soul is not satisfied from this goodness, and also not is unto him a grave, I say that a stillborn child is better off than he. </para>
+<para style="p"><verse number="4" style="v" sid="ECC 6:4"/>For in vapor he comes, and in darkness he goes, and in darkness his name is covered. </para>
+<para style="p"><verse number="5" style="v" sid="ECC 6:5"/>Even he has not seen the sun and has not known it, more rest <char style="add">is</char> unto this one than this one. </para>
+<para style="p"><verse number="6" style="v" sid="ECC 6:6"/>And though he might live a thousand years twice over, and has not seen goodness, are not all are going to one place? </para>
+<para style="q1"><verse number="7" style="v" sid="ECC 6:7"/>All the toil of man <char style="add">is</char> for his mouth, </para>
+<para style="q2" vid="ECC 6:7">yet the soul is not filled.<note caller="+" style="f"><char style="fr" closed="false">6.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">satisfied</char></note> </para>
+<para style="p"><verse number="8" style="v" sid="ECC 6:8"/>Indeed, what advantage <char style="add">is</char> for the wise one over the fool? What <char style="add">is</char> to the poor one knowing how to walk before the living? </para>
+<para style="p"><verse number="9" style="v" sid="ECC 6:9"/>Better is a sight of the eyes than the wandering of the soul; this also <char style="add">is</char> vapor and a striving after the wind. </para>
+<para style="p"><verse number="10" style="v" sid="ECC 6:10"/>That which has come to be, already its name has been called; and it is known that he <char style="add">is</char> man, and he is not able to contend with one stronger than he. </para>
+<para style="p"><verse number="11" style="v" sid="ECC 6:11"/>For there are many words, multiplying vapor—what advantage <char style="add">is</char> for man? </para>
+<para style="p"><verse number="12" style="v" sid="ECC 6:12"/>For who knows what <char style="add">is</char> good for man in life all the days of the life of his vapor, and he makes them like a shadow? For who can declare to man what will come to be after him under the sun? </para>
+<chapter eid="ECC 6"/>
+<chapter number="7" style="c" sid="ECC 7"/>
+<para style="s">The Value of Wisdom</para>
+<para style="q1"><verse number="1" style="v" sid="ECC 7:1"/>A good name <char style="add">is finer</char> than good ointment, </para>
+<para style="q2" vid="ECC 7:1">and the day of <char style="add">one’s</char> death than the day he was born. </para>
+<para style="q1"><verse number="2" style="v" sid="ECC 7:2"/>Better to go to a house of mourning </para>
+<para style="q2" vid="ECC 7:2">than to go to a house of feasting, </para>
+<para style="q1" vid="ECC 7:2">for this <char style="add">is</char> the end of all men, </para>
+<para style="q2" vid="ECC 7:2">and the one living will give <char style="add">it</char> to his heart. </para>
+<para style="q1"><verse number="3" style="v" sid="ECC 7:3"/>Better <char style="add">is</char> sorrow than laughter, </para>
+<para style="q2" vid="ECC 7:3">for by the sadness of the face, the heart is made good. </para>
+<para style="q1"><verse number="4" style="v" sid="ECC 7:4"/>The heart of the wise <char style="add">is</char> in a house of mourning, </para>
+<para style="q2" vid="ECC 7:4">and the heart of fools <char style="add">is</char> in a house of gladness. </para>
+<para style="q1"><verse number="5" style="v" sid="ECC 7:5"/>Better to hear the rebuke of a wise one, </para>
+<para style="q2" vid="ECC 7:5">than hearing a song of fools. </para>
+<para style="q1"><verse number="6" style="v" sid="ECC 7:6"/>For like the sound of thorns under the pot, </para>
+<para style="q2" vid="ECC 7:6">so <char style="add">is</char> the laughter of the fool; </para>
+<para style="q2" vid="ECC 7:6">and also this <char style="add">is</char> vapor. </para>
+<para style="q1"><verse number="7" style="v" sid="ECC 7:7"/>Surely oppression drives a wise one to madness, </para>
+<para style="q2" vid="ECC 7:7">and a bribe destroys the heart. </para>
+<para style="q1"><verse number="8" style="v" sid="ECC 7:8"/>Better the end of a thing than its beginning; </para>
+<para style="q2" vid="ECC 7:8">better one long of spirit than one high of spirit. </para>
+<para style="q1"><verse number="9" style="v" sid="ECC 7:9"/>Do not hurry in your spirit to become angry, </para>
+<para style="q2" vid="ECC 7:9">for anger rests in the bosom of fools. </para>
+<para style="q1"><verse number="10" style="v" sid="ECC 7:10"/>Do not say, “Why is it that the former days were better than these?” </para>
+<para style="q2" vid="ECC 7:10">For <char style="add">it is</char> not from wisdom <char style="add">that</char> you ask about this. </para>
+<para style="q1"><verse number="11" style="v" sid="ECC 7:11"/>Wisdom <char style="add">is</char> good, with an inheritance, </para>
+<para style="q2" vid="ECC 7:11">and profitable for those seeing the sun. </para>
+<para style="q1"><verse number="12" style="v" sid="ECC 7:12"/>For in the shadow of wisdom <char style="add">is as</char> in the shadow of silver, </para>
+<para style="q2" vid="ECC 7:12">and the advantage of knowledge <char style="add">is</char> </para>
+<para style="q2" vid="ECC 7:12">that wisdom keeps alive her owners. </para>
+<para style="q1"><verse number="13" style="v" sid="ECC 7:13"/>See the work of God, </para>
+<para style="q2" vid="ECC 7:13">for who is able to make straight what He has made crooked? </para>
+<para style="q1"><verse number="14" style="v" sid="ECC 7:14"/>In a day of prosperity, be in gladness, </para>
+<para style="q2" vid="ECC 7:14">and in a day of evil, see also: </para>
+<para style="q1" vid="ECC 7:14">This as well as this, God has made, </para>
+<para style="q2" vid="ECC 7:14">for the reason that man cannot find out </para>
+<para style="q2" vid="ECC 7:14">anything after him. </para>
+<para style="s">The Limits of Human Wisdom</para>
+<para style="p"><verse number="15" style="v" sid="ECC 7:15"/>All I have seen in the days of my vapor: </para>
+<para style="q1" vid="ECC 7:15">There is a righteous one perishing in his righteousness, </para>
+<para style="q1" vid="ECC 7:15">and there is a wicked one living long in his wickedness. </para>
+<para style="p"><verse number="16" style="v" sid="ECC 7:16"/>Do not be overly righteous, and not overly wise yourself—why should you be desolate? </para>
+<para style="p"><verse number="17" style="v" sid="ECC 7:17"/>Do not be overly wicked, and do not be a fool—why should you die in <char style="add">what is</char> not your time? </para>
+<para style="p"><verse number="18" style="v" sid="ECC 7:18"/><char style="add">It is</char> good that you should take hold of this, and also not loosen your hand from this; for the one who fears God will go forth from them all.<note caller="+" style="f"><char style="fr" closed="false">7.18 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">will avoid all extremes</char></note> </para>
+<para style="q1"><verse number="19" style="v" sid="ECC 7:19"/>Wisdom gives more strength to the wise one </para>
+<para style="q2" vid="ECC 7:19">than ten rulers who are in a city. </para>
+<para style="q1"><verse number="20" style="v" sid="ECC 7:20"/>For <char style="add">there is</char> not a righteous man on the earth </para>
+<para style="q2" vid="ECC 7:20">who does good and does not sin. </para>
+<para style="p"><verse number="21" style="v" sid="ECC 7:21"/>Also, for all words that they might speak, do not give your heart, that you may not hear your servant belittling you. </para>
+<para style="p"><verse number="22" style="v" sid="ECC 7:22"/>For many times also your own heart has known that you also have belitted others. </para>
+<para style="p"><verse number="23" style="v" sid="ECC 7:23"/>All this I have tested by wisdom; I have said, “I shall be wise,” and it <char style="add">was</char> far from me. </para>
+<para style="p"><verse number="24" style="v" sid="ECC 7:24"/>Far off <char style="add">is</char> that which has been, and very deep—who can find it out? </para>
+<para style="p"><verse number="25" style="v" sid="ECC 7:25"/>I also turned my heart to know, and to search out, and to seek wisdom and reason, and to know the evil of foolishness and the folly of madness. </para>
+<para style="p"><verse number="26" style="v" sid="ECC 7:26"/>And I am finding more bitter than death the woman who, she <char style="add">is</char> a snare and her heart <char style="add">is</char> a net; her hands <char style="add">are</char> bonds; The one who is good before the face of God escapes from her, and the one sinning will be captured by her. </para>
+<para style="p"><verse number="27" style="v" sid="ECC 7:27"/>Behold, this I have found, says Qoheleth, one to one to find out the reason— </para>
+<para style="p"><verse number="28" style="v" sid="ECC 7:28"/>that which my soul still has sought, and I have not found: One man from a thousand have I found, and a woman among all these I have not found. </para>
+<para style="p"><verse number="29" style="v" sid="ECC 7:29"/>See, this alone I have found: That God made man upright, and they have sought out many schemes. </para>
+<chapter eid="ECC 7"/>
+<chapter number="8" style="c" sid="ECC 8"/>
+<para style="s">Obey the King</para>
+<para style="p"><verse number="1" style="v" sid="ECC 8:1"/>Who <char style="add">is</char> like the wise one, and who knows the interpretation of a thing? The wisdom of a man makes his face shine, and the hardness of his face is changed. </para>
+<para style="p"><verse number="2" style="v" sid="ECC 8:2"/>I <char style="add">say</char>: The mouth of a king you must keep, even for the sake of the oath of God. </para>
+<para style="p"><verse number="3" style="v" sid="ECC 8:3"/>Do not hurry <char style="add">to</char> depart from his face; do not stand in an evil matter, for all that he delights in, he will do. </para>
+<para style="p"><verse number="4" style="v" sid="ECC 8:4"/>Where the word of a king <char style="add">is</char>, power <char style="add">is</char>, and who can say to him, “What are you doing?” </para>
+<para style="p"><verse number="5" style="v" sid="ECC 8:5"/>The one guarding a command will not know an evil thing, and the heart of a wise one knows a time and a judgment. </para>
+<para style="p"><verse number="6" style="v" sid="ECC 8:6"/>For to every delight there is a time and a judgment, though the misery of man is great upon him. </para>
+<para style="p"><verse number="7" style="v" sid="ECC 8:7"/>Indeed, he is not knowing what will happen; for when it will be, who can declare <char style="add">it</char> to him? </para>
+<para style="p"><verse number="8" style="v" sid="ECC 8:8"/>No man <char style="add">is</char> masterful over the wind to restrain the wind, and no one <char style="add">has</char> mastery over the day of <char style="add">his</char> death. And <char style="add">there is</char> no discharge in the battle, and wickedness will not deliver its possessors. </para>
+<para style="p"><verse number="9" style="v" sid="ECC 8:9"/>All this I have seen, so as to give my heart to every work that is done the under sun; a time that man has ruled over man, for evil unto himself. </para>
+<para style="s">Fear GodIsaiah 8:11–15</para>
+<para style="p"><verse number="10" style="v" sid="ECC 8:10"/>And in this I have seen the wicked ones being buried, and they went in, even from the place of holiness they walked, and they were praised<note caller="+" style="f"><char style="fr" closed="false">8.10 </char><char style="ft" closed="false"> Some Hebrew manuscripts, LXX, and Vulgate; most Hebrew manuscripts </char><char style="fq" closed="false">they were forgotten</char></note> in the city where thus they had done. This also <char style="add">is</char> vapor. </para>
+<para style="p"><verse number="11" style="v" sid="ECC 8:11"/>Because an edict is not made <char style="add">on</char> the evil work swiftly, upon thus the heart of the sons of man is fully set in them to do evil. </para>
+<para style="p"><verse number="12" style="v" sid="ECC 8:12"/>Though a sinner does evil a hundred times and it is prolonged to him still, surely I know that there is good for those fearing God, who fear from before His face. </para>
+<para style="p"><verse number="13" style="v" sid="ECC 8:13"/>But it shall not be good for the wicked, and he will not prolong the days like a shadow, because he is not fearing before the face of God. </para>
+<para style="s">God’s Ways Are Mysterious</para>
+<para style="p"><verse number="14" style="v" sid="ECC 8:14"/>There is a vapor that occurs on the earth: That there are righteous ones for whom it touches them according to the work of the wicked, and there are wicked for whom it touches them according to the work of the righteous. I have said this also <char style="add">is</char> vapor. </para>
+<para style="p"><verse number="15" style="v" sid="ECC 8:15"/>And I have praised the enjoyment, because nothing <char style="add">is</char> good for a man under the sun, except than to eat and to drink and to be joyful, for only this will accompany him in his toil during the days of his life that God has given to him under the sun. </para>
+<para style="p"><verse number="16" style="v" sid="ECC 8:16"/>When I gave my heart to know wisdom, and to see the task that is done on earth—for even he is not seeing sleep with his eyes in the day and in the night— </para>
+<para style="p"><verse number="17" style="v" sid="ECC 8:17"/>and I saw all the work of God, that man is not able to find out the work that is done under the sun in that to which man might toil to seek <char style="add">it</char>, and he will not find <char style="add">it</char>; and even though the wise one claims to know <char style="add">it</char>, he is not able to find <char style="add">it</char>. </para>
+<chapter eid="ECC 8"/>
+<chapter number="9" style="c" sid="ECC 9"/>
+<para style="s">Death Comes to Good and Bad</para>
+<para style="p"><verse number="1" style="v" sid="ECC 9:1"/>Indeed, all this I gave to my heart, in order to examine all this, that the righteous and the wise and their work are in the hand of God. Even love, even hatred—man does not know all that <char style="add">is</char> before their faces. </para>
+<para style="p"><verse number="2" style="v" sid="ECC 9:2"/>All <char style="add">is</char> as for all: One event <char style="add">is</char> to the righteous and to the wicked, to the good <char style="add">and to the bad</char>,<note caller="+" style="f"><char style="fr" closed="false">9.2 </char><char style="ft" closed="false"> LXX, Syriac, and Vulgate; Hebrew does not include </char><char style="fq" closed="false">and to the bad</char><char style="ft" closed="false">.</char></note> and to the clean and to the unclean, and to the one sacrificing and to the one who is not sacrificing; as <char style="add">is</char> the good one, so <char style="add">is</char> the sinner, the one swearing an oath as the one refusing an oath. </para>
+<para style="p"><verse number="3" style="v" sid="ECC 9:3"/>This <char style="add">is</char> an evil in all that is done under the sun: That one event <char style="add">is</char> to all, and also <char style="add">that</char> the heart of the sons of man is full of evil; and madness <char style="add">is</char> in their hearts while they live, and afterward to the dead. </para>
+<para style="p"><verse number="4" style="v" sid="ECC 9:4"/>For whoever that is joined to all the living, there is hope, for a living dog is better than a lion that is dead; </para>
+<para style="p"><verse number="5" style="v" sid="ECC 9:5"/>for the living know that they will die, and the dead cannot know anything, and there is not anymore for them a reward, for the memory of them is forgotten. </para>
+<para style="p"><verse number="6" style="v" sid="ECC 9:6"/>Also their love and their hatred and their jealousy already have perished, and there is not unto them anymore a portion forever in all that is done under the sun. </para>
+<para style="s">Enjoy Your Portion in This Life</para>
+<para style="p"><verse number="7" style="v" sid="ECC 9:7"/>Go, eat your bread with gladness, and drink your wine with a good heart, for already God has accepted your works. </para>
+<para style="q1"><verse number="8" style="v" sid="ECC 9:8"/>At every time, let your garments be white, </para>
+<para style="q2" vid="ECC 9:8">and let oil not be lacking upon your head. </para>
+<para style="p"><verse number="9" style="v" sid="ECC 9:9"/>See life with a wife whom you have loved, all the days of the life of your vapor, which He has given to you under the sun—all your days of vapor—for that <char style="add">is</char> your portion in this life, and in the toil by which you toil under the sun. </para>
+<para style="p"><verse number="10" style="v" sid="ECC 9:10"/>All that your hand finds to do, with your strength you must do <char style="add">it</char>, for <char style="add">there is</char> no work or plan or knowledge or wisdom in Sheol, there where you are going. </para>
+<para style="p"><verse number="11" style="v" sid="ECC 9:11"/>I returned and saw under the sun how the race <char style="add">is</char> not to the swift, and the battle not to the strong, and bread not to the wise, and wealth not to the discerning, and favor not to the skillful. For time and chance will happen to them all. </para>
+<para style="p"><verse number="12" style="v" sid="ECC 9:12"/>For even the man does not know his time; like the fish taken in a cruel net, and like the birds that are grabbed by the snare, so for them: The sons of men <char style="add">are</char> snared in an evil time, when it falls upon them suddenly. </para>
+<para style="s">Wisdom Is Better than Strength</para>
+<para style="p"><verse number="13" style="v" sid="ECC 9:13"/>This also I have seen <char style="add">as</char> wisdom under the sun, and it <char style="add">was</char> great to me: </para>
+<para style="p"><verse number="14" style="v" sid="ECC 9:14"/>A city <char style="add">was</char> small, and few men in it; and a great king came against it, and he besieged it and built great siege ramps against it. </para>
+<para style="p"><verse number="15" style="v" sid="ECC 9:15"/>And there was found in it a poor wise man, and he delivered the city by his wisdom. And mankind has not remembered that poor man. </para>
+<para style="p"><verse number="16" style="v" sid="ECC 9:16"/>And I said, “Better <char style="add">is</char> wisdom than might, and the wisdom of the poor one is despised, and his words are not heard.” </para>
+<para style="q1"><verse number="17" style="v" sid="ECC 9:17"/>The words of the wise are heeded in quiet </para>
+<para style="q2" vid="ECC 9:17">over the shout of a ruler among fools. </para>
+<para style="q1"><verse number="18" style="v" sid="ECC 9:18"/>Better wisdom than weapons of war, </para>
+<para style="q2" vid="ECC 9:18">and one sinner can destroy much good. </para>
+<chapter eid="ECC 9"/>
+<chapter number="10" style="c" sid="ECC 10"/>
+<para style="s">Wisdom and Folly</para>
+<para style="q1"><verse number="1" style="v" sid="ECC 10:1"/>Dead flies rising up <char style="add">in</char> the ointment of a perfumer give a stench; </para>
+<para style="q2" vid="ECC 10:1">a little folly is heavier than wisdom and honor. </para>
+<para style="q1"><verse number="2" style="v" sid="ECC 10:2"/>The heart of a wise one <char style="add">is</char> to his right, </para>
+<para style="q2" vid="ECC 10:2">and the heart of a fool to his left. </para>
+<para style="q1"><verse number="3" style="v" sid="ECC 10:3"/>And even in a fool walking along the way, his heart is lacking, </para>
+<para style="q2" vid="ECC 10:3">and he shows to everyone <char style="add">that</char> he <char style="add">is</char> a fool. </para>
+<para style="q1"><verse number="4" style="v" sid="ECC 10:4"/>If the spirit of the ruler rises against you, you should not leave your station, </para>
+<para style="q2" vid="ECC 10:4">for calmness puts to rest great sins. </para>
+<para style="q1"><verse number="5" style="v" sid="ECC 10:5"/>There is an evil I have seen under the sun, </para>
+<para style="q2" vid="ECC 10:5">as an error that goes forth from before the face of the ruler: </para>
+<para style="q1"><verse number="6" style="v" sid="ECC 10:6"/>He has set a fool in many high places, </para>
+<para style="q2" vid="ECC 10:6">and the rich ones sit in the lowly place. </para>
+<para style="q1"><verse number="7" style="v" sid="ECC 10:7"/>I have seen slaves on horses, </para>
+<para style="q2" vid="ECC 10:7">and princes walking like slaves on the earth. </para>
+<para style="q1"><verse number="8" style="v" sid="ECC 10:8"/>The one digging a pit will fall into it; </para>
+<para style="q2" vid="ECC 10:8">and one breaking through a wall, a snake will bite him. </para>
+<para style="q1"><verse number="9" style="v" sid="ECC 10:9"/>The one pulling out stones will be hurt by them; </para>
+<para style="q2" vid="ECC 10:9">the one splitting trees endangers himself by them. </para>
+<para style="q1"><verse number="10" style="v" sid="ECC 10:10"/>If the iron has been blunt, and he has not sharpened the edge, </para>
+<para style="q2" vid="ECC 10:10">then he must exert strength; </para>
+<para style="q2" vid="ECC 10:10">and wisdom <char style="add">is</char> an advantage to being successful. </para>
+<para style="q1"><verse number="11" style="v" sid="ECC 10:11"/>If the snake bites without a charm, </para>
+<para style="q2" vid="ECC 10:11">then there is no advantage for the master of the tongue. </para>
+<para style="q1"><verse number="12" style="v" sid="ECC 10:12"/>The words of the mouth of a wise one <char style="add">are</char> favor, </para>
+<para style="q2" vid="ECC 10:12">and the lips of a fool will swallow him up— </para>
+<para style="q1"><verse number="13" style="v" sid="ECC 10:13"/>the beginning of the words of his mouth <char style="add">is</char> folly, </para>
+<para style="q2" vid="ECC 10:13">and the end of his mouth <char style="add">is</char> evil madness. </para>
+<para style="q1"><verse number="14" style="v" sid="ECC 10:14"/>And the fool multiplies words. </para>
+<para style="q2" vid="ECC 10:14">Man does not know what will come to be, </para>
+<para style="q2" vid="ECC 10:14">and of what will come to be after him, who can declare <char style="add">it</char> to him? </para>
+<para style="q1"><verse number="15" style="v" sid="ECC 10:15"/>The toil of fools wearies him, </para>
+<para style="q2" vid="ECC 10:15">for he does not know the way to the city. </para>
+<para style="q1"><verse number="16" style="v" sid="ECC 10:16"/>Woe to you, O land, that your king is a youth,<note caller="+" style="f"><char style="fr" closed="false">10.16 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a servant</char></note> </para>
+<para style="q2" vid="ECC 10:16">and your princes feast in the morning! </para>
+<para style="q1"><verse number="17" style="v" sid="ECC 10:17"/>Blessed <char style="add">are</char> you, O land, that your king <char style="add">is</char> a son of nobles, </para>
+<para style="q2" vid="ECC 10:17">and your princes feast in due season—</para>
+<para style="q2" vid="ECC 10:17">for strength and not for drunkenness! </para>
+<para style="q1"><verse number="18" style="v" sid="ECC 10:18"/>By laziness, the rafter is made to sink, </para>
+<para style="q2" vid="ECC 10:18">and by idleness of hands, the house leaks. </para>
+<para style="q1"><verse number="19" style="v" sid="ECC 10:19"/>Bread is made for laughter, and wine makes life merry—</para>
+<para style="q2" vid="ECC 10:19">and the silver is the answer to all. </para>
+<para style="q1"><verse number="20" style="v" sid="ECC 10:20"/>Even in your thought you must not belittle the king, </para>
+<para style="q2" vid="ECC 10:20">and in the chambers of your bed do not belittle the rich, </para>
+<para style="q1" vid="ECC 10:20">for a bird of the heavens may carry along your voice, </para>
+<para style="q2" vid="ECC 10:20">and a possessor of wings may declare the word. </para>
+<chapter eid="ECC 10"/>
+<chapter number="11" style="c" sid="ECC 11"/>
+<para style="s">Cast Your Bread upon the Waters</para>
+<para style="q1"><verse number="1" style="v" sid="ECC 11:1"/>Send out your bread on the face of the waters, </para>
+<para style="q2" vid="ECC 11:1">for in many days you will find it. </para>
+<para style="q1"><verse number="2" style="v" sid="ECC 11:2"/>Give a portion to seven, and even to eight, </para>
+<para style="q2" vid="ECC 11:2">for you do not know what evil may come to be on the earth. </para>
+<para style="q1"><verse number="3" style="v" sid="ECC 11:3"/>If the clouds are full of rain, </para>
+<para style="q2" vid="ECC 11:3">they will pour out upon the earth; </para>
+<para style="q1" vid="ECC 11:3">and if a tree falls in the south or in the north, </para>
+<para style="q2" vid="ECC 11:3"><char style="add">at</char> the place where the tree falls, there it will be. </para>
+<para style="q1"><verse number="4" style="v" sid="ECC 11:4"/>The one watching the wind will not sow, </para>
+<para style="q2" vid="ECC 11:4">and one looking at the clouds will not reap. </para>
+<para style="q1"><verse number="5" style="v" sid="ECC 11:5"/>As you do not know what <char style="add">is</char> the way of the wind, </para>
+<para style="q2" vid="ECC 11:5">as the bones<note caller="+" style="f"><char style="fr" closed="false">11.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">As you do not know the way the spirit comes to the bones</char></note> in the womb of the full <char style="add">woman</char>, </para>
+<para style="q1" vid="ECC 11:5">so you do not know the works of God, </para>
+<para style="q2" vid="ECC 11:5">who makes everything. </para>
+<para style="q1"><verse number="6" style="v" sid="ECC 11:6"/>In the morning sow your seed, </para>
+<para style="q2" vid="ECC 11:6">and in the evening do not withhold your hand, </para>
+<para style="q1" vid="ECC 11:6">for you do not you know whether this one will prosper—</para>
+<para style="q2" vid="ECC 11:6">this one or this one, or whether the two of them alike <char style="add">are</char> good. </para>
+<para style="s">Enjoy Your Years</para>
+<para style="q1"><verse number="7" style="v" sid="ECC 11:7"/>The light also <char style="add">is</char> sweet, </para>
+<para style="q2" vid="ECC 11:7">and <char style="add">it is</char> good for the eyes to see the sun. </para>
+<para style="q1"><verse number="8" style="v" sid="ECC 11:8"/>For if the man lives many years, </para>
+<para style="q2" vid="ECC 11:8">let him be glad in them all, </para>
+<para style="q1" vid="ECC 11:8">and let him remember the days of darkness, </para>
+<para style="q2" vid="ECC 11:8">for they will be many—</para>
+<para style="q2" vid="ECC 11:8">all that is coming <char style="add">is</char> vapor. </para>
+<para style="q1"><verse number="9" style="v" sid="ECC 11:9"/>Rejoice, O young man, in your youth, </para>
+<para style="q2" vid="ECC 11:9">and let your heart be made glad in the days of your youth. </para>
+<para style="q1" vid="ECC 11:9">And walk in the ways of your heart, </para>
+<para style="q2" vid="ECC 11:9">and in the sight of your eyes, </para>
+<para style="q1" vid="ECC 11:9">and know that for all these <char style="add">things</char> </para>
+<para style="q2" vid="ECC 11:9">God will bring you into the judgment. </para>
+<para style="q1"><verse number="10" style="v" sid="ECC 11:10"/>And remove anger from your heart, </para>
+<para style="q2" vid="ECC 11:10">and make evil pass from your flesh, </para>
+<para style="q2" vid="ECC 11:10">for youth and black hair <char style="add">are</char> vapor. </para>
+<chapter eid="ECC 11"/>
+<chapter number="12" style="c" sid="ECC 12"/>
+<para style="s">Remember Your Creator</para>
+<para style="q1"><verse number="1" style="v" sid="ECC 12:1"/>And remember your Creator in the days of your youth, </para>
+<para style="q2" vid="ECC 12:1">while the days of evil have not come, </para>
+<para style="q1" vid="ECC 12:1">and the years have drawn near when you say, </para>
+<para style="q2" vid="ECC 12:1">“No delight for me <char style="add">is</char> in them!” </para>
+<para style="q1"><verse number="2" style="v" sid="ECC 12:2"/>While that the sun is not darkened, and the light, and the moon, and the stars, </para>
+<para style="q2" vid="ECC 12:2">and the clouds return after the rain, </para>
+<para style="q1"><verse number="3" style="v" sid="ECC 12:3"/>in the day the guards of the house tremble, </para>
+<para style="q2" vid="ECC 12:3">and the men of strength bow down, </para>
+<para style="q1" vid="ECC 12:3">and those gridning cease because they are few, </para>
+<para style="q2" vid="ECC 12:3">and those looking out through the windows grow dim, </para>
+<para style="q1"><verse number="4" style="v" sid="ECC 12:4"/>and the doors are shut in the streets, </para>
+<para style="q2" vid="ECC 12:4">and the sound of the grinding becomes low, </para>
+<para style="q1" vid="ECC 12:4">and one rises up at the voice of the bird, </para>
+<para style="q2" vid="ECC 12:4">and all the daughters of the song are bent low— </para>
+<para style="q1"><verse number="5" style="v" sid="ECC 12:5"/>they are afraid even from height and terrors in the way; </para>
+<para style="q2" vid="ECC 12:5">for the almond tree blossoms, </para>
+<para style="q1" vid="ECC 12:5">and the grasshopper carries itself along </para>
+<para style="q2" vid="ECC 12:5">and the caper berry breaks off, </para>
+<para style="q1" vid="ECC 12:5">because man is going to his eternal home, </para>
+<para style="q2" vid="ECC 12:5">and those mourning go around in the street— </para>
+<para style="q1"><verse number="6" style="v" sid="ECC 12:6"/>while the cord of silver is not snapped </para>
+<para style="q2" vid="ECC 12:6">or the bowl of gold broken </para>
+<para style="q1" vid="ECC 12:6">or the pitcher shattered at the fountain </para>
+<para style="q2" vid="ECC 12:6">or the wheel crushed at the well, </para>
+<para style="q1"><verse number="7" style="v" sid="ECC 12:7"/>and the dust returns to the earth as it was, </para>
+<para style="q2" vid="ECC 12:7">and the spirit returns to God who gave it. </para>
+<para style="q1"><verse number="8" style="v" sid="ECC 12:8"/>“Vapor of vapors,” says the Qoheleth; </para>
+<para style="q2" vid="ECC 12:8">“All <char style="add">is</char> vapor!” </para>
+<para style="s">The Whole Duty of Man</para>
+<para style="p"><verse number="9" style="v" sid="ECC 12:9"/>And further, Qoheleth, being wise, also did he teach the people knowledge, and he pondered, and he searched, <char style="add">and</char> he arranged many proverbs. </para>
+<para style="p"><verse number="10" style="v" sid="ECC 12:10"/>Qoheleth sought to find words of delight and to record uprightly—words of truth.<note caller="+" style="f"><char style="fr" closed="false">12.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">and to record what was upright and true</char></note> </para>
+<para style="p"><verse number="11" style="v" sid="ECC 12:11"/>The words of the wise <char style="add">are</char> like goads, and like nails implanted <char style="add">by</char> the masters of collections, given by one Shepherd.<note caller="+" style="f"><char style="fr" closed="false">12.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">shepherd</char></note> </para>
+<para style="p"><verse number="12" style="v" sid="ECC 12:12"/>And further, by these my son, be warned: To the making of many books there is no end, and much study is weariness to the flesh. </para>
+<para style="p"><verse number="13" style="v" sid="ECC 12:13"/>The conclusion of the whole of matter has been heard. You shall fear God and keep His commandments—for this <char style="add">is</char> <char style="add">is</char> the whole of the man. </para>
+<para style="p"><verse number="14" style="v" sid="ECC 12:14"/>For God will bring every work into judgment, with every hidden thing, whether good or evil. </para>
+<chapter eid="ECC 12"/>
+</usx>
