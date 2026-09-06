@@ -471,9 +471,11 @@ export async function renderAndRespond(
 /**
  * Hashed-asset path extensions. A request whose path ends in one of these is
  * reverse-proxied to the asset host rather than treated as an app route.
+ * `.usx` must be included so BLB-Draft corpus files are not SSR'd as reading
+ * paths (which returns HTML and paints the reader "Chapter unavailable" UI).
  */
 const ASSET_PATH_RE =
-  /\.(js|mjs|cjs|css|map|json|wasm|woff2?|ttf|otf|eot|ico|png|jpe?g|gif|svg|webp|avif|txt|xml|webmanifest)$/i;
+  /\.(js|mjs|cjs|css|map|json|wasm|woff2?|ttf|otf|eot|ico|png|jpe?g|gif|svg|webp|avif|txt|xml|webmanifest|usx)$/i;
 
 /** Request headers worth forwarding upstream (conditional + content negotiation). */
 const FORWARDED_ASSET_HEADERS = [

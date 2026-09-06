@@ -3,5 +3,11 @@
   "framework": "vite",
   "installCommand": "corepack enable && corepack prepare pnpm@11.7.0 --activate && pnpm install --frozen-lockfile",
   "buildCommand": "pnpm build:client",
-  "outputDirectory": "standalone/dist/client"
+  "outputDirectory": "standalone/dist/client",
+  "rewrites": [
+    {
+      "source": "/((?!assets/|sw\\.js$|registerSW\\.js$|manifest\\.webmanifest$|workbox-).*)",
+      "destination": "/index.html"
+    }
+  ]
 }
