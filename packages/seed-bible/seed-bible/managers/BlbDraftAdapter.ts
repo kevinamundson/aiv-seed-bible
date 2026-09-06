@@ -698,7 +698,7 @@ function parseChar(el: XmlEl): FormattedText {
   return fmt;
 }
 
-function convertChapterFromUsx(
+export function convertBlbDraftChapterFromUsx(
   usxXml: string,
   book: string,
   chapterNum: number,
@@ -917,7 +917,7 @@ export async function getBlbDraftChapter(
     loadBlbDraftManifest(),
     loadUsx(bookId),
   ]);
-  return convertChapterFromUsx(usx, bookId, chapterNum, manifest);
+  return convertBlbDraftChapterFromUsx(usx, bookId, chapterNum, manifest);
 }
 
 /** Inject BLB-Draft into a HelloAO catalog list if missing. */
