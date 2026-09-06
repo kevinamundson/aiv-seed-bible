@@ -9,6 +9,14 @@ import {
   type TranslationBooks,
 } from "../managers/FreeUseBibleAPI";
 import {
+  BLB_DRAFT_ID,
+  getBlbDraftBooks,
+  getBlbDraftChapter,
+  injectBlbDraftTranslation,
+  isBlbDraftTranslationId,
+  loadBlbDraftManifest,
+} from "../managers/BlbDraftAdapter";
+import {
   createOfflineTranslationsManager,
   type OfflineTranslationsManager,
 } from "../managers/OfflineTranslationsManager";
@@ -1039,9 +1047,16 @@ export function createBibleDataManager(
     }
 
     const result = await resultPromise;
-    mergeTranslations(normalizedEndpoint, result);
+    // Kevin keyed: inject BLB-Draft even though it is not in the HelloAO catalog.
+    const manifest = await loadBlbDraftManifest().catch(() => null);
+    const withBlb = injectBlbDraftTranslation(result, manifest);
+    mergeTranslations(normalizedEndpoint, withBlb);
+    // Keep BLB-Draft off the HelloAO endpoint so chapter fetches use the USX adapter.
+    const nextEndpoints = new Map(translationEndpoints.value);
+    nextEndpoints.set(BLB_DRAFT_ID, "blb-draft://local");
+    translationEndpoints.value = nextEndpoints;
     catalogLoaded.value = true;
-    return result;
+    return withBlb;
   };
 
   // Created here (rather than by the caller) so it can share this manager's
@@ -1079,6 +1094,12 @@ export function createBibleDataManager(
       mergeTranslations(endpoint, [books.translation], options);
     };
 
+    if (isBlbDraftTranslationId(translationId)) {
+      const books = await getBlbDraftBooks();
+      cacheBooks("blb-draft://local", books);
+      return books;
+    }
+
     const downloadedBooks = offline.supported
       ? await offline.getTranslationBooks(translationId)
       : null;
@@ -1114,6 +1135,10 @@ export function createBibleDataManager(
     chapter: number | string,
     options?: ApiRequestOptions
   ): Promise<TranslationBookChapter> => {
+    if (isBlbDraftTranslationId(translationId)) {
+      return await getBlbDraftChapter(book, chapter);
+    }
+
     const chapterNumber = Number(chapter);
     if (Number.isFinite(chapterNumber) && offline.supported) {
       const downloaded = await offline.getTranslationBookChapter(
@@ -1140,6 +1165,20 @@ export function createBibleDataManager(
     chapter: TranslationBookChapter,
     options?: ApiRequestOptions
   ) => {
+    if (isBlbDraftTranslationId(chapter.translation.id)) {
+      if (!chapter.nextChapterApiLink) {
+        return null;
+      }
+      // Parse /api/BLB-Draft/{BOOK}/{N}.json
+      const match = chapter.nextChapterApiLink.match(
+        /\/api\/BLB-Draft\/([^/]+)\/(\d+)\.json/
+      );
+      if (!match) {
+        return null;
+      }
+      return await getBlbDraftChapter(match[1]!, Number(match[2]));
+    }
+
     const downloaded = offline.supported
       ? await offline.getAdjacentChapter(chapter, "next")
       : null;
@@ -1160,6 +1199,19 @@ export function createBibleDataManager(
     chapter: TranslationBookChapter,
     options?: ApiRequestOptions
   ) => {
+    if (isBlbDraftTranslationId(chapter.translation.id)) {
+      if (!chapter.previousChapterApiLink) {
+        return null;
+      }
+      const match = chapter.previousChapterApiLink.match(
+        /\/api\/BLB-Draft\/([^/]+)\/(\d+)\.json/
+      );
+      if (!match) {
+        return null;
+      }
+      return await getBlbDraftChapter(match[1]!, Number(match[2]));
+    }
+
     const downloaded = offline.supported
       ? await offline.getAdjacentChapter(chapter, "previous")
       : null;
@@ -1227,7 +1279,9 @@ export function createBibleDataManager(
     try {
       const stored = safeLocalStorage.getItem("availableTranslations");
       if (stored) {
-        availableTranslations.value = JSON.parse(stored) as Translation[];
+        availableTranslations.value = injectBlbDraftTranslation(
+          JSON.parse(stored) as Translation[]
+        );
         // Only ever written after a genuine full-catalog fetch (see the
         // persistence effect above), so restoring it means the catalog is
         // already known, not just this session's active translation.

@@ -559,10 +559,18 @@ function renderInlineContent(
     if (part.wordsOfJesus && showRedLettering) {
       className += " sb-words-of-jesus";
     }
+    // USX/USFM translator additions (`add`) — italic, same verse ink.
+    if ("add" in part && part.add) {
+      className += " sb-translator-add";
+    }
 
     const segments = splitTextByDecorations(part.text);
     return (
-      <span key={index} className={className.trim()}>
+      <span
+        key={index}
+        className={className.trim()}
+        style={"add" in part && part.add ? { fontStyle: "italic" } : undefined}
+      >
         {segments.map((segment, segmentIndex) => (
           <span
             key={`${index}-${segmentIndex}`}

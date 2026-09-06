@@ -391,6 +391,12 @@ export interface FormattedText {
    * Whether the text represents the Words of Jesus.
    */
   wordsOfJesus?: boolean;
+
+  /**
+   * Whether the text is a translator addition (USFM/USX `add`).
+   * Rendered italic in the same verse ink — see BibleReader.
+   */
+  add?: boolean;
 }
 
 /**

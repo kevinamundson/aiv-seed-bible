@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usx version="3.1">
+<book code="1TI" style="id">BLB-Draft</book>
+<para style="h">1 Timothy</para>
+<para style="toc1">1 Timothy</para>
+<para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+<chapter number="1" style="c" sid="1TI 1"/>
+<para style="s">Paul’s Greeting to Timothy</para>
+<para style="p"><verse number="1" style="v" sid="1TI 1:1"/><note caller="-" style="x"><char style="xt" closed="false">2 Timothy 1:1–2</char></note>Paul, an apostle of Christ Jesus<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">of Jesus Christ</char></note> according to the command of God our Savior and of Christ Jesus<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">of the Lord Jesus Christ</char></note> our hope, </para>
+<para style="p"><verse number="2" style="v" sid="1TI 1:2"/>To Timothy, <char style="add">my</char> genuine child in the faith: </para>
+<para style="p" vid="1TI 1:2">Grace, mercy, <char style="add">and</char> peace from God the Father<note caller="+" style="f"><char style="fr" closed="false">1.2 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">God our Father</char></note> and Christ Jesus<note caller="+" style="f"><char style="fr" closed="false">1.2 </char><char style="ft" closed="false"> Scrivener TR </char><char style="fq" closed="false">Jesus Christ</char></note> our Lord. </para>
+<para style="s">Correcting False TeachersTitus 1:10–16</para>
+<para style="p"><verse number="3" style="v" sid="1TI 1:3"/>Just as I exhorted you to remain in Ephesus <char style="add">in my</char> going to Macedonia, so that you might charge certain ones not to teach other doctrines </para>
+<para style="p"><verse number="4" style="v" sid="1TI 1:4"/>nor to give heed to myths and endless genealogies, which cause controversies rather than the stewardship of God that <char style="add">is</char> in faith.<note caller="+" style="f"><char style="fr" closed="false">1.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">rather than the stewardship of God's work, which is by faith</char></note> </para>
+<para style="p"><verse number="5" style="v" sid="1TI 1:5"/>Now the goal of <char style="add">our</char> charge is love out of a pure heart and a good conscience and a sincere faith, </para>
+<para style="p"><verse number="6" style="v" sid="1TI 1:6"/>from which certain ones, having missed the mark, turned aside to empty talk, </para>
+<para style="p"><verse number="7" style="v" sid="1TI 1:7"/>wanting to be teachers of the law, understanding neither what they say nor <char style="add">that</char> about which they confidently assert. </para>
+<para style="p"><verse number="8" style="v" sid="1TI 1:8"/>Now we know that the law <char style="add">is</char> good, if one uses it lawfully, </para>
+<para style="p"><verse number="9" style="v" sid="1TI 1:9"/>knowing this, that law is not laid for a righteous one, but for the lawless and insubordinate, for the ungodly and sinful, for the unholy and profane, for murderers of fathers and murderers of mothers, for slayers of man, </para>
+<para style="p"><verse number="10" style="v" sid="1TI 1:10"/>for the sexually immoral, homosexuals, enslavers,<note caller="+" style="f"><char style="fr" closed="false">1.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">kidnappers</char></note> liars, perjurers, and if anything other is opposed to being sound in the teaching, </para>
+<para style="p"><verse number="11" style="v" sid="1TI 1:11"/>according to the gospel of the glory of the blessed God, with which I was entrusted. </para>
+<para style="s">God’s Grace to Paul</para>
+<para style="p"><verse number="12" style="v" sid="1TI 1:12"/>I have<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> BYZ and include </char><char style="fq" closed="false">And I have</char><char style="ft" closed="false">.</char></note> gratitude to the One having empowered me, Christ Jesus our Lord, that He esteemed me faithful, having put <char style="add">me</char> to service, </para>
+<para style="p"><verse number="13" style="v" sid="1TI 1:13"/>formerly being a blasphemer, and a persecutor, and insolent; but I was shown mercy, because, being ignorant, I did <char style="add">it</char> in unbelief. </para>
+<para style="p"><verse number="14" style="v" sid="1TI 1:14"/>And the grace of our Lord exceedingly abounded with the faith and love that <char style="add">are</char> in Christ Jesus. </para>
+<para style="p"><verse number="15" style="v" sid="1TI 1:15"/>Trustworthy <char style="add">is</char> the word, and worthy of all acceptance, that Christ Jesus came into the world to save sinners, of whom I am the foremost. </para>
+<para style="p"><verse number="16" style="v" sid="1TI 1:16"/>But because of this I was shown mercy, so that in me, the foremost, Christ Jesus<note caller="+" style="f"><char style="fr" closed="false">1.16 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Jesus Christ</char></note> might display all patience, as a pattern for those being about to believe on Him unto eternal life. </para>
+<para style="p"><verse number="17" style="v" sid="1TI 1:17"/>Now to the King of the ages, the immortal, invisible, the only God,<note caller="+" style="f"><char style="fr" closed="false">1.17 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">the only wise God</char></note> <char style="add">be</char> honor and glory to the ages of the ages! Amen. </para>
+<para style="p"><verse number="18" style="v" sid="1TI 1:18"/>I commit to you this charge, Timothy <char style="add">my</char> child, according to the prophecies upon you going before, so that by them you may wage the good warfare, </para>
+<para style="p"><verse number="19" style="v" sid="1TI 1:19"/>having faith and a good conscience, which some having thrust away, made a shipwreck concerning the faith, </para>
+<para style="p"><verse number="20" style="v" sid="1TI 1:20"/>of whom are Hymenaeus and Alexander, whom I handed over to Satan so that they should be disciplined not to blaspheme. </para>
+<chapter eid="1TI 1"/>
+<chapter number="2" style="c" sid="1TI 2"/>
+<para style="s">A Call to Prayer</para>
+<para style="p"><verse number="1" style="v" sid="1TI 2:1"/>I exhort, therefore, first of all, supplications, prayers, intercessions, <char style="add">and</char> thanksgivings to be made for all men, </para>
+<para style="p"><verse number="2" style="v" sid="1TI 2:2"/>for kings and all those being in authority, so that we may lead a tranquil and quiet life in all godliness and dignity. </para>
+<para style="p"><verse number="3" style="v" sid="1TI 2:3"/>This<note caller="+" style="f"><char style="fr" closed="false">2.3 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">For this</char></note> <char style="add">is</char> good and acceptable before God our Savior, </para>
+<para style="p"><verse number="4" style="v" sid="1TI 2:4"/>who wants all men to be saved and to come to the knowledge of the truth. </para>
+<para style="p"><verse number="5" style="v" sid="1TI 2:5"/>For <char style="add">there is</char> one God and one mediator between God and men, the man Christ Jesus, </para>
+<para style="p"><verse number="6" style="v" sid="1TI 2:6"/>the One having given Himself <char style="add">as</char> a ransom for all, the testimony in their own proper times, </para>
+<para style="p"><verse number="7" style="v" sid="1TI 2:7"/>in regard to which I was appointed a preacher and an apostle—I speak the truth;<note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">in Christ</char><char style="ft" closed="false">.</char></note> I do not lie—a teacher of the Gentiles in faith and truth. </para>
+<para style="p"><verse number="8" style="v" sid="1TI 2:8"/>Therefore I want the men in every place<note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">in every place (of worship)</char></note> to pray, lifting up holy hands, without wrath and dissension. </para>
+<para style="s">Instructions to Women</para>
+<para style="p"><verse number="9" style="v" sid="1TI 2:9"/>Likewise also women <char style="add">are</char> to adorn themselves in respectable apparel, with modesty and sound-mindedness, not with braided hair or gold or pearls or costly clothing, </para>
+<para style="p"><verse number="10" style="v" sid="1TI 2:10"/>but with what is proper to women professing the fear of God through good works. </para>
+<para style="p"><verse number="11" style="v" sid="1TI 2:11"/>Let a woman<note caller="+" style="f"><char style="fr" closed="false">2.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">wife</char><char style="ft" closed="false">; also in verse 12</char></note> learn in quietness, in all submission. </para>
+<para style="p"><verse number="12" style="v" sid="1TI 2:12"/>But I do not permit a woman to teach, nor to use authority over a man,<note caller="+" style="f"><char style="fr" closed="false">2.12 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">over her husband</char></note> but to be in quietness. </para>
+<para style="p"><verse number="13" style="v" sid="1TI 2:13"/>For Adam was formed first, then Eve. </para>
+<para style="p"><verse number="14" style="v" sid="1TI 2:14"/>And Adam was not deceived, but the woman, having been deceived, has come into transgression. </para>
+<para style="p"><verse number="15" style="v" sid="1TI 2:15"/>But she will be saved through childbearing, if they remain in faith and love and holiness, with sound-mindedness. </para>
+<chapter eid="1TI 2"/>
+<chapter number="3" style="c" sid="1TI 3"/>
+<para style="s">Qualifications for Overseers</para>
+<para style="p"><verse number="1" style="v" sid="1TI 3:1"/><note caller="-" style="x"><char style="xt" closed="false">1 Peter 5:1–4</char></note><note caller="-" style="x"><char style="xt" closed="false">Titus 1:5–9</char></note>Trustworthy <char style="add">is</char> the word: If anyone aspires to overseership, he is desirous of a good work. </para>
+<para style="p"><verse number="2" style="v" sid="1TI 3:2"/>Therefore it is necessary for the overseer to be above reproach, the husband of one wife,<note caller="+" style="f"><char style="fr" closed="false">3.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">faithful to his wife</char><char style="ft" closed="false">; also in verse 12</char></note> sober, sound-minded, respectable, hospitable, able to teach, </para>
+<para style="p"><verse number="3" style="v" sid="1TI 3:3"/>not given to wine, not a striker<note caller="+" style="f"><char style="fr" closed="false">3.3 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">not greedy for money</char><char style="ft" closed="false">.</char></note> but gentle, not quarrelsome, not loving money, </para>
+<para style="p"><verse number="4" style="v" sid="1TI 3:4"/>presiding over <char style="add">his</char> own house well, having children in submission, with all dignity— </para>
+<para style="p"><verse number="5" style="v" sid="1TI 3:5"/>but if anyone does not know <char style="add">how</char> to preside over <char style="add">his</char> own household, how will he take care of the church of God?— </para>
+<para style="p"><verse number="6" style="v" sid="1TI 3:6"/>not a novice, lest, having been puffed up, he might fall into the judgment of the devil. </para>
+<para style="p"><verse number="7" style="v" sid="1TI 3:7"/>And it is necessary <char style="add">for him</char> also to have a good testimony from those outside, so that he might not fall into reproach and the snare of the devil. </para>
+<para style="s">Qualifications for DeaconsActs 6:1–7</para>
+<para style="p"><verse number="8" style="v" sid="1TI 3:8"/>Deacons likewise <char style="add">must be</char> dignified, not double-tongued, not being given to much wine, not greedy for shameful gain, </para>
+<para style="p"><verse number="9" style="v" sid="1TI 3:9"/>holding the mystery of the faith with a pure conscience. </para>
+<para style="p"><verse number="10" style="v" sid="1TI 3:10"/>And these also, let them be tested first; then let them serve, being blameless. </para>
+<para style="p"><verse number="11" style="v" sid="1TI 3:11"/>Women<note caller="+" style="f"><char style="fr" closed="false">3.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Their wives</char></note> likewise <char style="add">must be</char> dignified, not slanderers, sober, faithful in all things. </para>
+<para style="p"><verse number="12" style="v" sid="1TI 3:12"/>Let deacons be husbands of one wife, presiding over <char style="add">their</char> children and <char style="add">their</char> own households well. </para>
+<para style="p"><verse number="13" style="v" sid="1TI 3:13"/>For those having served well acquire a good standing for themselves and great confidence in the faith that <char style="add">is</char> in Christ Jesus. </para>
+<para style="s">The Mystery of Godliness</para>
+<para style="p"><verse number="14" style="v" sid="1TI 3:14"/>I write these things to you, hoping to come to you in quickness, </para>
+<para style="p"><verse number="15" style="v" sid="1TI 3:15"/>but if I should delay, so that you may know how it is necessary to conduct oneself in the household of God, which is the church of the living God, the pillar and base of the truth. </para>
+<para style="p"><verse number="16" style="v" sid="1TI 3:16"/>And confessedly, great is the mystery of godliness: </para>
+<para style="q1" vid="1TI 3:16"><char style="add">He</char> who appeared<note caller="+" style="f"><char style="fr" closed="false">3.16 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">God appeared</char></note> in flesh, </para>
+<para style="q2" vid="1TI 3:16">was justified in the Spirit,<note caller="+" style="f"><char style="fr" closed="false">3.16 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">was vindicated in spirit</char></note> </para>
+<para style="q1" vid="1TI 3:16">was seen by angels, </para>
+<para style="q2" vid="1TI 3:16">was proclaimed among the nations, </para>
+<para style="q1" vid="1TI 3:16">was believed on in the world, </para>
+<para style="q2" vid="1TI 3:16">was taken up in glory. </para>
+<chapter eid="1TI 3"/>
+<chapter number="4" style="c" sid="1TI 4"/>
+<para style="s">A Warning against Apostasy</para>
+<para style="p"><verse number="1" style="v" sid="1TI 4:1"/>But the Spirit expressly says that in later times some will depart from the faith, giving heed to deceiving spirits and teachings of demons, </para>
+<para style="p"><verse number="2" style="v" sid="1TI 4:2"/>in the hypocrisy of liars, having been seared in <char style="add">their</char> own conscience, </para>
+<para style="p"><verse number="3" style="v" sid="1TI 4:3"/>forbidding to marry, <char style="add">requiring</char> to abstain from foods that God created for reception with thanksgiving by the faithful and <char style="add">by</char> <char style="add">those</char> knowing the truth. </para>
+<para style="p"><verse number="4" style="v" sid="1TI 4:4"/>For every creature of God <char style="add">is</char> good, and nothing <char style="add">is</char> to be rejected, being received with thanksgiving, </para>
+<para style="p"><verse number="5" style="v" sid="1TI 4:5"/>for it is sanctified by the word of God and intercession. </para>
+<para style="s">A Good Servant of Jesus Christ</para>
+<para style="p"><verse number="6" style="v" sid="1TI 4:6"/>Laying before the brothers these things, you will be a good servant of Christ Jesus,<note caller="+" style="f"><char style="fr" closed="false">4.6 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">of Jesus Christ</char></note> being nourished in the words of the faith and of the good teaching that you have closely followed. </para>
+<para style="p"><verse number="7" style="v" sid="1TI 4:7"/>But reject profane and silly myths. Rather, train yourself unto godliness. </para>
+<para style="p"><verse number="8" style="v" sid="1TI 4:8"/>For bodily exercise is to a little profit, but godliness is profitable for everything, having the promise<note caller="+" style="f"><char style="fr" closed="false">4.8 </char><char style="ft" closed="false"> GOC and F35 </char><char style="fq" closed="false">promises</char></note> of the present life and of the one about to be. </para>
+<para style="p"><verse number="9" style="v" sid="1TI 4:9"/>Trustworthy <char style="add">is</char> the word, and worthy of full acceptance. </para>
+<para style="p"><verse number="10" style="v" sid="1TI 4:10"/>For unto this we toil and strive,<note caller="+" style="f"><char style="fr" closed="false">4.10 </char><char style="ft" closed="false"> SBL, BYZ, and TR </char><char style="fq" closed="false">we toil and suffer reproach</char></note> because we have hoped on the living God, who is the Savior of all men, especially of believers. </para>
+<para style="p"><verse number="11" style="v" sid="1TI 4:11"/>Command and teach these things. </para>
+<para style="p"><verse number="12" style="v" sid="1TI 4:12"/>Let no one despise your youth, but be a pattern for the believers in word, in conduct, in love,<note caller="+" style="f"><char style="fr" closed="false">4.12 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">in spirit</char><char style="ft" closed="false">.</char></note> in faith, in purity. </para>
+<para style="p"><verse number="13" style="v" sid="1TI 4:13"/>Until I come, give heed to the reading, to exhortation, to teaching. </para>
+<para style="p"><verse number="14" style="v" sid="1TI 4:14"/>Do not be negligent of the gift in you, which was given to you through prophecy with the laying on of the hands of the elderhood. </para>
+<para style="p"><verse number="15" style="v" sid="1TI 4:15"/>Ponder these things; be in them, so that your advancement may be apparent to all. </para>
+<para style="p"><verse number="16" style="v" sid="1TI 4:16"/>Give heed to yourself and to the teaching. Continue in them; for doing this, you will save both yourself and those hearing you. </para>
+<chapter eid="1TI 4"/>
+<chapter number="5" style="c" sid="1TI 5"/>
+<para style="s">Reproof and Respect</para>
+<para style="p"><verse number="1" style="v" sid="1TI 5:1"/>Do not rebuke an older <char style="add">man</char>, but exhort <char style="add">him</char> as a father; younger <char style="add">men</char> as brothers; </para>
+<para style="p"><verse number="2" style="v" sid="1TI 5:2"/>older <char style="add">women</char> as mothers; younger <char style="add">women</char> as sisters, in all purity. </para>
+<para style="s">Honoring True WidowsRuth 1:1–5</para>
+<para style="p"><verse number="3" style="v" sid="1TI 5:3"/>Honor widows who <char style="add">are</char> truly widows. </para>
+<para style="p"><verse number="4" style="v" sid="1TI 5:4"/>But if any widow has children or grandchildren, let them learn to be devout first to <char style="add">their</char> own household and to give back recompense to parents, for this is acceptable<note caller="+" style="f"><char style="fr" closed="false">5.4 </char><char style="ft" closed="false"> GOC and TR </char><char style="fq" closed="false">good and acceptable</char></note> before God. </para>
+<para style="p"><verse number="5" style="v" sid="1TI 5:5"/>Now she who <char style="add">is</char> truly a widow and having been left alone has hoped on God and continues in supplications and prayers night and day. </para>
+<para style="p"><verse number="6" style="v" sid="1TI 5:6"/>But she given to luxury has died <char style="add">while</char> living. </para>
+<para style="p"><verse number="7" style="v" sid="1TI 5:7"/>Also command these things, so that they may be above reproach. </para>
+<para style="p"><verse number="8" style="v" sid="1TI 5:8"/>But if anyone does not provide for <char style="add">his</char> own, and especially <char style="add">his</char> household, he has denied the faith and is worse than an unbeliever. </para>
+<para style="p"><verse number="9" style="v" sid="1TI 5:9"/>Let a widow be enrolled, being not less than sixty years <char style="add">old</char>, the wife of one man, </para>
+<para style="p"><verse number="10" style="v" sid="1TI 5:10"/>being testified to in good works: if she brought up children, if she entertained strangers, if she washed the feet of the saints, if she gave relief <char style="add">to</char> <char style="add">those</char> being oppressed, if she followed after every good work. </para>
+<para style="p"><verse number="11" style="v" sid="1TI 5:11"/>But refuse younger widows; for when they might grow wanton against Christ, they want to marry, </para>
+<para style="p"><verse number="12" style="v" sid="1TI 5:12"/>having judgment because they set aside the first faith. </para>
+<para style="p"><verse number="13" style="v" sid="1TI 5:13"/>And at the same time also they learn <char style="add">to be</char> idle, going around the houses, and not only idle but also gossips and busybodies, speaking things not being proper. </para>
+<para style="p"><verse number="14" style="v" sid="1TI 5:14"/>Therefore I intend <char style="add">for</char> younger ones to marry, to bear children, to manage their households, to give the one opposing no occasion in favor of reviling. </para>
+<para style="p"><verse number="15" style="v" sid="1TI 5:15"/>For already some turned aside after Satan. </para>
+<para style="p"><verse number="16" style="v" sid="1TI 5:16"/>If any believing <char style="add">woman</char> has widows, let her give relief<note caller="+" style="f"><char style="fr" closed="false">5.16 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">If any believing man or woman has dependent widows, let them give relief</char></note> to them, and let the church not be burdened, so that it may give relief to those truly widows. </para>
+<para style="s">Honoring Elders</para>
+<para style="p"><verse number="17" style="v" sid="1TI 5:17"/>Let the elders presiding well be counted worthy of double honor, especially those laboring in the word and the teaching. </para>
+<para style="p"><verse number="18" style="v" sid="1TI 5:18"/>For the Scripture says, “You shall not muzzle an ox treading out grain,” and, “The worker <char style="add">is</char> worthy of his wages.”<note caller="+" style="f"><char style="fr" closed="false">5.18 </char><char style="ft" closed="false"> Deuteronomy 25:4</char></note> <note caller="+" style="f"><char style="fr" closed="false">5.18 </char><char style="ft" closed="false"> Luke 10:7; see also Leviticus 19:13 and Deuteronomy 24:14–15.</char></note></para>
+<para style="p"><verse number="19" style="v" sid="1TI 5:19"/>Do not receive an accusation against an elder, except upon two or three witnesses. </para>
+<para style="p"><verse number="20" style="v" sid="1TI 5:20"/>But<note caller="+" style="f"><char style="fr" closed="false">5.20 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">But</char></note> those sinning, rebuke before all, so that the rest may have fear also. </para>
+<para style="s">A Charge to Timothy</para>
+<para style="p"><verse number="21" style="v" sid="1TI 5:21"/>I earnestly testify before God and Christ Jesus<note caller="+" style="f"><char style="fr" closed="false">5.21 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">and the Lord Jesus Christ</char></note> and the chosen angels that you should keep these things without prejudice, doing nothing according to partiality. </para>
+<para style="p"><verse number="22" style="v" sid="1TI 5:22"/>Lay hands on no one quickly, nor share in the sins of others; keep yourself pure. </para>
+<para style="p"><verse number="23" style="v" sid="1TI 5:23"/>No longer drink water, but use a little wine, because of the stomach and your frequent ailments. </para>
+<para style="p"><verse number="24" style="v" sid="1TI 5:24"/>The sins of some men are evident, going before <char style="add">them</char> to judgment; but some also they follow after. </para>
+<para style="p"><verse number="25" style="v" sid="1TI 5:25"/>Likewise also, the good works <char style="add">are</char> evident, and even those being otherwise <char style="add">are</char> not able to be hidden. </para>
+<chapter eid="1TI 5"/>
+<chapter number="6" style="c" sid="1TI 6"/>
+<para style="s">Serving with Honor</para>
+<para style="p"><verse number="1" style="v" sid="1TI 6:1"/><note caller="-" style="x"><char style="xt" closed="false">Colossians 3:22–25</char></note><note caller="-" style="x"><char style="xt" closed="false">Ephesians 6:5–9</char></note>As many as are under a yoke <char style="add">as</char> slaves, let them esteem <char style="add">their</char> own masters worthy of all honor, so that the name of God and the teaching may not be blasphemed. </para>
+<para style="p"><verse number="2" style="v" sid="1TI 6:2"/>Now those having believing masters, let them not despise <char style="add">them</char> because they are brothers; but rather, let them serve, because those being helped by the good work are believing and beloved. Teach and exhort these things. </para>
+<para style="s">Reject False Doctrines</para>
+<para style="p"><verse number="3" style="v" sid="1TI 6:3"/>If anyone teaches another doctrine and does not draw near, being sound in the words of our Lord Jesus Christ and the teaching according to godliness, </para>
+<para style="p"><verse number="4" style="v" sid="1TI 6:4"/>he is puffed up, knowing nothing, but diseased about controversies and fights about words, out of which come envy, strife, slander, evil suspicions, </para>
+<para style="p"><verse number="5" style="v" sid="1TI 6:5"/><char style="add">and</char> constant arguing of men thoroughly corrupted in mind and deprived of the truth, supposing godliness to be a means of gain.<note caller="+" style="f"><char style="fr" closed="false">6.5 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">Withdraw yourself from such.</char></note> </para>
+<para style="s">Godliness with Contentment</para>
+<para style="p"><verse number="6" style="v" sid="1TI 6:6"/>But godliness with contentment is a means of great gain. </para>
+<para style="p"><verse number="7" style="v" sid="1TI 6:7"/>For we brought nothing into the world, because<note caller="+" style="f"><char style="fr" closed="false">6.7 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">so certainly</char></note> neither are we able to bring out anything. </para>
+<para style="p"><verse number="8" style="v" sid="1TI 6:8"/>But having sustenance and coverings, with these we will be content. </para>
+<para style="p"><verse number="9" style="v" sid="1TI 6:9"/>But those wishing to be rich fall into temptation and a snare, and many foolish and harmful desires, which plunge men into ruin and destruction. </para>
+<para style="p"><verse number="10" style="v" sid="1TI 6:10"/>For the love of money is a root of all evils, which some, stretching after, were led astray away from the faith and pierced themselves with many sorrows. </para>
+<para style="s">Fight the Good Fight</para>
+<para style="p"><verse number="11" style="v" sid="1TI 6:11"/>But you, O man of God, flee these things and pursue righteousness, godliness, faith, love, endurance, <char style="add">and</char> gentleness. </para>
+<para style="p"><verse number="12" style="v" sid="1TI 6:12"/>Fight the good fight of the faith. Lay hold of the eternal life to which you were called, and you confessed the good confession before many witnesses. </para>
+<para style="p"><verse number="13" style="v" sid="1TI 6:13"/>I charge you before God, the One giving life to all things, and Christ Jesus, the One having testified the good confession before Pontius Pilate, </para>
+<para style="p"><verse number="14" style="v" sid="1TI 6:14"/><char style="add">for</char> you to keep the commandment, without stain, above reproach, until the appearing of our Lord Jesus Christ, </para>
+<para style="p"><verse number="15" style="v" sid="1TI 6:15"/>which He will show in <char style="add">His</char> own times, the blessed and only Sovereign, the King of those being kings and the Lord of those being lords, </para>
+<para style="p"><verse number="16" style="v" sid="1TI 6:16"/>the One alone having immortality, dwelling in unapproachable light, whom no one of men has seen nor is able to see, to whom <char style="add">be</char> honor and eternal dominion! Amen. </para>
+<para style="s">A Charge to the RichProverbs 23:1–5</para>
+<para style="p"><verse number="17" style="v" sid="1TI 6:17"/><note caller="-" style="x"><char style="xt" closed="false">James 5:1–6</char></note>Charge the rich in the present age not to be high-minded, nor to have hoped on the uncertainty of riches, but on God,<note caller="+" style="f"><char style="fr" closed="false">6.17 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">but in the Living God</char></note> the One richly providing us all things for enjoyment; </para>
+<para style="p"><verse number="18" style="v" sid="1TI 6:18"/>to do good, to be rich in good works, to be generous in distributing, ready to share, </para>
+<para style="p"><verse number="19" style="v" sid="1TI 6:19"/>treasuring up for themselves a good foundation for that which <char style="add">is</char> about to be, so that they may lay hold of that which <char style="add">is</char> truly life.<note caller="+" style="f"><char style="fr" closed="false">6.19 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">of eternal life</char></note> </para>
+<para style="s">Guard the Faith</para>
+<para style="p"><verse number="20" style="v" sid="1TI 6:20"/>O Timothy, guard the deposit entrusted, avoiding profane, empty utterances, and opposing arguments of that which <char style="add">is</char> falsely named “knowledge,” </para>
+<para style="p"><verse number="21" style="v" sid="1TI 6:21"/>which some, professing, missed the mark concerning the faith. </para>
+<para style="p" vid="1TI 6:21">Grace <char style="add">be</char> with you⁺ all.<note caller="+" style="f"><char style="fr" closed="false">6.21 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">Amen.</char></note> </para>
+<chapter eid="1TI 6"/>
+</usx>
