@@ -6,6 +6,7 @@ import {
   type Signal,
 } from "@preact/signals";
 import type { BibleDataManager, BookId } from "./BibleDataManager";
+import { canonicalizeBlbDraftTranslationId } from "./BlbDraftAdapter";
 import {
   DEFAULT_UI_LANGUAGE,
   buildReadingPath,
@@ -134,13 +135,14 @@ function getInitialTranslationId(
   brandingDefaultTranslationId?: string
 ): string {
   const parsed = parseReadingPath(url.pathname, basePath);
-  return (
+  const raw =
     parsed?.translationId ??
     url.searchParams.get("translationId") ??
     url.searchParams.get("translation") ??
     brandingDefaultTranslationId ??
-    getDefaultTranslationForLanguage(language).id
-  );
+    getDefaultTranslationForLanguage(language).id;
+  // Heal legacy `blb-draft://local/api/BLB-Draft/books.json` path segments.
+  return canonicalizeBlbDraftTranslationId(raw);
 }
 
 function getInitialFirstTabChapter(url: URL, basePath: string): number {
@@ -196,7 +198,7 @@ function selfHealNonCanonicalPath(navigation: NavigationManager): void {
 
   const correctedPath = buildReadingPath({
     language,
-    translationId: parsed.translationId,
+    translationId: canonicalizeBlbDraftTranslationId(parsed.translationId),
     bookId: parsed.bookId,
     chapter: parsed.chapter,
   });

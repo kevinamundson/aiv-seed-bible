@@ -271,6 +271,18 @@ describe("createBibleDataManager", () => {
     );
   });
 
+  it("buildTranslationId() keeps BLB-Draft as a plain id (not blb-draft:// URL)", async () => {
+    // getTranslationBooks routes BLB through the local adapter and records
+    // endpoint blb-draft://local — which must NOT be encoded into the path.
+    const manager = createManager();
+    await manager.getTranslationBooks("BLB-Draft");
+
+    expect(manager.buildTranslationId("BLB-Draft")).toBe("BLB-Draft");
+    expect(
+      manager.buildTranslationId("blb-draft://local/api/BLB-Draft/books.json")
+    ).toBe("BLB-Draft");
+  });
+
   describe("translationsCache option", () => {
     function createTestCache(): TranslationsCache {
       const store = new Map<string, Promise<Translation[]>>();

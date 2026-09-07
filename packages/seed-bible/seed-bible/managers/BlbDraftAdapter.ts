@@ -506,8 +506,22 @@ const EMBEDDED_MANIFEST: BlbManifest = {
 const usxCache = new Map<string, string>();
 let manifestPromise: Promise<BlbManifest> | null = null;
 
+/**
+ * Prior builds encoded BLB-Draft as `blb-draft://local/api/BLB-Draft/books.json`
+ * in the reading path (via buildTranslationId treating the synthetic local
+ * endpoint like a custom HelloAO host). After nav/switch that segment was no
+ * longer equal to `BLB-Draft`, so chapter loads missed the USX adapter.
+ */
+const BLB_DRAFT_LEGACY_BOOKS_URL_RE =
+  /^blb-draft:\/\/[^/]*\/api\/BLB-Draft\/books\.json$/i;
+
 export function isBlbDraftTranslationId(id: string): boolean {
-  return id === BLB_DRAFT_ID;
+  return id === BLB_DRAFT_ID || BLB_DRAFT_LEGACY_BOOKS_URL_RE.test(id);
+}
+
+/** Collapse legacy blb-draft:// books.json path segments to `BLB-Draft`. */
+export function canonicalizeBlbDraftTranslationId(id: string): string {
+  return isBlbDraftTranslationId(id) ? BLB_DRAFT_ID : id;
 }
 
 export function getBlbDraftTranslationMeta(

@@ -3,8 +3,10 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   BLB_DRAFT_ID,
+  canonicalizeBlbDraftTranslationId,
   convertBlbDraftChapterFromUsx,
   getBlbDraftTranslationMeta,
+  isBlbDraftTranslationId,
 } from "../../../../packages/seed-bible/seed-bible/managers/BlbDraftAdapter";
 
 const GEN_USX = readFileSync(
@@ -79,5 +81,26 @@ describe("convertBlbDraftChapterFromUsx()", () => {
     expect(gen2.numberOfVerses).toBe(25);
     expect(gen1.nextChapterApiLink).toBe(`/api/${BLB_DRAFT_ID}/GEN/2.json`);
     expect(gen2.previousChapterApiLink).toBe(`/api/${BLB_DRAFT_ID}/GEN/1.json`);
+  });
+});
+
+describe("isBlbDraftTranslationId / canonicalizeBlbDraftTranslationId", () => {
+  it("recognizes the plain id and legacy blb-draft books.json URL", () => {
+    expect(isBlbDraftTranslationId(BLB_DRAFT_ID)).toBe(true);
+    expect(
+      isBlbDraftTranslationId("blb-draft://local/api/BLB-Draft/books.json")
+    ).toBe(true);
+    expect(isBlbDraftTranslationId("NIV")).toBe(false);
+    expect(isBlbDraftTranslationId("BLB")).toBe(false);
+  });
+
+  it("collapses legacy URL path segments to BLB-Draft", () => {
+    expect(canonicalizeBlbDraftTranslationId(BLB_DRAFT_ID)).toBe(BLB_DRAFT_ID);
+    expect(
+      canonicalizeBlbDraftTranslationId(
+        "blb-draft://local/api/BLB-Draft/books.json"
+      )
+    ).toBe(BLB_DRAFT_ID);
+    expect(canonicalizeBlbDraftTranslationId("NIV")).toBe("NIV");
   });
 });
