@@ -1,94 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="JON" style="id">BLB-Draft</book>
+
 <para style="h">Jonah</para>
+
 <para style="toc1">Jonah</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="JON 1"/>
+
 <para style="s">Jonah Flees from Yahweh</para>
-<para style="p"><verse number="1" style="v" sid="JON 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Nahum 1:1–15</char></note>And the word of YHWH came to Jonah son of Amittai, saying: </para>
-<para style="p"><verse number="2" style="v" sid="JON 1:2"/>“Arise, go to Nineveh, the great city, and call out against it, for their evil has come up before My face!” </para>
-<para style="p"><verse number="3" style="v" sid="JON 1:3"/>And Jonah arose to flee to Tarshish, away from the face of YHWH. And he went down <char style="add">to</char> Joppa, and found a ship going <char style="add">to</char> Tarshish, and he paid its fare and went down into it to go with them to Tarshish, away from the face of YHWH. </para>
+
+<para style="p"><verse number="1" style="v" sid="JON 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Nahum 1:1–15</char></note>And the word of YHWH came to Jonah son of Amittai, saying: <verse eid="JON 1:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="JON 1:2"/>“Arise, go to Nineveh, the great city, and call out against it, for their evil has come up before My face!” <verse eid="JON 1:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="JON 1:3"/>And Jonah arose to flee to Tarshish, away from the face of YHWH. And he went down <char style="add">to</char> Joppa, and found a ship going <char style="add">to</char> Tarshish, and he paid its fare and went down into it to go with them to Tarshish, away from the face of YHWH. <verse eid="JON 1:3"/></para>
+
 <para style="s">The Great StormActs 27:13–26</para>
-<para style="p"><verse number="4" style="v" sid="JON 1:4"/>And YHWH hurled a great wind toward the sea, and there was a mighty tempest on the sea, and the ship was thinking to be broken apart. </para>
-<para style="p"><verse number="5" style="v" sid="JON 1:5"/>And the sailors were afraid, and each man cried out to his god. And they threw the articles that <char style="add">were</char> in the ship into the sea to lighten it from them. And Jonah had gone down into the recesses of the ship, and he had lain down and was deeply asleep. </para>
-<para style="p"><verse number="6" style="v" sid="JON 1:6"/>And the chief pilot came near to him and said to him: “How can you sleep? Stand up <char style="add">and</char> call to your God! Perhaps your God will have consideration for us and we will not perish!” </para>
+
+<para style="p"><verse number="4" style="v" sid="JON 1:4"/>And YHWH hurled a great wind toward the sea, and there was a mighty tempest on the sea, and the ship was thinking to be broken apart. <verse eid="JON 1:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JON 1:5"/>And the sailors were afraid, and each man cried out to his god. And they threw the articles that <char style="add">were</char> in the ship into the sea to lighten it from them. And Jonah had gone down into the recesses of the ship, and he had lain down and was deeply asleep. <verse eid="JON 1:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="JON 1:6"/>And the chief pilot came near to him and said to him: “How can you sleep? Stand up <char style="add">and</char> call to your God! Perhaps your God will have consideration for us and we will not perish!” <verse eid="JON 1:6"/></para>
+
 <para style="p"><verse number="7" style="v" sid="JON 1:7"/>And they said, each man to his companion, “Come, let us cast lots, that we may know by whom this evil <char style="add">is</char> upon us!” </para>
-<para style="p" vid="JON 1:7">And they cast lots, and the lot fell upon Jonah. </para>
-<para style="p"><verse number="8" style="v" sid="JON 1:8"/>And they said to him, “Declare now to us, with regard to whom <char style="add">is</char> this evil upon us? What <char style="add">is</char> your occupation, and from where do you come? What <char style="add">is</char> your land, and from which people <char style="add">are</char> you?” </para>
-<para style="p"><verse number="9" style="v" sid="JON 1:9"/>And he said to them, “I <char style="add">am</char> a Hebrew and YHWH, God of the heavens, I fear, who made the sea and the dry land.” </para>
-<para style="p"><verse number="10" style="v" sid="JON 1:10"/>And the men feared with great fear, and they said to him: “What <char style="add">is</char> this you have done?” For the men knew that he was fleeing away from the face of YHWH, because he had told them. </para>
+
+<para style="p" vid="JON 1:7">And they cast lots, and the lot fell upon Jonah. <verse eid="JON 1:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="JON 1:8"/>And they said to him, “Declare now to us, with regard to whom <char style="add">is</char> this evil upon us? What <char style="add">is</char> your occupation, and from where do you come? What <char style="add">is</char> your land, and from which people <char style="add">are</char> you?” <verse eid="JON 1:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="JON 1:9"/>And he said to them, “I <char style="add">am</char> a Hebrew and YHWH, God of the heavens, I fear, who made the sea and the dry land.” <verse eid="JON 1:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JON 1:10"/>And the men feared with great fear, and they said to him: “What <char style="add">is</char> this you have done?” For the men knew that he was fleeing away from the face of YHWH, because he had told them. <verse eid="JON 1:10"/></para>
+
 <para style="s">Jonah Cast into the Sea</para>
-<para style="p"><verse number="11" style="v" sid="JON 1:11"/>And they said to him, “What shall we do to you, that the sea may become quiet around us?” For the sea was going on and raging. </para>
-<para style="p"><verse number="12" style="v" sid="JON 1:12"/>And he said to them, “Pick me up and cast me into the sea, and the sea will become quiet around you⁺. For I know that because of me this great tempest <char style="add">is</char> upon you⁺.” </para>
-<para style="p"><verse number="13" style="v" sid="JON 1:13"/>And the men dug in<note caller="+" style="f"><char style="fr" closed="false">1.13 </char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the men rowed hard</char></note> to return to the land, and they were not able, for the sea was going on and raging against them. </para>
-<para style="p"><verse number="14" style="v" sid="JON 1:14"/>And they cried out to YHWH and said: “Ah, O YHWH, please do not let us perish for the soul of this man, and do not put upon us innocent blood. For You, O YHWH, have done as You pleased.” </para>
-<para style="p"><verse number="15" style="v" sid="JON 1:15"/>And they picked up Jonah, and they cast him into the sea, and the sea stood from its raging. </para>
-<para style="p"><verse number="16" style="v" sid="JON 1:16"/>And the men feared YHWH with great fear, and they offered a sacrifice to YHWH, and they vowed vows. </para>
-<para style="p"><verse number="17" style="v" sid="JON 1:17"/>And YHWH appointed a great fish to swallow Jonah. And Jonah was in the bowels of the fish three days and three nights. </para>
+
+<para style="p"><verse number="11" style="v" sid="JON 1:11"/>And they said to him, “What shall we do to you, that the sea may become quiet around us?” For the sea was going on and raging. <verse eid="JON 1:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="JON 1:12"/>And he said to them, “Pick me up and cast me into the sea, and the sea will become quiet around you⁺. For I know that because of me this great tempest <char style="add">is</char> upon you⁺.” <verse eid="JON 1:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="JON 1:13"/>And the men dug in<note caller="+" style="f"><char style="fr" closed="false">1.13 </char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the men rowed hard</char></note> to return to the land, and they were not able, for the sea was going on and raging against them. <verse eid="JON 1:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="JON 1:14"/>And they cried out to YHWH and said: “Ah, O YHWH, please do not let us perish for the soul of this man, and do not put upon us innocent blood. For You, O YHWH, have done as You pleased.” <verse eid="JON 1:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="JON 1:15"/>And they picked up Jonah, and they cast him into the sea, and the sea stood from its raging. <verse eid="JON 1:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="JON 1:16"/>And the men feared YHWH with great fear, and they offered a sacrifice to YHWH, and they vowed vows. <verse eid="JON 1:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="JON 1:17"/>And YHWH appointed a great fish to swallow Jonah. And Jonah was in the bowels of the fish three days and three nights. <verse eid="JON 1:17"/></para>
+
 <chapter eid="JON 1"/>
+
 <chapter number="2" style="c" sid="JON 2"/>
+
 <para style="s">Jonah’s Prayer</para>
-<para style="p"><verse number="1" style="v" sid="JON 2:1"/>And Jonah prayed to YHWH his God from the bowels of the fish, </para>
+
+<para style="p"><verse number="1" style="v" sid="JON 2:1"/>And Jonah prayed to YHWH his God from the bowels of the fish, <verse eid="JON 2:1"/></para>
+
 <para style="p"><verse number="2" style="v" sid="JON 2:2"/>and he said: </para>
+
 <para style="q1" vid="JON 2:2">“I called out from the distress of mine to YHWH, </para>
+
 <para style="q2" vid="JON 2:2">and He answered me; </para>
+
 <para style="q1" vid="JON 2:2">from the belly of Sheol I cried out—</para>
-<para style="q2" vid="JON 2:2">You heard my voice. </para>
+
+<para style="q2" vid="JON 2:2">You heard my voice. <verse eid="JON 2:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="JON 2:3"/>And You cast me <char style="add">into</char> the deep, </para>
+
 <para style="q2" vid="JON 2:3">into the heart of the seas, </para>
+
 <para style="q1" vid="JON 2:3">and the current surrounded me; </para>
-<para style="q2" vid="JON 2:3">all Your billows and Your waves passed over me. </para>
+
+<para style="q2" vid="JON 2:3">all Your billows and Your waves passed over me. <verse eid="JON 2:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="JON 2:4"/>And I said, </para>
+
 <para style="q2" vid="JON 2:4">‘I have been driven out from before Your eyes; </para>
+
 <para style="q1" vid="JON 2:4">yet I will add to look </para>
-<para style="q2" vid="JON 2:4">toward the temple of Your holiness.’ </para>
+
+<para style="q2" vid="JON 2:4">toward the temple of Your holiness.’ <verse eid="JON 2:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="JON 2:5"/>The waters surrounded me </para>
+
 <para style="q2" vid="JON 2:5">up to the soul, </para>
+
 <para style="q1" vid="JON 2:5">the deep closed around me, </para>
-<para style="q2" vid="JON 2:5">the seaweed wrapped around my head. </para>
+
+<para style="q2" vid="JON 2:5">the seaweed wrapped around my head. <verse eid="JON 2:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="JON 2:6"/>To the bases of the mountains I went down; </para>
+
 <para style="q2" vid="JON 2:6">the earth with her bars <char style="add">was</char> behind me forever. </para>
+
 <para style="q1" vid="JON 2:6">And You brought up my life from the pit, </para>
-<para style="q2" vid="JON 2:6">O YHWH my God. </para>
+
+<para style="q2" vid="JON 2:6">O YHWH my God. <verse eid="JON 2:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="JON 2:7"/>At the fainting within me of my soul, </para>
+
 <para style="q2" vid="JON 2:7">I remembered YHWH; </para>
+
 <para style="q1" vid="JON 2:7">my prayer came in to You, </para>
-<para style="q2" vid="JON 2:7">to the temple of Your holiness. </para>
+
+<para style="q2" vid="JON 2:7">to the temple of Your holiness. <verse eid="JON 2:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="JON 2:8"/>Those guarding vanities of worthlessness </para>
-<para style="q2" vid="JON 2:8">leave behind their loving devotion.<note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Forms of the Hebrew </char><char style="fq" closed="false">chesed</char><char style="ft" closed="false"> are translated here and in most cases throughout the Scriptures as </char><char style="fq" closed="false">loving devotion</char><char style="ft" closed="false">; the range of meaning includes </char><char style="fq" closed="false">love</char><char style="ft" closed="false">, </char><char style="fq" closed="false">goodness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">kindness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">faithfulness</char><char style="ft" closed="false">, and </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">, as well as </char><char style="fq" closed="false">loyalty to a covenant</char><char style="ft" closed="false">.</char></note> </para>
+
+<para style="q2" vid="JON 2:8">leave behind their loving devotion.<note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Forms of the Hebrew </char><char style="fq" closed="false">chesed</char><char style="ft" closed="false"> are translated here and in most cases throughout the Scriptures as </char><char style="fq" closed="false">loving devotion</char><char style="ft" closed="false">; the range of meaning includes </char><char style="fq" closed="false">love</char><char style="ft" closed="false">, </char><char style="fq" closed="false">goodness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">kindness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">faithfulness</char><char style="ft" closed="false">, and </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">, as well as </char><char style="fq" closed="false">loyalty to a covenant</char><char style="ft" closed="false">.</char></note> <verse eid="JON 2:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="JON 2:9"/>And I, with a voice of thanksgiving, </para>
+
 <para style="q2" vid="JON 2:9">will sacrifice to You; </para>
+
 <para style="q1" vid="JON 2:9">what I have vowed, I will fulfill. </para>
-<para style="q2" vid="JON 2:9">Salvation <char style="add">is</char> of YHWH.” </para>
-<para style="p"><verse number="10" style="v" sid="JON 2:10"/>And YHWH spoke to the fish, and it vomited Jonah onto the dry land. </para>
+
+<para style="q2" vid="JON 2:9">Salvation <char style="add">is</char> of YHWH.” <verse eid="JON 2:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JON 2:10"/>And YHWH spoke to the fish, and it vomited Jonah onto the dry land. <verse eid="JON 2:10"/></para>
+
 <chapter eid="JON 2"/>
+
 <chapter number="3" style="c" sid="JON 3"/>
+
 <para style="s">The Ninevites Repent</para>
-<para style="p"><verse number="1" style="v" sid="JON 3:1"/><note caller="-" style="x"><char style="xt" closed="false">Luke 11:29–32</char></note><note caller="-" style="x"><char style="xt" closed="false">Matthew 12:38–42</char></note>And the word of YHWH came to Jonah a second time, saying: </para>
-<para style="p"><verse number="2" style="v" sid="JON 3:2"/>“Arise, go to Nineveh, the great city, and call out to it the message that I am speaking to you.” </para>
-<para style="p"><verse number="3" style="v" sid="JON 3:3"/>And Jonah arose and went to Nineveh, according to the word of YHWH. And Nineveh was an exceedingly great city,<note caller="+" style="f"><char style="fr" closed="false">3.3 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">was a great city to God</char></note> a journey of three days. </para>
-<para style="p"><verse number="4" style="v" sid="JON 3:4"/>And Jonah began to come into the city, a walk of one day, and he called out and said: “Forty more days, and Nineveh will be overturned!” </para>
-<para style="p"><verse number="5" style="v" sid="JON 3:5"/>And the people of Nineveh trusted in God; and they called a fast and put on sackcloth, from the greatest of them even to the least of them. </para>
-<para style="p"><verse number="6" style="v" sid="JON 3:6"/>And this word reached to the king of Nineveh, and he arose from his throne and passed off his royal clothing from him, and he covered himself with sackcloth and sat upon the ashes. </para>
-<para style="p"><verse number="7" style="v" sid="JON 3:7"/>And he cried out and spoke in Nineveh: By the determination of the king and his nobles, saying: “The man and the beast, the herd and the flock, let them not taste anything, and let them not graze, and let them not drink water. </para>
-<para style="p"><verse number="8" style="v" sid="JON 3:8"/>And let them be covered with sackcloth, the man and the beast, and call out to God with strength; and each man must turn back from his evil way, and from the violence that is in his hands. </para>
-<para style="p"><verse number="9" style="v" sid="JON 3:9"/>Who knows? God may turn back and relent, and turn back from the burning of His anger, so that we should not perish!” </para>
-<para style="p"><verse number="10" style="v" sid="JON 3:10"/>And God saw their deeds, that they turned back from their evil way, and God relented from the disaster that He had said to do to them, and He did not do <char style="add">it</char>. </para>
+
+<para style="p"><verse number="1" style="v" sid="JON 3:1"/><note caller="-" style="x"><char style="xt" closed="false">Luke 11:29–32</char></note><note caller="-" style="x"><char style="xt" closed="false">Matthew 12:38–42</char></note>And the word of YHWH came to Jonah a second time, saying: <verse eid="JON 3:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="JON 3:2"/>“Arise, go to Nineveh, the great city, and call out to it the message that I am speaking to you.” <verse eid="JON 3:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="JON 3:3"/>And Jonah arose and went to Nineveh, according to the word of YHWH. And Nineveh was an exceedingly great city,<note caller="+" style="f"><char style="fr" closed="false">3.3 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">was a great city to God</char></note> a journey of three days. <verse eid="JON 3:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="JON 3:4"/>And Jonah began to come into the city, a walk of one day, and he called out and said: “Forty more days, and Nineveh will be overturned!” <verse eid="JON 3:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JON 3:5"/>And the people of Nineveh trusted in God; and they called a fast and put on sackcloth, from the greatest of them even to the least of them. <verse eid="JON 3:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="JON 3:6"/>And this word reached to the king of Nineveh, and he arose from his throne and passed off his royal clothing from him, and he covered himself with sackcloth and sat upon the ashes. <verse eid="JON 3:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="JON 3:7"/>And he cried out and spoke in Nineveh: By the determination of the king and his nobles, saying: “The man and the beast, the herd and the flock, let them not taste anything, and let them not graze, and let them not drink water. <verse eid="JON 3:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="JON 3:8"/>And let them be covered with sackcloth, the man and the beast, and call out to God with strength; and each man must turn back from his evil way, and from the violence that is in his hands. <verse eid="JON 3:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="JON 3:9"/>Who knows? God may turn back and relent, and turn back from the burning of His anger, so that we should not perish!” <verse eid="JON 3:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JON 3:10"/>And God saw their deeds, that they turned back from their evil way, and God relented from the disaster that He had said to do to them, and He did not do <char style="add">it</char>. <verse eid="JON 3:10"/></para>
+
 <chapter eid="JON 3"/>
+
 <chapter number="4" style="c" sid="JON 4"/>
+
 <para style="s">Jonah’s Anger at Yahweh’s Compassion</para>
-<para style="p"><verse number="1" style="v" sid="JON 4:1"/>And it was evil to Jonah—a great evil—and he became hot at it. </para>
-<para style="p"><verse number="2" style="v" sid="JON 4:2"/>And he prayed to YHWH and said, “Ah, YHWH, was not this my word while I was in my own land? Upon thus, I acted beforehand to flee to Tarshish; for I knew that You <char style="add">are</char> a gracious and compassionate God, slow to anger, and abundant in loving devotion, and one who relents from disaster. </para>
-<para style="p"><verse number="3" style="v" sid="JON 4:3"/>And now, O YHWH, take, please, my soul from me, for better <char style="add">is</char> my death than my life.” </para>
-<para style="p"><verse number="4" style="v" sid="JON 4:4"/>And YHWH said, “<char style="add">Is it</char> right for you to be hot?” </para>
-<para style="p"><verse number="5" style="v" sid="JON 4:5"/>And Jonah went out from the city, and sat on the east of the city; and he made for himself there a shelter, and he sat under it in the shade, until that he might see what would become of the city. </para>
-<para style="p"><verse number="6" style="v" sid="JON 4:6"/>And YHWH God appointed a qiqayon,<note caller="+" style="f"><char style="fr" closed="false">4.6 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">a qiqayon</char><char style="ft" closed="false"> is possibly a vine or castor oil plant; also in verses 7, 9, and 10 </char></note> and He made it come up above Jonah to be shade over his head to deliver him from his trouble. And Jonah was glad about the plant with great joy. </para>
-<para style="p"><verse number="7" style="v" sid="JON 4:7"/>And God appointed a worm at the rising of the dawn on the next day, and it struck the qiqayon, and it withered. </para>
-<para style="p"><verse number="8" style="v" sid="JON 4:8"/>And it came to pass at the rising of the sun that God appointed a scorching wind from the east, and the sun beat on the head of Jonah. And he became faint, and he asked <char style="add">for</char> his soul to die, and said, “Better <char style="add">is</char> my death than my life!” </para>
+
+<para style="p"><verse number="1" style="v" sid="JON 4:1"/>And it was evil to Jonah—a great evil—and he became hot at it. <verse eid="JON 4:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="JON 4:2"/>And he prayed to YHWH and said, “Ah, YHWH, was not this my word while I was in my own land? Upon thus, I acted beforehand to flee to Tarshish; for I knew that You <char style="add">are</char> a gracious and compassionate God, slow to anger, and abundant in loving devotion, and one who relents from disaster. <verse eid="JON 4:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="JON 4:3"/>And now, O YHWH, take, please, my soul from me, for better <char style="add">is</char> my death than my life.” <verse eid="JON 4:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="JON 4:4"/>And YHWH said, “<char style="add">Is it</char> right for you to be hot?” <verse eid="JON 4:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JON 4:5"/>And Jonah went out from the city, and sat on the east of the city; and he made for himself there a shelter, and he sat under it in the shade, until that he might see what would become of the city. <verse eid="JON 4:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="JON 4:6"/>And YHWH God appointed a qiqayon,<note caller="+" style="f"><char style="fr" closed="false">4.6 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">a qiqayon</char><char style="ft" closed="false"> is possibly a vine or castor oil plant; also in verses 7, 9, and 10 </char></note> and He made it come up above Jonah to be shade over his head to deliver him from his trouble. And Jonah was glad about the plant with great joy. <verse eid="JON 4:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="JON 4:7"/>And God appointed a worm at the rising of the dawn on the next day, and it struck the qiqayon, and it withered. <verse eid="JON 4:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="JON 4:8"/>And it came to pass at the rising of the sun that God appointed a scorching wind from the east, and the sun beat on the head of Jonah. And he became faint, and he asked <char style="add">for</char> his soul to die, and said, “Better <char style="add">is</char> my death than my life!” <verse eid="JON 4:8"/></para>
+
 <para style="p"><verse number="9" style="v" sid="JON 4:9"/>And God said to Jonah, “Is <char style="add">it</char> right for you to be hot about the qiqayon?” </para>
-<para style="p" vid="JON 4:9">And he said, “<char style="add">It is</char> right; it burns in me, even to death!” </para>
-<para style="p"><verse number="10" style="v" sid="JON 4:10"/>And YHWH said, “You have concern over the qiqayon, for which you have not toiled, and you have not made it grow; as a son of a night came to be, and as a son of a night it perished. </para>
-<para style="p"><verse number="11" style="v" sid="JON 4:11"/>And I, should I not have compassion on Nineveh, the great city, in which are more than twelve myriad people who do not know between their right hand to their left hand, and many animals?” </para>
+
+<para style="p" vid="JON 4:9">And he said, “<char style="add">It is</char> right; it burns in me, even to death!” <verse eid="JON 4:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JON 4:10"/>And YHWH said, “You have concern over the qiqayon, for which you have not toiled, and you have not made it grow; as a son of a night came to be, and as a son of a night it perished. <verse eid="JON 4:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="JON 4:11"/>And I, should I not have compassion on Nineveh, the great city, in which are more than twelve myriad people who do not know between their right hand to their left hand, and many animals?” <verse eid="JON 4:11"/></para>
+
 <chapter eid="JON 4"/>
+
 </usx>

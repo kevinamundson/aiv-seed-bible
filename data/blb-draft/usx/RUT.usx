@@ -1,129 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="RUT" style="id">BLB-Draft</book>
+
 <para style="h">Ruth</para>
+
 <para style="toc1">Ruth</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="RUT 1"/>
+
 <para style="s">Naomi Becomes a Widow</para>
-<para style="p"><verse number="1" style="v" sid="RUT 1:1"/><note caller="-" style="x"><char style="xt" closed="false">1 Timothy 5:3–16</char></note>And it came to pass in the days of the judging of the judges, that there was a famine in the land. And a certain man went from Bethlehem <char style="add">in</char> Judah to dwell in the fields of Moab, he and his wife and his two sons. </para>
-<para style="p"><verse number="2" style="v" sid="RUT 1:2"/>And the name of the man <char style="add">was</char> Elimelech, and the name of his wife <char style="add">was</char> Naomi, and the names of his two sons <char style="add">were</char> Mahlon and Chilion, Ephrathites from Bethlehem <char style="add">in</char> Judah. And they went <char style="add">out into</char> the fields of Moab and were there. </para>
-<para style="p"><verse number="3" style="v" sid="RUT 1:3"/>And Elimelech the husband of Naomi died, and she was left, and her two sons. </para>
-<para style="p"><verse number="4" style="v" sid="RUT 1:4"/>And they took for them wives of the Moabitesses: The name of the one <char style="add">was</char> Orpah, and the name of the second <char style="add">was</char> Ruth. And they dwelt there about ten years. </para>
-<para style="p"><verse number="5" style="v" sid="RUT 1:5"/>And the two of them also died, Mahlon and Chilion. And the woman was left from her two sons and from her husband. </para>
+
+<para style="p"><verse number="1" style="v" sid="RUT 1:1"/><note caller="-" style="x"><char style="xt" closed="false">1 Timothy 5:3–16</char></note>And it came to pass in the days of the judging of the judges, that there was a famine in the land. And a certain man went from Bethlehem <char style="add">in</char> Judah to dwell in the fields of Moab, he and his wife and his two sons. <verse eid="RUT 1:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="RUT 1:2"/>And the name of the man <char style="add">was</char> Elimelech, and the name of his wife <char style="add">was</char> Naomi, and the names of his two sons <char style="add">were</char> Mahlon and Chilion, Ephrathites from Bethlehem <char style="add">in</char> Judah. And they went <char style="add">out into</char> the fields of Moab and were there. <verse eid="RUT 1:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="RUT 1:3"/>And Elimelech the husband of Naomi died, and she was left, and her two sons. <verse eid="RUT 1:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="RUT 1:4"/>And they took for them wives of the Moabitesses: The name of the one <char style="add">was</char> Orpah, and the name of the second <char style="add">was</char> Ruth. And they dwelt there about ten years. <verse eid="RUT 1:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="RUT 1:5"/>And the two of them also died, Mahlon and Chilion. And the woman was left from her two sons and from her husband. <verse eid="RUT 1:5"/></para>
+
 <para style="s">Ruth’s Loyalty to Naomi</para>
-<para style="p"><verse number="6" style="v" sid="RUT 1:6"/>And she rose, she and her daughters-in-law, and she returned from the fields of Moab, for she had heard in a field of Moab that YHWH had attended to His people, to give bread to them. </para>
-<para style="p"><verse number="7" style="v" sid="RUT 1:7"/>And she went out from the place where she was there, and her two daughters-in-law with her, and they went in the way to return to the land of Judah. </para>
-<para style="p"><verse number="8" style="v" sid="RUT 1:8"/>And Naomi said to her two daughters-in-law, “Go, turn back, each woman to the house of her mother. May YHWH do with you⁺ loving devotion,<note caller="+" style="f"><char style="fr" closed="false">1.8 </char><char style="ft" closed="false"> Forms of the Hebrew </char><char style="fq" closed="false">chesed</char><char style="ft" closed="false"> are translated here and in most cases throughout the Scriptures as </char><char style="fq" closed="false">loving devotion</char><char style="ft" closed="false">; the range of meaning includes </char><char style="fq" closed="false">love</char><char style="ft" closed="false">, </char><char style="fq" closed="false">goodness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">kindness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">faithfulness</char><char style="ft" closed="false">, and </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">, as well as </char><char style="fq" closed="false">loyalty to a covenant</char><char style="ft" closed="false">.</char></note> as you⁺ have done with the dead and with me. </para>
-<para style="p"><verse number="9" style="v" sid="RUT 1:9"/>May YHWH give to you⁺, and may you find rest, each woman in the house of her husband.” And she kissed them, and they lifted up their voice, and they wept. </para>
-<para style="p"><verse number="10" style="v" sid="RUT 1:10"/>And they said to her, “Surely we will return with you to your people.” </para>
-<para style="p"><verse number="11" style="v" sid="RUT 1:11"/>And Naomi said, “Turn back, my daughters. Why would you⁺ go with me? <char style="add">Are</char> there still unto me sons in my bowels, that they may be your⁺ husbands? </para>
-<para style="p"><verse number="12" style="v" sid="RUT 1:12"/>Turn back, my daughters, go, for I am too old to have a husband. If I should say there is to me hope, and <char style="add">if</char> I should have tonight a husband and also should bear sons, </para>
-<para style="p"><verse number="13" style="v" sid="RUT 1:13"/>would you⁺ wait for them until that they were grown? Would you⁺ shut yourselves off from being <char style="add">wife</char> to a man? No, my daughters, for <char style="add">it is</char> exceedingly bitter for me from you⁺, for the hand of YHWH has gone out against me.” </para>
-<para style="p"><verse number="14" style="v" sid="RUT 1:14"/>And they lifted up their voice and they wept again. And Orpah kissed her mother-in-law, and Ruth clung to her. </para>
-<para style="p"><verse number="15" style="v" sid="RUT 1:15"/>And she said, “Behold, your sister-in-law has gone back to her people and to her gods; return after your sister-in-law.” </para>
+
+<para style="p"><verse number="6" style="v" sid="RUT 1:6"/>And she rose, she and her daughters-in-law, and she returned from the fields of Moab, for she had heard in a field of Moab that YHWH had attended to His people, to give bread to them. <verse eid="RUT 1:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="RUT 1:7"/>And she went out from the place where she was there, and her two daughters-in-law with her, and they went in the way to return to the land of Judah. <verse eid="RUT 1:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="RUT 1:8"/>And Naomi said to her two daughters-in-law, “Go, turn back, each woman to the house of her mother. May YHWH do with you⁺ loving devotion,<note caller="+" style="f"><char style="fr" closed="false">1.8 </char><char style="ft" closed="false"> Forms of the Hebrew </char><char style="fq" closed="false">chesed</char><char style="ft" closed="false"> are translated here and in most cases throughout the Scriptures as </char><char style="fq" closed="false">loving devotion</char><char style="ft" closed="false">; the range of meaning includes </char><char style="fq" closed="false">love</char><char style="ft" closed="false">, </char><char style="fq" closed="false">goodness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">kindness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">faithfulness</char><char style="ft" closed="false">, and </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">, as well as </char><char style="fq" closed="false">loyalty to a covenant</char><char style="ft" closed="false">.</char></note> as you⁺ have done with the dead and with me. <verse eid="RUT 1:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="RUT 1:9"/>May YHWH give to you⁺, and may you find rest, each woman in the house of her husband.” And she kissed them, and they lifted up their voice, and they wept. <verse eid="RUT 1:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="RUT 1:10"/>And they said to her, “Surely we will return with you to your people.” <verse eid="RUT 1:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="RUT 1:11"/>And Naomi said, “Turn back, my daughters. Why would you⁺ go with me? <char style="add">Are</char> there still unto me sons in my bowels, that they may be your⁺ husbands? <verse eid="RUT 1:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="RUT 1:12"/>Turn back, my daughters, go, for I am too old to have a husband. If I should say there is to me hope, and <char style="add">if</char> I should have tonight a husband and also should bear sons, <verse eid="RUT 1:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="RUT 1:13"/>would you⁺ wait for them until that they were grown? Would you⁺ shut yourselves off from being <char style="add">wife</char> to a man? No, my daughters, for <char style="add">it is</char> exceedingly bitter for me from you⁺, for the hand of YHWH has gone out against me.” <verse eid="RUT 1:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="RUT 1:14"/>And they lifted up their voice and they wept again. And Orpah kissed her mother-in-law, and Ruth clung to her. <verse eid="RUT 1:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="RUT 1:15"/>And she said, “Behold, your sister-in-law has gone back to her people and to her gods; return after your sister-in-law.” <verse eid="RUT 1:15"/></para>
+
 <para style="p"><verse number="16" style="v" sid="RUT 1:16"/>And Ruth said, </para>
+
 <para style="q1" vid="RUT 1:16">“Do not urge me to leave you, </para>
+
 <para style="q2" vid="RUT 1:16">to turn back from following after you. </para>
+
 <para style="q1" vid="RUT 1:16">For to wherever you go, I will go, </para>
+
 <para style="q2" vid="RUT 1:16">and wherever you lodge, I will lodge. </para>
+
 <para style="q1" vid="RUT 1:16">Your people <char style="add">are</char> my people, </para>
-<para style="q2" vid="RUT 1:16">and your God my God. </para>
+
+<para style="q2" vid="RUT 1:16">and your God my God. <verse eid="RUT 1:16"/></para>
+
 <para style="q1"><verse number="17" style="v" sid="RUT 1:17"/>Where you die, I will die, </para>
+
 <para style="q2" vid="RUT 1:17">and there will I be buried. </para>
+
 <para style="q1" vid="RUT 1:17">And may YHWH do to me, </para>
+
 <para style="q2" vid="RUT 1:17">and ever so more, </para>
+
 <para style="q1" vid="RUT 1:17">if death does part </para>
-<para style="q2" vid="RUT 1:17">between you and between me.” </para>
-<para style="p"><verse number="18" style="v" sid="RUT 1:18"/>And she saw that she was determined to go with her, and she stopped speaking to her. </para>
+
+<para style="q2" vid="RUT 1:17">between you and between me.” <verse eid="RUT 1:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="RUT 1:18"/>And she saw that she was determined to go with her, and she stopped speaking to her. <verse eid="RUT 1:18"/></para>
+
 <para style="s">The Return to Bethlehem</para>
-<para style="p"><verse number="19" style="v" sid="RUT 1:19"/>And the two of them went on until they came to Bethlehem. And it came to pass, as they came to Bethlehem, that all the city was stirred because of them, and the women said, “Is this Naomi?” </para>
-<para style="p"><verse number="20" style="v" sid="RUT 1:20"/>And she said to them, “Do not call me Naomi;<note caller="+" style="f"><char style="fr" closed="false">1.20 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Naomi</char><char style="ft" closed="false"> means </char><char style="fq" closed="false">pleasant</char><char style="ft" closed="false">.</char></note> call me Mara,<note caller="+" style="f"><char style="fr" closed="false">1.20 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Mara</char><char style="ft" closed="false"> means </char><char style="fq" closed="false">bitter</char><char style="ft" closed="false">.</char></note> for Shaddai<note caller="+" style="f"><char style="fr" closed="false">1.20 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Shaddai</char><char style="ft" closed="false"> means </char><char style="fq" closed="false">the Almighty</char><char style="ft" closed="false">; also in verse 21</char></note> has dealt exceedingly bitterly with me. </para>
-<para style="p"><verse number="21" style="v" sid="RUT 1:21"/>I went out full, and YHWH has brought me back empty. Why do you⁺ call me Naomi, since YHWH has testified against me, and Shaddai has afflicted me?” </para>
-<para style="p"><verse number="22" style="v" sid="RUT 1:22"/>And Naomi turned back, and Ruth the Moabitess her daughter-in-law with her, who turned back from the fields of Moab. And they came to Bethlehem at the beginning of the barley harvest. </para>
+
+<para style="p"><verse number="19" style="v" sid="RUT 1:19"/>And the two of them went on until they came to Bethlehem. And it came to pass, as they came to Bethlehem, that all the city was stirred because of them, and the women said, “Is this Naomi?” <verse eid="RUT 1:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="RUT 1:20"/>And she said to them, “Do not call me Naomi;<note caller="+" style="f"><char style="fr" closed="false">1.20 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Naomi</char><char style="ft" closed="false"> means </char><char style="fq" closed="false">pleasant</char><char style="ft" closed="false">.</char></note> call me Mara,<note caller="+" style="f"><char style="fr" closed="false">1.20 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Mara</char><char style="ft" closed="false"> means </char><char style="fq" closed="false">bitter</char><char style="ft" closed="false">.</char></note> for Shaddai<note caller="+" style="f"><char style="fr" closed="false">1.20 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Shaddai</char><char style="ft" closed="false"> means </char><char style="fq" closed="false">the Almighty</char><char style="ft" closed="false">; also in verse 21</char></note> has dealt exceedingly bitterly with me. <verse eid="RUT 1:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="RUT 1:21"/>I went out full, and YHWH has brought me back empty. Why do you⁺ call me Naomi, since YHWH has testified against me, and Shaddai has afflicted me?” <verse eid="RUT 1:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="RUT 1:22"/>And Naomi turned back, and Ruth the Moabitess her daughter-in-law with her, who turned back from the fields of Moab. And they came to Bethlehem at the beginning of the barley harvest. <verse eid="RUT 1:22"/></para>
+
 <chapter eid="RUT 1"/>
+
 <chapter number="2" style="c" sid="RUT 2"/>
+
 <para style="s">Boaz Meets Ruth</para>
-<para style="p"><verse number="1" style="v" sid="RUT 2:1"/>And Naomi had a kinsman of her husband, a man of great wealth, from the family of Elimelech. And His name <char style="add">was</char> Boaz. </para>
+
+<para style="p"><verse number="1" style="v" sid="RUT 2:1"/>And Naomi had a kinsman of her husband, a man of great wealth, from the family of Elimelech. And His name <char style="add">was</char> Boaz. <verse eid="RUT 2:1"/></para>
+
 <para style="p"><verse number="2" style="v" sid="RUT 2:2"/>And Ruth the Moabitess said to Naomi, “Let me go, please, to the field, and glean among the ears of grain after one in whose eyes I may find favor.” </para>
-<para style="p" vid="RUT 2:2">And she said to her, “Go, my daughter.” </para>
-<para style="p"><verse number="3" style="v" sid="RUT 2:3"/>And she went, and she came, and she gleaned in the field after the reapers. And she happened to come to the part of the field belonging to Boaz, who <char style="add">was</char> from the family of Elimelech. </para>
+
+<para style="p" vid="RUT 2:2">And she said to her, “Go, my daughter.” <verse eid="RUT 2:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="RUT 2:3"/>And she went, and she came, and she gleaned in the field after the reapers. And she happened to come to the part of the field belonging to Boaz, who <char style="add">was</char> from the family of Elimelech. <verse eid="RUT 2:3"/></para>
+
 <para style="p"><verse number="4" style="v" sid="RUT 2:4"/>And behold, Boaz came from Bethlehem and said to the reapers, “YHWH <char style="add">be</char> with you⁺!” </para>
-<para style="p" vid="RUT 2:4">And they answered him, “YHWH blesses you.” </para>
-<para style="p"><verse number="5" style="v" sid="RUT 2:5"/>And Boaz said to his young man who was set over the reapers, “To whom <char style="add">is</char> this young woman?” </para>
-<para style="p"><verse number="6" style="v" sid="RUT 2:6"/>And the servant who was set over the reapers answered and said, “A young woman, a Moabitess, she <char style="add">is</char>, the one returning with Naomi from a field of Moab. </para>
-<para style="p"><verse number="7" style="v" sid="RUT 2:7"/>And she said, ‘Let me glean, please, and gather among the sheaves after the reapers.’ And she came and remained from the morning and until now, though she rested in the house a little.” </para>
-<para style="p"><verse number="8" style="v" sid="RUT 2:8"/>And Boaz said to Ruth, “Will you not listen, my daughter? Do not go to glean in another field, and also do not go from this <char style="add">place</char>, and thus you shall cling together with my young women. </para>
-<para style="p"><verse number="9" style="v" sid="RUT 2:9"/>Let your eyes <char style="add">be</char> in the field that they are reaping, and go after them. Have I not commanded the young men not to touch you? When you are thirsty, you shall go to the vessels, and you shall drink from what the young men draw.” </para>
-<para style="p"><verse number="10" style="v" sid="RUT 2:10"/>And she fell on her face and she bowed herself to the earth and said to him, “Why have I found favor in your eyes, that you should take notice of me though I <char style="add">am</char> a foreigner?” </para>
-<para style="p"><verse number="11" style="v" sid="RUT 2:11"/>And Boaz answered and said to her, “It has surely been declared to me all that you have done with your mother-in-law after the death of your husband, and <char style="add">how</char> you have left your father and your mother and the land of your birth, and have come to a people whom you did not know yesterday and the day before yesterday. </para>
-<para style="p"><verse number="12" style="v" sid="RUT 2:12"/>May YHWH repay your work, and may you receive your full wages from YHWH, God of Israel, under whose wings you have come to take refuge.” </para>
-<para style="p"><verse number="13" style="v" sid="RUT 2:13"/>And she said, “Let me find favor in your eyes, my lord. For you have comforted me and have spoken to the heart of your maidservant, and I am not like one of your maidservants.” </para>
-<para style="p"><verse number="14" style="v" sid="RUT 2:14"/>And Boaz said to her at the time of food, “Come here and eat from the bread, and dip your piece of bread in the vinegar.” And she sat beside the reapers, and he passed to her roasted grain, and she ate and was satisfied, and she had some left over. </para>
-<para style="p"><verse number="15" style="v" sid="RUT 2:15"/>And she rose up to glean, and Boaz commanded his young men, saying, “Even among the sheaves let her glean, and do not shame her. </para>
-<para style="p"><verse number="16" style="v" sid="RUT 2:16"/>And also you⁺ shall surely draw out for her from the bundles and you⁺ shall leave <char style="add">them</char>, and shall let her glean. And you⁺ shall not rebuke her.” </para>
-<para style="p"><verse number="17" style="v" sid="RUT 2:17"/>And she gleaned in the field until the evening. And she beat out what she had gleaned, and it was about an ephah of barley. <note caller="+" style="f"><char style="fr" closed="false">2.17 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">An ephah</char><char style="ft" closed="false"> is approximately 20 dry quarts or 22 liters (probably about 29 pounds or 13.2 kilograms of barley).</char></note></para>
-<para style="p"><verse number="18" style="v" sid="RUT 2:18"/>And she took <char style="add">it</char> up and went into the city, and her mother-in-law saw what she had gleaned. And she brought out and gave to her what she had left over from being satisfied. </para>
+
+<para style="p" vid="RUT 2:4">And they answered him, “YHWH blesses you.” <verse eid="RUT 2:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="RUT 2:5"/>And Boaz said to his young man who was set over the reapers, “To whom <char style="add">is</char> this young woman?” <verse eid="RUT 2:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="RUT 2:6"/>And the servant who was set over the reapers answered and said, “A young woman, a Moabitess, she <char style="add">is</char>, the one returning with Naomi from a field of Moab. <verse eid="RUT 2:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="RUT 2:7"/>And she said, ‘Let me glean, please, and gather among the sheaves after the reapers.’ And she came and remained from the morning and until now, though she rested in the house a little.” <verse eid="RUT 2:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="RUT 2:8"/>And Boaz said to Ruth, “Will you not listen, my daughter? Do not go to glean in another field, and also do not go from this <char style="add">place</char>, and thus you shall cling together with my young women. <verse eid="RUT 2:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="RUT 2:9"/>Let your eyes <char style="add">be</char> in the field that they are reaping, and go after them. Have I not commanded the young men not to touch you? When you are thirsty, you shall go to the vessels, and you shall drink from what the young men draw.” <verse eid="RUT 2:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="RUT 2:10"/>And she fell on her face and she bowed herself to the earth and said to him, “Why have I found favor in your eyes, that you should take notice of me though I <char style="add">am</char> a foreigner?” <verse eid="RUT 2:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="RUT 2:11"/>And Boaz answered and said to her, “It has surely been declared to me all that you have done with your mother-in-law after the death of your husband, and <char style="add">how</char> you have left your father and your mother and the land of your birth, and have come to a people whom you did not know yesterday and the day before yesterday. <verse eid="RUT 2:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="RUT 2:12"/>May YHWH repay your work, and may you receive your full wages from YHWH, God of Israel, under whose wings you have come to take refuge.” <verse eid="RUT 2:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="RUT 2:13"/>And she said, “Let me find favor in your eyes, my lord. For you have comforted me and have spoken to the heart of your maidservant, and I am not like one of your maidservants.” <verse eid="RUT 2:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="RUT 2:14"/>And Boaz said to her at the time of food, “Come here and eat from the bread, and dip your piece of bread in the vinegar.” And she sat beside the reapers, and he passed to her roasted grain, and she ate and was satisfied, and she had some left over. <verse eid="RUT 2:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="RUT 2:15"/>And she rose up to glean, and Boaz commanded his young men, saying, “Even among the sheaves let her glean, and do not shame her. <verse eid="RUT 2:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="RUT 2:16"/>And also you⁺ shall surely draw out for her from the bundles and you⁺ shall leave <char style="add">them</char>, and shall let her glean. And you⁺ shall not rebuke her.” <verse eid="RUT 2:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="RUT 2:17"/>And she gleaned in the field until the evening. And she beat out what she had gleaned, and it was about an ephah of barley. <note caller="+" style="f"><char style="fr" closed="false">2.17 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">An ephah</char><char style="ft" closed="false"> is approximately 20 dry quarts or 22 liters (probably about 29 pounds or 13.2 kilograms of barley).</char></note><verse eid="RUT 2:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="RUT 2:18"/>And she took <char style="add">it</char> up and went into the city, and her mother-in-law saw what she had gleaned. And she brought out and gave to her what she had left over from being satisfied. <verse eid="RUT 2:18"/></para>
+
 <para style="p"><verse number="19" style="v" sid="RUT 2:19"/>And her mother-in-law said to her, “Where have you gleaned today, and where did you work? May the one who took notice of you be blessed.” </para>
-<para style="p" vid="RUT 2:19">And she told her mother-in-law with whom she had worked, and said, “The name of the man with whom I worked today <char style="add">is</char> Boaz.” </para>
-<para style="p"><verse number="20" style="v" sid="RUT 2:20"/>And Naomi said to her daughter-in-law, “Blessed <char style="add">be</char> he by YHWH, who has not forsaken His kindness with the living and with the dead.” And Naomi said to her, “The man <char style="add">is</char> a relation of ours. He <char style="add">is</char> one of our kinsman-redeemers.<note caller="+" style="f"><char style="fr" closed="false">2.20 </char><char style="ft" closed="false"> The Hebrew word for </char><char style="fq" closed="false">kinsman-redeemer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">guardian-redeemer</char><char style="ft" closed="false"> is a legal term for the kinsman who redeems or vindicates a relative; see Leviticus 25:25–55.</char></note>” </para>
-<para style="p"><verse number="21" style="v" sid="RUT 2:21"/>And Ruth the Moabitess said, “Also surely he said to me, ‘With the young men who <char style="add">are</char> to me you shall cling, until that they have finished all the harvest that <char style="add">is</char> unto me.’” </para>
-<para style="p"><verse number="22" style="v" sid="RUT 2:22"/>And Naomi said to Ruth her daughter-in-law, “<char style="add">It is</char> good, my daughter, that you go out with his young women, and they will not fall upon you in another field.” </para>
-<para style="p"><verse number="23" style="v" sid="RUT 2:23"/>And she clung with the young women of Boaz, to glean until the end of the barley harvest and the wheat harvest. And she dwelt with her mother-in-law. </para>
+
+<para style="p" vid="RUT 2:19">And she told her mother-in-law with whom she had worked, and said, “The name of the man with whom I worked today <char style="add">is</char> Boaz.” <verse eid="RUT 2:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="RUT 2:20"/>And Naomi said to her daughter-in-law, “Blessed <char style="add">be</char> he by YHWH, who has not forsaken His kindness with the living and with the dead.” And Naomi said to her, “The man <char style="add">is</char> a relation of ours. He <char style="add">is</char> one of our kinsman-redeemers.<note caller="+" style="f"><char style="fr" closed="false">2.20 </char><char style="ft" closed="false"> The Hebrew word for </char><char style="fq" closed="false">kinsman-redeemer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">guardian-redeemer</char><char style="ft" closed="false"> is a legal term for the kinsman who redeems or vindicates a relative; see Leviticus 25:25–55.</char></note>” <verse eid="RUT 2:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="RUT 2:21"/>And Ruth the Moabitess said, “Also surely he said to me, ‘With the young men who <char style="add">are</char> to me you shall cling, until that they have finished all the harvest that <char style="add">is</char> unto me.’” <verse eid="RUT 2:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="RUT 2:22"/>And Naomi said to Ruth her daughter-in-law, “<char style="add">It is</char> good, my daughter, that you go out with his young women, and they will not fall upon you in another field.” <verse eid="RUT 2:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="RUT 2:23"/>And she clung with the young women of Boaz, to glean until the end of the barley harvest and the wheat harvest. And she dwelt with her mother-in-law. <verse eid="RUT 2:23"/></para>
+
 <chapter eid="RUT 2"/>
+
 <chapter number="3" style="c" sid="RUT 3"/>
+
 <para style="s">Ruth’s Redemption Assured</para>
-<para style="p"><verse number="1" style="v" sid="RUT 3:1"/>And Naomi her mother-in-law said to her, “My daughter, shall I not seek for you a resting place, that it may be well with you? </para>
-<para style="p"><verse number="2" style="v" sid="RUT 3:2"/>And is not Boaz our relative, whose young women you were with? Behold, he is winnowing on the threshing floor of barley tonight. </para>
-<para style="p"><verse number="3" style="v" sid="RUT 3:3"/>And you shall wash, and you shall anoint yourself, and you shall put your garments on you, and you shall go down to the threshing floor. Do not make yourself known to the man until he finishes eating and drinking. </para>
-<para style="p"><verse number="4" style="v" sid="RUT 3:4"/>And it shall come to pass, when he lies down, that you shall know the place where he lies down, and you shall go in and you shall uncover his feet and lie down, and he—he will tell you what you shall do.” </para>
-<para style="p"><verse number="5" style="v" sid="RUT 3:5"/>And she said to her, “All that you say to me, I will do.” </para>
-<para style="p"><verse number="6" style="v" sid="RUT 3:6"/>And she went down to the threshing floor, and she did according to all that her mother-in-law had commanded her. </para>
-<para style="p"><verse number="7" style="v" sid="RUT 3:7"/>And Boaz ate and drank, and his heart was good, and he went to lie down at the end of the heap. And she came in secrecy and uncovered his feet and lay down. </para>
-<para style="p"><verse number="8" style="v" sid="RUT 3:8"/>And it came to pass in the middle of the night that the man trembled and turned himself, and behold, a woman was lying at his feet. </para>
+
+<para style="p"><verse number="1" style="v" sid="RUT 3:1"/>And Naomi her mother-in-law said to her, “My daughter, shall I not seek for you a resting place, that it may be well with you? <verse eid="RUT 3:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="RUT 3:2"/>And is not Boaz our relative, whose young women you were with? Behold, he is winnowing on the threshing floor of barley tonight. <verse eid="RUT 3:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="RUT 3:3"/>And you shall wash, and you shall anoint yourself, and you shall put your garments on you, and you shall go down to the threshing floor. Do not make yourself known to the man until he finishes eating and drinking. <verse eid="RUT 3:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="RUT 3:4"/>And it shall come to pass, when he lies down, that you shall know the place where he lies down, and you shall go in and you shall uncover his feet and lie down, and he—he will tell you what you shall do.” <verse eid="RUT 3:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="RUT 3:5"/>And she said to her, “All that you say to me, I will do.” <verse eid="RUT 3:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="RUT 3:6"/>And she went down to the threshing floor, and she did according to all that her mother-in-law had commanded her. <verse eid="RUT 3:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="RUT 3:7"/>And Boaz ate and drank, and his heart was good, and he went to lie down at the end of the heap. And she came in secrecy and uncovered his feet and lay down. <verse eid="RUT 3:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="RUT 3:8"/>And it came to pass in the middle of the night that the man trembled and turned himself, and behold, a woman was lying at his feet. <verse eid="RUT 3:8"/></para>
+
 <para style="p"><verse number="9" style="v" sid="RUT 3:9"/>And he said, “Who <char style="add">are</char> you?” </para>
-<para style="p" vid="RUT 3:9">And she said, “I <char style="add">am</char> Ruth your maidservant. And you shall spread your wing<note caller="+" style="f"><char style="fr" closed="false">3.9 </char><char style="ft" closed="false"> The word for </char><char style="fq" closed="false">wing</char><char style="ft" closed="false"> can also mean </char><char style="fq" closed="false">corner of a garment</char><char style="ft" closed="false">; see Ruth 2:12.</char></note> over your maidservant, for you <char style="add">are</char> a kinsman-redeemer.<note caller="+" style="f"><char style="fr" closed="false">3.9 </char><char style="ft" closed="false"> The Hebrew word for </char><char style="fq" closed="false">kinsman-redeemer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">guardian-redeemer</char><char style="ft" closed="false"> is a legal term for the kinsman who redeems or vindicates a relative; similarly in verses 12 and 13; see Leviticus 25:25–55.</char></note>” </para>
-<para style="p"><verse number="10" style="v" sid="RUT 3:10"/>And he said, “Blessed <char style="add">are</char> you to YHWH, my daughter. For you have shown more kindness at the end than at the beginning, in that you did not go after the young men, whether poor or rich. </para>
-<para style="p"><verse number="11" style="v" sid="RUT 3:11"/>And now, my daughter, do not fear. All that you say, I will do for you, for all the gate of my people knows that you <char style="add">are</char> a woman of virtue. </para>
-<para style="p"><verse number="12" style="v" sid="RUT 3:12"/>And now it is true that I <char style="add">am</char> a kinsman-redeemer, But also there is a kinsman-redeemer nearer than I.<note caller="+" style="f"><char style="fr" closed="false">3.12 </char><char style="ft" closed="false"> That is, more closely related</char></note> </para>
-<para style="p"><verse number="13" style="v" sid="RUT 3:13"/>Lodge the night, and it shall be in the morning <char style="add">that</char> if he does redeem you, good; let him redeem. And if he does not want to redeem you, then I will redeem you myself, <char style="add">as</char> YHWH lives. Lie down until the morning.” </para>
-<para style="p"><verse number="14" style="v" sid="RUT 3:14"/>And she lay at his feet until the morning, and she arose before a man could recognize his companion. And he said, “Do not let it be known that the woman came to the threshing floor.” </para>
-<para style="p"><verse number="15" style="v" sid="RUT 3:15"/>And he said, “Give the cloak that <char style="add">is</char> on you, and hold it.” And she held it, and he measured six <char style="add">measures</char> of barley<note caller="+" style="f"><char style="fr" closed="false">3.15 </char><char style="ft" closed="false"> Possibly six seahs (two ephahs), or approximately 39.6 dry quarts or 43.8 liters (about 58 pounds or 26.3 kilograms of barley) </char></note> and laid <char style="add">it</char> on her, and he went<note caller="+" style="f"><char style="fr" closed="false">3.15 </char><char style="ft" closed="false"> Most Hebrew manuscripts; many Hebrew manuscripts, Vulgate, and Syriac </char><char style="fq" closed="false">she went</char></note> into the city. </para>
-<para style="p"><verse number="16" style="v" sid="RUT 3:16"/>And she came to her mother-in-law, and she said, “Who <char style="add">are</char> you, my daughter?” And she told her all that the man had done for her. </para>
-<para style="p"><verse number="17" style="v" sid="RUT 3:17"/>And she said, “These six <char style="add">measures</char> of barley he gave to me, for he said, ‘Do not go in empty-handed to your mother-in-law.’” </para>
-<para style="p"><verse number="18" style="v" sid="RUT 3:18"/>And she said, “Sit, my daughter, until that you know how the matter will fall. For the man will not rest until that he finishes the matter today.” </para>
+
+<para style="p" vid="RUT 3:9">And she said, “I <char style="add">am</char> Ruth your maidservant. And you shall spread your wing<note caller="+" style="f"><char style="fr" closed="false">3.9 </char><char style="ft" closed="false"> The word for </char><char style="fq" closed="false">wing</char><char style="ft" closed="false"> can also mean </char><char style="fq" closed="false">corner of a garment</char><char style="ft" closed="false">; see Ruth 2:12.</char></note> over your maidservant, for you <char style="add">are</char> a kinsman-redeemer.<note caller="+" style="f"><char style="fr" closed="false">3.9 </char><char style="ft" closed="false"> The Hebrew word for </char><char style="fq" closed="false">kinsman-redeemer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">guardian-redeemer</char><char style="ft" closed="false"> is a legal term for the kinsman who redeems or vindicates a relative; similarly in verses 12 and 13; see Leviticus 25:25–55.</char></note>” <verse eid="RUT 3:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="RUT 3:10"/>And he said, “Blessed <char style="add">are</char> you to YHWH, my daughter. For you have shown more kindness at the end than at the beginning, in that you did not go after the young men, whether poor or rich. <verse eid="RUT 3:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="RUT 3:11"/>And now, my daughter, do not fear. All that you say, I will do for you, for all the gate of my people knows that you <char style="add">are</char> a woman of virtue. <verse eid="RUT 3:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="RUT 3:12"/>And now it is true that I <char style="add">am</char> a kinsman-redeemer, But also there is a kinsman-redeemer nearer than I.<note caller="+" style="f"><char style="fr" closed="false">3.12 </char><char style="ft" closed="false"> That is, more closely related</char></note> <verse eid="RUT 3:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="RUT 3:13"/>Lodge the night, and it shall be in the morning <char style="add">that</char> if he does redeem you, good; let him redeem. And if he does not want to redeem you, then I will redeem you myself, <char style="add">as</char> YHWH lives. Lie down until the morning.” <verse eid="RUT 3:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="RUT 3:14"/>And she lay at his feet until the morning, and she arose before a man could recognize his companion. And he said, “Do not let it be known that the woman came to the threshing floor.” <verse eid="RUT 3:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="RUT 3:15"/>And he said, “Give the cloak that <char style="add">is</char> on you, and hold it.” And she held it, and he measured six <char style="add">measures</char> of barley<note caller="+" style="f"><char style="fr" closed="false">3.15 </char><char style="ft" closed="false"> Possibly six seahs (two ephahs), or approximately 39.6 dry quarts or 43.8 liters (about 58 pounds or 26.3 kilograms of barley) </char></note> and laid <char style="add">it</char> on her, and he went<note caller="+" style="f"><char style="fr" closed="false">3.15 </char><char style="ft" closed="false"> Most Hebrew manuscripts; many Hebrew manuscripts, Vulgate, and Syriac </char><char style="fq" closed="false">she went</char></note> into the city. <verse eid="RUT 3:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="RUT 3:16"/>And she came to her mother-in-law, and she said, “Who <char style="add">are</char> you, my daughter?” And she told her all that the man had done for her. <verse eid="RUT 3:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="RUT 3:17"/>And she said, “These six <char style="add">measures</char> of barley he gave to me, for he said, ‘Do not go in empty-handed to your mother-in-law.’” <verse eid="RUT 3:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="RUT 3:18"/>And she said, “Sit, my daughter, until that you know how the matter will fall. For the man will not rest until that he finishes the matter today.” <verse eid="RUT 3:18"/></para>
+
 <chapter eid="RUT 3"/>
+
 <chapter number="4" style="c" sid="RUT 4"/>
+
 <para style="s">Boaz Redeems Ruth</para>
-<para style="p"><verse number="1" style="v" sid="RUT 4:1"/>And Boaz went up to the gate, and he sat there, and behold, the kinsman-redeemer<note caller="+" style="f"><char style="fr" closed="false">4.1 </char><char style="ft" closed="false"> The Hebrew word for </char><char style="fq" closed="false">kinsman-redeemer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">guardian-redeemer</char><char style="ft" closed="false"> is a legal term for the kinsman who redeems or vindicates a relative; also in verses 3, 6, 8, and 14; see Leviticus 25:25–55.</char></note> was passing by, of whom Boaz had spoken. And he said, “Turn aside, sit here such a one, such a one.” And he turned aside and sat. </para>
-<para style="p"><verse number="2" style="v" sid="RUT 4:2"/>And he took ten men from the elders of the city and he said, “Sit here.” And they sat. </para>
-<para style="p"><verse number="3" style="v" sid="RUT 4:3"/>And he said to the kinsman-redeemer, “The piece of the field that belongs to our brother, to Elimelech, Naomi, the woman returning from the fields of Moab, is selling, </para>
+
+<para style="p"><verse number="1" style="v" sid="RUT 4:1"/>And Boaz went up to the gate, and he sat there, and behold, the kinsman-redeemer<note caller="+" style="f"><char style="fr" closed="false">4.1 </char><char style="ft" closed="false"> The Hebrew word for </char><char style="fq" closed="false">kinsman-redeemer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">guardian-redeemer</char><char style="ft" closed="false"> is a legal term for the kinsman who redeems or vindicates a relative; also in verses 3, 6, 8, and 14; see Leviticus 25:25–55.</char></note> was passing by, of whom Boaz had spoken. And he said, “Turn aside, sit here such a one, such a one.” And he turned aside and sat. <verse eid="RUT 4:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="RUT 4:2"/>And he took ten men from the elders of the city and he said, “Sit here.” And they sat. <verse eid="RUT 4:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="RUT 4:3"/>And he said to the kinsman-redeemer, “The piece of the field that belongs to our brother, to Elimelech, Naomi, the woman returning from the fields of Moab, is selling, <verse eid="RUT 4:3"/></para>
+
 <para style="p"><verse number="4" style="v" sid="RUT 4:4"/>and I said, ‘I will uncover your ear,' saying, ‘Buy <char style="add">it</char> before those sitting here and before the elders of my people. If you will redeem <char style="add">it</char>, redeem <char style="add">it</char>. But if you will not<note caller="+" style="f"><char style="fr" closed="false">4.4 </char><char style="ft" closed="false"> Many Hebrew manuscripts, LXX, Vulgate, and Syriac; most Hebrew manuscripts </char><char style="fq" closed="false">he will not</char></note> redeem <char style="add">it</char>, tell me, that I may know; for <char style="add">there is</char> none besides you to redeem <char style="add">it</char>, and I <char style="add">am</char> after you." </para>
-<para style="p" vid="RUT 4:4">And he said, “I will redeem <char style="add">it</char>.” </para>
-<para style="p"><verse number="5" style="v" sid="RUT 4:5"/>And Boaz said, “In the day of your buying the field from the hand of Naomi, and from Ruth the Moabitess, the wife of the dead, you must buy <char style="add">it</char> to raise up the name of the dead on his inheritance.” </para>
-<para style="p"><verse number="6" style="v" sid="RUT 4:6"/>And the kinsman-redeemer said, “I am not able to redeem <char style="add">it</char> for myself, lest I damage my own inheritance. Redeem <char style="add">it</char> for yourself. You <char style="add">have</char> my redemption, for I am not able to redeem <char style="add">it</char>.” </para>
-<para style="p"><verse number="7" style="v" sid="RUT 4:7"/>And this <char style="add">was</char> formerly in Israel concerning the redemption and concerning the exchange: To confirm every matter, a man would remove his sandal and give <char style="add">it</char> to his companion, and this <char style="add">was</char> the testimony in Israel. </para>
-<para style="p"><verse number="8" style="v" sid="RUT 4:8"/>And the kinsman-redeemer said to Boaz, “Buy <char style="add">it</char> for yourself.” And he removed his sandal. </para>
-<para style="p"><verse number="9" style="v" sid="RUT 4:9"/>And Boaz said to the elders and all the people, “You⁺ <char style="add">are</char> witnesses this day that I have bought all that belonged to Elimelech, and all that belonged to Chilion and Mahlon, from the hand of Naomi. </para>
-<para style="p"><verse number="10" style="v" sid="RUT 4:10"/>And also Ruth the Moabitess, the widow of Mahlon, I have acquired for myself for a wife, to raise up the name of the dead on his inheritance, and the name of the dead will not be cut off from among his brothers and from the gate of his place; you⁺ <char style="add">are</char> witnesses this day.” </para>
-<para style="p"><verse number="11" style="v" sid="RUT 4:11"/>And all the people who <char style="add">were</char> at the gate, and the elders, said, “Witnesses! May YHWH make the woman, the one coming to your house, like Rachel and like Leah, the two who built the house of Israel; and you do virtuously in Ephrathah, and proclaim the name in Bethlehem. </para>
-<para style="p"><verse number="12" style="v" sid="RUT 4:12"/>And may your house be like the house of Perez, whom Tamar bore to Judah, from the seed that YHWH gives to you from this young woman.” </para>
+
+<para style="p" vid="RUT 4:4">And he said, “I will redeem <char style="add">it</char>.” <verse eid="RUT 4:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="RUT 4:5"/>And Boaz said, “In the day of your buying the field from the hand of Naomi, and from Ruth the Moabitess, the wife of the dead, you must buy <char style="add">it</char> to raise up the name of the dead on his inheritance.” <verse eid="RUT 4:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="RUT 4:6"/>And the kinsman-redeemer said, “I am not able to redeem <char style="add">it</char> for myself, lest I damage my own inheritance. Redeem <char style="add">it</char> for yourself. You <char style="add">have</char> my redemption, for I am not able to redeem <char style="add">it</char>.” <verse eid="RUT 4:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="RUT 4:7"/>And this <char style="add">was</char> formerly in Israel concerning the redemption and concerning the exchange: To confirm every matter, a man would remove his sandal and give <char style="add">it</char> to his companion, and this <char style="add">was</char> the testimony in Israel. <verse eid="RUT 4:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="RUT 4:8"/>And the kinsman-redeemer said to Boaz, “Buy <char style="add">it</char> for yourself.” And he removed his sandal. <verse eid="RUT 4:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="RUT 4:9"/>And Boaz said to the elders and all the people, “You⁺ <char style="add">are</char> witnesses this day that I have bought all that belonged to Elimelech, and all that belonged to Chilion and Mahlon, from the hand of Naomi. <verse eid="RUT 4:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="RUT 4:10"/>And also Ruth the Moabitess, the widow of Mahlon, I have acquired for myself for a wife, to raise up the name of the dead on his inheritance, and the name of the dead will not be cut off from among his brothers and from the gate of his place; you⁺ <char style="add">are</char> witnesses this day.” <verse eid="RUT 4:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="RUT 4:11"/>And all the people who <char style="add">were</char> at the gate, and the elders, said, “Witnesses! May YHWH make the woman, the one coming to your house, like Rachel and like Leah, the two who built the house of Israel; and you do virtuously in Ephrathah, and proclaim the name in Bethlehem. <verse eid="RUT 4:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="RUT 4:12"/>And may your house be like the house of Perez, whom Tamar bore to Judah, from the seed that YHWH gives to you from this young woman.” <verse eid="RUT 4:12"/></para>
+
 <para style="s">Boaz Marries Ruth</para>
-<para style="p"><verse number="13" style="v" sid="RUT 4:13"/>And Boaz took Ruth, and she became to him for a wife, and he went in to her, and YHWH gave to her conception, and she bore a son. </para>
-<para style="p"><verse number="14" style="v" sid="RUT 4:14"/>And the women said to Naomi, “Blessed <char style="add">be</char> YHWH, who has not let cease a kinsman-redeemer to you this day, and may his name be proclaimed in Israel. </para>
-<para style="p"><verse number="15" style="v" sid="RUT 4:15"/>And may he be to you a restorer of life and a nourisher of your old age. For your daughter-in-law who loves you—who is better to you than seven sons—has borne him.” </para>
-<para style="p"><verse number="16" style="v" sid="RUT 4:16"/>And Naomi took the child and laid him in her bosom, and she became to him a nurse. </para>
-<para style="p"><verse number="17" style="v" sid="RUT 4:17"/>And the neighbor women called for him a name, saying, “A son has been born to Naomi.” And they called his name Obed. He <char style="add">is</char> the father of Jesse, the father of David. </para>
+
+<para style="p"><verse number="13" style="v" sid="RUT 4:13"/>And Boaz took Ruth, and she became to him for a wife, and he went in to her, and YHWH gave to her conception, and she bore a son. <verse eid="RUT 4:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="RUT 4:14"/>And the women said to Naomi, “Blessed <char style="add">be</char> YHWH, who has not let cease a kinsman-redeemer to you this day, and may his name be proclaimed in Israel. <verse eid="RUT 4:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="RUT 4:15"/>And may he be to you a restorer of life and a nourisher of your old age. For your daughter-in-law who loves you—who is better to you than seven sons—has borne him.” <verse eid="RUT 4:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="RUT 4:16"/>And Naomi took the child and laid him in her bosom, and she became to him a nurse. <verse eid="RUT 4:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="RUT 4:17"/>And the neighbor women called for him a name, saying, “A son has been born to Naomi.” And they called his name Obed. He <char style="add">is</char> the father of Jesse, the father of David. <verse eid="RUT 4:17"/></para>
+
 <para style="s">The Line of DavidMatthew 1:1–17</para>
+
 <para style="p"><verse number="18" style="v" sid="RUT 4:18"/><note caller="-" style="x"><char style="xt" closed="false">Luke 3:23–38</char></note>And these <char style="add">are</char> the generations of Perez: </para>
-<para style="q1" vid="RUT 4:18">Perez begat Hezron, </para>
+
+<para style="q1" vid="RUT 4:18">Perez begat Hezron, <verse eid="RUT 4:18"/></para>
+
 <para style="q1"><verse number="19" style="v" sid="RUT 4:19"/>and Hezron begat Ram, </para>
-<para style="q1" vid="RUT 4:19">and Ram begat Amminadab, </para>
+
+<para style="q1" vid="RUT 4:19">and Ram begat Amminadab, <verse eid="RUT 4:19"/></para>
+
 <para style="q1"><verse number="20" style="v" sid="RUT 4:20"/>and Amminadab begat Nahshon, </para>
-<para style="q1" vid="RUT 4:20">and Nahshon begat Salmon, <note caller="+" style="f"><char style="fr" closed="false">4.20 </char><char style="ft" closed="false"> A few Hebrew manuscripts, some LXX manuscripts, and Vulgate (see also verse 21 and LXX of 1 Chronicles 2:11); most Hebrew manuscripts </char><char style="fq" closed="false">Salma</char></note></para>
+
+<para style="q1" vid="RUT 4:20">and Nahshon begat Salmon, <note caller="+" style="f"><char style="fr" closed="false">4.20 </char><char style="ft" closed="false"> A few Hebrew manuscripts, some LXX manuscripts, and Vulgate (see also verse 21 and LXX of 1 Chronicles 2:11); most Hebrew manuscripts </char><char style="fq" closed="false">Salma</char></note><verse eid="RUT 4:20"/></para>
+
 <para style="q1"><verse number="21" style="v" sid="RUT 4:21"/>and Salmon begat Boaz, </para>
-<para style="q1" vid="RUT 4:21">and Boaz begat Obed, </para>
+
+<para style="q1" vid="RUT 4:21">and Boaz begat Obed, <verse eid="RUT 4:21"/></para>
+
 <para style="q1"><verse number="22" style="v" sid="RUT 4:22"/>and Obed begat Jesse, </para>
-<para style="q1" vid="RUT 4:22">and Jesse begat David. </para>
+
+<para style="q1" vid="RUT 4:22">and Jesse begat David. <verse eid="RUT 4:22"/></para>
+
 <chapter eid="RUT 4"/>
+
 </usx>

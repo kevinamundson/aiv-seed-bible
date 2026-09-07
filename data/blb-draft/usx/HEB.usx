@@ -1,464 +1,925 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="HEB" style="id">BLB-Draft</book>
+
 <para style="h">Hebrews</para>
+
 <para style="toc1">Hebrews</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="HEB 1"/>
+
 <para style="s">The Supremacy of the Son</para>
-<para style="p"><verse number="1" style="v" sid="HEB 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Colossians 1:15–23</char></note>God, having spoken long ago to the fathers in the prophets in many portions and in many ways, </para>
-<para style="p"><verse number="2" style="v" sid="HEB 1:2"/>in these last days spoke to us in <char style="add">His</char> Son,<note caller="+" style="f"><char style="fr" closed="false">1.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">by His Son</char></note> whom He appointed heir of all things, through whom also He made the ages,<note caller="+" style="f"><char style="fr" closed="false">1.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the world</char><char style="ft" closed="false">; or </char><char style="fq" closed="false">the universe</char></note> </para>
-<para style="p"><verse number="3" style="v" sid="HEB 1:3"/>who, being the radiance of <char style="add">His</char> glory and the exact imprint of His substance and bearing all things by the word of power—through His having made purification of sins—<note caller="+" style="f"><char style="fr" closed="false">1.3 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">of our sins</char></note> sat down at the right hand of the Majesty on high, </para>
-<para style="p"><verse number="4" style="v" sid="HEB 1:4"/>having become so much better than the angels, as much as He has inherited a name more excellent beyond theirs. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Colossians 1:15–23</char></note>God, having spoken long ago to the fathers in the prophets in many portions and in many ways, <verse eid="HEB 1:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 1:2"/>in these last days spoke to us in <char style="add">His</char> Son,<note caller="+" style="f"><char style="fr" closed="false">1.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">by His Son</char></note> whom He appointed heir of all things, through whom also He made the ages,<note caller="+" style="f"><char style="fr" closed="false">1.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the world</char><char style="ft" closed="false">; or </char><char style="fq" closed="false">the universe</char></note> <verse eid="HEB 1:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 1:3"/>who, being the radiance of <char style="add">His</char> glory and the exact imprint of His substance and bearing all things by the word of power—through His having made purification of sins—<note caller="+" style="f"><char style="fr" closed="false">1.3 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">of our sins</char></note> sat down at the right hand of the Majesty on high, <verse eid="HEB 1:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 1:4"/>having become so much better than the angels, as much as He has inherited a name more excellent beyond theirs. <verse eid="HEB 1:4"/></para>
+
 <para style="p"><verse number="5" style="v" sid="HEB 1:5"/>For to which of the angels did He ever say: </para>
+
 <para style="q1" vid="HEB 1:5">“You are My Son; </para>
+
 <para style="q2" vid="HEB 1:5">today I have begotten You”? </para>
+
 <para style="p" vid="HEB 1:5">And again: </para>
+
 <para style="q1" vid="HEB 1:5">“I will be to Him for a Father, </para>
-<para style="q2" vid="HEB 1:5">and He will be to Me for a Son”<note caller="+" style="f"><char style="fr" closed="false">1.5 </char><char style="ft" closed="false"> Psalm 2:7; or </char><char style="fq" closed="false">today I have become Your Father</char></note>? <note caller="+" style="f"><char style="fr" closed="false">1.5 </char><char style="ft" closed="false"> 2 Samuel 7:14; 1 Chronicles 17:13</char></note></para>
+
+<para style="q2" vid="HEB 1:5">and He will be to Me for a Son”<note caller="+" style="f"><char style="fr" closed="false">1.5 </char><char style="ft" closed="false"> Psalm 2:7; or </char><char style="fq" closed="false">today I have become Your Father</char></note>? <note caller="+" style="f"><char style="fr" closed="false">1.5 </char><char style="ft" closed="false"> 2 Samuel 7:14; 1 Chronicles 17:13</char></note><verse eid="HEB 1:5"/></para>
+
 <para style="p"><verse number="6" style="v" sid="HEB 1:6"/>And again, when He brings the firstborn into the world, He says: “And </para>
-<para style="q1" vid="HEB 1:6">let all angels of God worship Him.” <note caller="+" style="f"><char style="fr" closed="false">1.6 </char><char style="ft" closed="false"> Deuteronomy 32:43 (see DSS and LXX)</char></note></para>
+
+<para style="q1" vid="HEB 1:6">let all angels of God worship Him.” <note caller="+" style="f"><char style="fr" closed="false">1.6 </char><char style="ft" closed="false"> Deuteronomy 32:43 (see DSS and LXX)</char></note><verse eid="HEB 1:6"/></para>
+
 <para style="p"><verse number="7" style="v" sid="HEB 1:7"/>And indeed to the angels He says: </para>
+
 <para style="q1" vid="HEB 1:7">“The One making His angels winds, </para>
-<para style="q2" vid="HEB 1:7">and His ministers a flame of fire.” <note caller="+" style="f"><char style="fr" closed="false">1.7 </char><char style="ft" closed="false"> Psalm 104:4 (see also LXX)</char></note></para>
+
+<para style="q2" vid="HEB 1:7">and His ministers a flame of fire.” <note caller="+" style="f"><char style="fr" closed="false">1.7 </char><char style="ft" closed="false"> Psalm 104:4 (see also LXX)</char></note><verse eid="HEB 1:7"/></para>
+
 <para style="p"><verse number="8" style="v" sid="HEB 1:8"/>But to the Son: </para>
+
 <para style="q1" vid="HEB 1:8">“Your throne, O God, <char style="add">is</char> to the age of the age, </para>
-<para style="q2" vid="HEB 1:8">and the scepter of uprightness <char style="add">is</char> the scepter of Your kingdom. </para>
+
+<para style="q2" vid="HEB 1:8">and the scepter of uprightness <char style="add">is</char> the scepter of Your kingdom. <verse eid="HEB 1:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="HEB 1:9"/>You loved righteousness </para>
+
 <para style="q2" vid="HEB 1:9">and hated lawlessness; </para>
+
 <para style="q1" vid="HEB 1:9">because of this, God, Your God, anointed You </para>
-<para style="q2" vid="HEB 1:9">with the oil of exultation beyond Your companions.” <note caller="+" style="f"><char style="fr" closed="false">1.9 </char><char style="ft" closed="false"> Psalm 45:6–7</char></note></para>
+
+<para style="q2" vid="HEB 1:9">with the oil of exultation beyond Your companions.” <note caller="+" style="f"><char style="fr" closed="false">1.9 </char><char style="ft" closed="false"> Psalm 45:6–7</char></note><verse eid="HEB 1:9"/></para>
+
 <para style="p"><verse number="10" style="v" sid="HEB 1:10"/>And: </para>
+
 <para style="q1" vid="HEB 1:10">“You, in the beginning, Lord, laid the foundation of the earth, </para>
-<para style="q2" vid="HEB 1:10">and the heavens are works of Your hands. </para>
+
+<para style="q2" vid="HEB 1:10">and the heavens are works of Your hands. <verse eid="HEB 1:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="HEB 1:11"/>They will perish, but You remain; </para>
-<para style="q2" vid="HEB 1:11">and all will grow old like a garment; </para>
+
+<para style="q2" vid="HEB 1:11">and all will grow old like a garment; <verse eid="HEB 1:11"/></para>
+
 <para style="q1"><verse number="12" style="v" sid="HEB 1:12"/>and like a robe You will roll them up, </para>
+
 <para style="q2" vid="HEB 1:12">and like a garment they will be changed; </para>
+
 <para style="q1" vid="HEB 1:12">but You are the same, </para>
-<para style="q2" vid="HEB 1:12">and Your years will not come to an end.”<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">like a garment</char><char style="ft" closed="false">.</char></note> <note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> Psalm 102:25–27</char></note></para>
+
+<para style="q2" vid="HEB 1:12">and Your years will not come to an end.”<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">like a garment</char><char style="ft" closed="false">.</char></note> <note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> Psalm 102:25–27</char></note><verse eid="HEB 1:12"/></para>
+
 <para style="p"><verse number="13" style="v" sid="HEB 1:13"/>Now to which of the angels has He ever said: </para>
+
 <para style="q1" vid="HEB 1:13">“Sit at My right hand </para>
-<para style="q2" vid="HEB 1:13">until I shall place Your enemies <char style="add">as</char> a footstool for Your feet”? <note caller="+" style="f"><char style="fr" closed="false">1.13 </char><char style="ft" closed="false"> Psalm 110:1</char></note></para>
-<para style="p"><verse number="14" style="v" sid="HEB 1:14"/>Are they not all<note caller="+" style="f"><char style="fr" closed="false">1.14 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Are not the angels</char></note> ministering spirits being sent forth for service for the sake of those being about to inherit salvation? </para>
+
+<para style="q2" vid="HEB 1:13">until I shall place Your enemies <char style="add">as</char> a footstool for Your feet”? <note caller="+" style="f"><char style="fr" closed="false">1.13 </char><char style="ft" closed="false"> Psalm 110:1</char></note><verse eid="HEB 1:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 1:14"/>Are they not all<note caller="+" style="f"><char style="fr" closed="false">1.14 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Are not the angels</char></note> ministering spirits being sent forth for service for the sake of those being about to inherit salvation? <verse eid="HEB 1:14"/></para>
+
 <chapter eid="HEB 1"/>
+
 <chapter number="2" style="c" sid="HEB 2"/>
+
 <para style="s">Salvation Confirmed</para>
-<para style="p"><verse number="1" style="v" sid="HEB 2:1"/>Because of this, it is necessary for us to give heed more abundantly to the things having been heard, lest ever we should drift away. </para>
-<para style="p"><verse number="2" style="v" sid="HEB 2:2"/>For if the word having been spoken by angels was firm, and every transgression and disobedience received a just recompense, </para>
-<para style="p"><verse number="3" style="v" sid="HEB 2:3"/>how will we escape, having neglected such a great salvation, which, having received a beginning to be spoken by the Lord, was confirmed to us by those having heard, </para>
-<para style="p"><verse number="4" style="v" sid="HEB 2:4"/>God testifying with <char style="add">them</char> both by signs and wonders, and by various miracles, and distributions of the Holy Spirit according to His will. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 2:1"/>Because of this, it is necessary for us to give heed more abundantly to the things having been heard, lest ever we should drift away. <verse eid="HEB 2:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 2:2"/>For if the word having been spoken by angels was firm, and every transgression and disobedience received a just recompense, <verse eid="HEB 2:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 2:3"/>how will we escape, having neglected such a great salvation, which, having received a beginning to be spoken by the Lord, was confirmed to us by those having heard, <verse eid="HEB 2:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 2:4"/>God testifying with <char style="add">them</char> both by signs and wonders, and by various miracles, and distributions of the Holy Spirit according to His will. <verse eid="HEB 2:4"/></para>
+
 <para style="s">Jesus like His Brothers</para>
-<para style="p"><verse number="5" style="v" sid="HEB 2:5"/>For not to angels did He subject the world that is about to be, concerning which we are speaking, </para>
+
+<para style="p"><verse number="5" style="v" sid="HEB 2:5"/>For not to angels did He subject the world that is about to be, concerning which we are speaking, <verse eid="HEB 2:5"/></para>
+
 <para style="p"><verse number="6" style="v" sid="HEB 2:6"/>but someone somewhere solemnly testified, saying, </para>
+
 <para style="q1" vid="HEB 2:6">“What is man that You are mindful of him, </para>
-<para style="q2" vid="HEB 2:6">or the son of man that You care for him? </para>
+
+<para style="q2" vid="HEB 2:6">or the son of man that You care for him? <verse eid="HEB 2:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="HEB 2:7"/>You made him a little less than the angels; </para>
-<para style="q2" vid="HEB 2:7">You crowned him with glory and honor;<note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a little while lower</char><char style="ft" closed="false">; also in verse 9</char></note> <note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> WH and TR include </char><char style="fq" closed="false">and set him over the works of Your hands</char><char style="ft" closed="false">.</char></note></para>
-<para style="q2"><verse number="8" style="v" sid="HEB 2:8"/>You subjected all things under his feet.”<note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Psalm 8:4–6 (see also LXX)</char></note> For in subjecting all things to him, He left nothing unsubject to him. But now, not yet do we see all things having been subjected to him. </para>
-<para style="p"><verse number="9" style="v" sid="HEB 2:9"/>But we see Jesus, the One having been made a little less than the angels, because of the suffering of death, having been crowned with glory and with honor, so that by the grace of God He might taste death for everyone. </para>
-<para style="p"><verse number="10" style="v" sid="HEB 2:10"/>For it was fitting to Him, for whom <char style="add">are</char> all things and through whom <char style="add">are</char> all things, having brought many sons to glory, to make perfect the author<note caller="+" style="f"><char style="fr" closed="false">2.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">pioneer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">founder</char></note> of their salvation through sufferings. </para>
-<para style="p"><verse number="11" style="v" sid="HEB 2:11"/>For both the One sanctifying and those being sanctified <char style="add">are</char> all of one, for which reason He is not ashamed to call them brothers, </para>
+
+<para style="q2" vid="HEB 2:7">You crowned him with glory and honor;<note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a little while lower</char><char style="ft" closed="false">; also in verse 9</char></note> <note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> WH and TR include </char><char style="fq" closed="false">and set him over the works of Your hands</char><char style="ft" closed="false">.</char></note><verse eid="HEB 2:7"/></para>
+
+<para style="q2"><verse number="8" style="v" sid="HEB 2:8"/>You subjected all things under his feet.”<note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Psalm 8:4–6 (see also LXX)</char></note> For in subjecting all things to him, He left nothing unsubject to him. But now, not yet do we see all things having been subjected to him. <verse eid="HEB 2:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 2:9"/>But we see Jesus, the One having been made a little less than the angels, because of the suffering of death, having been crowned with glory and with honor, so that by the grace of God He might taste death for everyone. <verse eid="HEB 2:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 2:10"/>For it was fitting to Him, for whom <char style="add">are</char> all things and through whom <char style="add">are</char> all things, having brought many sons to glory, to make perfect the author<note caller="+" style="f"><char style="fr" closed="false">2.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">pioneer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">founder</char></note> of their salvation through sufferings. <verse eid="HEB 2:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 2:11"/>For both the One sanctifying and those being sanctified <char style="add">are</char> all of one, for which reason He is not ashamed to call them brothers, <verse eid="HEB 2:11"/></para>
+
 <para style="p"><verse number="12" style="v" sid="HEB 2:12"/>saying: </para>
+
 <para style="q1" vid="HEB 2:12">“I will declare Your name to My brothers; </para>
-<para style="q2" vid="HEB 2:12">in the midst of the assembly I will sing Your praises.” <note caller="+" style="f"><char style="fr" closed="false">2.12 </char><char style="ft" closed="false"> Psalm 22:22 (see also LXX)</char></note></para>
+
+<para style="q2" vid="HEB 2:12">in the midst of the assembly I will sing Your praises.” <note caller="+" style="f"><char style="fr" closed="false">2.12 </char><char style="ft" closed="false"> Psalm 22:22 (see also LXX)</char></note><verse eid="HEB 2:12"/></para>
+
 <para style="p"><verse number="13" style="v" sid="HEB 2:13"/>And again: </para>
+
 <para style="q1" vid="HEB 2:13">“I will be trusting on Him.” </para>
+
 <para style="p" vid="HEB 2:13">And again: </para>
-<para style="q1" vid="HEB 2:13">“Behold, I and the children whom God gave to Me.”<note caller="+" style="f"><char style="fr" closed="false">2.13 </char><char style="ft" closed="false"> Isaiah 8:17</char></note> <note caller="+" style="f"><char style="fr" closed="false">2.13 </char><char style="ft" closed="false"> Isaiah 8:18</char></note></para>
-<para style="p"><verse number="14" style="v" sid="HEB 2:14"/>Therefore, since the children have shared in blood and flesh, He also likewise partook of the same things, so that through death He might render powerless the one having the power of death, that is, the devil, </para>
-<para style="p"><verse number="15" style="v" sid="HEB 2:15"/>and might set free those who all <char style="add">their time</char> to live were subject to slavery through the fear of death. </para>
-<para style="p"><verse number="16" style="v" sid="HEB 2:16"/>For surely <char style="add">it is</char> not the angels He lays hold of, but He lays hold of the seed of Abraham. </para>
-<para style="p"><verse number="17" style="v" sid="HEB 2:17"/>Hence it was necessary to be made like the brothers in all things, so that He might become a merciful and faithful high priest <char style="add">in</char> the things relating to God, in order to make propitiation<note caller="+" style="f"><char style="fr" closed="false">2.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">to make atonement</char></note> for the sins of the people. </para>
-<para style="p"><verse number="18" style="v" sid="HEB 2:18"/>For in that He Himself has suffered, having been tempted, He is able to help those being tempted. </para>
+
+<para style="q1" vid="HEB 2:13">“Behold, I and the children whom God gave to Me.”<note caller="+" style="f"><char style="fr" closed="false">2.13 </char><char style="ft" closed="false"> Isaiah 8:17</char></note> <note caller="+" style="f"><char style="fr" closed="false">2.13 </char><char style="ft" closed="false"> Isaiah 8:18</char></note><verse eid="HEB 2:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 2:14"/>Therefore, since the children have shared in blood and flesh, He also likewise partook of the same things, so that through death He might render powerless the one having the power of death, that is, the devil, <verse eid="HEB 2:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HEB 2:15"/>and might set free those who all <char style="add">their time</char> to live were subject to slavery through the fear of death. <verse eid="HEB 2:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HEB 2:16"/>For surely <char style="add">it is</char> not the angels He lays hold of, but He lays hold of the seed of Abraham. <verse eid="HEB 2:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="HEB 2:17"/>Hence it was necessary to be made like the brothers in all things, so that He might become a merciful and faithful high priest <char style="add">in</char> the things relating to God, in order to make propitiation<note caller="+" style="f"><char style="fr" closed="false">2.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">to make atonement</char></note> for the sins of the people. <verse eid="HEB 2:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="HEB 2:18"/>For in that He Himself has suffered, having been tempted, He is able to help those being tempted. <verse eid="HEB 2:18"/></para>
+
 <chapter eid="HEB 2"/>
+
 <chapter number="3" style="c" sid="HEB 3"/>
+
 <para style="s">Jesus Our Apostle and High Priest</para>
-<para style="p"><verse number="1" style="v" sid="HEB 3:1"/>Hence, holy brothers, partakers of a heavenly calling, carefully consider Jesus,<note caller="+" style="f"><char style="fr" closed="false">3.1 </char><char style="ft" closed="false"> BYZ </char><char style="fq" closed="false">Jesus Christ</char><char style="ft" closed="false">; TR </char><char style="fq" closed="false">Christ Jesus</char></note> the Apostle and High Priest of our confession, </para>
-<para style="p"><verse number="2" style="v" sid="HEB 3:2"/>being faithful to the One having appointed Him, as Moses also in all His house.<note caller="+" style="f"><char style="fr" closed="false">3.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">just as Moses was faithful in all God's house</char><char style="ft" closed="false">; SBL </char><char style="fq" closed="false">just as Moses was faithful in His house</char></note> </para>
-<para style="p"><verse number="3" style="v" sid="HEB 3:3"/>For this One has been counted worthy of more glory than Moses, by as much as the one having built it has more honor than the house <char style="add">itself</char>. </para>
-<para style="p"><verse number="4" style="v" sid="HEB 3:4"/>For every house is built by someone, but the One having built everything <char style="add">is</char> God. </para>
-<para style="p"><verse number="5" style="v" sid="HEB 3:5"/>And indeed Moses <char style="add">was</char> faithful as an attendant in all His house, for a testimony of the things going to be spoken, <note caller="+" style="f"><char style="fr" closed="false">3.5 </char><char style="ft" closed="false"> Numbers 12:7</char></note></para>
-<para style="p"><verse number="6" style="v" sid="HEB 3:6"/>but Christ as the Son over His house, whose house we are, if we should hold<note caller="+" style="f"><char style="fr" closed="false">3.6 </char><char style="ft" closed="false"> NE, WH, BYZ, and TR include </char><char style="fq" closed="false">to the end</char><char style="ft" closed="false">.</char></note> <char style="add">our</char> confidence and the boast of <char style="add">our</char> hope. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 3:1"/>Hence, holy brothers, partakers of a heavenly calling, carefully consider Jesus,<note caller="+" style="f"><char style="fr" closed="false">3.1 </char><char style="ft" closed="false"> BYZ </char><char style="fq" closed="false">Jesus Christ</char><char style="ft" closed="false">; TR </char><char style="fq" closed="false">Christ Jesus</char></note> the Apostle and High Priest of our confession, <verse eid="HEB 3:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 3:2"/>being faithful to the One having appointed Him, as Moses also in all His house.<note caller="+" style="f"><char style="fr" closed="false">3.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">just as Moses was faithful in all God's house</char><char style="ft" closed="false">; SBL </char><char style="fq" closed="false">just as Moses was faithful in His house</char></note> <verse eid="HEB 3:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 3:3"/>For this One has been counted worthy of more glory than Moses, by as much as the one having built it has more honor than the house <char style="add">itself</char>. <verse eid="HEB 3:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 3:4"/>For every house is built by someone, but the One having built everything <char style="add">is</char> God. <verse eid="HEB 3:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="HEB 3:5"/>And indeed Moses <char style="add">was</char> faithful as an attendant in all His house, for a testimony of the things going to be spoken, <note caller="+" style="f"><char style="fr" closed="false">3.5 </char><char style="ft" closed="false"> Numbers 12:7</char></note><verse eid="HEB 3:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="HEB 3:6"/>but Christ as the Son over His house, whose house we are, if we should hold<note caller="+" style="f"><char style="fr" closed="false">3.6 </char><char style="ft" closed="false"> NE, WH, BYZ, and TR include </char><char style="fq" closed="false">to the end</char><char style="ft" closed="false">.</char></note> <char style="add">our</char> confidence and the boast of <char style="add">our</char> hope. <verse eid="HEB 3:6"/></para>
+
 <para style="s">Do Not Harden Your HeartsPsalm 95:1–11</para>
+
 <para style="p"><verse number="7" style="v" sid="HEB 3:7"/>Therefore, just as the Holy Spirit says: </para>
-<para style="q1" vid="HEB 3:7">“Today, if you⁺ should hear His voice, </para>
+
+<para style="q1" vid="HEB 3:7">“Today, if you⁺ should hear His voice, <verse eid="HEB 3:7"/></para>
+
 <para style="q2"><verse number="8" style="v" sid="HEB 3:8"/>do not harden your⁺ hearts, </para>
+
 <para style="q1" vid="HEB 3:8">as in the rebellion, </para>
-<para style="q2" vid="HEB 3:8">in the day of testing in the wilderness,<note caller="+" style="f"><char style="fr" closed="false">3.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">desert</char><char style="ft" closed="false">; also in verse 17</char></note> </para>
+
+<para style="q2" vid="HEB 3:8">in the day of testing in the wilderness,<note caller="+" style="f"><char style="fr" closed="false">3.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">desert</char><char style="ft" closed="false">; also in verse 17</char></note> <verse eid="HEB 3:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="HEB 3:9"/>where forty years your⁺ fathers tested <char style="add">Me</char> by trial </para>
-<para style="q2" vid="HEB 3:9">and saw My works. </para>
+
+<para style="q2" vid="HEB 3:9">and saw My works. <verse eid="HEB 3:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="HEB 3:10"/>Therefore I was angry with this generation, </para>
+
 <para style="q2" vid="HEB 3:10">and I said, </para>
+
 <para style="q1" vid="HEB 3:10">‘Always they go astray in their heart; </para>
-<para style="q2" vid="HEB 3:10">and did not know My ways;’ </para>
+
+<para style="q2" vid="HEB 3:10">and did not know My ways;’ <verse eid="HEB 3:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="HEB 3:11"/>as I swore in My wrath, </para>
-<para style="q2" vid="HEB 3:11">‘They shall not enter into My rest.’”<note caller="+" style="f"><char style="fr" closed="false">3.11 </char><char style="ft" closed="false"> Psalm 95:7–11 (see also LXX)</char></note> </para>
+
+<para style="q2" vid="HEB 3:11">‘They shall not enter into My rest.’”<note caller="+" style="f"><char style="fr" closed="false">3.11 </char><char style="ft" closed="false"> Psalm 95:7–11 (see also LXX)</char></note> <verse eid="HEB 3:11"/></para>
+
 <para style="s">The Peril of Unbelief</para>
-<para style="p"><verse number="12" style="v" sid="HEB 3:12"/>See to it, brothers, lest ever there will be in any of you⁺ an evil heart of unbelief in the falling away from the living God. </para>
-<para style="p"><verse number="13" style="v" sid="HEB 3:13"/>But encourage one another each day, as long as it is called today, so that not any of you⁺ may be hardened by the deceitfulness of sin. </para>
-<para style="p"><verse number="14" style="v" sid="HEB 3:14"/>For we have become partakers of Christ, if indeed we should hold firm until the end the assurance <char style="add">from</char> the beginning. </para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 3:12"/>See to it, brothers, lest ever there will be in any of you⁺ an evil heart of unbelief in the falling away from the living God. <verse eid="HEB 3:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 3:13"/>But encourage one another each day, as long as it is called today, so that not any of you⁺ may be hardened by the deceitfulness of sin. <verse eid="HEB 3:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 3:14"/>For we have become partakers of Christ, if indeed we should hold firm until the end the assurance <char style="add">from</char> the beginning. <verse eid="HEB 3:14"/></para>
+
 <para style="p"><verse number="15" style="v" sid="HEB 3:15"/>As it is said: </para>
+
 <para style="q1" vid="HEB 3:15">“Today if you⁺ should hear His voice, </para>
+
 <para style="q2" vid="HEB 3:15">do not harden your⁺ hearts, </para>
-<para style="q1" vid="HEB 3:15">as in the rebellion.” <note caller="+" style="f"><char style="fr" closed="false">3.15 </char><char style="ft" closed="false"> Psalm 95:7–8</char></note></para>
-<para style="p"><verse number="16" style="v" sid="HEB 3:16"/>For who, having heard, rebelled? But <char style="add">was it</char> not all those having come forth out of Egypt through Moses?<note caller="+" style="f"><char style="fr" closed="false">3.16 </char><char style="ft" closed="false"> RP and TR </char><char style="fq" closed="false">For some did rebel when they heard God's voice, but not all whom Moses led out of Egypt.</char></note> </para>
-<para style="p"><verse number="17" style="v" sid="HEB 3:17"/>And with whom was He angry forty years, <char style="add">if</char> not with those having sinned, whose bodies fell in the wilderness? </para>
-<para style="p"><verse number="18" style="v" sid="HEB 3:18"/>And to whom did He swear that they will not enter into His rest, if not to those having disobeyed? </para>
-<para style="p"><verse number="19" style="v" sid="HEB 3:19"/>And we see that they were not able to enter because of unbelief. </para>
+
+<para style="q1" vid="HEB 3:15">as in the rebellion.” <note caller="+" style="f"><char style="fr" closed="false">3.15 </char><char style="ft" closed="false"> Psalm 95:7–8</char></note><verse eid="HEB 3:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HEB 3:16"/>For who, having heard, rebelled? But <char style="add">was it</char> not all those having come forth out of Egypt through Moses?<note caller="+" style="f"><char style="fr" closed="false">3.16 </char><char style="ft" closed="false"> RP and TR </char><char style="fq" closed="false">For some did rebel when they heard God's voice, but not all whom Moses led out of Egypt.</char></note> <verse eid="HEB 3:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="HEB 3:17"/>And with whom was He angry forty years, <char style="add">if</char> not with those having sinned, whose bodies fell in the wilderness? <verse eid="HEB 3:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="HEB 3:18"/>And to whom did He swear that they will not enter into His rest, if not to those having disobeyed? <verse eid="HEB 3:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="HEB 3:19"/>And we see that they were not able to enter because of unbelief. <verse eid="HEB 3:19"/></para>
+
 <chapter eid="HEB 3"/>
+
 <chapter number="4" style="c" sid="HEB 4"/>
+
 <para style="s">The Sabbath Rest</para>
-<para style="p"><verse number="1" style="v" sid="HEB 4:1"/><note caller="-" style="x"><char style="xt" closed="false">Exodus 16:22–30</char></note><note caller="-" style="x"><char style="xt" closed="false">Genesis 2:1–3</char></note>Therefore we should fear, lest ever, the promise to enter into His rest left remaining, any of you⁺ should seem to have fallen short. </para>
-<para style="p"><verse number="2" style="v" sid="HEB 4:2"/>For also we are <char style="add">those</char> having had the gospel proclaimed, even as also those; but the word of <char style="add">their</char> hearing did not profit those not having been united with the faith of those having heard.<note caller="+" style="f"><char style="fr" closed="false">4.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">since they did not share the faith of those who comprehended it</char></note> </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 4:1"/><note caller="-" style="x"><char style="xt" closed="false">Exodus 16:22–30</char></note><note caller="-" style="x"><char style="xt" closed="false">Genesis 2:1–3</char></note>Therefore we should fear, lest ever, the promise to enter into His rest left remaining, any of you⁺ should seem to have fallen short. <verse eid="HEB 4:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 4:2"/>For also we are <char style="add">those</char> having had the gospel proclaimed, even as also those; but the word of <char style="add">their</char> hearing did not profit those not having been united with the faith of those having heard.<note caller="+" style="f"><char style="fr" closed="false">4.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">since they did not share the faith of those who comprehended it</char></note> <verse eid="HEB 4:2"/></para>
+
 <para style="p"><verse number="3" style="v" sid="HEB 4:3"/>For we enter into the rest—those having believed—just as He has said: </para>
+
 <para style="q1" vid="HEB 4:3">“As I swore in My wrath, </para>
-<para style="q2" vid="HEB 4:3">‘They shall not enter into My rest.’” And yet the works were done from the foundation of the world. <note caller="+" style="f"><char style="fr" closed="false">4.3 </char><char style="ft" closed="false"> Psalm 95:11; also in verse 5</char></note></para>
-<para style="p"><verse number="4" style="v" sid="HEB 4:4"/>For He has spoken somewhere about the seventh <char style="add">day</char> thus: “And God rested on the seventh day from all His works.” <note caller="+" style="f"><char style="fr" closed="false">4.4 </char><char style="ft" closed="false"> Genesis 2:2</char></note></para>
-<para style="p"><verse number="5" style="v" sid="HEB 4:5"/>And again in this: “They shall not enter into My rest.” </para>
-<para style="p"><verse number="6" style="v" sid="HEB 4:6"/>Therefore, since it remains <char style="add">for</char> some to enter into it, and those formerly having had the gospel proclaimed did not enter because of disobedience, </para>
-<para style="p"><verse number="7" style="v" sid="HEB 4:7"/>again He designates a certain day as “Today,” saying in David after so long a time, just as it has been said before, “Today, if you⁺ should hear His voice, do not harden your⁺ hearts.” <note caller="+" style="f"><char style="fr" closed="false">4.7 </char><char style="ft" closed="false"> Psalm 95:7–8</char></note></para>
-<para style="p"><verse number="8" style="v" sid="HEB 4:8"/>For if Joshua had given them rest, He would not have spoken after this about another day. </para>
-<para style="p"><verse number="9" style="v" sid="HEB 4:9"/>So then, there remains a Sabbath rest for the people of God. </para>
-<para style="p"><verse number="10" style="v" sid="HEB 4:10"/>For the one having entered into His rest, he also rested from his works, just as God <char style="add">did</char> from His own. </para>
-<para style="p"><verse number="11" style="v" sid="HEB 4:11"/>Therefore we should be diligent to enter into that rest, so that no one should fall in the same exhibit of disobedience. </para>
+
+<para style="q2" vid="HEB 4:3">‘They shall not enter into My rest.’” And yet the works were done from the foundation of the world. <note caller="+" style="f"><char style="fr" closed="false">4.3 </char><char style="ft" closed="false"> Psalm 95:11; also in verse 5</char></note><verse eid="HEB 4:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 4:4"/>For He has spoken somewhere about the seventh <char style="add">day</char> thus: “And God rested on the seventh day from all His works.” <note caller="+" style="f"><char style="fr" closed="false">4.4 </char><char style="ft" closed="false"> Genesis 2:2</char></note><verse eid="HEB 4:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="HEB 4:5"/>And again in this: “They shall not enter into My rest.” <verse eid="HEB 4:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="HEB 4:6"/>Therefore, since it remains <char style="add">for</char> some to enter into it, and those formerly having had the gospel proclaimed did not enter because of disobedience, <verse eid="HEB 4:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="HEB 4:7"/>again He designates a certain day as “Today,” saying in David after so long a time, just as it has been said before, “Today, if you⁺ should hear His voice, do not harden your⁺ hearts.” <note caller="+" style="f"><char style="fr" closed="false">4.7 </char><char style="ft" closed="false"> Psalm 95:7–8</char></note><verse eid="HEB 4:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="HEB 4:8"/>For if Joshua had given them rest, He would not have spoken after this about another day. <verse eid="HEB 4:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 4:9"/>So then, there remains a Sabbath rest for the people of God. <verse eid="HEB 4:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 4:10"/>For the one having entered into His rest, he also rested from his works, just as God <char style="add">did</char> from His own. <verse eid="HEB 4:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 4:11"/>Therefore we should be diligent to enter into that rest, so that no one should fall in the same exhibit of disobedience. <verse eid="HEB 4:11"/></para>
+
 <para style="s">The Living Word2 Timothy 3:10–17</para>
-<para style="p"><verse number="12" style="v" sid="HEB 4:12"/>For the word of God <char style="add">is</char> living and effective, and sharper than any two-edged sword, piercing through and as far as the division of soul and spirit, and of joints and marrows, and able to judge the reflections and intentions of the heart. </para>
-<para style="p"><verse number="13" style="v" sid="HEB 4:13"/>And there is no created thing hidden before Him, but all things <char style="add">are</char> bare and exposed to the eyes of Him to whom <char style="add">is</char> our account. </para>
-<para style="p"><verse number="14" style="v" sid="HEB 4:14"/>Therefore, having a great high priest having passed through the heavens, Jesus, the Son of God, let us hold fast to <char style="add">our</char> confession. </para>
-<para style="p"><verse number="15" style="v" sid="HEB 4:15"/>For we do not have a high priest not being able to sympathize with our weaknesses, but one having been tempted in all things by the same way, without sin. </para>
-<para style="p"><verse number="16" style="v" sid="HEB 4:16"/>Therefore let us come with confidence to the throne of grace, so that we may receive mercy and may find grace for help in time of need. </para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 4:12"/>For the word of God <char style="add">is</char> living and effective, and sharper than any two-edged sword, piercing through and as far as the division of soul and spirit, and of joints and marrows, and able to judge the reflections and intentions of the heart. <verse eid="HEB 4:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 4:13"/>And there is no created thing hidden before Him, but all things <char style="add">are</char> bare and exposed to the eyes of Him to whom <char style="add">is</char> our account. <verse eid="HEB 4:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 4:14"/>Therefore, having a great high priest having passed through the heavens, Jesus, the Son of God, let us hold fast to <char style="add">our</char> confession. <verse eid="HEB 4:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HEB 4:15"/>For we do not have a high priest not being able to sympathize with our weaknesses, but one having been tempted in all things by the same way, without sin. <verse eid="HEB 4:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HEB 4:16"/>Therefore let us come with confidence to the throne of grace, so that we may receive mercy and may find grace for help in time of need. <verse eid="HEB 4:16"/></para>
+
 <chapter eid="HEB 4"/>
+
 <chapter number="5" style="c" sid="HEB 5"/>
+
 <para style="s">The Perfect High Priest</para>
-<para style="p"><verse number="1" style="v" sid="HEB 5:1"/><note caller="-" style="x"><char style="xt" closed="false">Psalm 110:1–7</char></note>For every high priest being taken from among men is appointed for men in things relating to God, that he may offer both gifts and sacrifices for sins, </para>
-<para style="p"><verse number="2" style="v" sid="HEB 5:2"/>being able to deal gently with those being ignorant and going astray, since he himself also is encompassed by weakness; </para>
-<para style="p"><verse number="3" style="v" sid="HEB 5:3"/>and because of this, he is obligated, just as concerning the people, to offer for sins so also concerning himself. </para>
-<para style="p"><verse number="4" style="v" sid="HEB 5:4"/>And no one takes upon himself the honor, but is being called by God, just as Aaron also. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 5:1"/><note caller="-" style="x"><char style="xt" closed="false">Psalm 110:1–7</char></note>For every high priest being taken from among men is appointed for men in things relating to God, that he may offer both gifts and sacrifices for sins, <verse eid="HEB 5:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 5:2"/>being able to deal gently with those being ignorant and going astray, since he himself also is encompassed by weakness; <verse eid="HEB 5:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 5:3"/>and because of this, he is obligated, just as concerning the people, to offer for sins so also concerning himself. <verse eid="HEB 5:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 5:4"/>And no one takes upon himself the honor, but is being called by God, just as Aaron also. <verse eid="HEB 5:4"/></para>
+
 <para style="p"><verse number="5" style="v" sid="HEB 5:5"/>So also Christ did not glorify Himself to become a high priest, but the One having said to Him: </para>
+
 <para style="q1" vid="HEB 5:5">“You are My Son, </para>
-<para style="q2" vid="HEB 5:5">today I have begotten You.” <note caller="+" style="f"><char style="fr" closed="false">5.5 </char><char style="ft" closed="false"> Psalm 2:7; or </char><char style="fq" closed="false">today I have become Your Father</char></note></para>
+
+<para style="q2" vid="HEB 5:5">today I have begotten You.” <note caller="+" style="f"><char style="fr" closed="false">5.5 </char><char style="ft" closed="false"> Psalm 2:7; or </char><char style="fq" closed="false">today I have become Your Father</char></note><verse eid="HEB 5:5"/></para>
+
 <para style="p"><verse number="6" style="v" sid="HEB 5:6"/>Just as that, He also says in another <char style="add">place</char>: </para>
+
 <para style="q1" vid="HEB 5:6">“You <char style="add">are</char> a priest to the age, </para>
-<para style="q2" vid="HEB 5:6">according to the order of Melchizedek.” <note caller="+" style="f"><char style="fr" closed="false">5.6 </char><char style="ft" closed="false"> Psalm 110:4</char></note></para>
-<para style="p"><verse number="7" style="v" sid="HEB 5:7"/><char style="add">He</char> in the days of His flesh having offered both supplications and entreaties with strong crying and tears to the One being able to save Him from death, and having been heard from reverence, </para>
-<para style="p"><verse number="8" style="v" sid="HEB 5:8"/>although being a Son, He learned obedience from the things He suffered, </para>
-<para style="p"><verse number="9" style="v" sid="HEB 5:9"/>and having been perfected, He became the source of eternal salvation to all those obeying Him, </para>
-<para style="p"><verse number="10" style="v" sid="HEB 5:10"/>having been designated by God <char style="add">as</char> high priest according to the order of Melchizedek. </para>
+
+<para style="q2" vid="HEB 5:6">according to the order of Melchizedek.” <note caller="+" style="f"><char style="fr" closed="false">5.6 </char><char style="ft" closed="false"> Psalm 110:4</char></note><verse eid="HEB 5:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="HEB 5:7"/><char style="add">He</char> in the days of His flesh having offered both supplications and entreaties with strong crying and tears to the One being able to save Him from death, and having been heard from reverence, <verse eid="HEB 5:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="HEB 5:8"/>although being a Son, He learned obedience from the things He suffered, <verse eid="HEB 5:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 5:9"/>and having been perfected, He became the source of eternal salvation to all those obeying Him, <verse eid="HEB 5:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 5:10"/>having been designated by God <char style="add">as</char> high priest according to the order of Melchizedek. <verse eid="HEB 5:10"/></para>
+
 <para style="s">Milk and Solid Food1 Corinthians 3:1–9</para>
-<para style="p"><verse number="11" style="v" sid="HEB 5:11"/>Concerning this <char style="add">there is</char> much speech from us, and difficult in interpretation to speak, since you⁺ have become dull in hearing. </para>
-<para style="p"><verse number="12" style="v" sid="HEB 5:12"/>For even by the time you ought to be teachers, you⁺ have need of one to teach you⁺ again what <char style="add">is</char> the beginning of the elements of the oracles of God;<note caller="+" style="f"><char style="fr" closed="false">5.12 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">God's word</char></note> and you⁺ have become <char style="add">those</char> having need of milk, and not of solid food. </para>
-<para style="p"><verse number="13" style="v" sid="HEB 5:13"/>For everyone partaking of milk <char style="add">is</char> inexperienced in the word of righteousness, for he is an infant. </para>
-<para style="p"><verse number="14" style="v" sid="HEB 5:14"/>But solid food is for the mature,<note caller="+" style="f"><char style="fr" closed="false">5.14 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">perfect</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">complete</char><char style="ft" closed="false">; Greek </char><char style="fq" closed="false">teleiōn</char></note> the ones by constant use having trained the senses for distinguishing both good and evil. </para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 5:11"/>Concerning this <char style="add">there is</char> much speech from us, and difficult in interpretation to speak, since you⁺ have become dull in hearing. <verse eid="HEB 5:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 5:12"/>For even by the time you ought to be teachers, you⁺ have need of one to teach you⁺ again what <char style="add">is</char> the beginning of the elements of the oracles of God;<note caller="+" style="f"><char style="fr" closed="false">5.12 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">God's word</char></note> and you⁺ have become <char style="add">those</char> having need of milk, and not of solid food. <verse eid="HEB 5:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 5:13"/>For everyone partaking of milk <char style="add">is</char> inexperienced in the word of righteousness, for he is an infant. <verse eid="HEB 5:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 5:14"/>But solid food is for the mature,<note caller="+" style="f"><char style="fr" closed="false">5.14 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">perfect</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">complete</char><char style="ft" closed="false">; Greek </char><char style="fq" closed="false">teleiōn</char></note> the ones by constant use having trained the senses for distinguishing both good and evil. <verse eid="HEB 5:14"/></para>
+
 <chapter eid="HEB 5"/>
+
 <chapter number="6" style="c" sid="HEB 6"/>
+
 <para style="s">A Call to Maturity</para>
-<para style="p"><verse number="1" style="v" sid="HEB 6:1"/>Therefore, having left the word of the beginning of the Christ, we should carry on to maturity, not laying again a foundation of repentance from dead works,<note caller="+" style="f"><char style="fr" closed="false">6.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">from works of death</char></note> and of faith in God, </para>
-<para style="p"><verse number="2" style="v" sid="HEB 6:2"/>teaching of baptisms,<note caller="+" style="f"><char style="fr" closed="false">6.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">cleansing rites</char></note> and of laying on of hands, and of the resurrection of the dead, and of eternal judgment. </para>
-<para style="p"><verse number="3" style="v" sid="HEB 6:3"/>And this we will do, if God may permit. </para>
-<para style="p"><verse number="4" style="v" sid="HEB 6:4"/>For <char style="add">it is</char> impossible for those once having been enlightened, and having tasted of the heavenly gift, and having become partakers of the Holy Spirit, </para>
-<para style="p"><verse number="5" style="v" sid="HEB 6:5"/>and having tasted the goodness of God’s word and the power <char style="add">of</char> the coming age— </para>
-<para style="p"><verse number="6" style="v" sid="HEB 6:6"/>and then having fallen away—to restore <char style="add">them</char> again to repentance, crucifying in themselves the Son of God and subjecting <char style="add">Him</char> to open shame. </para>
-<para style="p"><verse number="7" style="v" sid="HEB 6:7"/>For land having drunk in the rain coming often upon it and producing vegetation useful for those because of whom also it is tilled partakes of blessing from God. </para>
-<para style="p"><verse number="8" style="v" sid="HEB 6:8"/>But <char style="add">that</char> bringing out thorns and thistles <char style="add">is</char> unapproved and near to a curse, of which the end <char style="add">is</char> unto burning. </para>
-<para style="p"><verse number="9" style="v" sid="HEB 6:9"/>But even if we speak thus. beloved, we are persuaded of better <char style="add">things</char> concerning you⁺, and <char style="add">things</char> belonging to salvation. </para>
-<para style="p"><verse number="10" style="v" sid="HEB 6:10"/>For God <char style="add">is</char> not unjust to forget your⁺ work and the love<note caller="+" style="f"><char style="fr" closed="false">6.10 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">your work and the labor of love</char></note> that you⁺ showed for His name, having ministered to the saints, and <char style="add">still</char> ministering. </para>
-<para style="p"><verse number="11" style="v" sid="HEB 6:11"/>And we desire each of you⁺ to show the same diligence toward the full assurance of the hope until the end, </para>
-<para style="p"><verse number="12" style="v" sid="HEB 6:12"/>so that you⁺ may not be sluggish, but imitators of those through faith and patience inheriting the promises. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 6:1"/>Therefore, having left the word of the beginning of the Christ, we should carry on to maturity, not laying again a foundation of repentance from dead works,<note caller="+" style="f"><char style="fr" closed="false">6.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">from works of death</char></note> and of faith in God, <verse eid="HEB 6:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 6:2"/>teaching of baptisms,<note caller="+" style="f"><char style="fr" closed="false">6.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">cleansing rites</char></note> and of laying on of hands, and of the resurrection of the dead, and of eternal judgment. <verse eid="HEB 6:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 6:3"/>And this we will do, if God may permit. <verse eid="HEB 6:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 6:4"/>For <char style="add">it is</char> impossible for those once having been enlightened, and having tasted of the heavenly gift, and having become partakers of the Holy Spirit, <verse eid="HEB 6:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="HEB 6:5"/>and having tasted the goodness of God’s word and the power <char style="add">of</char> the coming age— <verse eid="HEB 6:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="HEB 6:6"/>and then having fallen away—to restore <char style="add">them</char> again to repentance, crucifying in themselves the Son of God and subjecting <char style="add">Him</char> to open shame. <verse eid="HEB 6:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="HEB 6:7"/>For land having drunk in the rain coming often upon it and producing vegetation useful for those because of whom also it is tilled partakes of blessing from God. <verse eid="HEB 6:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="HEB 6:8"/>But <char style="add">that</char> bringing out thorns and thistles <char style="add">is</char> unapproved and near to a curse, of which the end <char style="add">is</char> unto burning. <verse eid="HEB 6:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 6:9"/>But even if we speak thus. beloved, we are persuaded of better <char style="add">things</char> concerning you⁺, and <char style="add">things</char> belonging to salvation. <verse eid="HEB 6:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 6:10"/>For God <char style="add">is</char> not unjust to forget your⁺ work and the love<note caller="+" style="f"><char style="fr" closed="false">6.10 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">your work and the labor of love</char></note> that you⁺ showed for His name, having ministered to the saints, and <char style="add">still</char> ministering. <verse eid="HEB 6:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 6:11"/>And we desire each of you⁺ to show the same diligence toward the full assurance of the hope until the end, <verse eid="HEB 6:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 6:12"/>so that you⁺ may not be sluggish, but imitators of those through faith and patience inheriting the promises. <verse eid="HEB 6:12"/></para>
+
 <para style="s">God’s Unchangeable Promise</para>
-<para style="p"><verse number="13" style="v" sid="HEB 6:13"/>For God, having made the promise to Abraham, since He had no one greater to swear by, He swore by Himself, </para>
-<para style="p"><verse number="14" style="v" sid="HEB 6:14"/>saying, “Surely blessing I will bless you, and multiplying I will multiply you.” <note caller="+" style="f"><char style="fr" closed="false">6.14 </char><char style="ft" closed="false"> Genesis 22:17</char></note></para>
-<para style="p"><verse number="15" style="v" sid="HEB 6:15"/>And thus having waited patiently, he obtained the promise. </para>
-<para style="p"><verse number="16" style="v" sid="HEB 6:16"/>For men<note caller="+" style="f"><char style="fr" closed="false">6.16 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">indeed</char><char style="ft" closed="false">.</char></note> swear by the greater, and of all their disputes, an end for confirmation <char style="add">is</char> the oath, </para>
-<para style="p"><verse number="17" style="v" sid="HEB 6:17"/>in which God, willing to show more abundantly the unchangeableness of His purpose to the heirs of the promise, guaranteed <char style="add">it</char> by an oath, </para>
-<para style="p"><verse number="18" style="v" sid="HEB 6:18"/>so that by two unchangeable things, in which <char style="add">it is</char> impossible <char style="add">for</char> God to lie, we may have strong encouragement, having fled for refuge to take hold of the hope being set before <char style="add">us</char>, </para>
-<para style="p"><verse number="19" style="v" sid="HEB 6:19"/>which we have as an anchor of the soul, both sure and firm and entering into that within the veil, </para>
-<para style="p"><verse number="20" style="v" sid="HEB 6:20"/>where Jesus, the forerunner for us, entered according to the order of Melchizedek, having become a high priest to the age. </para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 6:13"/>For God, having made the promise to Abraham, since He had no one greater to swear by, He swore by Himself, <verse eid="HEB 6:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 6:14"/>saying, “Surely blessing I will bless you, and multiplying I will multiply you.” <note caller="+" style="f"><char style="fr" closed="false">6.14 </char><char style="ft" closed="false"> Genesis 22:17</char></note><verse eid="HEB 6:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HEB 6:15"/>And thus having waited patiently, he obtained the promise. <verse eid="HEB 6:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HEB 6:16"/>For men<note caller="+" style="f"><char style="fr" closed="false">6.16 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">indeed</char><char style="ft" closed="false">.</char></note> swear by the greater, and of all their disputes, an end for confirmation <char style="add">is</char> the oath, <verse eid="HEB 6:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="HEB 6:17"/>in which God, willing to show more abundantly the unchangeableness of His purpose to the heirs of the promise, guaranteed <char style="add">it</char> by an oath, <verse eid="HEB 6:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="HEB 6:18"/>so that by two unchangeable things, in which <char style="add">it is</char> impossible <char style="add">for</char> God to lie, we may have strong encouragement, having fled for refuge to take hold of the hope being set before <char style="add">us</char>, <verse eid="HEB 6:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="HEB 6:19"/>which we have as an anchor of the soul, both sure and firm and entering into that within the veil, <verse eid="HEB 6:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="HEB 6:20"/>where Jesus, the forerunner for us, entered according to the order of Melchizedek, having become a high priest to the age. <verse eid="HEB 6:20"/></para>
+
 <chapter eid="HEB 6"/>
+
 <chapter number="7" style="c" sid="HEB 7"/>
+
 <para style="s">Melchizedek and Abraham</para>
-<para style="p"><verse number="1" style="v" sid="HEB 7:1"/><note caller="-" style="x"><char style="xt" closed="false">Genesis 14:17–24</char></note>For this Melchizedek, king of Salem, priest of God Most High,<note caller="+" style="f"><char style="fr" closed="false">7.1 </char><char style="ft" closed="false"> Genesis 14:18</char></note> the one having met Abraham returning from the slaughter of the kings and having blessed him, </para>
-<para style="p"><verse number="2" style="v" sid="HEB 7:2"/>to whom also Abraham apportioned a tenth of all, first indeed being translated, “king of righteousness;” and then also, “king of Salem,” which is, “king of peace,” </para>
-<para style="p"><verse number="3" style="v" sid="HEB 7:3"/>without father, without mother, without genealogy, having neither beginning of days nor end of life, but having been made like the Son of God, remains a priest in perpetuity. </para>
-<para style="p"><verse number="4" style="v" sid="HEB 7:4"/>Now behold how great this one <char style="add">was</char>, to whom even Abraham the patriarch gave a tenth out of the best spoils. </para>
-<para style="p"><verse number="5" style="v" sid="HEB 7:5"/>And indeed, those out from the sons of Levi receiving the priesthood have a commandment to take a tenth from the people, according to the law—that is, from their brothers, though having come forth out of the loin of Abraham. </para>
-<para style="p"><verse number="6" style="v" sid="HEB 7:6"/>But the one not tracing his descent out from them has collected a tenth from Abraham and has blessed the one having the promises. </para>
-<para style="p"><verse number="7" style="v" sid="HEB 7:7"/>And apart from all dispute, the lesser is blessed by the greater. </para>
-<para style="p"><verse number="8" style="v" sid="HEB 7:8"/>And here indeed, dying men receive the tenths; but there, it is being testified that he lives. </para>
-<para style="p"><verse number="9" style="v" sid="HEB 7:9"/>and so to say a word, even Levi, the one receiving the tenths, has paid the tenth through Abraham. </para>
-<para style="p"><verse number="10" style="v" sid="HEB 7:10"/>For he was still in the loin of <char style="add">his</char> father when Melchizedek met him. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 7:1"/><note caller="-" style="x"><char style="xt" closed="false">Genesis 14:17–24</char></note>For this Melchizedek, king of Salem, priest of God Most High,<note caller="+" style="f"><char style="fr" closed="false">7.1 </char><char style="ft" closed="false"> Genesis 14:18</char></note> the one having met Abraham returning from the slaughter of the kings and having blessed him, <verse eid="HEB 7:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 7:2"/>to whom also Abraham apportioned a tenth of all, first indeed being translated, “king of righteousness;” and then also, “king of Salem,” which is, “king of peace,” <verse eid="HEB 7:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 7:3"/>without father, without mother, without genealogy, having neither beginning of days nor end of life, but having been made like the Son of God, remains a priest in perpetuity. <verse eid="HEB 7:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 7:4"/>Now behold how great this one <char style="add">was</char>, to whom even Abraham the patriarch gave a tenth out of the best spoils. <verse eid="HEB 7:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="HEB 7:5"/>And indeed, those out from the sons of Levi receiving the priesthood have a commandment to take a tenth from the people, according to the law—that is, from their brothers, though having come forth out of the loin of Abraham. <verse eid="HEB 7:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="HEB 7:6"/>But the one not tracing his descent out from them has collected a tenth from Abraham and has blessed the one having the promises. <verse eid="HEB 7:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="HEB 7:7"/>And apart from all dispute, the lesser is blessed by the greater. <verse eid="HEB 7:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="HEB 7:8"/>And here indeed, dying men receive the tenths; but there, it is being testified that he lives. <verse eid="HEB 7:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 7:9"/>and so to say a word, even Levi, the one receiving the tenths, has paid the tenth through Abraham. <verse eid="HEB 7:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 7:10"/>For he was still in the loin of <char style="add">his</char> father when Melchizedek met him. <verse eid="HEB 7:10"/></para>
+
 <para style="s">A Superior Priesthood</para>
-<para style="p"><verse number="11" style="v" sid="HEB 7:11"/>Then indeed, if perfection were by the Levitical priesthood (for upon it the people had received the law) what need <char style="add">was</char> still <char style="add">for</char> another priest to arise, according to the order of Melchizedek and not to be called according to the order of Aaron? </para>
-<para style="p"><verse number="12" style="v" sid="HEB 7:12"/>For the priesthood being changed, out of necessity a change of law also takes place. </para>
-<para style="p"><verse number="13" style="v" sid="HEB 7:13"/>For <char style="add">he</char> of whom these things are said belonged to another tribe, from which no one has attended at the altar. </para>
-<para style="p"><verse number="14" style="v" sid="HEB 7:14"/>For <char style="add">it is</char> evident that our Lord has sprung out of Judah, a tribe in regard to which Moses spoke nothing about priests.<note caller="+" style="f"><char style="fr" closed="false">7.14 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">about priesthood</char></note> </para>
-<para style="p"><verse number="15" style="v" sid="HEB 7:15"/>And it is yet more abundantly evident if another priest according to the likeness of Melchizedek arises, </para>
-<para style="p"><verse number="16" style="v" sid="HEB 7:16"/>who has become <char style="add">such</char> not according to a law of a fleshly commandment, but according to the power of an indestructible life. </para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 7:11"/>Then indeed, if perfection were by the Levitical priesthood (for upon it the people had received the law) what need <char style="add">was</char> still <char style="add">for</char> another priest to arise, according to the order of Melchizedek and not to be called according to the order of Aaron? <verse eid="HEB 7:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 7:12"/>For the priesthood being changed, out of necessity a change of law also takes place. <verse eid="HEB 7:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 7:13"/>For <char style="add">he</char> of whom these things are said belonged to another tribe, from which no one has attended at the altar. <verse eid="HEB 7:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 7:14"/>For <char style="add">it is</char> evident that our Lord has sprung out of Judah, a tribe in regard to which Moses spoke nothing about priests.<note caller="+" style="f"><char style="fr" closed="false">7.14 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">about priesthood</char></note> <verse eid="HEB 7:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HEB 7:15"/>And it is yet more abundantly evident if another priest according to the likeness of Melchizedek arises, <verse eid="HEB 7:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HEB 7:16"/>who has become <char style="add">such</char> not according to a law of a fleshly commandment, but according to the power of an indestructible life. <verse eid="HEB 7:16"/></para>
+
 <para style="p"><verse number="17" style="v" sid="HEB 7:17"/>For it is testified: </para>
+
 <para style="q1" vid="HEB 7:17">“You <char style="add">are</char> a priest to the age, </para>
-<para style="q2" vid="HEB 7:17">according to the order of Melchizedek.”<note caller="+" style="f"><char style="fr" closed="false">7.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">For He testifies</char></note> <note caller="+" style="f"><char style="fr" closed="false">7.17 </char><char style="ft" closed="false"> Psalm 110:4</char></note></para>
-<para style="p"><verse number="18" style="v" sid="HEB 7:18"/>For indeed, there is a putting away of the preceding commandment because of its weakness and uselessness </para>
-<para style="p"><verse number="19" style="v" sid="HEB 7:19"/>(for the law perfected nothing), and the introduction of a better hope, by which we draw near to God. </para>
-<para style="p"><verse number="20" style="v" sid="HEB 7:20"/>And inasmuch as <char style="add">it was</char> not without an oath (for those indeed apart from an oath are become priests), </para>
+
+<para style="q2" vid="HEB 7:17">according to the order of Melchizedek.”<note caller="+" style="f"><char style="fr" closed="false">7.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">For He testifies</char></note> <note caller="+" style="f"><char style="fr" closed="false">7.17 </char><char style="ft" closed="false"> Psalm 110:4</char></note><verse eid="HEB 7:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="HEB 7:18"/>For indeed, there is a putting away of the preceding commandment because of its weakness and uselessness <verse eid="HEB 7:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="HEB 7:19"/>(for the law perfected nothing), and the introduction of a better hope, by which we draw near to God. <verse eid="HEB 7:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="HEB 7:20"/>And inasmuch as <char style="add">it was</char> not without an oath (for those indeed apart from an oath are become priests), <verse eid="HEB 7:20"/></para>
+
 <para style="p"><verse number="21" style="v" sid="HEB 7:21"/>the One, however, <char style="add">was</char> with an oath through the One saying to Him: </para>
+
 <para style="q1" vid="HEB 7:21">“The Lord has sworn and will not change His mind; </para>
-<para style="q2" vid="HEB 7:21">‘You <char style="add">are</char> a priest to the age.’” <note caller="+" style="f"><char style="fr" closed="false">7.21 </char><char style="ft" closed="false"> Psalm 110:4; BYZ and TR include </char><char style="fq" closed="false">in the order of Melchizedek</char><char style="ft" closed="false">.</char></note></para>
-<para style="p"><verse number="22" style="v" sid="HEB 7:22"/>By so much also, Jesus has become the guarantee of a better covenant. </para>
-<para style="p"><verse number="23" style="v" sid="HEB 7:23"/>And indeed those having become priests are many, because of by death being prevented from continuing. </para>
-<para style="p"><verse number="24" style="v" sid="HEB 7:24"/>But because of His remaining to the age, He has the permanent priesthood, </para>
-<para style="p"><verse number="25" style="v" sid="HEB 7:25"/>wherefore also He is able to save to the uttermost<note caller="+" style="f"><char style="fr" closed="false">7.25 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">forever</char></note> those drawing near to God through Him, always living to intercede for them. </para>
-<para style="p"><verse number="26" style="v" sid="HEB 7:26"/>For such for us indeed was fitting—a high priest holy, innocent, undefiled, having been separated from sinners, and having become higher than the heavens, </para>
-<para style="p"><verse number="27" style="v" sid="HEB 7:27"/>who has no need every day, as the first high priests, to offer up sacrifices for <char style="add">his</char> own sins, then for those of the people; for He did this once for all, having offered up Himself. </para>
-<para style="p"><verse number="28" style="v" sid="HEB 7:28"/>For the law appoints as high priests men having weakness; but the word of the oath, which <char style="add">is</char> after the law, <char style="add">appoints</char> a Son having been perfected to the age. </para>
+
+<para style="q2" vid="HEB 7:21">‘You <char style="add">are</char> a priest to the age.’” <note caller="+" style="f"><char style="fr" closed="false">7.21 </char><char style="ft" closed="false"> Psalm 110:4; BYZ and TR include </char><char style="fq" closed="false">in the order of Melchizedek</char><char style="ft" closed="false">.</char></note><verse eid="HEB 7:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="HEB 7:22"/>By so much also, Jesus has become the guarantee of a better covenant. <verse eid="HEB 7:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="HEB 7:23"/>And indeed those having become priests are many, because of by death being prevented from continuing. <verse eid="HEB 7:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="HEB 7:24"/>But because of His remaining to the age, He has the permanent priesthood, <verse eid="HEB 7:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="HEB 7:25"/>wherefore also He is able to save to the uttermost<note caller="+" style="f"><char style="fr" closed="false">7.25 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">forever</char></note> those drawing near to God through Him, always living to intercede for them. <verse eid="HEB 7:25"/></para>
+
+<para style="p"><verse number="26" style="v" sid="HEB 7:26"/>For such for us indeed was fitting—a high priest holy, innocent, undefiled, having been separated from sinners, and having become higher than the heavens, <verse eid="HEB 7:26"/></para>
+
+<para style="p"><verse number="27" style="v" sid="HEB 7:27"/>who has no need every day, as the first high priests, to offer up sacrifices for <char style="add">his</char> own sins, then for those of the people; for He did this once for all, having offered up Himself. <verse eid="HEB 7:27"/></para>
+
+<para style="p"><verse number="28" style="v" sid="HEB 7:28"/>For the law appoints as high priests men having weakness; but the word of the oath, which <char style="add">is</char> after the law, <char style="add">appoints</char> a Son having been perfected to the age. <verse eid="HEB 7:28"/></para>
+
 <chapter eid="HEB 7"/>
+
 <chapter number="8" style="c" sid="HEB 8"/>
+
 <para style="s">Christ’s Eternal Priesthood</para>
-<para style="p"><verse number="1" style="v" sid="HEB 8:1"/>Now the main point of the things being said: We have such a high priest, who sat down at the right hand of the throne of the Majesty in the heavens, </para>
-<para style="p"><verse number="2" style="v" sid="HEB 8:2"/>a minister in the holy places and in the true tabernacle, which the Lord pitched, not man. </para>
-<para style="p"><verse number="3" style="v" sid="HEB 8:3"/>For every high priest is appointed in order to offer both gifts and sacrifices, wherefore <char style="add">it was</char> necessary <char style="add">for</char> this One also to have something that He might offer. </para>
-<para style="p"><verse number="4" style="v" sid="HEB 8:4"/>Then<note caller="+" style="f"><char style="fr" closed="false">8.4 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Now</char></note> indeed, if He were on earth, not even would He be a priest, <char style="add">there</char> being those offering the gifts according to law, </para>
-<para style="p"><verse number="5" style="v" sid="HEB 8:5"/>who serve as an example and shadow of the heavenly things, just as Moses was divinely warned being about to complete the tabernacle. For He says, “See that you will make all things according to the pattern having been shown to you in the mountain.” <note caller="+" style="f"><char style="fr" closed="false">8.5 </char><char style="ft" closed="false"> Exodus 25:40; see also Exodus 26:30.</char></note></para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 8:1"/>Now the main point of the things being said: We have such a high priest, who sat down at the right hand of the throne of the Majesty in the heavens, <verse eid="HEB 8:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 8:2"/>a minister in the holy places and in the true tabernacle, which the Lord pitched, not man. <verse eid="HEB 8:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 8:3"/>For every high priest is appointed in order to offer both gifts and sacrifices, wherefore <char style="add">it was</char> necessary <char style="add">for</char> this One also to have something that He might offer. <verse eid="HEB 8:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 8:4"/>Then<note caller="+" style="f"><char style="fr" closed="false">8.4 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Now</char></note> indeed, if He were on earth, not even would He be a priest, <char style="add">there</char> being those offering the gifts according to law, <verse eid="HEB 8:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="HEB 8:5"/>who serve as an example and shadow of the heavenly things, just as Moses was divinely warned being about to complete the tabernacle. For He says, “See that you will make all things according to the pattern having been shown to you in the mountain.” <note caller="+" style="f"><char style="fr" closed="false">8.5 </char><char style="ft" closed="false"> Exodus 25:40; see also Exodus 26:30.</char></note><verse eid="HEB 8:5"/></para>
+
 <para style="s">The New CovenantJeremiah 31:26–40</para>
-<para style="p"><verse number="6" style="v" sid="HEB 8:6"/>But now He has obtained a more excellent ministry, as much as He is also the mediator of a better covenant, which has been enacted upon better promises. </para>
-<para style="p"><verse number="7" style="v" sid="HEB 8:7"/>For if that first had been faultless, no place would have been sought for a second. </para>
+
+<para style="p"><verse number="6" style="v" sid="HEB 8:6"/>But now He has obtained a more excellent ministry, as much as He is also the mediator of a better covenant, which has been enacted upon better promises. <verse eid="HEB 8:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="HEB 8:7"/>For if that first had been faultless, no place would have been sought for a second. <verse eid="HEB 8:7"/></para>
+
 <para style="p"><verse number="8" style="v" sid="HEB 8:8"/>For finding fault with them, He says: </para>
+
 <para style="q1" vid="HEB 8:8">“Behold, the days are coming, </para>
+
 <para style="q2" vid="HEB 8:8">says the Lord, and </para>
+
 <para style="q1" vid="HEB 8:8">I will complete with the house of Israel </para>
+
 <para style="q2" vid="HEB 8:8">and with the house of Judah </para>
-<para style="q2" vid="HEB 8:8">a new covenant, </para>
+
+<para style="q2" vid="HEB 8:8">a new covenant, <verse eid="HEB 8:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="HEB 8:9"/>not according to the covenant </para>
+
 <para style="q2" vid="HEB 8:9">that I made with their fathers, </para>
+
 <para style="q1" vid="HEB 8:9">in the day of My having taken hold of their hand </para>
+
 <para style="q2" vid="HEB 8:9">to lead them out of the land of Egypt, </para>
+
 <para style="q1" vid="HEB 8:9">because they did not continue in My covenant, </para>
+
 <para style="q2" vid="HEB 8:9">and I disregarded them, </para>
-<para style="qs" vid="HEB 8:9">says the Lord. </para>
+
+<para style="qs" vid="HEB 8:9">says the Lord. <verse eid="HEB 8:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="HEB 8:10"/>For this <char style="add">is</char> the covenant that I will make </para>
+
 <para style="q2" vid="HEB 8:10">with the house of Israel after those days, </para>
+
 <para style="q2" vid="HEB 8:10">says the Lord, </para>
+
 <para style="q1" vid="HEB 8:10">giving My laws into their mind, </para>
+
 <para style="q2" vid="HEB 8:10">and I will inscribe them upon their hearts; </para>
+
 <para style="q1" vid="HEB 8:10">and I will be unto them God, </para>
-<para style="q2" vid="HEB 8:10">and they will be unto Me for a people. </para>
+
+<para style="q2" vid="HEB 8:10">and they will be unto Me for a people. <verse eid="HEB 8:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="HEB 8:11"/>And they shall not teach, </para>
+
 <para style="q2" vid="HEB 8:11">each his neighbor and each his brother, </para>
+
 <para style="q2" vid="HEB 8:11">saying, ‘Know the Lord,’ </para>
+
 <para style="q1" vid="HEB 8:11">because all will know Me, </para>
-<para style="q2" vid="HEB 8:11">from the small to the great of them, <note caller="+" style="f"><char style="fr" closed="false">8.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">his fellow citizen</char></note></para>
+
+<para style="q2" vid="HEB 8:11">from the small to the great of them, <note caller="+" style="f"><char style="fr" closed="false">8.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">his fellow citizen</char></note><verse eid="HEB 8:11"/></para>
+
 <para style="q1"><verse number="12" style="v" sid="HEB 8:12"/>because I will be merciful toward their iniquities, </para>
-<para style="q2" vid="HEB 8:12">and I shall remember their sins<note caller="+" style="f"><char style="fr" closed="false">8.12 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">and lawless acts</char><char style="ft" closed="false">.</char></note> no more.<note caller="+" style="f"><char style="fr" closed="false">8.12 </char><char style="ft" closed="false"> Jeremiah 31:31–34 (see also LXX)</char></note> </para>
-<para style="p"><verse number="13" style="v" sid="HEB 8:13"/>In saying, “new,” He has made old the first; and that which is growing old and aging <char style="add">is</char> near to vanishing. <note caller="+" style="f"><char style="fr" closed="false">8.13 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">By speaking of a new covenant</char><char style="ft" closed="false">;</char></note></para>
+
+<para style="q2" vid="HEB 8:12">and I shall remember their sins<note caller="+" style="f"><char style="fr" closed="false">8.12 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">and lawless acts</char><char style="ft" closed="false">.</char></note> no more.<note caller="+" style="f"><char style="fr" closed="false">8.12 </char><char style="ft" closed="false"> Jeremiah 31:31–34 (see also LXX)</char></note> <verse eid="HEB 8:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 8:13"/>In saying, “new,” He has made old the first; and that which is growing old and aging <char style="add">is</char> near to vanishing. <note caller="+" style="f"><char style="fr" closed="false">8.13 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">By speaking of a new covenant</char><char style="ft" closed="false">;</char></note><verse eid="HEB 8:13"/></para>
+
 <chapter eid="HEB 8"/>
+
 <chapter number="9" style="c" sid="HEB 9"/>
+
 <para style="s">The Earthly Tabernacle</para>
-<para style="p"><verse number="1" style="v" sid="HEB 9:1"/><note caller="-" style="x"><char style="xt" closed="false">Acts 7:44–47</char></note><note caller="-" style="x"><char style="xt" closed="false">Exodus 40:1–33</char></note>Therefore also indeed, the first<note caller="+" style="f"><char style="fr" closed="false">9.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the first covenant</char><char style="ft" closed="false">; also in verse 18</char></note> had ordinances of sacred service and a worldly sanctuary. </para>
-<para style="p"><verse number="2" style="v" sid="HEB 9:2"/>For a tabernacle was prepared, the first <char style="add">room</char> in which <char style="add">were</char> both the lampstand and the table, and the loaves of the presentation,<note caller="+" style="f"><char style="fr" closed="false">9.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the consecrated bread</char></note> which is called “Holy.” </para>
-<para style="p"><verse number="3" style="v" sid="HEB 9:3"/>Now behind the second veil <char style="add">was</char> a tabernacle, being called “Holy of Holies,”<note caller="+" style="f"><char style="fr" closed="false">9.3 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Most Holy Place</char></note> </para>
-<para style="p"><verse number="4" style="v" sid="HEB 9:4"/>having the golden altar of incense and the ark of the covenant having been covered around in every part with gold, in which <char style="add">was</char> the golden jar having the manna, and the staff of Aaron having budded, and the tablets of the covenant. </para>
-<para style="p"><verse number="5" style="v" sid="HEB 9:5"/>And far above it <char style="add">were</char> the cherubim of glory, overshadowing the mercy seat<note caller="+" style="f"><char style="fr" closed="false">9.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">atonement cover</char></note>—concerning which it is not now <char style="add">time</char> to speak particularly. </para>
-<para style="p"><verse number="6" style="v" sid="HEB 9:6"/>Now these things having been prepared thus, indeed the priests enter into the first tabernacle at all <char style="add">times</char>, accomplishing the sacred services, </para>
-<para style="p"><verse number="7" style="v" sid="HEB 9:7"/>but only the high priest into the second, once in the year, not without blood, which he offers for himself and <char style="add">for</char> the sins of ignorance of the people. </para>
-<para style="p"><verse number="8" style="v" sid="HEB 9:8"/>By this the Holy Spirit <char style="add">was</char> making clear <char style="add">that</char> the way into the holy <char style="add">places</char><note caller="+" style="f"><char style="fr" closed="false">9.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Holy Place</char><char style="ft" closed="false">; also in verses 12 and 25</char></note> had not yet been made manifest, the first tabernacle still having a standing, </para>
-<para style="p"><verse number="9" style="v" sid="HEB 9:9"/>which <char style="add">is</char> a parable for the present time, in which both gifts and sacrifices are offered, not being able to make perfect in regard to conscience the one doing sacred service, </para>
-<para style="p"><verse number="10" style="v" sid="HEB 9:10"/><char style="add">consisting</char> only in foods and drinks and various washings—ordinances<note caller="+" style="f"><char style="fr" closed="false">9.10 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">washings and ordinances</char><char style="ft" closed="false">.</char></note> of the flesh being imposed until the time of reformation. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 9:1"/><note caller="-" style="x"><char style="xt" closed="false">Acts 7:44–47</char></note><note caller="-" style="x"><char style="xt" closed="false">Exodus 40:1–33</char></note>Therefore also indeed, the first<note caller="+" style="f"><char style="fr" closed="false">9.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the first covenant</char><char style="ft" closed="false">; also in verse 18</char></note> had ordinances of sacred service and a worldly sanctuary. <verse eid="HEB 9:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 9:2"/>For a tabernacle was prepared, the first <char style="add">room</char> in which <char style="add">were</char> both the lampstand and the table, and the loaves of the presentation,<note caller="+" style="f"><char style="fr" closed="false">9.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the consecrated bread</char></note> which is called “Holy.” <verse eid="HEB 9:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 9:3"/>Now behind the second veil <char style="add">was</char> a tabernacle, being called “Holy of Holies,”<note caller="+" style="f"><char style="fr" closed="false">9.3 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Most Holy Place</char></note> <verse eid="HEB 9:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 9:4"/>having the golden altar of incense and the ark of the covenant having been covered around in every part with gold, in which <char style="add">was</char> the golden jar having the manna, and the staff of Aaron having budded, and the tablets of the covenant. <verse eid="HEB 9:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="HEB 9:5"/>And far above it <char style="add">were</char> the cherubim of glory, overshadowing the mercy seat<note caller="+" style="f"><char style="fr" closed="false">9.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">atonement cover</char></note>—concerning which it is not now <char style="add">time</char> to speak particularly. <verse eid="HEB 9:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="HEB 9:6"/>Now these things having been prepared thus, indeed the priests enter into the first tabernacle at all <char style="add">times</char>, accomplishing the sacred services, <verse eid="HEB 9:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="HEB 9:7"/>but only the high priest into the second, once in the year, not without blood, which he offers for himself and <char style="add">for</char> the sins of ignorance of the people. <verse eid="HEB 9:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="HEB 9:8"/>By this the Holy Spirit <char style="add">was</char> making clear <char style="add">that</char> the way into the holy <char style="add">places</char><note caller="+" style="f"><char style="fr" closed="false">9.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Holy Place</char><char style="ft" closed="false">; also in verses 12 and 25</char></note> had not yet been made manifest, the first tabernacle still having a standing, <verse eid="HEB 9:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 9:9"/>which <char style="add">is</char> a parable for the present time, in which both gifts and sacrifices are offered, not being able to make perfect in regard to conscience the one doing sacred service, <verse eid="HEB 9:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 9:10"/><char style="add">consisting</char> only in foods and drinks and various washings—ordinances<note caller="+" style="f"><char style="fr" closed="false">9.10 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">washings and ordinances</char><char style="ft" closed="false">.</char></note> of the flesh being imposed until the time of reformation. <verse eid="HEB 9:10"/></para>
+
 <para style="s">Redemption through His Blood</para>
-<para style="p"><verse number="11" style="v" sid="HEB 9:11"/>But Christ, having come <char style="add">as</char> high priest of the good things coming,<note caller="+" style="f"><char style="fr" closed="false">9.11 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">that are to come</char></note> through the greater and more perfect tabernacle not made by hands, that is, not of this creation, </para>
-<para style="p"><verse number="12" style="v" sid="HEB 9:12"/>nor by blood of goats and calves, but through <char style="add">His</char> own blood, He entered once for all into the holy <char style="add">places</char>, having obtained eternal redemption. </para>
-<para style="p"><verse number="13" style="v" sid="HEB 9:13"/>For if the blood of goats and of bulls<note caller="+" style="f"><char style="fr" closed="false">9.13 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">of bulls and goats</char></note> and the ashes of a heifer sprinkling the ones having been defiled sanctify <char style="add">them</char> for the purification of the flesh, </para>
-<para style="p"><verse number="14" style="v" sid="HEB 9:14"/>how much more will the blood of Christ, who through the eternal Spirit<note caller="+" style="f"><char style="fr" closed="false">9.14 </char><char style="ft" closed="false"> F35 </char><char style="fq" closed="false">the Holy Spirit</char></note> offered Himself unblemished to God, purify our<note caller="+" style="f"><char style="fr" closed="false">9.14 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">your</char></note> conscience from dead works, in order to serve the living God! </para>
-<para style="p"><verse number="15" style="v" sid="HEB 9:15"/>And because of this, He is the mediator of a new covenant, so that, death having taken place for redemption of the transgressions upon the first covenant, those having been called might receive the promise of the eternal inheritance. </para>
-<para style="p"><verse number="16" style="v" sid="HEB 9:16"/>For where <char style="add">there is</char> a covenant,<note caller="+" style="f"><char style="fr" closed="false">9.16 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a will</char><char style="ft" closed="false">; also in verse 17.</char></note> <char style="add">there is</char> a necessity to bring forth the death of the one having made <char style="add">it</char>. </para>
-<para style="p"><verse number="17" style="v" sid="HEB 9:17"/>For a covenant <char style="add">is</char> firm upon death, since it is not in force at the time when the one having made <char style="add">it</char> is living, </para>
-<para style="p"><verse number="18" style="v" sid="HEB 9:18"/>wherefore neither has the first been inaugurated without blood. </para>
-<para style="p"><verse number="19" style="v" sid="HEB 9:19"/>For <char style="add">on</char> every commandment having been spoken by Moses to all the people according to the law, having taken the blood of calves and of goats,<note caller="+" style="f"><char style="fr" closed="false">9.19 </char><char style="ft" closed="false"> SBL does not include </char><char style="fq" closed="false">and of goats</char><char style="ft" closed="false">.</char></note> with water and scarlet wool and hyssop, he sprinkled both the scroll itself and all the people, </para>
-<para style="p"><verse number="20" style="v" sid="HEB 9:20"/>saying, “This <char style="add">is</char> the blood of the covenant, which God commanded to you⁺.” <note caller="+" style="f"><char style="fr" closed="false">9.20 </char><char style="ft" closed="false"> Exodus 24:8</char></note></para>
-<para style="p"><verse number="21" style="v" sid="HEB 9:21"/>And likewise he sprinkled both the tabernacle and all the vessels of the sacred service with blood. </para>
-<para style="p"><verse number="22" style="v" sid="HEB 9:22"/>And almost all things are purified with blood according to the law, and without blood-shedding there is no forgiveness. </para>
-<para style="p"><verse number="23" style="v" sid="HEB 9:23"/>Therefore <char style="add">there was</char> a necessity indeed <char style="add">for</char> the representations of the things in the heavens to be purified with these, but the heavenly things themselves with better sacrifices than these. </para>
-<para style="p"><verse number="24" style="v" sid="HEB 9:24"/>For Christ entered not into holy <char style="add">places</char> made by hands, copies of the true ones, but into heaven itself, now to appear for us in the presence of God, </para>
-<para style="p"><verse number="25" style="v" sid="HEB 9:25"/>nor that He should offer Himself many times, just as the high priest enters into the holy <char style="add">places</char> every year with the blood of another. </para>
-<para style="p"><verse number="26" style="v" sid="HEB 9:26"/>Otherwise it was necessary for Him to have suffered many times from the foundation of the world. But now He has been revealed once in the consummation of the ages for the putting away of sin by the sacrifice of Himself. </para>
-<para style="p"><verse number="27" style="v" sid="HEB 9:27"/>And inasmuch as it is apportioned to men to die once, and after this, judgment, </para>
-<para style="p"><verse number="28" style="v" sid="HEB 9:28"/>so also Christ, having been offered once in order to bear the sins of many, will appear for a second time, apart from sin, to those eagerly awaiting Him for salvation. </para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 9:11"/>But Christ, having come <char style="add">as</char> high priest of the good things coming,<note caller="+" style="f"><char style="fr" closed="false">9.11 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">that are to come</char></note> through the greater and more perfect tabernacle not made by hands, that is, not of this creation, <verse eid="HEB 9:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 9:12"/>nor by blood of goats and calves, but through <char style="add">His</char> own blood, He entered once for all into the holy <char style="add">places</char>, having obtained eternal redemption. <verse eid="HEB 9:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 9:13"/>For if the blood of goats and of bulls<note caller="+" style="f"><char style="fr" closed="false">9.13 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">of bulls and goats</char></note> and the ashes of a heifer sprinkling the ones having been defiled sanctify <char style="add">them</char> for the purification of the flesh, <verse eid="HEB 9:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 9:14"/>how much more will the blood of Christ, who through the eternal Spirit<note caller="+" style="f"><char style="fr" closed="false">9.14 </char><char style="ft" closed="false"> F35 </char><char style="fq" closed="false">the Holy Spirit</char></note> offered Himself unblemished to God, purify our<note caller="+" style="f"><char style="fr" closed="false">9.14 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">your</char></note> conscience from dead works, in order to serve the living God! <verse eid="HEB 9:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HEB 9:15"/>And because of this, He is the mediator of a new covenant, so that, death having taken place for redemption of the transgressions upon the first covenant, those having been called might receive the promise of the eternal inheritance. <verse eid="HEB 9:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HEB 9:16"/>For where <char style="add">there is</char> a covenant,<note caller="+" style="f"><char style="fr" closed="false">9.16 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a will</char><char style="ft" closed="false">; also in verse 17.</char></note> <char style="add">there is</char> a necessity to bring forth the death of the one having made <char style="add">it</char>. <verse eid="HEB 9:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="HEB 9:17"/>For a covenant <char style="add">is</char> firm upon death, since it is not in force at the time when the one having made <char style="add">it</char> is living, <verse eid="HEB 9:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="HEB 9:18"/>wherefore neither has the first been inaugurated without blood. <verse eid="HEB 9:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="HEB 9:19"/>For <char style="add">on</char> every commandment having been spoken by Moses to all the people according to the law, having taken the blood of calves and of goats,<note caller="+" style="f"><char style="fr" closed="false">9.19 </char><char style="ft" closed="false"> SBL does not include </char><char style="fq" closed="false">and of goats</char><char style="ft" closed="false">.</char></note> with water and scarlet wool and hyssop, he sprinkled both the scroll itself and all the people, <verse eid="HEB 9:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="HEB 9:20"/>saying, “This <char style="add">is</char> the blood of the covenant, which God commanded to you⁺.” <note caller="+" style="f"><char style="fr" closed="false">9.20 </char><char style="ft" closed="false"> Exodus 24:8</char></note><verse eid="HEB 9:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="HEB 9:21"/>And likewise he sprinkled both the tabernacle and all the vessels of the sacred service with blood. <verse eid="HEB 9:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="HEB 9:22"/>And almost all things are purified with blood according to the law, and without blood-shedding there is no forgiveness. <verse eid="HEB 9:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="HEB 9:23"/>Therefore <char style="add">there was</char> a necessity indeed <char style="add">for</char> the representations of the things in the heavens to be purified with these, but the heavenly things themselves with better sacrifices than these. <verse eid="HEB 9:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="HEB 9:24"/>For Christ entered not into holy <char style="add">places</char> made by hands, copies of the true ones, but into heaven itself, now to appear for us in the presence of God, <verse eid="HEB 9:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="HEB 9:25"/>nor that He should offer Himself many times, just as the high priest enters into the holy <char style="add">places</char> every year with the blood of another. <verse eid="HEB 9:25"/></para>
+
+<para style="p"><verse number="26" style="v" sid="HEB 9:26"/>Otherwise it was necessary for Him to have suffered many times from the foundation of the world. But now He has been revealed once in the consummation of the ages for the putting away of sin by the sacrifice of Himself. <verse eid="HEB 9:26"/></para>
+
+<para style="p"><verse number="27" style="v" sid="HEB 9:27"/>And inasmuch as it is apportioned to men to die once, and after this, judgment, <verse eid="HEB 9:27"/></para>
+
+<para style="p"><verse number="28" style="v" sid="HEB 9:28"/>so also Christ, having been offered once in order to bear the sins of many, will appear for a second time, apart from sin, to those eagerly awaiting Him for salvation. <verse eid="HEB 9:28"/></para>
+
 <chapter eid="HEB 9"/>
+
 <chapter number="10" style="c" sid="HEB 10"/>
+
 <para style="s">Christ’s Perfect Sacrifice</para>
-<para style="p"><verse number="1" style="v" sid="HEB 10:1"/><note caller="-" style="x"><char style="xt" closed="false">Psalm 40:1–17</char></note>For the law, having a shadow of the good things about to be, not the image of the things themselves, every year with the same sacrifices that they offer unto perpetuity, never is able to perfect those coming near. </para>
-<para style="p"><verse number="2" style="v" sid="HEB 10:2"/>Otherwise, would they not have ceased being offered, because of no more having conscience of sins, those serving having been cleansed once? </para>
-<para style="p"><verse number="3" style="v" sid="HEB 10:3"/>But in these <char style="add">is</char> a reminder of sins every year. </para>
-<para style="p"><verse number="4" style="v" sid="HEB 10:4"/>For <char style="add">it is</char> impossible <char style="add">for</char> the blood of bulls and of goats to take away sins. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 10:1"/><note caller="-" style="x"><char style="xt" closed="false">Psalm 40:1–17</char></note>For the law, having a shadow of the good things about to be, not the image of the things themselves, every year with the same sacrifices that they offer unto perpetuity, never is able to perfect those coming near. <verse eid="HEB 10:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 10:2"/>Otherwise, would they not have ceased being offered, because of no more having conscience of sins, those serving having been cleansed once? <verse eid="HEB 10:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 10:3"/>But in these <char style="add">is</char> a reminder of sins every year. <verse eid="HEB 10:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 10:4"/>For <char style="add">it is</char> impossible <char style="add">for</char> the blood of bulls and of goats to take away sins. <verse eid="HEB 10:4"/></para>
+
 <para style="p"><verse number="5" style="v" sid="HEB 10:5"/>Therefore, coming into the world, He says: </para>
+
 <para style="q1" vid="HEB 10:5">“Sacrifice and offering You did not desire, </para>
-<para style="q2" vid="HEB 10:5">but a body You prepared for Me. </para>
+
+<para style="q2" vid="HEB 10:5">but a body You prepared for Me. <verse eid="HEB 10:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="HEB 10:6"/>In burnt offerings and concerning sin <char style="add">offerings</char> </para>
-<para style="q2" vid="HEB 10:6">You were not well pleased. </para>
+
+<para style="q2" vid="HEB 10:6">You were not well pleased. <verse eid="HEB 10:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="HEB 10:7"/>Then I said, ‘Behold, I have come—</para>
+
 <para style="q2" vid="HEB 10:7">in the scroll of the book it has been written about Me—</para>
-<para style="q2" vid="HEB 10:7">to do Your will, O God.’” <note caller="+" style="f"><char style="fr" closed="false">10.7 </char><char style="ft" closed="false"> Psalm 40:6–8 (see also LXX)</char></note></para>
-<para style="p"><verse number="8" style="v" sid="HEB 10:8"/>Saying above, <char style="wj">“Sacrifices and offerings</char><note caller="+" style="f"><char style="fr" closed="false">10.8 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Sacrifice and offering</char></note><char style="wj"> and burnt offerings and those for sin You did not desire, nor were You well pleased”</char> (which are offered according to the law), </para>
-<para style="p"><verse number="9" style="v" sid="HEB 10:9"/>then He has said, <char style="wj">“Behold, I have come to do Your will.</char><note caller="+" style="f"><char style="fr" closed="false">10.9 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">O God</char><char style="ft" closed="false">.</char></note><char style="wj">”</char> He takes away the first so that He might establish the second, </para>
-<para style="p"><verse number="10" style="v" sid="HEB 10:10"/>in which act of will, we are having been sanctified through the offering of the body of Jesus Christ once for all. </para>
-<para style="p"><verse number="11" style="v" sid="HEB 10:11"/>And indeed every priest has stood every day, serving and offering the same sacrifices many times, which never are able to take away sins. </para>
-<para style="p"><verse number="12" style="v" sid="HEB 10:12"/>But this One, having offered one sacrifice for sins unto perpetuity, sat down at the right hand of God, </para>
-<para style="p"><verse number="13" style="v" sid="HEB 10:13"/><char style="add">as to</char> the rest awaiting until His enemies should be placed <char style="add">as</char> a footstool for His feet. </para>
-<para style="p"><verse number="14" style="v" sid="HEB 10:14"/>For by one offering, He has perfected unto perpetuity those being sanctified. </para>
-<para style="p"><verse number="15" style="v" sid="HEB 10:15"/>And the Holy Spirit also testifies to us. For after having said: </para>
+
+<para style="q2" vid="HEB 10:7">to do Your will, O God.’” <note caller="+" style="f"><char style="fr" closed="false">10.7 </char><char style="ft" closed="false"> Psalm 40:6–8 (see also LXX)</char></note><verse eid="HEB 10:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="HEB 10:8"/>Saying above, <char style="wj">“Sacrifices and offerings</char><note caller="+" style="f"><char style="fr" closed="false">10.8 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Sacrifice and offering</char></note><char style="wj"> and burnt offerings and those for sin You did not desire, nor were You well pleased”</char> (which are offered according to the law), <verse eid="HEB 10:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 10:9"/>then He has said, <char style="wj">“Behold, I have come to do Your will.</char><note caller="+" style="f"><char style="fr" closed="false">10.9 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">O God</char><char style="ft" closed="false">.</char></note><char style="wj">”</char> He takes away the first so that He might establish the second, <verse eid="HEB 10:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 10:10"/>in which act of will, we are having been sanctified through the offering of the body of Jesus Christ once for all. <verse eid="HEB 10:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 10:11"/>And indeed every priest has stood every day, serving and offering the same sacrifices many times, which never are able to take away sins. <verse eid="HEB 10:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 10:12"/>But this One, having offered one sacrifice for sins unto perpetuity, sat down at the right hand of God, <verse eid="HEB 10:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 10:13"/><char style="add">as to</char> the rest awaiting until His enemies should be placed <char style="add">as</char> a footstool for His feet. <verse eid="HEB 10:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 10:14"/>For by one offering, He has perfected unto perpetuity those being sanctified. <verse eid="HEB 10:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HEB 10:15"/>And the Holy Spirit also testifies to us. For after having said: <verse eid="HEB 10:15"/></para>
+
 <para style="q1"><verse number="16" style="v" sid="HEB 10:16"/>“This <char style="add">is</char> the covenant that I will make with them </para>
+
 <para style="q2" vid="HEB 10:16">after those days, says the Lord, </para>
+
 <para style="q1" vid="HEB 10:16">giving My laws on their hearts, </para>
-<para style="q2" vid="HEB 10:16">and I will inscribe them on their mind,” <note caller="+" style="f"><char style="fr" closed="false">10.16 </char><char style="ft" closed="false"> Jeremiah 31:33</char></note></para>
+
+<para style="q2" vid="HEB 10:16">and I will inscribe them on their mind,” <note caller="+" style="f"><char style="fr" closed="false">10.16 </char><char style="ft" closed="false"> Jeremiah 31:33</char></note><verse eid="HEB 10:16"/></para>
+
 <para style="p"><verse number="17" style="v" sid="HEB 10:17"/>then <char style="add">He says</char>: </para>
+
 <para style="q1" vid="HEB 10:17">“Their sins and their lawless acts, </para>
-<para style="q2" vid="HEB 10:17">I will remember no more.”<note caller="+" style="f"><char style="fr" closed="false">10.17 </char><char style="ft" closed="false"> Jeremiah 31:34</char></note> </para>
-<para style="p"><verse number="18" style="v" sid="HEB 10:18"/>Now where <char style="add">there is</char> forgiveness of these, no longer <char style="add">is there</char> an offering concerning sin. </para>
+
+<para style="q2" vid="HEB 10:17">I will remember no more.”<note caller="+" style="f"><char style="fr" closed="false">10.17 </char><char style="ft" closed="false"> Jeremiah 31:34</char></note> <verse eid="HEB 10:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="HEB 10:18"/>Now where <char style="add">there is</char> forgiveness of these, no longer <char style="add">is there</char> an offering concerning sin. <verse eid="HEB 10:18"/></para>
+
 <para style="s">A Call to PersevereJude 1:17–23</para>
-<para style="p"><verse number="19" style="v" sid="HEB 10:19"/>Therefore, brothers, having confidence for entrance to the holy places<note caller="+" style="f"><char style="fr" closed="false">10.19 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Most Holy Place</char></note> in the blood of Jesus, </para>
-<para style="p"><verse number="20" style="v" sid="HEB 10:20"/>by a new<note caller="+" style="f"><char style="fr" closed="false">10.20 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">freshly slain</char></note> and living way, which He inaugurated for us through the veil, that is, His flesh,<note caller="+" style="f"><char style="fr" closed="false">10.20 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">through the curtain of His body</char></note> </para>
-<para style="p"><verse number="21" style="v" sid="HEB 10:21"/>and <char style="add">having</char> a great priest over the house of God, </para>
-<para style="p"><verse number="22" style="v" sid="HEB 10:22"/>we should come near with a true heart in full assurance of faith, the hearts having been sprinkled clean from an evil conscience and the body having been washed with pure water. </para>
-<para style="p"><verse number="23" style="v" sid="HEB 10:23"/>We should hold fast to the confession of <char style="add">our</char> hope, unwavering; for the One having promised <char style="add">is</char> faithful. </para>
-<para style="p"><verse number="24" style="v" sid="HEB 10:24"/>And we should carefully consider toward stirring up one another to love and to good works, </para>
-<para style="p"><verse number="25" style="v" sid="HEB 10:25"/>not forsaking the assembling together of ourselves, as <char style="add">is</char> the custom with some, but exhorting, and so much more as you⁺ see the Day drawing near. </para>
-<para style="p"><verse number="26" style="v" sid="HEB 10:26"/>For <char style="add">if</char> we are sinning willingly after receiving the knowledge of the truth, <char style="add">there</char> no longer remains a sacrifice for sins, </para>
-<para style="p"><verse number="27" style="v" sid="HEB 10:27"/>but only a fearful expectation of judgment and zeal of fire being about to devour the adversaries. </para>
-<para style="p"><verse number="28" style="v" sid="HEB 10:28"/>Anyone having set aside the law of Moses dies without mercies on the basis of two or three witnesses. </para>
-<para style="p"><verse number="29" style="v" sid="HEB 10:29"/>How much worse punishment do you⁺ think he will be worthy of, the one having trampled upon the Son of God, and having deemed common the blood of the covenant in which he was sanctified, and having insulted the Spirit of grace? </para>
-<para style="p"><verse number="30" style="v" sid="HEB 10:30"/>For we know the One having said, “Vengeance <char style="add">is</char> Mine; I will repay,” and again, “The Lord will judge His people.”<note caller="+" style="f"><char style="fr" closed="false">10.30 </char><char style="ft" closed="false"> Deuteronomy 32:35 (see also LXX); BYZ and TR include </char><char style="fq" closed="false">says the Lord</char><char style="ft" closed="false">.</char></note> <note caller="+" style="f"><char style="fr" closed="false">10.30 </char><char style="ft" closed="false"> Deuteronomy 32:36; Psalm 135:14</char></note></para>
-<para style="p"><verse number="31" style="v" sid="HEB 10:31"/><char style="add">It is</char> a fearful thing to fall into the hands of the living God. </para>
-<para style="p"><verse number="32" style="v" sid="HEB 10:32"/>But recall the former days in which, having been enlightened, you⁺ endured a great conflict of sufferings, </para>
-<para style="p"><verse number="33" style="v" sid="HEB 10:33"/>this indeed, being made a spectacle both by reproaches and tribulations; now this, having become partners of those being treated thus. </para>
-<para style="p"><verse number="34" style="v" sid="HEB 10:34"/>For you⁺ also sympathized with the prisoners<note caller="+" style="f"><char style="fr" closed="false">10.34 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">with my chains</char></note> and you⁺ accepted the plundering of your⁺ possessions with joy, knowing yourselves to have a better and abiding possession.<note caller="+" style="f"><char style="fr" closed="false">10.34 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">in heaven</char><char style="ft" closed="false">.</char></note> </para>
-<para style="p"><verse number="35" style="v" sid="HEB 10:35"/>Therefore do not throw away your⁺ confidence, which has a great reward. </para>
-<para style="p"><verse number="36" style="v" sid="HEB 10:36"/>For you⁺ have need of perseverance, so that, having done the will of God, you⁺ may receive the promise. </para>
+
+<para style="p"><verse number="19" style="v" sid="HEB 10:19"/>Therefore, brothers, having confidence for entrance to the holy places<note caller="+" style="f"><char style="fr" closed="false">10.19 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Most Holy Place</char></note> in the blood of Jesus, <verse eid="HEB 10:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="HEB 10:20"/>by a new<note caller="+" style="f"><char style="fr" closed="false">10.20 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">freshly slain</char></note> and living way, which He inaugurated for us through the veil, that is, His flesh,<note caller="+" style="f"><char style="fr" closed="false">10.20 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">through the curtain of His body</char></note> <verse eid="HEB 10:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="HEB 10:21"/>and <char style="add">having</char> a great priest over the house of God, <verse eid="HEB 10:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="HEB 10:22"/>we should come near with a true heart in full assurance of faith, the hearts having been sprinkled clean from an evil conscience and the body having been washed with pure water. <verse eid="HEB 10:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="HEB 10:23"/>We should hold fast to the confession of <char style="add">our</char> hope, unwavering; for the One having promised <char style="add">is</char> faithful. <verse eid="HEB 10:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="HEB 10:24"/>And we should carefully consider toward stirring up one another to love and to good works, <verse eid="HEB 10:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="HEB 10:25"/>not forsaking the assembling together of ourselves, as <char style="add">is</char> the custom with some, but exhorting, and so much more as you⁺ see the Day drawing near. <verse eid="HEB 10:25"/></para>
+
+<para style="p"><verse number="26" style="v" sid="HEB 10:26"/>For <char style="add">if</char> we are sinning willingly after receiving the knowledge of the truth, <char style="add">there</char> no longer remains a sacrifice for sins, <verse eid="HEB 10:26"/></para>
+
+<para style="p"><verse number="27" style="v" sid="HEB 10:27"/>but only a fearful expectation of judgment and zeal of fire being about to devour the adversaries. <verse eid="HEB 10:27"/></para>
+
+<para style="p"><verse number="28" style="v" sid="HEB 10:28"/>Anyone having set aside the law of Moses dies without mercies on the basis of two or three witnesses. <verse eid="HEB 10:28"/></para>
+
+<para style="p"><verse number="29" style="v" sid="HEB 10:29"/>How much worse punishment do you⁺ think he will be worthy of, the one having trampled upon the Son of God, and having deemed common the blood of the covenant in which he was sanctified, and having insulted the Spirit of grace? <verse eid="HEB 10:29"/></para>
+
+<para style="p"><verse number="30" style="v" sid="HEB 10:30"/>For we know the One having said, “Vengeance <char style="add">is</char> Mine; I will repay,” and again, “The Lord will judge His people.”<note caller="+" style="f"><char style="fr" closed="false">10.30 </char><char style="ft" closed="false"> Deuteronomy 32:35 (see also LXX); BYZ and TR include </char><char style="fq" closed="false">says the Lord</char><char style="ft" closed="false">.</char></note> <note caller="+" style="f"><char style="fr" closed="false">10.30 </char><char style="ft" closed="false"> Deuteronomy 32:36; Psalm 135:14</char></note><verse eid="HEB 10:30"/></para>
+
+<para style="p"><verse number="31" style="v" sid="HEB 10:31"/><char style="add">It is</char> a fearful thing to fall into the hands of the living God. <verse eid="HEB 10:31"/></para>
+
+<para style="p"><verse number="32" style="v" sid="HEB 10:32"/>But recall the former days in which, having been enlightened, you⁺ endured a great conflict of sufferings, <verse eid="HEB 10:32"/></para>
+
+<para style="p"><verse number="33" style="v" sid="HEB 10:33"/>this indeed, being made a spectacle both by reproaches and tribulations; now this, having become partners of those being treated thus. <verse eid="HEB 10:33"/></para>
+
+<para style="p"><verse number="34" style="v" sid="HEB 10:34"/>For you⁺ also sympathized with the prisoners<note caller="+" style="f"><char style="fr" closed="false">10.34 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">with my chains</char></note> and you⁺ accepted the plundering of your⁺ possessions with joy, knowing yourselves to have a better and abiding possession.<note caller="+" style="f"><char style="fr" closed="false">10.34 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">in heaven</char><char style="ft" closed="false">.</char></note> <verse eid="HEB 10:34"/></para>
+
+<para style="p"><verse number="35" style="v" sid="HEB 10:35"/>Therefore do not throw away your⁺ confidence, which has a great reward. <verse eid="HEB 10:35"/></para>
+
+<para style="p"><verse number="36" style="v" sid="HEB 10:36"/>For you⁺ have need of perseverance, so that, having done the will of God, you⁺ may receive the promise. <verse eid="HEB 10:36"/></para>
+
 <para style="p"><verse number="37" style="v" sid="HEB 10:37"/>For </para>
+
 <para style="q1" vid="HEB 10:37">“Yet <char style="add">in</char> a very little while, </para>
-<para style="q2" vid="HEB 10:37">the One coming will come, and will not delay. </para>
+
+<para style="q2" vid="HEB 10:37">the One coming will come, and will not delay. <verse eid="HEB 10:37"/></para>
+
 <para style="q1"><verse number="38" style="v" sid="HEB 10:38"/>But My righteous one will live by faith; </para>
+
 <para style="q2" vid="HEB 10:38">and if he might shrink back, </para>
-<para style="q2" vid="HEB 10:38">My soul is not well pleased in him.”<note caller="+" style="f"><char style="fr" closed="false">10.38 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">But the righteous will live by faith</char></note> <note caller="+" style="f"><char style="fr" closed="false">10.38 </char><char style="ft" closed="false"> Habakkuk 2:3–4 (see also LXX)</char></note></para>
-<para style="p"><verse number="39" style="v" sid="HEB 10:39"/>But we are not of <char style="add">those</char> shrinking back to destruction, but of faith to the preserving <char style="add">of</char> the soul. </para>
+
+<para style="q2" vid="HEB 10:38">My soul is not well pleased in him.”<note caller="+" style="f"><char style="fr" closed="false">10.38 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">But the righteous will live by faith</char></note> <note caller="+" style="f"><char style="fr" closed="false">10.38 </char><char style="ft" closed="false"> Habakkuk 2:3–4 (see also LXX)</char></note><verse eid="HEB 10:38"/></para>
+
+<para style="p"><verse number="39" style="v" sid="HEB 10:39"/>But we are not of <char style="add">those</char> shrinking back to destruction, but of faith to the preserving <char style="add">of</char> the soul. <verse eid="HEB 10:39"/></para>
+
 <chapter eid="HEB 10"/>
+
 <chapter number="11" style="c" sid="HEB 11"/>
+
 <para style="s">Faith and Assurance</para>
-<para style="p"><verse number="1" style="v" sid="HEB 11:1"/><note caller="-" style="x"><char style="xt" closed="false">John 1:1–5</char></note><note caller="-" style="x"><char style="xt" closed="false">Genesis 1:1–2</char></note>Now faith is the assurance of <char style="add">things</char> hoped for, the conviction of things not being seen. </para>
-<para style="p"><verse number="2" style="v" sid="HEB 11:2"/>For in this the ancients were well-attested. </para>
-<para style="p"><verse number="3" style="v" sid="HEB 11:3"/>By faith we understand the ages to have been completed thoroughly by the word of God, in order for that being seen not to have come into being out of the things being visible. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 11:1"/><note caller="-" style="x"><char style="xt" closed="false">John 1:1–5</char></note><note caller="-" style="x"><char style="xt" closed="false">Genesis 1:1–2</char></note>Now faith is the assurance of <char style="add">things</char> hoped for, the conviction of things not being seen. <verse eid="HEB 11:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 11:2"/>For in this the ancients were well-attested. <verse eid="HEB 11:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 11:3"/>By faith we understand the ages to have been completed thoroughly by the word of God, in order for that being seen not to have come into being out of the things being visible. <verse eid="HEB 11:3"/></para>
+
 <para style="s">The Faith of Abel, Enoch, NoahGenesis 4–9</para>
-<para style="p"><verse number="4" style="v" sid="HEB 11:4"/>By faith Abel offered to God a more excellent sacrifice than Cain, through which he was testified to be righteous, God testifying about his gifts; and through it, having died, he still speaks. </para>
-<para style="p"><verse number="5" style="v" sid="HEB 11:5"/>By faith Enoch was translated not to see death, “and he was not found, because God translated him.”<note caller="+" style="f"><char style="fr" closed="false">11.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">transferred</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">taken up</char></note> For before the translation, he had been testified to have pleased God. <note caller="+" style="f"><char style="fr" closed="false">11.5 </char><char style="ft" closed="false"> Genesis 5:24 (see also LXX)</char></note></para>
-<para style="p"><verse number="6" style="v" sid="HEB 11:6"/>And without faith <char style="add">it is</char> impossible to please <char style="add">Him</char>, for it is necessary for the one coming to God to believe that He is and <char style="add">that</char> He becomes a rewarder to those seeking Him out. </para>
-<para style="p"><verse number="7" style="v" sid="HEB 11:7"/>By faith Noah, having been divinely warned concerning the things not yet being seen, having been moved with fear, prepared an ark for the salvation of his household, through which he condemned the world and became heir of the righeousness according to faith. </para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 11:4"/>By faith Abel offered to God a more excellent sacrifice than Cain, through which he was testified to be righteous, God testifying about his gifts; and through it, having died, he still speaks. <verse eid="HEB 11:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="HEB 11:5"/>By faith Enoch was translated not to see death, “and he was not found, because God translated him.”<note caller="+" style="f"><char style="fr" closed="false">11.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">transferred</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">taken up</char></note> For before the translation, he had been testified to have pleased God. <note caller="+" style="f"><char style="fr" closed="false">11.5 </char><char style="ft" closed="false"> Genesis 5:24 (see also LXX)</char></note><verse eid="HEB 11:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="HEB 11:6"/>And without faith <char style="add">it is</char> impossible to please <char style="add">Him</char>, for it is necessary for the one coming to God to believe that He is and <char style="add">that</char> He becomes a rewarder to those seeking Him out. <verse eid="HEB 11:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="HEB 11:7"/>By faith Noah, having been divinely warned concerning the things not yet being seen, having been moved with fear, prepared an ark for the salvation of his household, through which he condemned the world and became heir of the righeousness according to faith. <verse eid="HEB 11:7"/></para>
+
 <para style="s">The Faith of Abraham and SarahGenesis 15–22</para>
-<para style="p"><verse number="8" style="v" sid="HEB 11:8"/><note caller="-" style="x"><char style="xt" closed="false">Romans 4:1–12</char></note>By faith Abraham, being called to go out into a place<note caller="+" style="f"><char style="fr" closed="false">11.8 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">the place</char></note> that he was about to receive for an inheritance, obeyed and went out, not knowing where he is going. </para>
-<para style="p"><verse number="9" style="v" sid="HEB 11:9"/>By faith he sojourned in the land of the promise as <char style="add">in</char> a foreign <char style="add">country</char>, having dwelt in tents with Isaac and Jacob, the co-heirs of the same promise. </para>
-<para style="p"><verse number="10" style="v" sid="HEB 11:10"/>For he was awaiting the city having foundations, of which the architect and builder <char style="add">is</char> God. </para>
-<para style="p"><verse number="11" style="v" sid="HEB 11:11"/>By faith also Sarah, herself barren, received power for the conception of seed even beyond the opportune age, since she esteemed faithful the One having promised. </para>
-<para style="p"><verse number="12" style="v" sid="HEB 11:12"/>Therefore also were born from one <char style="add">man</char>, and these of one having become as dead, as the stars of heaven in multitude, and as the sand by the shore of the sea, countless. </para>
-<para style="p"><verse number="13" style="v" sid="HEB 11:13"/>These all died in faith, not having received the promises, but having seen them from afar,<note caller="+" style="f"><char style="fr" closed="false">11.13 </char><char style="ft" closed="false"> TR includes </char><char style="fq" closed="false">and were persuaded</char><char style="ft" closed="false">.</char></note> and having welcomed <char style="add">them</char>, and having confessed that they are strangers and sojourners on the earth. </para>
-<para style="p"><verse number="14" style="v" sid="HEB 11:14"/>For those saying such things make manifest that they are seeking out a homeland. </para>
-<para style="p"><verse number="15" style="v" sid="HEB 11:15"/>And indeed if they had been remembering that from which they came out, they would have had opportunity to return. </para>
-<para style="p"><verse number="16" style="v" sid="HEB 11:16"/>But now they stretch forward to a better one, that is, a heavenly one. Therefore God is not ashamed of them, to be called their God; for He prepared a city for them. </para>
-<para style="p"><verse number="17" style="v" sid="HEB 11:17"/>By faith Abraham, being tested. has offered up Isaac. Even the one having received the promises was offering up <char style="add">his</char> only begotten,<note caller="+" style="f"><char style="fr" closed="false">11.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">one and only son</char></note> </para>
-<para style="p"><verse number="18" style="v" sid="HEB 11:18"/>as to whom it was said, “In Isaac a seed will be called to you,” <note caller="+" style="f"><char style="fr" closed="false">11.18 </char><char style="ft" closed="false"> Genesis 21:12</char></note></para>
-<para style="p"><verse number="19" style="v" sid="HEB 11:19"/>having reasoned that God <char style="add">was</char> able even to raise <char style="add">him</char> out from the dead, from where he received him back also in a simile.<note caller="+" style="f"><char style="fr" closed="false">11.19 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">parable</char><char style="ft" closed="false">; Greek </char><char style="fq" closed="false">parabolē</char></note> </para>
+
+<para style="p"><verse number="8" style="v" sid="HEB 11:8"/><note caller="-" style="x"><char style="xt" closed="false">Romans 4:1–12</char></note>By faith Abraham, being called to go out into a place<note caller="+" style="f"><char style="fr" closed="false">11.8 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">the place</char></note> that he was about to receive for an inheritance, obeyed and went out, not knowing where he is going. <verse eid="HEB 11:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 11:9"/>By faith he sojourned in the land of the promise as <char style="add">in</char> a foreign <char style="add">country</char>, having dwelt in tents with Isaac and Jacob, the co-heirs of the same promise. <verse eid="HEB 11:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 11:10"/>For he was awaiting the city having foundations, of which the architect and builder <char style="add">is</char> God. <verse eid="HEB 11:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 11:11"/>By faith also Sarah, herself barren, received power for the conception of seed even beyond the opportune age, since she esteemed faithful the One having promised. <verse eid="HEB 11:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 11:12"/>Therefore also were born from one <char style="add">man</char>, and these of one having become as dead, as the stars of heaven in multitude, and as the sand by the shore of the sea, countless. <verse eid="HEB 11:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 11:13"/>These all died in faith, not having received the promises, but having seen them from afar,<note caller="+" style="f"><char style="fr" closed="false">11.13 </char><char style="ft" closed="false"> TR includes </char><char style="fq" closed="false">and were persuaded</char><char style="ft" closed="false">.</char></note> and having welcomed <char style="add">them</char>, and having confessed that they are strangers and sojourners on the earth. <verse eid="HEB 11:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 11:14"/>For those saying such things make manifest that they are seeking out a homeland. <verse eid="HEB 11:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HEB 11:15"/>And indeed if they had been remembering that from which they came out, they would have had opportunity to return. <verse eid="HEB 11:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HEB 11:16"/>But now they stretch forward to a better one, that is, a heavenly one. Therefore God is not ashamed of them, to be called their God; for He prepared a city for them. <verse eid="HEB 11:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="HEB 11:17"/>By faith Abraham, being tested. has offered up Isaac. Even the one having received the promises was offering up <char style="add">his</char> only begotten,<note caller="+" style="f"><char style="fr" closed="false">11.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">one and only son</char></note> <verse eid="HEB 11:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="HEB 11:18"/>as to whom it was said, “In Isaac a seed will be called to you,” <note caller="+" style="f"><char style="fr" closed="false">11.18 </char><char style="ft" closed="false"> Genesis 21:12</char></note><verse eid="HEB 11:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="HEB 11:19"/>having reasoned that God <char style="add">was</char> able even to raise <char style="add">him</char> out from the dead, from where he received him back also in a simile.<note caller="+" style="f"><char style="fr" closed="false">11.19 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">parable</char><char style="ft" closed="false">; Greek </char><char style="fq" closed="false">parabolē</char></note> <verse eid="HEB 11:19"/></para>
+
 <para style="s">The Faith of Isaac, Jacob, and JosephGenesis 27–50</para>
-<para style="p"><verse number="20" style="v" sid="HEB 11:20"/>By faith also Isaac blessed Jacob and Esau concerning the <char style="add">things</char> about to be. </para>
-<para style="p"><verse number="21" style="v" sid="HEB 11:21"/>By faith Jacob, dying, blessed each of the sons of Joseph and worshiped on the top of his staff. </para>
-<para style="p"><verse number="22" style="v" sid="HEB 11:22"/>By faith Joseph, finishing <char style="add">life</char>, made mention concerning the exodus of the sons of Israel and gave commands concerning his bones. </para>
+
+<para style="p"><verse number="20" style="v" sid="HEB 11:20"/>By faith also Isaac blessed Jacob and Esau concerning the <char style="add">things</char> about to be. <verse eid="HEB 11:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="HEB 11:21"/>By faith Jacob, dying, blessed each of the sons of Joseph and worshiped on the top of his staff. <verse eid="HEB 11:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="HEB 11:22"/>By faith Joseph, finishing <char style="add">life</char>, made mention concerning the exodus of the sons of Israel and gave commands concerning his bones. <verse eid="HEB 11:22"/></para>
+
 <para style="s">The Faith of MosesExodus 2–15</para>
-<para style="p"><verse number="23" style="v" sid="HEB 11:23"/><note caller="-" style="x"><char style="xt" closed="false">Acts 7:20–22</char></note>By faith Moses, having been born, was hidden three months by his parents, because they saw the child <char style="add">was</char> beautiful, and they did not fear the edict of the king. </para>
-<para style="p"><verse number="24" style="v" sid="HEB 11:24"/>By faith Moses, having become grown, refused to be called the son of the daughter of Pharaoh, </para>
-<para style="p"><verse number="25" style="v" sid="HEB 11:25"/>having chosen to suffer mistreatment with the people of God rather than to have the temporary enjoyment of sin, </para>
-<para style="p"><verse number="26" style="v" sid="HEB 11:26"/>having esteemed the reproach of Christ greater wealth than the treasures of Egypt;<note caller="+" style="f"><char style="fr" closed="false">11.26 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">in Egypt</char></note> for he was looking to the reward. </para>
-<para style="p"><verse number="27" style="v" sid="HEB 11:27"/>By faith he left Egypt, not having feared the anger of the king; for as seeing the Invisible One, he persevered. </para>
-<para style="p"><verse number="28" style="v" sid="HEB 11:28"/>By faith he has kept the Passover and the sprinkling of the blood, so that the one destroying the firstborn should not touch them. </para>
-<para style="p"><verse number="29" style="v" sid="HEB 11:29"/>By faith they passed through the Red Sea as through dry land, which the Egyptians, having made an attempt,<note caller="+" style="f"><char style="fr" closed="false">11.29 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">having tried to follow</char></note> were swallowed up. </para>
+
+<para style="p"><verse number="23" style="v" sid="HEB 11:23"/><note caller="-" style="x"><char style="xt" closed="false">Acts 7:20–22</char></note>By faith Moses, having been born, was hidden three months by his parents, because they saw the child <char style="add">was</char> beautiful, and they did not fear the edict of the king. <verse eid="HEB 11:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="HEB 11:24"/>By faith Moses, having become grown, refused to be called the son of the daughter of Pharaoh, <verse eid="HEB 11:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="HEB 11:25"/>having chosen to suffer mistreatment with the people of God rather than to have the temporary enjoyment of sin, <verse eid="HEB 11:25"/></para>
+
+<para style="p"><verse number="26" style="v" sid="HEB 11:26"/>having esteemed the reproach of Christ greater wealth than the treasures of Egypt;<note caller="+" style="f"><char style="fr" closed="false">11.26 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">in Egypt</char></note> for he was looking to the reward. <verse eid="HEB 11:26"/></para>
+
+<para style="p"><verse number="27" style="v" sid="HEB 11:27"/>By faith he left Egypt, not having feared the anger of the king; for as seeing the Invisible One, he persevered. <verse eid="HEB 11:27"/></para>
+
+<para style="p"><verse number="28" style="v" sid="HEB 11:28"/>By faith he has kept the Passover and the sprinkling of the blood, so that the one destroying the firstborn should not touch them. <verse eid="HEB 11:28"/></para>
+
+<para style="p"><verse number="29" style="v" sid="HEB 11:29"/>By faith they passed through the Red Sea as through dry land, which the Egyptians, having made an attempt,<note caller="+" style="f"><char style="fr" closed="false">11.29 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">having tried to follow</char></note> were swallowed up. <verse eid="HEB 11:29"/></para>
+
 <para style="s">The Faith of ManyJoshua–Malachi</para>
-<para style="p"><verse number="30" style="v" sid="HEB 11:30"/>By faith the walls of Jericho fell, having been encircled for seven days. </para>
-<para style="p"><verse number="31" style="v" sid="HEB 11:31"/>By faith Rahab the prostitute did not perish with those having disobeyed, having welcomed the spies with peace. </para>
-<para style="p"><verse number="32" style="v" sid="HEB 11:32"/>And what more shall I say? For the time will fail me recounting fully about Gideon, Barak, Samson, Jephthah, also David and Samuel and the prophets, </para>
-<para style="p"><verse number="33" style="v" sid="HEB 11:33"/>who by faith conquered kingdoms, worked justice,<note caller="+" style="f"><char style="fr" closed="false">11.33 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">righteousness</char><char style="ft" closed="false">; Greek </char><char style="fq" closed="false">dikaiosynēn</char></note> obtained promises, shut the mouths of lions, </para>
-<para style="p"><verse number="34" style="v" sid="HEB 11:34"/>quenched the power of fire, escaped the mouths of the sword, were made powerful out of weakness, became strong in war, <char style="add">and</char> put to flight foreign armies. </para>
-<para style="p"><verse number="35" style="v" sid="HEB 11:35"/>Women received their dead by resurrection; and others were tortured, not having accepted release, so that they might obtain a better resurrection. </para>
-<para style="p"><verse number="36" style="v" sid="HEB 11:36"/>And others received the trial of mockings and of scourgings, and even of chains and of imprisonment. </para>
-<para style="p"><verse number="37" style="v" sid="HEB 11:37"/>They were stoned, they were sawed in two,<note caller="+" style="f"><char style="fr" closed="false">11.37 </char><char style="ft" closed="false"> NE, WH, BYZ, and TR include </char><char style="fq" closed="false">they were put to the test,</char></note> they died by slaughter of the sword; they wandered in sheepskins, in goatskins, being destitute, being oppressed, being mistreated— </para>
-<para style="p"><verse number="38" style="v" sid="HEB 11:38"/>of whom the world was not worthy—wandering in deserts and mountains and caves and holes of the earth. </para>
-<para style="p"><verse number="39" style="v" sid="HEB 11:39"/>And these all, having been testified to through faith, did not receive the promise, </para>
-<para style="p"><verse number="40" style="v" sid="HEB 11:40"/>God having planned something better for us, so that not apart from us, they should be perfected. </para>
+
+<para style="p"><verse number="30" style="v" sid="HEB 11:30"/>By faith the walls of Jericho fell, having been encircled for seven days. <verse eid="HEB 11:30"/></para>
+
+<para style="p"><verse number="31" style="v" sid="HEB 11:31"/>By faith Rahab the prostitute did not perish with those having disobeyed, having welcomed the spies with peace. <verse eid="HEB 11:31"/></para>
+
+<para style="p"><verse number="32" style="v" sid="HEB 11:32"/>And what more shall I say? For the time will fail me recounting fully about Gideon, Barak, Samson, Jephthah, also David and Samuel and the prophets, <verse eid="HEB 11:32"/></para>
+
+<para style="p"><verse number="33" style="v" sid="HEB 11:33"/>who by faith conquered kingdoms, worked justice,<note caller="+" style="f"><char style="fr" closed="false">11.33 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">righteousness</char><char style="ft" closed="false">; Greek </char><char style="fq" closed="false">dikaiosynēn</char></note> obtained promises, shut the mouths of lions, <verse eid="HEB 11:33"/></para>
+
+<para style="p"><verse number="34" style="v" sid="HEB 11:34"/>quenched the power of fire, escaped the mouths of the sword, were made powerful out of weakness, became strong in war, <char style="add">and</char> put to flight foreign armies. <verse eid="HEB 11:34"/></para>
+
+<para style="p"><verse number="35" style="v" sid="HEB 11:35"/>Women received their dead by resurrection; and others were tortured, not having accepted release, so that they might obtain a better resurrection. <verse eid="HEB 11:35"/></para>
+
+<para style="p"><verse number="36" style="v" sid="HEB 11:36"/>And others received the trial of mockings and of scourgings, and even of chains and of imprisonment. <verse eid="HEB 11:36"/></para>
+
+<para style="p"><verse number="37" style="v" sid="HEB 11:37"/>They were stoned, they were sawed in two,<note caller="+" style="f"><char style="fr" closed="false">11.37 </char><char style="ft" closed="false"> NE, WH, BYZ, and TR include </char><char style="fq" closed="false">they were put to the test,</char></note> they died by slaughter of the sword; they wandered in sheepskins, in goatskins, being destitute, being oppressed, being mistreated— <verse eid="HEB 11:37"/></para>
+
+<para style="p"><verse number="38" style="v" sid="HEB 11:38"/>of whom the world was not worthy—wandering in deserts and mountains and caves and holes of the earth. <verse eid="HEB 11:38"/></para>
+
+<para style="p"><verse number="39" style="v" sid="HEB 11:39"/>And these all, having been testified to through faith, did not receive the promise, <verse eid="HEB 11:39"/></para>
+
+<para style="p"><verse number="40" style="v" sid="HEB 11:40"/>God having planned something better for us, so that not apart from us, they should be perfected. <verse eid="HEB 11:40"/></para>
+
 <chapter eid="HEB 11"/>
+
 <chapter number="12" style="c" sid="HEB 12"/>
+
 <para style="s">A Call to Endurance</para>
-<para style="p"><verse number="1" style="v" sid="HEB 12:1"/><note caller="-" style="x"><char style="xt" closed="false">2 Timothy 2:1–13</char></note>Therefore we also, having such a great cloud of witnesses encompassing us, having put off every weight and the sin easily entangling, should run through perseverance the race lying before us, </para>
-<para style="p"><verse number="2" style="v" sid="HEB 12:2"/>looking to Jesus, the author<note caller="+" style="f"><char style="fr" closed="false">12.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">pioneer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">founder</char></note> and perfecter of <char style="add">our</char> faith, who in view of the joy lying before Him endured the cross, having despised <char style="add">its</char> shame, and has sat down at the right hand of the throne of God. </para>
-<para style="p"><verse number="3" style="v" sid="HEB 12:3"/>For consider fully the One having endured such great contradiction by sinners against Himself, so that you⁺ might not grow weary, fainting in your⁺ souls. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 12:1"/><note caller="-" style="x"><char style="xt" closed="false">2 Timothy 2:1–13</char></note>Therefore we also, having such a great cloud of witnesses encompassing us, having put off every weight and the sin easily entangling, should run through perseverance the race lying before us, <verse eid="HEB 12:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 12:2"/>looking to Jesus, the author<note caller="+" style="f"><char style="fr" closed="false">12.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">pioneer</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">founder</char></note> and perfecter of <char style="add">our</char> faith, who in view of the joy lying before Him endured the cross, having despised <char style="add">its</char> shame, and has sat down at the right hand of the throne of God. <verse eid="HEB 12:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 12:3"/>For consider fully the One having endured such great contradiction by sinners against Himself, so that you⁺ might not grow weary, fainting in your⁺ souls. <verse eid="HEB 12:3"/></para>
+
 <para style="s">God Disciplines His Sons</para>
-<para style="p"><verse number="4" style="v" sid="HEB 12:4"/>Not yet did you⁺ resist unto blood, struggling against sin, </para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 12:4"/>Not yet did you⁺ resist unto blood, struggling against sin, <verse eid="HEB 12:4"/></para>
+
 <para style="p"><verse number="5" style="v" sid="HEB 12:5"/>and you⁺ have forgotten the exhortation that addresses you⁺ as to sons: </para>
+
 <para style="q1" vid="HEB 12:5">“My son, do not regard lightly the discipline of the Lord, </para>
-<para style="q2" vid="HEB 12:5">nor faint being reproved by Him. </para>
+
+<para style="q2" vid="HEB 12:5">nor faint being reproved by Him. <verse eid="HEB 12:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="HEB 12:6"/>For the Lord disciplines whom He loves, </para>
-<para style="q2" vid="HEB 12:6">and He scourges every son whom He receives.” <note caller="+" style="f"><char style="fr" closed="false">12.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">and He chastises every son He receives</char><char style="ft" closed="false">; Proverbs 3:11–12 (see also LXX)</char></note></para>
-<para style="p"><verse number="7" style="v" sid="HEB 12:7"/><char style="add">It is</char> for discipline <char style="add">that</char> you⁺ endure;<note caller="+" style="f"><char style="fr" closed="false">12.7 </char><char style="ft" closed="false"> GOC, ALT, F35, and TR </char><char style="fq" closed="false">If you are enduring discipline</char></note> God is treating you⁺ as sons; for what son <char style="add">is there</char> whom <char style="add">his</char> father does not discipline? </para>
-<para style="p"><verse number="8" style="v" sid="HEB 12:8"/>But if you⁺ are without discipline, of which they have all become partakers, then you⁺ are illegitimate children and not sons. </para>
-<para style="p"><verse number="9" style="v" sid="HEB 12:9"/>Furthermore indeed, we have had fathers of our flesh, discipliners, and we respected <char style="add">them</char>; and will we not much more be in subjection to the Father of spirits and will live? </para>
-<para style="p"><verse number="10" style="v" sid="HEB 12:10"/>For indeed, for a few days according to that seeming good to them, they were disciplining <char style="add">us</char>—but <char style="add">He</char> for <char style="add">our</char> benefitting, in order to share His holiness. </para>
-<para style="p"><verse number="11" style="v" sid="HEB 12:11"/>And all discipline indeed for the present does not seem to be of joy, but of grief; but afterward it yields the peaceable fruit of righteousness<note caller="+" style="f"><char style="fr" closed="false">12.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">it yields a harvest of righteousness and peace</char></note> to those having been trained by it. </para>
-<para style="p"><verse number="12" style="v" sid="HEB 12:12"/>Therefore set straight again the drooping hands and the enfeebled knees,<note caller="+" style="f"><char style="fr" closed="false">12.12 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">paralyzed</char><char style="ft" closed="false">; Greek </char><char style="fq" closed="false">paralelymena</char></note> <note caller="+" style="f"><char style="fr" closed="false">12.12 </char><char style="ft" closed="false"> Isaiah 35:3</char></note></para>
-<para style="p"><verse number="13" style="v" sid="HEB 12:13"/>and make straight paths for your⁺ feet, so that the lame should not be turned aside, but rather should be healed. <note caller="+" style="f"><char style="fr" closed="false">12.13 </char><char style="ft" closed="false"> Proverbs 4:26 (see also LXX)</char></note></para>
+
+<para style="q2" vid="HEB 12:6">and He scourges every son whom He receives.” <note caller="+" style="f"><char style="fr" closed="false">12.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">and He chastises every son He receives</char><char style="ft" closed="false">; Proverbs 3:11–12 (see also LXX)</char></note><verse eid="HEB 12:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="HEB 12:7"/><char style="add">It is</char> for discipline <char style="add">that</char> you⁺ endure;<note caller="+" style="f"><char style="fr" closed="false">12.7 </char><char style="ft" closed="false"> GOC, ALT, F35, and TR </char><char style="fq" closed="false">If you are enduring discipline</char></note> God is treating you⁺ as sons; for what son <char style="add">is there</char> whom <char style="add">his</char> father does not discipline? <verse eid="HEB 12:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="HEB 12:8"/>But if you⁺ are without discipline, of which they have all become partakers, then you⁺ are illegitimate children and not sons. <verse eid="HEB 12:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 12:9"/>Furthermore indeed, we have had fathers of our flesh, discipliners, and we respected <char style="add">them</char>; and will we not much more be in subjection to the Father of spirits and will live? <verse eid="HEB 12:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 12:10"/>For indeed, for a few days according to that seeming good to them, they were disciplining <char style="add">us</char>—but <char style="add">He</char> for <char style="add">our</char> benefitting, in order to share His holiness. <verse eid="HEB 12:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 12:11"/>And all discipline indeed for the present does not seem to be of joy, but of grief; but afterward it yields the peaceable fruit of righteousness<note caller="+" style="f"><char style="fr" closed="false">12.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">it yields a harvest of righteousness and peace</char></note> to those having been trained by it. <verse eid="HEB 12:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 12:12"/>Therefore set straight again the drooping hands and the enfeebled knees,<note caller="+" style="f"><char style="fr" closed="false">12.12 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">paralyzed</char><char style="ft" closed="false">; Greek </char><char style="fq" closed="false">paralelymena</char></note> <note caller="+" style="f"><char style="fr" closed="false">12.12 </char><char style="ft" closed="false"> Isaiah 35:3</char></note><verse eid="HEB 12:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 12:13"/>and make straight paths for your⁺ feet, so that the lame should not be turned aside, but rather should be healed. <note caller="+" style="f"><char style="fr" closed="false">12.13 </char><char style="ft" closed="false"> Proverbs 4:26 (see also LXX)</char></note><verse eid="HEB 12:13"/></para>
+
 <para style="s">A Call to Holiness1 Peter 1:13–21</para>
-<para style="p"><verse number="14" style="v" sid="HEB 12:14"/>Pursue peace with all, and holiness, without which no one will see the Lord, </para>
-<para style="p"><verse number="15" style="v" sid="HEB 12:15"/>overseeing, lest any be falling short of the grace of God, lest any root of bitterness springing up should trouble <char style="add">you</char>, and by this the many might be defiled, <note caller="+" style="f"><char style="fr" closed="false">12.15 </char><char style="ft" closed="false"> See Deuteronomy 29:18</char></note></para>
-<para style="p"><verse number="16" style="v" sid="HEB 12:16"/>lest <char style="add">there be</char> any sexually immoral person or profane person, as Esau, who for one meal sold his birthright. </para>
-<para style="p"><verse number="17" style="v" sid="HEB 12:17"/>For you⁺ know that even afterward, wanting to inherit the blessing, he was rejected; for he found no place of repentance, although having sought it out with tears. </para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 12:14"/>Pursue peace with all, and holiness, without which no one will see the Lord, <verse eid="HEB 12:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HEB 12:15"/>overseeing, lest any be falling short of the grace of God, lest any root of bitterness springing up should trouble <char style="add">you</char>, and by this the many might be defiled, <note caller="+" style="f"><char style="fr" closed="false">12.15 </char><char style="ft" closed="false"> See Deuteronomy 29:18</char></note><verse eid="HEB 12:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HEB 12:16"/>lest <char style="add">there be</char> any sexually immoral person or profane person, as Esau, who for one meal sold his birthright. <verse eid="HEB 12:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="HEB 12:17"/>For you⁺ know that even afterward, wanting to inherit the blessing, he was rejected; for he found no place of repentance, although having sought it out with tears. <verse eid="HEB 12:17"/></para>
+
 <para style="s">An Unshakable KingdomExodus 20:18–21</para>
-<para style="p"><verse number="18" style="v" sid="HEB 12:18"/><note caller="-" style="x"><char style="xt" closed="false">Deuteronomy 5:22–33</char></note>For you⁺ have not come to<note caller="+" style="f"><char style="fr" closed="false">12.18 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">to a mountain</char></note> <char style="add">that</char> being touched and having been kindled with fire, and to darkness and to gloom and to storm, </para>
-<para style="p"><verse number="19" style="v" sid="HEB 12:19"/>and to the sound of a trumpet, and to a voice of sayings which those having heard begged <char style="add">that</char> the word not be addressed to them, </para>
-<para style="p"><verse number="20" style="v" sid="HEB 12:20"/>for they could not bear that being commanded: “If even a beast should touch the mountain, it will be stoned.” <note caller="+" style="f"><char style="fr" closed="false">12.20 </char><char style="ft" closed="false"> Exodus 19:12–13</char></note></para>
-<para style="p"><verse number="21" style="v" sid="HEB 12:21"/>And the thing appearing was so fearful <char style="add">that</char> Moses said, “I am greatly afraid and trembling.” <note caller="+" style="f"><char style="fr" closed="false">12.21 </char><char style="ft" closed="false"> Deuteronomy 9:19</char></note></para>
-<para style="p"><verse number="22" style="v" sid="HEB 12:22"/>But you⁺ have come to Mount Zion, and to the city of the living God, to the heavenly Jerusalem, and to myriads of angels, </para>
-<para style="p"><verse number="23" style="v" sid="HEB 12:23"/>and <char style="add">to</char> the assembly, to the church of the firstborn having been enrolled in the heavens, and to God the Judge of all, and to the spirits of the righteous having been perfected, </para>
-<para style="p"><verse number="24" style="v" sid="HEB 12:24"/>and to Jesus the mediator of a new covenant, and to the blood of sprinkling, speaking a better thing<note caller="+" style="f"><char style="fr" closed="false">12.24 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">better things</char></note> than that of Abel. </para>
-<para style="p"><verse number="25" style="v" sid="HEB 12:25"/>Watch out, lest you⁺ refuse the One speaking. For if they did not escape, having refused the One divinely warning <char style="add">them</char> on earth, much less we, turning away from the One from the heavens, </para>
-<para style="p"><verse number="26" style="v" sid="HEB 12:26"/>whose voice shook the earth at that time; but now He has promised, saying, “Yet once <char style="add">more</char> I will shake not only the earth, but also heaven.” <note caller="+" style="f"><char style="fr" closed="false">12.26 </char><char style="ft" closed="false"> Haggai 2:6</char></note></para>
-<para style="p"><verse number="27" style="v" sid="HEB 12:27"/>And this, “Yet once <char style="add">more</char>,” makes evident the removing of the <char style="add">things</char> being shaken, as having been made, so that the things not being shaken should remain. </para>
-<para style="p"><verse number="28" style="v" sid="HEB 12:28"/>Therefore, receiving an unshakable kingdom, we may have grace, by which we may serve God well pleasingly, with reverence<note caller="+" style="f"><char style="fr" closed="false">12.28 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">with reverence and godly fear</char></note> and awe. </para>
-<para style="p"><verse number="29" style="v" sid="HEB 12:29"/>“For also, our God <char style="add">is</char> a consuming fire.” <note caller="+" style="f"><char style="fr" closed="false">12.29 </char><char style="ft" closed="false"> Deuteronomy 4:24</char></note></para>
+
+<para style="p"><verse number="18" style="v" sid="HEB 12:18"/><note caller="-" style="x"><char style="xt" closed="false">Deuteronomy 5:22–33</char></note>For you⁺ have not come to<note caller="+" style="f"><char style="fr" closed="false">12.18 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">to a mountain</char></note> <char style="add">that</char> being touched and having been kindled with fire, and to darkness and to gloom and to storm, <verse eid="HEB 12:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="HEB 12:19"/>and to the sound of a trumpet, and to a voice of sayings which those having heard begged <char style="add">that</char> the word not be addressed to them, <verse eid="HEB 12:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="HEB 12:20"/>for they could not bear that being commanded: “If even a beast should touch the mountain, it will be stoned.” <note caller="+" style="f"><char style="fr" closed="false">12.20 </char><char style="ft" closed="false"> Exodus 19:12–13</char></note><verse eid="HEB 12:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="HEB 12:21"/>And the thing appearing was so fearful <char style="add">that</char> Moses said, “I am greatly afraid and trembling.” <note caller="+" style="f"><char style="fr" closed="false">12.21 </char><char style="ft" closed="false"> Deuteronomy 9:19</char></note><verse eid="HEB 12:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="HEB 12:22"/>But you⁺ have come to Mount Zion, and to the city of the living God, to the heavenly Jerusalem, and to myriads of angels, <verse eid="HEB 12:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="HEB 12:23"/>and <char style="add">to</char> the assembly, to the church of the firstborn having been enrolled in the heavens, and to God the Judge of all, and to the spirits of the righteous having been perfected, <verse eid="HEB 12:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="HEB 12:24"/>and to Jesus the mediator of a new covenant, and to the blood of sprinkling, speaking a better thing<note caller="+" style="f"><char style="fr" closed="false">12.24 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">better things</char></note> than that of Abel. <verse eid="HEB 12:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="HEB 12:25"/>Watch out, lest you⁺ refuse the One speaking. For if they did not escape, having refused the One divinely warning <char style="add">them</char> on earth, much less we, turning away from the One from the heavens, <verse eid="HEB 12:25"/></para>
+
+<para style="p"><verse number="26" style="v" sid="HEB 12:26"/>whose voice shook the earth at that time; but now He has promised, saying, “Yet once <char style="add">more</char> I will shake not only the earth, but also heaven.” <note caller="+" style="f"><char style="fr" closed="false">12.26 </char><char style="ft" closed="false"> Haggai 2:6</char></note><verse eid="HEB 12:26"/></para>
+
+<para style="p"><verse number="27" style="v" sid="HEB 12:27"/>And this, “Yet once <char style="add">more</char>,” makes evident the removing of the <char style="add">things</char> being shaken, as having been made, so that the things not being shaken should remain. <verse eid="HEB 12:27"/></para>
+
+<para style="p"><verse number="28" style="v" sid="HEB 12:28"/>Therefore, receiving an unshakable kingdom, we may have grace, by which we may serve God well pleasingly, with reverence<note caller="+" style="f"><char style="fr" closed="false">12.28 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">with reverence and godly fear</char></note> and awe. <verse eid="HEB 12:28"/></para>
+
+<para style="p"><verse number="29" style="v" sid="HEB 12:29"/>“For also, our God <char style="add">is</char> a consuming fire.” <note caller="+" style="f"><char style="fr" closed="false">12.29 </char><char style="ft" closed="false"> Deuteronomy 4:24</char></note><verse eid="HEB 12:29"/></para>
+
 <chapter eid="HEB 12"/>
+
 <chapter number="13" style="c" sid="HEB 13"/>
+
 <para style="s">Brotherly Love</para>
-<para style="p"><verse number="1" style="v" sid="HEB 13:1"/>Let brotherly love remain. </para>
-<para style="p"><verse number="2" style="v" sid="HEB 13:2"/>Do not be forgetful of hospitality, for through this, some entertained angels unawares. </para>
-<para style="p"><verse number="3" style="v" sid="HEB 13:3"/>Remember the prisoners as having been bound with <char style="add">them</char>, those being mistreated as yourselves also being in the body. </para>
-<para style="p"><verse number="4" style="v" sid="HEB 13:4"/><char style="add">Let</char> marriage <char style="add">be</char> honored in all, and the marriage bed undefiled; for<note caller="+" style="f"><char style="fr" closed="false">13.4 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">but</char></note> God will judge the sexually immoral and adulterers. </para>
+
+<para style="p"><verse number="1" style="v" sid="HEB 13:1"/>Let brotherly love remain. <verse eid="HEB 13:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HEB 13:2"/>Do not be forgetful of hospitality, for through this, some entertained angels unawares. <verse eid="HEB 13:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HEB 13:3"/>Remember the prisoners as having been bound with <char style="add">them</char>, those being mistreated as yourselves also being in the body. <verse eid="HEB 13:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="HEB 13:4"/><char style="add">Let</char> marriage <char style="add">be</char> honored in all, and the marriage bed undefiled; for<note caller="+" style="f"><char style="fr" closed="false">13.4 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">but</char></note> God will judge the sexually immoral and adulterers. <verse eid="HEB 13:4"/></para>
+
 <para style="s">Christ’s Unchanging Nature</para>
+
 <para style="p"><verse number="5" style="v" sid="HEB 13:5"/><char style="add">your</char> manner of life <char style="add">let be</char> without love of money, being satisfied with the present; for He Himself has said: </para>
+
 <para style="q1" vid="HEB 13:5">“Never will I leave you, </para>
-<para style="q2" vid="HEB 13:5">never will I forsake you.” <note caller="+" style="f"><char style="fr" closed="false">13.5 </char><char style="ft" closed="false"> Deuteronomy 31:6, 8; Joshua 1:5</char></note></para>
+
+<para style="q2" vid="HEB 13:5">never will I forsake you.” <note caller="+" style="f"><char style="fr" closed="false">13.5 </char><char style="ft" closed="false"> Deuteronomy 31:6, 8; Joshua 1:5</char></note><verse eid="HEB 13:5"/></para>
+
 <para style="p"><verse number="6" style="v" sid="HEB 13:6"/>So we are confident to say: </para>
+
 <para style="q1" vid="HEB 13:6">“The Lord <char style="add">is</char> to me a helper, and I will not be afraid; </para>
-<para style="q2" vid="HEB 13:6">what will man do to me?” <note caller="+" style="f"><char style="fr" closed="false">13.6 </char><char style="ft" closed="false"> Psalm 118:6 (see also LXX)</char></note></para>
-<para style="p"><verse number="7" style="v" sid="HEB 13:7"/>Remember those leading you⁺ who spoke the word of God to you⁺, of whom, considering the outcome of <char style="add">their</char> conduct, imitate the faith. </para>
-<para style="p"><verse number="8" style="v" sid="HEB 13:8"/>Jesus Christ <char style="add">is</char> the same yesterday and today and to the ages. </para>
-<para style="p"><verse number="9" style="v" sid="HEB 13:9"/>Do not be carried along<note caller="+" style="f"><char style="fr" closed="false">13.9 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">carried about</char></note> <char style="add">by</char> various and strange teachings; for <char style="add">it is</char> good <char style="add">for</char> the heart to be confirmed by grace, not by foods, in which those walking were not profited. </para>
-<para style="p"><verse number="10" style="v" sid="HEB 13:10"/>We have an altar from which those serving in the tabernacle have no authority to eat. </para>
-<para style="p"><verse number="11" style="v" sid="HEB 13:11"/>For animals whose blood is brought for sin into the holy places by the high priest—the bodies of those are burned outside the camp. </para>
-<para style="p"><verse number="12" style="v" sid="HEB 13:12"/>Therefore Jesus also suffered outside the gate. so that He might sanctify the people by <char style="add">His</char> own blood, </para>
-<para style="p"><verse number="13" style="v" sid="HEB 13:13"/>Therefore we should go out to Him outside the camp, bearing His reproach. </para>
-<para style="p"><verse number="14" style="v" sid="HEB 13:14"/>For here we do not have an abiding city, but we are seeking for the one about to be. </para>
+
+<para style="q2" vid="HEB 13:6">what will man do to me?” <note caller="+" style="f"><char style="fr" closed="false">13.6 </char><char style="ft" closed="false"> Psalm 118:6 (see also LXX)</char></note><verse eid="HEB 13:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="HEB 13:7"/>Remember those leading you⁺ who spoke the word of God to you⁺, of whom, considering the outcome of <char style="add">their</char> conduct, imitate the faith. <verse eid="HEB 13:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="HEB 13:8"/>Jesus Christ <char style="add">is</char> the same yesterday and today and to the ages. <verse eid="HEB 13:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="HEB 13:9"/>Do not be carried along<note caller="+" style="f"><char style="fr" closed="false">13.9 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">carried about</char></note> <char style="add">by</char> various and strange teachings; for <char style="add">it is</char> good <char style="add">for</char> the heart to be confirmed by grace, not by foods, in which those walking were not profited. <verse eid="HEB 13:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="HEB 13:10"/>We have an altar from which those serving in the tabernacle have no authority to eat. <verse eid="HEB 13:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="HEB 13:11"/>For animals whose blood is brought for sin into the holy places by the high priest—the bodies of those are burned outside the camp. <verse eid="HEB 13:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="HEB 13:12"/>Therefore Jesus also suffered outside the gate. so that He might sanctify the people by <char style="add">His</char> own blood, <verse eid="HEB 13:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="HEB 13:13"/>Therefore we should go out to Him outside the camp, bearing His reproach. <verse eid="HEB 13:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HEB 13:14"/>For here we do not have an abiding city, but we are seeking for the one about to be. <verse eid="HEB 13:14"/></para>
+
 <para style="s">Sacrifice, Obedience, and Prayer</para>
-<para style="p"><verse number="15" style="v" sid="HEB 13:15"/>Through Him, then,<note caller="+" style="f"><char style="fr" closed="false">13.15 </char><char style="ft" closed="false"> WH does not include </char><char style="fq" closed="false">then</char><char style="ft" closed="false">.</char></note> we should offer up a sacrifice of praise through all <char style="add">time</char> to God, that is, the fruit of lips confessing His name. </para>
-<para style="p"><verse number="16" style="v" sid="HEB 13:16"/>And do not be forgetful of doing good and of sharing, for with such sacrifices God is well pleased. </para>
-<para style="p"><verse number="17" style="v" sid="HEB 13:17"/>Obey you⁺ those leading and be subject, for they watch over your⁺ souls as <char style="add">those who</char> will give an account, so that they may do this with joy and not groaning, for this <char style="add">is</char> unprofitable for you⁺. </para>
-<para style="p"><verse number="18" style="v" sid="HEB 13:18"/>Pray for us, for we are persuaded that we have a good conscience, wanting to conduct ourselves well in all things. </para>
-<para style="p"><verse number="19" style="v" sid="HEB 13:19"/>And more abundantly I exhort <char style="add">you</char> to do this, so that I may be restored to you⁺ more quickly. </para>
+
+<para style="p"><verse number="15" style="v" sid="HEB 13:15"/>Through Him, then,<note caller="+" style="f"><char style="fr" closed="false">13.15 </char><char style="ft" closed="false"> WH does not include </char><char style="fq" closed="false">then</char><char style="ft" closed="false">.</char></note> we should offer up a sacrifice of praise through all <char style="add">time</char> to God, that is, the fruit of lips confessing His name. <verse eid="HEB 13:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HEB 13:16"/>And do not be forgetful of doing good and of sharing, for with such sacrifices God is well pleased. <verse eid="HEB 13:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="HEB 13:17"/>Obey you⁺ those leading and be subject, for they watch over your⁺ souls as <char style="add">those who</char> will give an account, so that they may do this with joy and not groaning, for this <char style="add">is</char> unprofitable for you⁺. <verse eid="HEB 13:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="HEB 13:18"/>Pray for us, for we are persuaded that we have a good conscience, wanting to conduct ourselves well in all things. <verse eid="HEB 13:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="HEB 13:19"/>And more abundantly I exhort <char style="add">you</char> to do this, so that I may be restored to you⁺ more quickly. <verse eid="HEB 13:19"/></para>
+
 <para style="s">Benediction and Farewell</para>
-<para style="p"><verse number="20" style="v" sid="HEB 13:20"/>Now <char style="add">may</char> the God of peace, the One having brought up out from the dead the great Shepherd of the sheep, our Lord Jesus, by the blood of the eternal covenant, </para>
-<para style="p"><verse number="21" style="v" sid="HEB 13:21"/>equip you⁺ in everything good<note caller="+" style="f"><char style="fr" closed="false">13.21 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">every good work</char></note> in order to do His will, doing in us<note caller="+" style="f"><char style="fr" closed="false">13.21 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">you</char></note> that which <char style="add">is</char> well pleasing before Him, through Jesus Christ, to whom <char style="add">be</char> the glory to the ages of the ages.<note caller="+" style="f"><char style="fr" closed="false">13.21 </char><char style="ft" closed="false"> SBL does not include </char><char style="fq" closed="false">glory to the ages</char><char style="ft" closed="false">.</char></note> Amen. </para>
-<para style="p"><verse number="22" style="v" sid="HEB 13:22"/>Now I exhort you⁺, brothers, bear with the word of exhortation, for I have also written to you⁺ by few <char style="add">words</char>. </para>
-<para style="p"><verse number="23" style="v" sid="HEB 13:23"/>You⁺ know our brother Timothy has been released, with whom I will see you⁺ if he should come more quickly. </para>
+
+<para style="p"><verse number="20" style="v" sid="HEB 13:20"/>Now <char style="add">may</char> the God of peace, the One having brought up out from the dead the great Shepherd of the sheep, our Lord Jesus, by the blood of the eternal covenant, <verse eid="HEB 13:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="HEB 13:21"/>equip you⁺ in everything good<note caller="+" style="f"><char style="fr" closed="false">13.21 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">every good work</char></note> in order to do His will, doing in us<note caller="+" style="f"><char style="fr" closed="false">13.21 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">you</char></note> that which <char style="add">is</char> well pleasing before Him, through Jesus Christ, to whom <char style="add">be</char> the glory to the ages of the ages.<note caller="+" style="f"><char style="fr" closed="false">13.21 </char><char style="ft" closed="false"> SBL does not include </char><char style="fq" closed="false">glory to the ages</char><char style="ft" closed="false">.</char></note> Amen. <verse eid="HEB 13:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="HEB 13:22"/>Now I exhort you⁺, brothers, bear with the word of exhortation, for I have also written to you⁺ by few <char style="add">words</char>. <verse eid="HEB 13:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="HEB 13:23"/>You⁺ know our brother Timothy has been released, with whom I will see you⁺ if he should come more quickly. <verse eid="HEB 13:23"/></para>
+
 <para style="p"><verse number="24" style="v" sid="HEB 13:24"/>Greet all those leading you⁺ and all the saints. </para>
-<para style="p" vid="HEB 13:24">Those from Italy greet you⁺. </para>
-<para style="p"><verse number="25" style="v" sid="HEB 13:25"/>Grace <char style="add">be</char> with all of you⁺.<note caller="+" style="f"><char style="fr" closed="false">13.25 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">Amen.</char></note> </para>
+
+<para style="p" vid="HEB 13:24">Those from Italy greet you⁺. <verse eid="HEB 13:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="HEB 13:25"/>Grace <char style="add">be</char> with all of you⁺.<note caller="+" style="f"><char style="fr" closed="false">13.25 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">Amen.</char></note> <verse eid="HEB 13:25"/></para>
+
 <chapter eid="HEB 13"/>
+
 </usx>

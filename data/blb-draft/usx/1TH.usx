@@ -1,118 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="1TH" style="id">BLB-Draft</book>
+
 <para style="h">1 Thessalonians</para>
+
 <para style="toc1">1 Thessalonians</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="1TH 1"/>
+
 <para style="s">Greetings to the Thessalonians</para>
+
 <para style="p"><verse number="1" style="v" sid="1TH 1:1"/><note caller="-" style="x"><char style="xt" closed="false">2 Thessalonians 1:1–4</char></note>Paul and Silvanus<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> That is, Silas</char></note> and Timothy, </para>
+
 <para style="p" vid="1TH 1:1">To the church of the Thessalonians in God the Father and the Lord Jesus Christ: </para>
-<para style="p" vid="1TH 1:1">Grace to you⁺ and peace.<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">from God our Father and the Lord Jesus Christ</char><char style="ft" closed="false">.</char></note> </para>
-<para style="p"><verse number="2" style="v" sid="1TH 1:2"/>We give thanks to God always concerning all of you⁺, making mention in our prayers, </para>
-<para style="p"><verse number="3" style="v" sid="1TH 1:3"/>unceasingly remembering before our God and Father your⁺ work of faith and labor of love, and the endurance of the hope of our Lord Jesus Christ, </para>
-<para style="p"><verse number="4" style="v" sid="1TH 1:4"/>knowing, brothers beloved by God, your⁺ election, </para>
-<para style="p"><verse number="5" style="v" sid="1TH 1:5"/>because our gospel came to you⁺ not in word only, but also in power and in the Holy Spirit and with much full assurance, just as you⁺ know what we were among you⁺ on account of you⁺. </para>
-<para style="p"><verse number="6" style="v" sid="1TH 1:6"/>And you⁺ became imitators of us and of the Lord, having accepted the word in much tribulation with the joy of the Holy Spirit, </para>
-<para style="p"><verse number="7" style="v" sid="1TH 1:7"/>so as for you⁺ to become a pattern<note caller="+" style="f"><char style="fr" closed="false">1.7 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">patterns</char></note> to all the believing ones in Macedonia and in Achaia. </para>
-<para style="p"><verse number="8" style="v" sid="1TH 1:8"/>For from you⁺ the word of the Lord has sounded forth not only in Macedonia and in Achaia, but in every place your⁺ faith toward God has gone out, so as for us to have no need to say anything. </para>
-<para style="p"><verse number="9" style="v" sid="1TH 1:9"/>For they themselves report concerning us what kind of entrance we had to you⁺, and how you⁺ turned to God from idols, to serve the living and true God, </para>
-<para style="p"><verse number="10" style="v" sid="1TH 1:10"/>and to await His Son from the heavens, whom He raised out from the dead—Jesus, the One delivering us from the coming wrath. </para>
+
+<para style="p" vid="1TH 1:1">Grace to you⁺ and peace.<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">from God our Father and the Lord Jesus Christ</char><char style="ft" closed="false">.</char></note> <verse eid="1TH 1:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="1TH 1:2"/>We give thanks to God always concerning all of you⁺, making mention in our prayers, <verse eid="1TH 1:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="1TH 1:3"/>unceasingly remembering before our God and Father your⁺ work of faith and labor of love, and the endurance of the hope of our Lord Jesus Christ, <verse eid="1TH 1:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="1TH 1:4"/>knowing, brothers beloved by God, your⁺ election, <verse eid="1TH 1:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="1TH 1:5"/>because our gospel came to you⁺ not in word only, but also in power and in the Holy Spirit and with much full assurance, just as you⁺ know what we were among you⁺ on account of you⁺. <verse eid="1TH 1:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="1TH 1:6"/>And you⁺ became imitators of us and of the Lord, having accepted the word in much tribulation with the joy of the Holy Spirit, <verse eid="1TH 1:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="1TH 1:7"/>so as for you⁺ to become a pattern<note caller="+" style="f"><char style="fr" closed="false">1.7 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">patterns</char></note> to all the believing ones in Macedonia and in Achaia. <verse eid="1TH 1:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="1TH 1:8"/>For from you⁺ the word of the Lord has sounded forth not only in Macedonia and in Achaia, but in every place your⁺ faith toward God has gone out, so as for us to have no need to say anything. <verse eid="1TH 1:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="1TH 1:9"/>For they themselves report concerning us what kind of entrance we had to you⁺, and how you⁺ turned to God from idols, to serve the living and true God, <verse eid="1TH 1:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="1TH 1:10"/>and to await His Son from the heavens, whom He raised out from the dead—Jesus, the One delivering us from the coming wrath. <verse eid="1TH 1:10"/></para>
+
 <chapter eid="1TH 1"/>
+
 <chapter number="2" style="c" sid="1TH 2"/>
+
 <para style="s">Paul’s Ministry</para>
-<para style="p"><verse number="1" style="v" sid="1TH 2:1"/>For you yourselves know, brothers, that our entrance to you⁺ has not been in vain. </para>
-<para style="p"><verse number="2" style="v" sid="1TH 2:2"/>But having previously suffered and having been mistreated (just as you⁺ know) in Philippi, we were bold in our God to speak to you⁺ the gospel of God in much struggle. </para>
-<para style="p"><verse number="3" style="v" sid="1TH 2:3"/>For our exhortation <char style="add">was</char> not out of deceit, nor out of impurity, nor in trickery; </para>
-<para style="p"><verse number="4" style="v" sid="1TH 2:4"/>but just as we have been approved by God to be entrusted with the gospel, so we speak, not as pleasing men, but God, the One proving our hearts. </para>
-<para style="p"><verse number="5" style="v" sid="1TH 2:5"/>For neither at any time were we with a word of flattery, just as you⁺ know, nor with a pretext for greed—God <char style="add">is</char> witness— </para>
-<para style="p"><verse number="6" style="v" sid="1TH 2:6"/>nor seeking glory from men, nor from you⁺, nor from others, <char style="add">though</char> having power to be with authority as apostles of Christ.<note caller="+" style="f"><char style="fr" closed="false">2.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">although as apostles of Christ we could have been a burden to you</char><char style="ft" closed="false">; SBL, NE, and WH include this phrase with verse 7.</char></note> </para>
-<para style="p"><verse number="7" style="v" sid="1TH 2:7"/>But we were gentle in your⁺ midst,<note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> WH and NA </char><char style="fq" closed="false">we were like young children among you</char></note> as a nursing mother should cherish her own children. </para>
-<para style="p"><verse number="8" style="v" sid="1TH 2:8"/>So yearning over you⁺, we were well pleased to have imparted to you⁺ not only the gospel of God, but also our own lives, because you⁺ have become beloved to us. </para>
-<para style="p"><verse number="9" style="v" sid="1TH 2:9"/>For you⁺ remember, brothers, our labor and toil: Working night and day in order not to be burdensome upon any of you⁺, we proclaimed to you⁺ the gospel of God. </para>
-<para style="p"><verse number="10" style="v" sid="1TH 2:10"/>You⁺ <char style="add">are</char> witnesses, and God, how devoutly and righteously and blamelessly we behaved toward you⁺, those believing, </para>
-<para style="p"><verse number="11" style="v" sid="1TH 2:11"/>just as you⁺ know how, each one of you⁺, as a father his own children, </para>
-<para style="p"><verse number="12" style="v" sid="1TH 2:12"/><char style="add">we</char> were exhorting and comforting you⁺ and charging unto you⁺ to walk worthily of God, the One calling you⁺ into His own kingdom and glory. </para>
-<para style="p"><verse number="13" style="v" sid="1TH 2:13"/>And because of this, we also give thanks to God unceasingly that, having received the word of God, hearing from us, you⁺ accepted, not the word of men, but just as truly it is, the word of God, which also works in you⁺, those believing. </para>
-<para style="p"><verse number="14" style="v" sid="1TH 2:14"/>For you⁺ became imitators, brothers, of the churches of God being in Judea in Christ Jesus, because you⁺ also suffered the same <char style="add">things</char> from <char style="add">your</char> own countrymen as they also <char style="add">did</char> from the Jews, </para>
-<para style="p"><verse number="15" style="v" sid="1TH 2:15"/>who, having killed both the Lord Jesus and the prophets,<note caller="+" style="f"><char style="fr" closed="false">2.15 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">their own prophets</char></note> and having driven us out; and <char style="add">they are</char> not pleasing God and contrary to all men, </para>
-<para style="p"><verse number="16" style="v" sid="1TH 2:16"/>forbidding us to speak to the Gentiles so that they might be saved, so as to fill up their sins always. Now the wrath has come upon them to the end.<note caller="+" style="f"><char style="fr" closed="false">2.16 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">at last the wrath has come upon them.</char></note> </para>
+
+<para style="p"><verse number="1" style="v" sid="1TH 2:1"/>For you yourselves know, brothers, that our entrance to you⁺ has not been in vain. <verse eid="1TH 2:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="1TH 2:2"/>But having previously suffered and having been mistreated (just as you⁺ know) in Philippi, we were bold in our God to speak to you⁺ the gospel of God in much struggle. <verse eid="1TH 2:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="1TH 2:3"/>For our exhortation <char style="add">was</char> not out of deceit, nor out of impurity, nor in trickery; <verse eid="1TH 2:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="1TH 2:4"/>but just as we have been approved by God to be entrusted with the gospel, so we speak, not as pleasing men, but God, the One proving our hearts. <verse eid="1TH 2:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="1TH 2:5"/>For neither at any time were we with a word of flattery, just as you⁺ know, nor with a pretext for greed—God <char style="add">is</char> witness— <verse eid="1TH 2:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="1TH 2:6"/>nor seeking glory from men, nor from you⁺, nor from others, <char style="add">though</char> having power to be with authority as apostles of Christ.<note caller="+" style="f"><char style="fr" closed="false">2.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">although as apostles of Christ we could have been a burden to you</char><char style="ft" closed="false">; SBL, NE, and WH include this phrase with verse 7.</char></note> <verse eid="1TH 2:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="1TH 2:7"/>But we were gentle in your⁺ midst,<note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> WH and NA </char><char style="fq" closed="false">we were like young children among you</char></note> as a nursing mother should cherish her own children. <verse eid="1TH 2:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="1TH 2:8"/>So yearning over you⁺, we were well pleased to have imparted to you⁺ not only the gospel of God, but also our own lives, because you⁺ have become beloved to us. <verse eid="1TH 2:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="1TH 2:9"/>For you⁺ remember, brothers, our labor and toil: Working night and day in order not to be burdensome upon any of you⁺, we proclaimed to you⁺ the gospel of God. <verse eid="1TH 2:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="1TH 2:10"/>You⁺ <char style="add">are</char> witnesses, and God, how devoutly and righteously and blamelessly we behaved toward you⁺, those believing, <verse eid="1TH 2:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="1TH 2:11"/>just as you⁺ know how, each one of you⁺, as a father his own children, <verse eid="1TH 2:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="1TH 2:12"/><char style="add">we</char> were exhorting and comforting you⁺ and charging unto you⁺ to walk worthily of God, the One calling you⁺ into His own kingdom and glory. <verse eid="1TH 2:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="1TH 2:13"/>And because of this, we also give thanks to God unceasingly that, having received the word of God, hearing from us, you⁺ accepted, not the word of men, but just as truly it is, the word of God, which also works in you⁺, those believing. <verse eid="1TH 2:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="1TH 2:14"/>For you⁺ became imitators, brothers, of the churches of God being in Judea in Christ Jesus, because you⁺ also suffered the same <char style="add">things</char> from <char style="add">your</char> own countrymen as they also <char style="add">did</char> from the Jews, <verse eid="1TH 2:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="1TH 2:15"/>who, having killed both the Lord Jesus and the prophets,<note caller="+" style="f"><char style="fr" closed="false">2.15 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">their own prophets</char></note> and having driven us out; and <char style="add">they are</char> not pleasing God and contrary to all men, <verse eid="1TH 2:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="1TH 2:16"/>forbidding us to speak to the Gentiles so that they might be saved, so as to fill up their sins always. Now the wrath has come upon them to the end.<note caller="+" style="f"><char style="fr" closed="false">2.16 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">at last the wrath has come upon them.</char></note> <verse eid="1TH 2:16"/></para>
+
 <para style="s">Paul’s Longing to Visit</para>
-<para style="p"><verse number="17" style="v" sid="1TH 2:17"/>But we, brothers, having been bereaved of you⁺ for the time of an hour—in face, not in heart—were more abundantly eager with much desire to see your⁺ face. </para>
-<para style="p"><verse number="18" style="v" sid="1TH 2:18"/>Therefore we wanted to come to you⁺—indeed I, Paul, both once and twice—and Satan obstructed us. </para>
-<para style="p"><verse number="19" style="v" sid="1TH 2:19"/>For who <char style="add">is</char> our hope or joy or crown of boasting? Or <char style="add">are</char> not even you⁺, before our Lord Jesus<note caller="+" style="f"><char style="fr" closed="false">2.19 </char><char style="ft" closed="false"> GOC and TR </char><char style="fq" closed="false">our Lord Jesus Christ</char></note> at His coming? </para>
-<para style="p"><verse number="20" style="v" sid="1TH 2:20"/>For you⁺ are our glory and joy. </para>
+
+<para style="p"><verse number="17" style="v" sid="1TH 2:17"/>But we, brothers, having been bereaved of you⁺ for the time of an hour—in face, not in heart—were more abundantly eager with much desire to see your⁺ face. <verse eid="1TH 2:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="1TH 2:18"/>Therefore we wanted to come to you⁺—indeed I, Paul, both once and twice—and Satan obstructed us. <verse eid="1TH 2:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="1TH 2:19"/>For who <char style="add">is</char> our hope or joy or crown of boasting? Or <char style="add">are</char> not even you⁺, before our Lord Jesus<note caller="+" style="f"><char style="fr" closed="false">2.19 </char><char style="ft" closed="false"> GOC and TR </char><char style="fq" closed="false">our Lord Jesus Christ</char></note> at His coming? <verse eid="1TH 2:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="1TH 2:20"/>For you⁺ are our glory and joy. <verse eid="1TH 2:20"/></para>
+
 <chapter eid="1TH 2"/>
+
 <chapter number="3" style="c" sid="1TH 3"/>
+
 <para style="s">Timothy’s Visit</para>
-<para style="p"><verse number="1" style="v" sid="1TH 3:1"/>Therefore, bearing <char style="add">it</char> no longer, we thought it good to be left in Athens alone, </para>
-<para style="p"><verse number="2" style="v" sid="1TH 3:2"/>and we sent Timothy, our brother and fellow worker of God in the gospel of Christ,<note caller="+" style="f"><char style="fr" closed="false">3.2 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Timothy, our brother and minister of God and our fellow worker in the gospel of Christ</char></note> in order to strengthen and to encourage you⁺ on behalf of your⁺ faith, </para>
-<para style="p"><verse number="3" style="v" sid="1TH 3:3"/>that no one be disturbed in these tribulations. For you⁺ yourselves know that we are destined for this. </para>
-<para style="p"><verse number="4" style="v" sid="1TH 3:4"/>For even when we were with you⁺, we were saying beforehand to you⁺ that we are about to suffer tribulation, just as also it came to pass, and you⁺ know. </para>
-<para style="p"><verse number="5" style="v" sid="1TH 3:5"/>Because of this I also, bearing <char style="add">it</char> no longer, sent in order to know your⁺ faith, lest somehow the one tempting had tempted you⁺, and our labor might be in vain. </para>
+
+<para style="p"><verse number="1" style="v" sid="1TH 3:1"/>Therefore, bearing <char style="add">it</char> no longer, we thought it good to be left in Athens alone, <verse eid="1TH 3:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="1TH 3:2"/>and we sent Timothy, our brother and fellow worker of God in the gospel of Christ,<note caller="+" style="f"><char style="fr" closed="false">3.2 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Timothy, our brother and minister of God and our fellow worker in the gospel of Christ</char></note> in order to strengthen and to encourage you⁺ on behalf of your⁺ faith, <verse eid="1TH 3:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="1TH 3:3"/>that no one be disturbed in these tribulations. For you⁺ yourselves know that we are destined for this. <verse eid="1TH 3:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="1TH 3:4"/>For even when we were with you⁺, we were saying beforehand to you⁺ that we are about to suffer tribulation, just as also it came to pass, and you⁺ know. <verse eid="1TH 3:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="1TH 3:5"/>Because of this I also, bearing <char style="add">it</char> no longer, sent in order to know your⁺ faith, lest somehow the one tempting had tempted you⁺, and our labor might be in vain. <verse eid="1TH 3:5"/></para>
+
 <para style="s">Timothy’s Encouraging Report</para>
-<para style="p"><verse number="6" style="v" sid="1TH 3:6"/>But presently, Timothy having come to us from you⁺ and having brought good news to us of your⁺ faith and love, and that you⁺ have a good remembrance of us always, longing to see us just as also we you⁺, </para>
-<para style="p"><verse number="7" style="v" sid="1TH 3:7"/>because of this, brothers, we were encouraged over you⁺ in all our hardship and tribulation,<note caller="+" style="f"><char style="fr" closed="false">3.7 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">tribulation and hardship</char></note> because of your⁺ faith. </para>
-<para style="p"><verse number="8" style="v" sid="1TH 3:8"/>For now we live, if you⁺ are standing firm in the Lord. </para>
-<para style="p"><verse number="9" style="v" sid="1TH 3:9"/>For what thanksgiving are we able to recompense to God concerning you⁺ over all the joy with which we rejoice before our God because of you⁺, </para>
-<para style="p"><verse number="10" style="v" sid="1TH 3:10"/>night and day imploring exceedingly in order to see your⁺ face and to complete the things lacking of your⁺ faith? </para>
-<para style="p"><verse number="11" style="v" sid="1TH 3:11"/>Now may our God and Father Himself, and our Lord Jesus,<note caller="+" style="f"><char style="fr" closed="false">3.11 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">our Lord Jesus Christ</char><char style="ft" closed="false">; also in verse 13</char></note> direct our way to you⁺. </para>
-<para style="p"><verse number="12" style="v" sid="1TH 3:12"/>And may the Lord cause you⁺ to increase and to abound in love for one another and for all, just as also we for you⁺, </para>
-<para style="p"><verse number="13" style="v" sid="1TH 3:13"/>in order to strengthen your⁺ hearts, blameless in holiness before our God and Father at the coming of our Lord Jesus with all His saints. Amen.<note caller="+" style="f"><char style="fr" closed="false">3.13 </char><char style="ft" closed="false"> SBL, WH, BYZ, and TR do not include </char><char style="fq" closed="false">Amen.</char></note> </para>
+
+<para style="p"><verse number="6" style="v" sid="1TH 3:6"/>But presently, Timothy having come to us from you⁺ and having brought good news to us of your⁺ faith and love, and that you⁺ have a good remembrance of us always, longing to see us just as also we you⁺, <verse eid="1TH 3:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="1TH 3:7"/>because of this, brothers, we were encouraged over you⁺ in all our hardship and tribulation,<note caller="+" style="f"><char style="fr" closed="false">3.7 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">tribulation and hardship</char></note> because of your⁺ faith. <verse eid="1TH 3:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="1TH 3:8"/>For now we live, if you⁺ are standing firm in the Lord. <verse eid="1TH 3:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="1TH 3:9"/>For what thanksgiving are we able to recompense to God concerning you⁺ over all the joy with which we rejoice before our God because of you⁺, <verse eid="1TH 3:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="1TH 3:10"/>night and day imploring exceedingly in order to see your⁺ face and to complete the things lacking of your⁺ faith? <verse eid="1TH 3:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="1TH 3:11"/>Now may our God and Father Himself, and our Lord Jesus,<note caller="+" style="f"><char style="fr" closed="false">3.11 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">our Lord Jesus Christ</char><char style="ft" closed="false">; also in verse 13</char></note> direct our way to you⁺. <verse eid="1TH 3:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="1TH 3:12"/>And may the Lord cause you⁺ to increase and to abound in love for one another and for all, just as also we for you⁺, <verse eid="1TH 3:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="1TH 3:13"/>in order to strengthen your⁺ hearts, blameless in holiness before our God and Father at the coming of our Lord Jesus with all His saints. Amen.<note caller="+" style="f"><char style="fr" closed="false">3.13 </char><char style="ft" closed="false"> SBL, WH, BYZ, and TR do not include </char><char style="fq" closed="false">Amen.</char></note> <verse eid="1TH 3:13"/></para>
+
 <chapter eid="1TH 3"/>
+
 <chapter number="4" style="c" sid="1TH 4"/>
+
 <para style="s">Living to Please God</para>
-<para style="p"><verse number="1" style="v" sid="1TH 4:1"/>Finally then, brothers, we ask and exhort you⁺ in the Lord Jesus that, just as you⁺ received from us how it is necessary for you⁺ to walk and to please God, just as also you⁺ walk,<note caller="+" style="f"><char style="fr" closed="false">4.1 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">just as also you walk</char><char style="ft" closed="false">.</char></note> that you⁺ may abound more. </para>
-<para style="p"><verse number="2" style="v" sid="1TH 4:2"/>For you⁺ know what instructions we gave you⁺ through the Lord Jesus. </para>
-<para style="p"><verse number="3" style="v" sid="1TH 4:3"/>For this is the will of God—your⁺ sanctification: <char style="add">for</char> you⁺ to abstain from sexual immorality; </para>
-<para style="p"><verse number="4" style="v" sid="1TH 4:4"/><char style="add">for</char> each of you⁺ to know <char style="add">how</char> to possess his own vessel<note caller="+" style="f"><char style="fr" closed="false">4.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">know how to control his own body</char></note> in sanctification and honor, </para>
-<para style="p"><verse number="5" style="v" sid="1TH 4:5"/>not in the passion of lust just as also the Gentiles, those not knowing God; </para>
-<para style="p"><verse number="6" style="v" sid="1TH 4:6"/>not to go beyond and to take advantage of his brother in the matter,<note caller="+" style="f"><char style="fr" closed="false">4.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">no one should ever harm or cheat his brother in this matter</char></note> because the Lord <char style="add">is</char> avenging concerning all these things, just as also we said before to you⁺ and earnestly testified. </para>
-<para style="p"><verse number="7" style="v" sid="1TH 4:7"/>For God did not call us to impurity, but in sanctification. </para>
-<para style="p"><verse number="8" style="v" sid="1TH 4:8"/>So then, the one setting <char style="add">this</char> aside does not set aside man but God, the One also giving<note caller="+" style="f"><char style="fr" closed="false">4.8 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">God, who also gave</char></note> His Holy Spirit to you⁺. </para>
-<para style="p"><verse number="9" style="v" sid="1TH 4:9"/>Now concerning brotherly love, you⁺ have no need <char style="add">for one</char> to write to you⁺, for you⁺ yourselves are taught by God to love one another. </para>
-<para style="p"><verse number="10" style="v" sid="1TH 4:10"/>For also you⁺ are doing this to all the brothers, the ones in all Macedonia. But we exhort you⁺, brothers, to abound more, </para>
-<para style="p"><verse number="11" style="v" sid="1TH 4:11"/>and to strive earnestly to live quietly and to do your own <char style="add">things</char>, and to work with your⁺ own hands,<note caller="+" style="f"><char style="fr" closed="false">4.11 </char><char style="ft" closed="false"> SBL, TH, and WH </char><char style="fq" closed="false">your hands</char></note> just as we commanded you⁺, </para>
-<para style="p"><verse number="12" style="v" sid="1TH 4:12"/>so that you⁺ may walk properly toward those outside and may have need of no one. </para>
+
+<para style="p"><verse number="1" style="v" sid="1TH 4:1"/>Finally then, brothers, we ask and exhort you⁺ in the Lord Jesus that, just as you⁺ received from us how it is necessary for you⁺ to walk and to please God, just as also you⁺ walk,<note caller="+" style="f"><char style="fr" closed="false">4.1 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">just as also you walk</char><char style="ft" closed="false">.</char></note> that you⁺ may abound more. <verse eid="1TH 4:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="1TH 4:2"/>For you⁺ know what instructions we gave you⁺ through the Lord Jesus. <verse eid="1TH 4:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="1TH 4:3"/>For this is the will of God—your⁺ sanctification: <char style="add">for</char> you⁺ to abstain from sexual immorality; <verse eid="1TH 4:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="1TH 4:4"/><char style="add">for</char> each of you⁺ to know <char style="add">how</char> to possess his own vessel<note caller="+" style="f"><char style="fr" closed="false">4.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">know how to control his own body</char></note> in sanctification and honor, <verse eid="1TH 4:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="1TH 4:5"/>not in the passion of lust just as also the Gentiles, those not knowing God; <verse eid="1TH 4:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="1TH 4:6"/>not to go beyond and to take advantage of his brother in the matter,<note caller="+" style="f"><char style="fr" closed="false">4.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">no one should ever harm or cheat his brother in this matter</char></note> because the Lord <char style="add">is</char> avenging concerning all these things, just as also we said before to you⁺ and earnestly testified. <verse eid="1TH 4:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="1TH 4:7"/>For God did not call us to impurity, but in sanctification. <verse eid="1TH 4:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="1TH 4:8"/>So then, the one setting <char style="add">this</char> aside does not set aside man but God, the One also giving<note caller="+" style="f"><char style="fr" closed="false">4.8 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">God, who also gave</char></note> His Holy Spirit to you⁺. <verse eid="1TH 4:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="1TH 4:9"/>Now concerning brotherly love, you⁺ have no need <char style="add">for one</char> to write to you⁺, for you⁺ yourselves are taught by God to love one another. <verse eid="1TH 4:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="1TH 4:10"/>For also you⁺ are doing this to all the brothers, the ones in all Macedonia. But we exhort you⁺, brothers, to abound more, <verse eid="1TH 4:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="1TH 4:11"/>and to strive earnestly to live quietly and to do your own <char style="add">things</char>, and to work with your⁺ own hands,<note caller="+" style="f"><char style="fr" closed="false">4.11 </char><char style="ft" closed="false"> SBL, TH, and WH </char><char style="fq" closed="false">your hands</char></note> just as we commanded you⁺, <verse eid="1TH 4:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="1TH 4:12"/>so that you⁺ may walk properly toward those outside and may have need of no one. <verse eid="1TH 4:12"/></para>
+
 <para style="s">The Return of the Lord</para>
-<para style="p"><verse number="13" style="v" sid="1TH 4:13"/>But we do not want<note caller="+" style="f"><char style="fr" closed="false">4.13 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">I do not want</char></note> you⁺ to be ignorant, brothers, concerning those having fallen asleep,<note caller="+" style="f"><char style="fr" closed="false">4.13 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">those who sleep in death</char></note> so that you⁺ should not be grieved, just as also the rest, those having no hope. </para>
-<para style="p"><verse number="14" style="v" sid="1TH 4:14"/>For if we believe that Jesus died and rose again, so also through Jesus God will bring with Him those having fallen asleep. </para>
-<para style="p"><verse number="15" style="v" sid="1TH 4:15"/>For this we say to you⁺ in the word of the Lord, that we the living, remaining unto the coming of the Lord, shall not precede those having fallen asleep, </para>
-<para style="p"><verse number="16" style="v" sid="1TH 4:16"/>because the Lord Himself with a loud command, with the voice of an archangel, and with the trumpet of God will descend from heaven, and the dead in Christ will rise first. </para>
-<para style="p"><verse number="17" style="v" sid="1TH 4:17"/>Then we, the living remaining, will be caught up together with them in the clouds for the meeting of the Lord in the air; and so we will be always with the Lord. </para>
-<para style="p"><verse number="18" style="v" sid="1TH 4:18"/>Therefore encourage one another in these words. </para>
+
+<para style="p"><verse number="13" style="v" sid="1TH 4:13"/>But we do not want<note caller="+" style="f"><char style="fr" closed="false">4.13 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">I do not want</char></note> you⁺ to be ignorant, brothers, concerning those having fallen asleep,<note caller="+" style="f"><char style="fr" closed="false">4.13 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">those who sleep in death</char></note> so that you⁺ should not be grieved, just as also the rest, those having no hope. <verse eid="1TH 4:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="1TH 4:14"/>For if we believe that Jesus died and rose again, so also through Jesus God will bring with Him those having fallen asleep. <verse eid="1TH 4:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="1TH 4:15"/>For this we say to you⁺ in the word of the Lord, that we the living, remaining unto the coming of the Lord, shall not precede those having fallen asleep, <verse eid="1TH 4:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="1TH 4:16"/>because the Lord Himself with a loud command, with the voice of an archangel, and with the trumpet of God will descend from heaven, and the dead in Christ will rise first. <verse eid="1TH 4:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="1TH 4:17"/>Then we, the living remaining, will be caught up together with them in the clouds for the meeting of the Lord in the air; and so we will be always with the Lord. <verse eid="1TH 4:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="1TH 4:18"/>Therefore encourage one another in these words. <verse eid="1TH 4:18"/></para>
+
 <chapter eid="1TH 4"/>
+
 <chapter number="5" style="c" sid="1TH 5"/>
+
 <para style="s">The Day of the Lord</para>
-<para style="p"><verse number="1" style="v" sid="1TH 5:1"/><note caller="-" style="x"><char style="xt" closed="false">2 Peter 3:8–13</char></note><note caller="-" style="x"><char style="xt" closed="false">Malachi 4:1–6</char></note><note caller="-" style="x"><char style="xt" closed="false">Zephaniah 1:7–18</char></note>Now concerning the times and the seasons, brothers, you⁺ have no need to be written to you⁺. </para>
-<para style="p"><verse number="2" style="v" sid="1TH 5:2"/>For you⁺ yourselves thoroughly know that the day of the Lord comes in this way, as a thief in the night. </para>
-<para style="p"><verse number="3" style="v" sid="1TH 5:3"/>When<note caller="+" style="f"><char style="fr" closed="false">5.3 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">For when</char></note> they may say, “Peace and security,” then suddenly destruction comes upon them, as the labor pains to her having in womb; and they shall not escape. </para>
-<para style="p"><verse number="4" style="v" sid="1TH 5:4"/>But you⁺, brothers, are not in darkness, that the day should overtake you⁺ like a thief.<note caller="+" style="f"><char style="fr" closed="false">5.4 </char><char style="ft" closed="false"> WH </char><char style="fq" closed="false">like thieves</char></note> </para>
-<para style="p"><verse number="5" style="v" sid="1TH 5:5"/>For<note caller="+" style="f"><char style="fr" closed="false">5.5 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">For</char></note> you⁺ are all sons of light and sons of day; we are not of night and not of darkness. </para>
-<para style="p"><verse number="6" style="v" sid="1TH 5:6"/>So then, we should not sleep as the rest, but we should watch and we should be sober. </para>
-<para style="p"><verse number="7" style="v" sid="1TH 5:7"/>For those sleeping, sleep by night; and those becoming drunk, get drunk by night. </para>
-<para style="p"><verse number="8" style="v" sid="1TH 5:8"/>But we,<note caller="+" style="f"><char style="fr" closed="false">5.8 </char><char style="ft" closed="false"> GOC </char><char style="fq" closed="false">you</char></note> being of the day, should be sober, having put on the breastplate of faith and love, and the helmet—the hope of salvation, </para>
-<para style="p"><verse number="9" style="v" sid="1TH 5:9"/>because God did not set us for wrath, but for obtaining salvation through our Lord Jesus Christ, </para>
-<para style="p"><verse number="10" style="v" sid="1TH 5:10"/>the One having died for us, so that whether we may watch or we may sleep, we may live together with Him. </para>
-<para style="p"><verse number="11" style="v" sid="1TH 5:11"/>Therefore encourage one another and build up one another, just as also you⁺ are doing. </para>
+
+<para style="p"><verse number="1" style="v" sid="1TH 5:1"/><note caller="-" style="x"><char style="xt" closed="false">2 Peter 3:8–13</char></note><note caller="-" style="x"><char style="xt" closed="false">Malachi 4:1–6</char></note><note caller="-" style="x"><char style="xt" closed="false">Zephaniah 1:7–18</char></note>Now concerning the times and the seasons, brothers, you⁺ have no need to be written to you⁺. <verse eid="1TH 5:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="1TH 5:2"/>For you⁺ yourselves thoroughly know that the day of the Lord comes in this way, as a thief in the night. <verse eid="1TH 5:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="1TH 5:3"/>When<note caller="+" style="f"><char style="fr" closed="false">5.3 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">For when</char></note> they may say, “Peace and security,” then suddenly destruction comes upon them, as the labor pains to her having in womb; and they shall not escape. <verse eid="1TH 5:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="1TH 5:4"/>But you⁺, brothers, are not in darkness, that the day should overtake you⁺ like a thief.<note caller="+" style="f"><char style="fr" closed="false">5.4 </char><char style="ft" closed="false"> WH </char><char style="fq" closed="false">like thieves</char></note> <verse eid="1TH 5:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="1TH 5:5"/>For<note caller="+" style="f"><char style="fr" closed="false">5.5 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">For</char></note> you⁺ are all sons of light and sons of day; we are not of night and not of darkness. <verse eid="1TH 5:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="1TH 5:6"/>So then, we should not sleep as the rest, but we should watch and we should be sober. <verse eid="1TH 5:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="1TH 5:7"/>For those sleeping, sleep by night; and those becoming drunk, get drunk by night. <verse eid="1TH 5:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="1TH 5:8"/>But we,<note caller="+" style="f"><char style="fr" closed="false">5.8 </char><char style="ft" closed="false"> GOC </char><char style="fq" closed="false">you</char></note> being of the day, should be sober, having put on the breastplate of faith and love, and the helmet—the hope of salvation, <verse eid="1TH 5:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="1TH 5:9"/>because God did not set us for wrath, but for obtaining salvation through our Lord Jesus Christ, <verse eid="1TH 5:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="1TH 5:10"/>the One having died for us, so that whether we may watch or we may sleep, we may live together with Him. <verse eid="1TH 5:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="1TH 5:11"/>Therefore encourage one another and build up one another, just as also you⁺ are doing. <verse eid="1TH 5:11"/></para>
+
 <para style="s">Christian Living</para>
-<para style="p"><verse number="12" style="v" sid="1TH 5:12"/>But we ask you⁺, brothers, to know those toiling among you⁺ and presiding over you⁺ in the Lord and admonishing you⁺, </para>
-<para style="p"><verse number="13" style="v" sid="1TH 5:13"/>and to esteem them exceedingly in love because of their work. Be at peace among yourselves. </para>
-<para style="p"><verse number="14" style="v" sid="1TH 5:14"/>And we exhort you⁺, brothers, to admonish the unruly, encourage the fainthearted, support the weak, be patient toward all. </para>
-<para style="p"><verse number="15" style="v" sid="1TH 5:15"/>See that no one shall repay to anyone evil for evil, but always pursue the good also to one another and to all. </para>
-<para style="p"><verse number="16" style="v" sid="1TH 5:16"/>Always rejoice. </para>
-<para style="p"><verse number="17" style="v" sid="1TH 5:17"/>Unceasingly pray. </para>
-<para style="p"><verse number="18" style="v" sid="1TH 5:18"/>In everything give thanks, for this <char style="add">is</char> the will of God for you⁺ in Christ Jesus. </para>
-<para style="p"><verse number="19" style="v" sid="1TH 5:19"/>Do not quench the Spirit. </para>
-<para style="p"><verse number="20" style="v" sid="1TH 5:20"/>Do not despise prophecies, </para>
-<para style="p"><verse number="21" style="v" sid="1TH 5:21"/>but test all things. Hold fast to the good. </para>
-<para style="p"><verse number="22" style="v" sid="1TH 5:22"/>Abstain from every form of evil. </para>
+
+<para style="p"><verse number="12" style="v" sid="1TH 5:12"/>But we ask you⁺, brothers, to know those toiling among you⁺ and presiding over you⁺ in the Lord and admonishing you⁺, <verse eid="1TH 5:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="1TH 5:13"/>and to esteem them exceedingly in love because of their work. Be at peace among yourselves. <verse eid="1TH 5:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="1TH 5:14"/>And we exhort you⁺, brothers, to admonish the unruly, encourage the fainthearted, support the weak, be patient toward all. <verse eid="1TH 5:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="1TH 5:15"/>See that no one shall repay to anyone evil for evil, but always pursue the good also to one another and to all. <verse eid="1TH 5:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="1TH 5:16"/>Always rejoice. <verse eid="1TH 5:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="1TH 5:17"/>Unceasingly pray. <verse eid="1TH 5:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="1TH 5:18"/>In everything give thanks, for this <char style="add">is</char> the will of God for you⁺ in Christ Jesus. <verse eid="1TH 5:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="1TH 5:19"/>Do not quench the Spirit. <verse eid="1TH 5:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="1TH 5:20"/>Do not despise prophecies, <verse eid="1TH 5:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="1TH 5:21"/>but test all things. Hold fast to the good. <verse eid="1TH 5:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="1TH 5:22"/>Abstain from every form of evil. <verse eid="1TH 5:22"/></para>
+
 <para style="s">Final Blessings and Instructions</para>
-<para style="p"><verse number="23" style="v" sid="1TH 5:23"/>Now may the God of peace Himself sanctify you⁺ completely, and may your⁺ entire spirit and soul and body be kept blameless<note caller="+" style="f"><char style="fr" closed="false">5.23 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">may your spirit, soul, and body be kept entirely blameless</char></note> at the coming of our Lord Jesus Christ. </para>
-<para style="p"><verse number="24" style="v" sid="1TH 5:24"/>Faithful <char style="add">is</char> the One calling you⁺, who also will do <char style="add">it</char>. </para>
-<para style="p"><verse number="25" style="v" sid="1TH 5:25"/>Brothers, pray also<note caller="+" style="f"><char style="fr" closed="false">5.25 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">also</char><char style="ft" closed="false">.</char></note> for us. </para>
-<para style="p"><verse number="26" style="v" sid="1TH 5:26"/>Greet all the brothers with a holy kiss. </para>
-<para style="p"><verse number="27" style="v" sid="1TH 5:27"/>I adjure you⁺ <char style="add">by</char> the Lord <char style="add">for</char> the letter to be read to all the<note caller="+" style="f"><char style="fr" closed="false">5.27 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">holy</char><char style="ft" closed="false">.</char></note> brothers. </para>
-<para style="p"><verse number="28" style="v" sid="1TH 5:28"/>The grace of our Lord Jesus Christ <char style="add">be</char> with you⁺.<note caller="+" style="f"><char style="fr" closed="false">5.28 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">Amen.</char></note> </para>
+
+<para style="p"><verse number="23" style="v" sid="1TH 5:23"/>Now may the God of peace Himself sanctify you⁺ completely, and may your⁺ entire spirit and soul and body be kept blameless<note caller="+" style="f"><char style="fr" closed="false">5.23 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">may your spirit, soul, and body be kept entirely blameless</char></note> at the coming of our Lord Jesus Christ. <verse eid="1TH 5:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="1TH 5:24"/>Faithful <char style="add">is</char> the One calling you⁺, who also will do <char style="add">it</char>. <verse eid="1TH 5:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="1TH 5:25"/>Brothers, pray also<note caller="+" style="f"><char style="fr" closed="false">5.25 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">also</char><char style="ft" closed="false">.</char></note> for us. <verse eid="1TH 5:25"/></para>
+
+<para style="p"><verse number="26" style="v" sid="1TH 5:26"/>Greet all the brothers with a holy kiss. <verse eid="1TH 5:26"/></para>
+
+<para style="p"><verse number="27" style="v" sid="1TH 5:27"/>I adjure you⁺ <char style="add">by</char> the Lord <char style="add">for</char> the letter to be read to all the<note caller="+" style="f"><char style="fr" closed="false">5.27 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">holy</char><char style="ft" closed="false">.</char></note> brothers. <verse eid="1TH 5:27"/></para>
+
+<para style="p"><verse number="28" style="v" sid="1TH 5:28"/>The grace of our Lord Jesus Christ <char style="add">be</char> with you⁺.<note caller="+" style="f"><char style="fr" closed="false">5.28 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">Amen.</char></note> <verse eid="1TH 5:28"/></para>
+
 <chapter eid="1TH 5"/>
+
 </usx>

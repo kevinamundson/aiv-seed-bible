@@ -1,71 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="TIT" style="id">BLB-Draft</book>
+
 <para style="h">Titus</para>
+
 <para style="toc1">Titus</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="TIT 1"/>
+
 <para style="s">Paul’s Greeting to Titus</para>
-<para style="p"><verse number="1" style="v" sid="TIT 1:1"/><note caller="-" style="x"><char style="xt" closed="false">2 Corinthians 8:16–24</char></note>Paul, a servant of God and an apostle of Jesus Christ, according to the faith of the chosen of God and the knowledge of the truth that <char style="add">is</char> according to godliness, </para>
-<para style="p"><verse number="2" style="v" sid="TIT 1:2"/>upon the hope of eternal life, which God, who <char style="add">is</char> without falsehood, promised before times eternal<note caller="+" style="f"><char style="fr" closed="false">1.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">before time began</char></note> </para>
-<para style="p"><verse number="3" style="v" sid="TIT 1:3"/>and revealed <char style="add">in</char> His own seasons in His word, in the proclamation with which I was entrusted according to the command of God our Savior. </para>
+
+<para style="p"><verse number="1" style="v" sid="TIT 1:1"/><note caller="-" style="x"><char style="xt" closed="false">2 Corinthians 8:16–24</char></note>Paul, a servant of God and an apostle of Jesus Christ, according to the faith of the chosen of God and the knowledge of the truth that <char style="add">is</char> according to godliness, <verse eid="TIT 1:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="TIT 1:2"/>upon the hope of eternal life, which God, who <char style="add">is</char> without falsehood, promised before times eternal<note caller="+" style="f"><char style="fr" closed="false">1.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">before time began</char></note> <verse eid="TIT 1:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="TIT 1:3"/>and revealed <char style="add">in</char> His own seasons in His word, in the proclamation with which I was entrusted according to the command of God our Savior. <verse eid="TIT 1:3"/></para>
+
 <para style="p"><verse number="4" style="v" sid="TIT 1:4"/>To Titus, <char style="add">my</char> genuine child according to a common faith: </para>
-<para style="p" vid="TIT 1:4">Grace<note caller="+" style="f"><char style="fr" closed="false">1.4 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">.</char></note> and peace from God the Father and Christ Jesus our Savior.<note caller="+" style="f"><char style="fr" closed="false">1.4 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">and the Lord Jesus Christ our Savior</char></note> </para>
+
+<para style="p" vid="TIT 1:4">Grace<note caller="+" style="f"><char style="fr" closed="false">1.4 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">.</char></note> and peace from God the Father and Christ Jesus our Savior.<note caller="+" style="f"><char style="fr" closed="false">1.4 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">and the Lord Jesus Christ our Savior</char></note> <verse eid="TIT 1:4"/></para>
+
 <para style="s">Appointing Elders on Crete1 Timothy 3:1–7</para>
-<para style="p"><verse number="5" style="v" sid="TIT 1:5"/><note caller="-" style="x"><char style="xt" closed="false">1 Peter 5:1–4</char></note>For the sake of this I left you in Crete, that you might set in order the things lacking and might appoint elders in every city, as I directed you, </para>
-<para style="p"><verse number="6" style="v" sid="TIT 1:6"/>if anyone is blameless, the husband of one wife,<note caller="+" style="f"><char style="fr" closed="false">1.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">faithful to his wife</char></note> having believing children, not under accusation of debauchery, or insubordinate. </para>
-<para style="p"><verse number="7" style="v" sid="TIT 1:7"/>For it is necessary for the overseer to be blameless, as God’s steward—not self-pleasing, not prone to anger, not given to wine, not a striker, not greedy for shameful gain, </para>
-<para style="p"><verse number="8" style="v" sid="TIT 1:8"/>but hospitable, a lover of good, sound-minded, righteous, holy, <char style="add">and</char> self-controlled, </para>
-<para style="p"><verse number="9" style="v" sid="TIT 1:9"/>holding to the faithful word according to the teaching, that he may be able both to exhort in sound teaching and to convict those contradicting <char style="add">it</char>. </para>
+
+<para style="p"><verse number="5" style="v" sid="TIT 1:5"/><note caller="-" style="x"><char style="xt" closed="false">1 Peter 5:1–4</char></note>For the sake of this I left you in Crete, that you might set in order the things lacking and might appoint elders in every city, as I directed you, <verse eid="TIT 1:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="TIT 1:6"/>if anyone is blameless, the husband of one wife,<note caller="+" style="f"><char style="fr" closed="false">1.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">faithful to his wife</char></note> having believing children, not under accusation of debauchery, or insubordinate. <verse eid="TIT 1:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="TIT 1:7"/>For it is necessary for the overseer to be blameless, as God’s steward—not self-pleasing, not prone to anger, not given to wine, not a striker, not greedy for shameful gain, <verse eid="TIT 1:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="TIT 1:8"/>but hospitable, a lover of good, sound-minded, righteous, holy, <char style="add">and</char> self-controlled, <verse eid="TIT 1:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="TIT 1:9"/>holding to the faithful word according to the teaching, that he may be able both to exhort in sound teaching and to convict those contradicting <char style="add">it</char>. <verse eid="TIT 1:9"/></para>
+
 <para style="s">Correcting False Teachers1 Timothy 1:3–11</para>
-<para style="p"><verse number="10" style="v" sid="TIT 1:10"/>For there are also many insubordinate ones, empty talkers, and mind-deceivers, especially those of the circumcision, </para>
-<para style="p"><verse number="11" style="v" sid="TIT 1:11"/>whom it is necessary to silence, who overturn whole households, teaching things <char style="add">that</char> it is necessary not <char style="add">to teach</char>, for the sake of shameful gain. </para>
-<para style="p"><verse number="12" style="v" sid="TIT 1:12"/>One of them, a prophet of their own, said, “Cretans <char style="add">are</char> always liars, evil beasts, lazy gluttons.”<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> This quote, also known as the Epimenides paradox, has been attributed to the Cretan philosopher Epimenides of Knossos.</char></note> </para>
-<para style="p"><verse number="13" style="v" sid="TIT 1:13"/>This testimony is true, through which cause you are to rebuke them severely, so that they may be sound in the faith, </para>
-<para style="p"><verse number="14" style="v" sid="TIT 1:14"/>not giving heed to Jewish myths and commandments of men turning away from the truth. </para>
-<para style="p"><verse number="15" style="v" sid="TIT 1:15"/>All things <char style="add">are</char> pure to the pure; but to those being defiled and unbelieving, nothing <char style="add">is</char> pure. But both their mind and conscience are defiled. </para>
-<para style="p"><verse number="16" style="v" sid="TIT 1:16"/>They profess to know God, but in works they deny <char style="add">Him</char>, being abominable and disobedient and unfit for any good work. </para>
+
+<para style="p"><verse number="10" style="v" sid="TIT 1:10"/>For there are also many insubordinate ones, empty talkers, and mind-deceivers, especially those of the circumcision, <verse eid="TIT 1:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="TIT 1:11"/>whom it is necessary to silence, who overturn whole households, teaching things <char style="add">that</char> it is necessary not <char style="add">to teach</char>, for the sake of shameful gain. <verse eid="TIT 1:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="TIT 1:12"/>One of them, a prophet of their own, said, “Cretans <char style="add">are</char> always liars, evil beasts, lazy gluttons.”<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> This quote, also known as the Epimenides paradox, has been attributed to the Cretan philosopher Epimenides of Knossos.</char></note> <verse eid="TIT 1:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="TIT 1:13"/>This testimony is true, through which cause you are to rebuke them severely, so that they may be sound in the faith, <verse eid="TIT 1:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="TIT 1:14"/>not giving heed to Jewish myths and commandments of men turning away from the truth. <verse eid="TIT 1:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="TIT 1:15"/>All things <char style="add">are</char> pure to the pure; but to those being defiled and unbelieving, nothing <char style="add">is</char> pure. But both their mind and conscience are defiled. <verse eid="TIT 1:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="TIT 1:16"/>They profess to know God, but in works they deny <char style="add">Him</char>, being abominable and disobedient and unfit for any good work. <verse eid="TIT 1:16"/></para>
+
 <chapter eid="TIT 1"/>
+
 <chapter number="2" style="c" sid="TIT 2"/>
+
 <para style="s">Teaching Sound Doctrine</para>
-<para style="p"><verse number="1" style="v" sid="TIT 2:1"/>But you, speak the things that are fitting for sound teaching. </para>
-<para style="p"><verse number="2" style="v" sid="TIT 2:2"/>Older <char style="add">men</char> are to be sober-minded, dignified, sound-minded, being sound in faith, in love, in endurance; </para>
-<para style="p"><verse number="3" style="v" sid="TIT 2:3"/>older <char style="add">women</char> likewise reverent in behavior, not slanderers, not being enslaved to much wine, teachers of good, </para>
-<para style="p"><verse number="4" style="v" sid="TIT 2:4"/>so that they may make sober-minded the young <char style="add">women</char> to be lovers of <char style="add">their</char> husbands, lovers of <char style="add">their</char> children, </para>
-<para style="p"><verse number="5" style="v" sid="TIT 2:5"/>sound-minded, pure, keepers at home, good, being subject to <char style="add">their</char> own husbands, so that the word of God may not be blasphemed. </para>
-<para style="p"><verse number="6" style="v" sid="TIT 2:6"/>Likewise, exhort the younger <char style="add">men</char> to be sound-minded. </para>
-<para style="p"><verse number="7" style="v" sid="TIT 2:7"/>Concerning all things, be holding forth yourself <char style="add">as</char> a pattern of good works, in the teaching, incorruptibility, dignity, </para>
-<para style="p"><verse number="8" style="v" sid="TIT 2:8"/>sound speech, uncondemnable, so that the one of the contrary should be ashamed, having nothing evil to say concerning us. </para>
-<para style="p"><verse number="9" style="v" sid="TIT 2:9"/>Slaves are to be subject to <char style="add">their</char> own masters in everything, to be well-pleasing, not contradicting, </para>
-<para style="p"><verse number="10" style="v" sid="TIT 2:10"/>not pilfering, but demonstrating all good faithfulness, so that they may adorn the teaching of God our Savior in all things. </para>
+
+<para style="p"><verse number="1" style="v" sid="TIT 2:1"/>But you, speak the things that are fitting for sound teaching. <verse eid="TIT 2:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="TIT 2:2"/>Older <char style="add">men</char> are to be sober-minded, dignified, sound-minded, being sound in faith, in love, in endurance; <verse eid="TIT 2:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="TIT 2:3"/>older <char style="add">women</char> likewise reverent in behavior, not slanderers, not being enslaved to much wine, teachers of good, <verse eid="TIT 2:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="TIT 2:4"/>so that they may make sober-minded the young <char style="add">women</char> to be lovers of <char style="add">their</char> husbands, lovers of <char style="add">their</char> children, <verse eid="TIT 2:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="TIT 2:5"/>sound-minded, pure, keepers at home, good, being subject to <char style="add">their</char> own husbands, so that the word of God may not be blasphemed. <verse eid="TIT 2:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="TIT 2:6"/>Likewise, exhort the younger <char style="add">men</char> to be sound-minded. <verse eid="TIT 2:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="TIT 2:7"/>Concerning all things, be holding forth yourself <char style="add">as</char> a pattern of good works, in the teaching, incorruptibility, dignity, <verse eid="TIT 2:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="TIT 2:8"/>sound speech, uncondemnable, so that the one of the contrary should be ashamed, having nothing evil to say concerning us. <verse eid="TIT 2:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="TIT 2:9"/>Slaves are to be subject to <char style="add">their</char> own masters in everything, to be well-pleasing, not contradicting, <verse eid="TIT 2:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="TIT 2:10"/>not pilfering, but demonstrating all good faithfulness, so that they may adorn the teaching of God our Savior in all things. <verse eid="TIT 2:10"/></para>
+
 <para style="s">God’s Grace Brings Salvation</para>
-<para style="p"><verse number="11" style="v" sid="TIT 2:11"/>For the grace of God has appeared, bringing salvation to all men, </para>
-<para style="p"><verse number="12" style="v" sid="TIT 2:12"/>instructing us that having denied ungodliness and worldly passions, we should live sound-mindedly and righteously and godlily in the present age, </para>
-<para style="p"><verse number="13" style="v" sid="TIT 2:13"/>awaiting the blessed hope and appearing of the glory of our great God and Savior Jesus Christ, </para>
-<para style="p"><verse number="14" style="v" sid="TIT 2:14"/>who gave Himself for us that He might redeem us from all lawlessness and might purify to Himself a people specially His, zealous for good works. </para>
+
+<para style="p"><verse number="11" style="v" sid="TIT 2:11"/>For the grace of God has appeared, bringing salvation to all men, <verse eid="TIT 2:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="TIT 2:12"/>instructing us that having denied ungodliness and worldly passions, we should live sound-mindedly and righteously and godlily in the present age, <verse eid="TIT 2:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="TIT 2:13"/>awaiting the blessed hope and appearing of the glory of our great God and Savior Jesus Christ, <verse eid="TIT 2:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="TIT 2:14"/>who gave Himself for us that He might redeem us from all lawlessness and might purify to Himself a people specially His, zealous for good works. <verse eid="TIT 2:14"/></para>
+
 <para style="p"><verse number="15" style="v" sid="TIT 2:15"/>Speak these things and exhort and convict with all authority. Let no one despise you. </para>
-<para style="p" vid="TIT 2:15"> BYZ and TR <char style="add">in the teaching, integrity, dignity, incorruptibility</char> TR <char style="add">you</char> BYZ and TR <char style="add">For the saving grace of God has appeared to all men</char> WH <char style="add">God and Savior Christ Jesus</char></para>
+
+<para style="p" vid="TIT 2:15"> BYZ and TR <char style="add">in the teaching, integrity, dignity, incorruptibility</char> TR <char style="add">you</char> BYZ and TR <char style="add">For the saving grace of God has appeared to all men</char> WH <char style="add">God and Savior Christ Jesus</char><verse eid="TIT 2:15"/></para>
+
 <chapter eid="TIT 2"/>
+
 <chapter number="3" style="c" sid="TIT 3"/>
+
 <para style="s">Heirs of Grace</para>
-<para style="p"><verse number="1" style="v" sid="TIT 3:1"/>Remind them to be subject to rulers, to authorities, to obey rulers, to be ready for every good work, </para>
-<para style="p"><verse number="2" style="v" sid="TIT 3:2"/>to speak evil of no one, to be not quarrelsome, gentle, showing all meekness toward all men. </para>
-<para style="p"><verse number="3" style="v" sid="TIT 3:3"/>For we were also once foolish, disobedient, being deceived, being in slavery to various lusts and pleasures, living in malice and envy, hateful, hating one another. </para>
-<para style="p"><verse number="4" style="v" sid="TIT 3:4"/>But when the kindness and the love of mankind of God our Savior appeared, </para>
-<para style="p"><verse number="5" style="v" sid="TIT 3:5"/>not by works in righteousness that we did, but according to His mercy, He saved us through the washing of regeneration<note caller="+" style="f"><char style="fr" closed="false">3.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">of new birth</char></note> and a renewing of the Holy Spirit, </para>
-<para style="p"><verse number="6" style="v" sid="TIT 3:6"/>whom He poured out on us richly through Jesus Christ our Savior, </para>
-<para style="p"><verse number="7" style="v" sid="TIT 3:7"/>so that, having been justified by His grace, we might become heirs according to the hope of eternal life. </para>
-<para style="p"><verse number="8" style="v" sid="TIT 3:8"/>Trustworthy <char style="add">is</char> the word, and I want you to affirm strongly concerning these things, so that those having believed God may take thought to devote themselves to good works. These things are good and profitable to men. </para>
+
+<para style="p"><verse number="1" style="v" sid="TIT 3:1"/>Remind them to be subject to rulers, to authorities, to obey rulers, to be ready for every good work, <verse eid="TIT 3:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="TIT 3:2"/>to speak evil of no one, to be not quarrelsome, gentle, showing all meekness toward all men. <verse eid="TIT 3:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="TIT 3:3"/>For we were also once foolish, disobedient, being deceived, being in slavery to various lusts and pleasures, living in malice and envy, hateful, hating one another. <verse eid="TIT 3:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="TIT 3:4"/>But when the kindness and the love of mankind of God our Savior appeared, <verse eid="TIT 3:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="TIT 3:5"/>not by works in righteousness that we did, but according to His mercy, He saved us through the washing of regeneration<note caller="+" style="f"><char style="fr" closed="false">3.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">of new birth</char></note> and a renewing of the Holy Spirit, <verse eid="TIT 3:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="TIT 3:6"/>whom He poured out on us richly through Jesus Christ our Savior, <verse eid="TIT 3:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="TIT 3:7"/>so that, having been justified by His grace, we might become heirs according to the hope of eternal life. <verse eid="TIT 3:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="TIT 3:8"/>Trustworthy <char style="add">is</char> the word, and I want you to affirm strongly concerning these things, so that those having believed God may take thought to devote themselves to good works. These things are good and profitable to men. <verse eid="TIT 3:8"/></para>
+
 <para style="s">Avoid DivisionsRomans 16:17–20</para>
-<para style="p"><verse number="9" style="v" sid="TIT 3:9"/>But avoid foolish controversies and genealogies and contentions and quarrels about the law; for they are unprofitable and futile. </para>
-<para style="p"><verse number="10" style="v" sid="TIT 3:10"/>Reject a divisive man after one and a second admonition, </para>
-<para style="p"><verse number="11" style="v" sid="TIT 3:11"/>knowing that such a man is warped and is sinning, being self-condemned. </para>
+
+<para style="p"><verse number="9" style="v" sid="TIT 3:9"/>But avoid foolish controversies and genealogies and contentions and quarrels about the law; for they are unprofitable and futile. <verse eid="TIT 3:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="TIT 3:10"/>Reject a divisive man after one and a second admonition, <verse eid="TIT 3:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="TIT 3:11"/>knowing that such a man is warped and is sinning, being self-condemned. <verse eid="TIT 3:11"/></para>
+
 <para style="s">Final Remarks and Greetings</para>
-<para style="p"><verse number="12" style="v" sid="TIT 3:12"/>When I shall send Artemas or Tychicus to you, be diligent to come to me at Nicopolis, for I have decided to winter there. </para>
-<para style="p"><verse number="13" style="v" sid="TIT 3:13"/>Diligently send forth Zenas the lawyer and Apollos, so that nothing may be lacking to them. </para>
-<para style="p"><verse number="14" style="v" sid="TIT 3:14"/>And also let our <char style="add">people</char> learn to devote themselves to good works for necessary needs, so that they may not be unfruitful. </para>
+
+<para style="p"><verse number="12" style="v" sid="TIT 3:12"/>When I shall send Artemas or Tychicus to you, be diligent to come to me at Nicopolis, for I have decided to winter there. <verse eid="TIT 3:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="TIT 3:13"/>Diligently send forth Zenas the lawyer and Apollos, so that nothing may be lacking to them. <verse eid="TIT 3:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="TIT 3:14"/>And also let our <char style="add">people</char> learn to devote themselves to good works for necessary needs, so that they may not be unfruitful. <verse eid="TIT 3:14"/></para>
+
 <para style="p"><verse number="15" style="v" sid="TIT 3:15"/>All those with me greet you. </para>
+
 <para style="p" vid="TIT 3:15">Greet those loving us in the faith. </para>
-<para style="p" vid="TIT 3:15">Grace <char style="add">be</char> with all of you⁺.<note caller="+" style="f"><char style="fr" closed="false">3.15 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">Amen.</char></note> </para>
+
+<para style="p" vid="TIT 3:15">Grace <char style="add">be</char> with all of you⁺.<note caller="+" style="f"><char style="fr" closed="false">3.15 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">Amen.</char></note> <verse eid="TIT 3:15"/></para>
+
 <chapter eid="TIT 3"/>
+
 </usx>

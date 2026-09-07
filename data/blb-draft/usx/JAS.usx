@@ -1,144 +1,285 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="JAS" style="id">BLB-Draft</book>
+
 <para style="h">James</para>
+
 <para style="toc1">James</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="JAS 1"/>
+
 <para style="s">A Greeting from James</para>
+
 <para style="p"><verse number="1" style="v" sid="JAS 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Jude 1:1–2</char></note>James, a servant of God and of the Lord Jesus Christ, </para>
+
 <para style="p" vid="JAS 1:1">To the twelve tribes in the Diaspora:<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">To the twelve tribes of the Dispersion</char><char style="ft" closed="false">. Originally referring to the Jewish people living outside the land of Israel, </char><char style="fq" closed="false">the Diaspora</char><char style="ft" closed="false"> is applied here to the Jewish believers scattered abroad.</char></note> </para>
-<para style="p" vid="JAS 1:1">Greetings. </para>
+
+<para style="p" vid="JAS 1:1">Greetings. <verse eid="JAS 1:1"/></para>
+
 <para style="s">Rejoicing in TrialsPhilippians 1:12–20</para>
-<para style="p"><verse number="2" style="v" sid="JAS 1:2"/>Esteem <char style="add">it</char> all joy, my brothers, when you⁺ might fall into various trials, </para>
-<para style="p"><verse number="3" style="v" sid="JAS 1:3"/>knowing that the testing of your⁺ faith produces perseverance. </para>
-<para style="p"><verse number="4" style="v" sid="JAS 1:4"/>And let endurance have <char style="add">its</char> perfect work, so that you⁺ may be perfect and complete, lacking in nothing. </para>
-<para style="p"><verse number="5" style="v" sid="JAS 1:5"/>Now if any of you⁺ lacks wisdom, let him ask from God, the One giving generously to all and not reproaching, and it will be given to him. </para>
-<para style="p"><verse number="6" style="v" sid="JAS 1:6"/>But let him ask in faith, doubting nothing, for the one doubting is like a wave of the sea, being blown and being tossed by the wind. </para>
-<para style="p"><verse number="7" style="v" sid="JAS 1:7"/>For let that man not suppose that he will receive anything from the Lord. </para>
-<para style="p"><verse number="8" style="v" sid="JAS 1:8"/><char style="add">He is</char> a double-souled man, unstable in all his ways. </para>
-<para style="p"><verse number="9" style="v" sid="JAS 1:9"/>But let the brother of humbleness boast in his exaltation, </para>
-<para style="p"><verse number="10" style="v" sid="JAS 1:10"/>and the one who <char style="add">is</char> rich in his humiliation, because he will pass away like a flower of grass. </para>
-<para style="p"><verse number="11" style="v" sid="JAS 1:11"/>For the sun rose with <char style="add">its</char> burning heat and withered the grass, and its flower fell, and the beauty of its appearance perished. Thus also the rich <char style="add">man</char> will fade away in his pursuits. </para>
-<para style="p"><verse number="12" style="v" sid="JAS 1:12"/>Blessed <char style="add">is</char> the man who endures trial, because, having been approved, he will receive the crown of life that He promised<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">the Lord promised</char></note> to those loving Him. </para>
+
+<para style="p"><verse number="2" style="v" sid="JAS 1:2"/>Esteem <char style="add">it</char> all joy, my brothers, when you⁺ might fall into various trials, <verse eid="JAS 1:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="JAS 1:3"/>knowing that the testing of your⁺ faith produces perseverance. <verse eid="JAS 1:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="JAS 1:4"/>And let endurance have <char style="add">its</char> perfect work, so that you⁺ may be perfect and complete, lacking in nothing. <verse eid="JAS 1:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JAS 1:5"/>Now if any of you⁺ lacks wisdom, let him ask from God, the One giving generously to all and not reproaching, and it will be given to him. <verse eid="JAS 1:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="JAS 1:6"/>But let him ask in faith, doubting nothing, for the one doubting is like a wave of the sea, being blown and being tossed by the wind. <verse eid="JAS 1:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="JAS 1:7"/>For let that man not suppose that he will receive anything from the Lord. <verse eid="JAS 1:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="JAS 1:8"/><char style="add">He is</char> a double-souled man, unstable in all his ways. <verse eid="JAS 1:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="JAS 1:9"/>But let the brother of humbleness boast in his exaltation, <verse eid="JAS 1:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JAS 1:10"/>and the one who <char style="add">is</char> rich in his humiliation, because he will pass away like a flower of grass. <verse eid="JAS 1:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="JAS 1:11"/>For the sun rose with <char style="add">its</char> burning heat and withered the grass, and its flower fell, and the beauty of its appearance perished. Thus also the rich <char style="add">man</char> will fade away in his pursuits. <verse eid="JAS 1:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="JAS 1:12"/>Blessed <char style="add">is</char> the man who endures trial, because, having been approved, he will receive the crown of life that He promised<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">the Lord promised</char></note> to those loving Him. <verse eid="JAS 1:12"/></para>
+
 <para style="s">Good and Perfect Gifts</para>
-<para style="p"><verse number="13" style="v" sid="JAS 1:13"/>Let no one being tempted say, “I am being tempted from God.” For God is unable to be tempted by evils, and He Himself tempts no one. </para>
-<para style="p"><verse number="14" style="v" sid="JAS 1:14"/>But each one is tempted, being dragged away and being enticed by <char style="add">his</char> own desire. </para>
-<para style="p"><verse number="15" style="v" sid="JAS 1:15"/>Then desire, having conceived, gives birth to sin; and sin, having become fully grown, brings forth death. </para>
-<para style="p"><verse number="16" style="v" sid="JAS 1:16"/>Do not be misled, my beloved brothers. </para>
-<para style="p"><verse number="17" style="v" sid="JAS 1:17"/>Every good act of giving and every perfect gift is from above, coming down from the Father of the lights, with whom there is no variation or shadow of turning.<note caller="+" style="f"><char style="fr" closed="false">1.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">there is no change or shifting shadow.</char></note> </para>
-<para style="p"><verse number="18" style="v" sid="JAS 1:18"/>Having willed <char style="add">it</char>, He brought us forth by the word of truth, for us to be a certain firstfruits of His creatures.<note caller="+" style="f"><char style="fr" closed="false">1.18 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">of His creatures.</char></note> </para>
+
+<para style="p"><verse number="13" style="v" sid="JAS 1:13"/>Let no one being tempted say, “I am being tempted from God.” For God is unable to be tempted by evils, and He Himself tempts no one. <verse eid="JAS 1:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="JAS 1:14"/>But each one is tempted, being dragged away and being enticed by <char style="add">his</char> own desire. <verse eid="JAS 1:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="JAS 1:15"/>Then desire, having conceived, gives birth to sin; and sin, having become fully grown, brings forth death. <verse eid="JAS 1:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="JAS 1:16"/>Do not be misled, my beloved brothers. <verse eid="JAS 1:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="JAS 1:17"/>Every good act of giving and every perfect gift is from above, coming down from the Father of the lights, with whom there is no variation or shadow of turning.<note caller="+" style="f"><char style="fr" closed="false">1.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">there is no change or shifting shadow.</char></note> <verse eid="JAS 1:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="JAS 1:18"/>Having willed <char style="add">it</char>, He brought us forth by the word of truth, for us to be a certain firstfruits of His creatures.<note caller="+" style="f"><char style="fr" closed="false">1.18 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">of His creatures.</char></note> <verse eid="JAS 1:18"/></para>
+
 <para style="s">Hearing and Doing</para>
-<para style="p"><verse number="19" style="v" sid="JAS 1:19"/>Know <char style="add">this</char>,<note caller="+" style="f"><char style="fr" closed="false">1.19 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">So then</char></note> my beloved brothers: But let every man be quick to hear, slow to speak, slow to anger; </para>
-<para style="p"><verse number="20" style="v" sid="JAS 1:20"/>for man’s anger does not produce the righteousness of God. </para>
-<para style="p"><verse number="21" style="v" sid="JAS 1:21"/>Therefore, having put off all filthiness and abundance of wickedness, accept in meekness the implanted word, which is able to save your⁺ souls. </para>
-<para style="p"><verse number="22" style="v" sid="JAS 1:22"/>But be doers of the word, and not hearers only, deluding yourselves, </para>
-<para style="p"><verse number="23" style="v" sid="JAS 1:23"/>because if anyone is a hearer of the word<note caller="+" style="f"><char style="fr" closed="false">1.23 </char><char style="ft" closed="false"> F35 </char><char style="fq" closed="false">law</char></note> and not a doer, this one is like a man observing his natural face in a mirror, </para>
-<para style="p"><verse number="24" style="v" sid="JAS 1:24"/>for he observed himself and has gone away, and immediately he forgot what kind he was. </para>
-<para style="p"><verse number="25" style="v" sid="JAS 1:25"/>But the one having looked intently into the perfect law, that of freedom, and having continued in <char style="add">it</char>, not having been a forgetful hearer but a doer of the work—this one will be blessed in his doing. </para>
-<para style="p"><verse number="26" style="v" sid="JAS 1:26"/>If anyone<note caller="+" style="f"><char style="fr" closed="false">1.26 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">among you</char><char style="ft" closed="false">.</char></note> thinks to be religious, not bridling his tongue, but deceiving his heart, the religion of this one <char style="add">is</char> futile. </para>
-<para style="p"><verse number="27" style="v" sid="JAS 1:27"/>Pure and undefiled religion before the God and Father is this: to visit orphans and widows in their tribulation, to keep oneself unstained from the world. </para>
+
+<para style="p"><verse number="19" style="v" sid="JAS 1:19"/>Know <char style="add">this</char>,<note caller="+" style="f"><char style="fr" closed="false">1.19 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">So then</char></note> my beloved brothers: But let every man be quick to hear, slow to speak, slow to anger; <verse eid="JAS 1:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="JAS 1:20"/>for man’s anger does not produce the righteousness of God. <verse eid="JAS 1:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="JAS 1:21"/>Therefore, having put off all filthiness and abundance of wickedness, accept in meekness the implanted word, which is able to save your⁺ souls. <verse eid="JAS 1:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="JAS 1:22"/>But be doers of the word, and not hearers only, deluding yourselves, <verse eid="JAS 1:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="JAS 1:23"/>because if anyone is a hearer of the word<note caller="+" style="f"><char style="fr" closed="false">1.23 </char><char style="ft" closed="false"> F35 </char><char style="fq" closed="false">law</char></note> and not a doer, this one is like a man observing his natural face in a mirror, <verse eid="JAS 1:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="JAS 1:24"/>for he observed himself and has gone away, and immediately he forgot what kind he was. <verse eid="JAS 1:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="JAS 1:25"/>But the one having looked intently into the perfect law, that of freedom, and having continued in <char style="add">it</char>, not having been a forgetful hearer but a doer of the work—this one will be blessed in his doing. <verse eid="JAS 1:25"/></para>
+
+<para style="p"><verse number="26" style="v" sid="JAS 1:26"/>If anyone<note caller="+" style="f"><char style="fr" closed="false">1.26 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">among you</char><char style="ft" closed="false">.</char></note> thinks to be religious, not bridling his tongue, but deceiving his heart, the religion of this one <char style="add">is</char> futile. <verse eid="JAS 1:26"/></para>
+
+<para style="p"><verse number="27" style="v" sid="JAS 1:27"/>Pure and undefiled religion before the God and Father is this: to visit orphans and widows in their tribulation, to keep oneself unstained from the world. <verse eid="JAS 1:27"/></para>
+
 <chapter eid="JAS 1"/>
+
 <chapter number="2" style="c" sid="JAS 2"/>
+
 <para style="s">A Warning against Favoritism</para>
-<para style="p"><verse number="1" style="v" sid="JAS 2:1"/>My brothers, do not in partiality hold the faith from our Lord Jesus Christ of glory. </para>
-<para style="p"><verse number="2" style="v" sid="JAS 2:2"/>For if a man might come into your⁺ synagogue<note caller="+" style="f"><char style="fr" closed="false">2.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">your assembly</char></note> in splendid apparel with a gold ring, and a poor one in filthy apparel also might come in, </para>
-<para style="p"><verse number="3" style="v" sid="JAS 2:3"/>and you⁺ might look upon the <char style="add">man</char> bearing the splendid apparel and might say, “You sit here well,” and to the poor one might say, “You stand,” or, “Sit there under my footstool,<note caller="+" style="f"><char style="fr" closed="false">2.3 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">“Yoʋ stand there,” or, “sit here under my footstool,”</char></note>” </para>
-<para style="p"><verse number="4" style="v" sid="JAS 2:4"/>then did you⁺ not make a distinction among yourselves and become judges <char style="add">with</char> evil reasonings? </para>
-<para style="p"><verse number="5" style="v" sid="JAS 2:5"/>Listen, my beloved brothers: Did not God choose the poor in this world <char style="add">to be</char> rich in faith and heirs of the kingdom that He promised to those loving Him? </para>
-<para style="p"><verse number="6" style="v" sid="JAS 2:6"/>But you⁺ dishonored the poor one. Do not the rich oppress you⁺, and they drag you⁺ into court? </para>
-<para style="p"><verse number="7" style="v" sid="JAS 2:7"/>Do they not blaspheme the good Name having been called upon you⁺?<note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the noble name invoked upon you</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the noble name of Him to whom you belong</char></note> </para>
-<para style="p"><verse number="8" style="v" sid="JAS 2:8"/>If indeed you⁺ fulfill the royal law according to the Scripture, “You shall love your neighbor as yourself,” you⁺ are doing well. <note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Leviticus 19:18</char></note></para>
-<para style="p"><verse number="9" style="v" sid="JAS 2:9"/>But if you⁺ show partiality, you⁺ are working sin, being convicted by the law as transgressors. </para>
-<para style="p"><verse number="10" style="v" sid="JAS 2:10"/>For whoever shall keep the whole law, but shall stumble in one <char style="add">part</char>, he has become guilty of all. </para>
-<para style="p"><verse number="11" style="v" sid="JAS 2:11"/>For the One having said, “You shall not commit adultery,” also said, “You shall not murder.”<note caller="+" style="f"><char style="fr" closed="false">2.11 </char><char style="ft" closed="false"> Exodus 20:14; Deuteronomy 5:18</char></note> But if you do not commit adultery, but you do murder, you have become a transgressor of the law. <note caller="+" style="f"><char style="fr" closed="false">2.11 </char><char style="ft" closed="false"> Exodus 20:13; Deuteronomy 5:17</char></note></para>
-<para style="p"><verse number="12" style="v" sid="JAS 2:12"/>So speak and so act as being about to be judged by the law of freedom. </para>
-<para style="p"><verse number="13" style="v" sid="JAS 2:13"/>For judgment without mercy <char style="add">will be</char> to the one not having done mercy. Mercy exults over judgment. </para>
+
+<para style="p"><verse number="1" style="v" sid="JAS 2:1"/>My brothers, do not in partiality hold the faith from our Lord Jesus Christ of glory. <verse eid="JAS 2:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="JAS 2:2"/>For if a man might come into your⁺ synagogue<note caller="+" style="f"><char style="fr" closed="false">2.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">your assembly</char></note> in splendid apparel with a gold ring, and a poor one in filthy apparel also might come in, <verse eid="JAS 2:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="JAS 2:3"/>and you⁺ might look upon the <char style="add">man</char> bearing the splendid apparel and might say, “You sit here well,” and to the poor one might say, “You stand,” or, “Sit there under my footstool,<note caller="+" style="f"><char style="fr" closed="false">2.3 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">“Yoʋ stand there,” or, “sit here under my footstool,”</char></note>” <verse eid="JAS 2:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="JAS 2:4"/>then did you⁺ not make a distinction among yourselves and become judges <char style="add">with</char> evil reasonings? <verse eid="JAS 2:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JAS 2:5"/>Listen, my beloved brothers: Did not God choose the poor in this world <char style="add">to be</char> rich in faith and heirs of the kingdom that He promised to those loving Him? <verse eid="JAS 2:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="JAS 2:6"/>But you⁺ dishonored the poor one. Do not the rich oppress you⁺, and they drag you⁺ into court? <verse eid="JAS 2:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="JAS 2:7"/>Do they not blaspheme the good Name having been called upon you⁺?<note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the noble name invoked upon you</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the noble name of Him to whom you belong</char></note> <verse eid="JAS 2:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="JAS 2:8"/>If indeed you⁺ fulfill the royal law according to the Scripture, “You shall love your neighbor as yourself,” you⁺ are doing well. <note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Leviticus 19:18</char></note><verse eid="JAS 2:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="JAS 2:9"/>But if you⁺ show partiality, you⁺ are working sin, being convicted by the law as transgressors. <verse eid="JAS 2:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JAS 2:10"/>For whoever shall keep the whole law, but shall stumble in one <char style="add">part</char>, he has become guilty of all. <verse eid="JAS 2:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="JAS 2:11"/>For the One having said, “You shall not commit adultery,” also said, “You shall not murder.”<note caller="+" style="f"><char style="fr" closed="false">2.11 </char><char style="ft" closed="false"> Exodus 20:14; Deuteronomy 5:18</char></note> But if you do not commit adultery, but you do murder, you have become a transgressor of the law. <note caller="+" style="f"><char style="fr" closed="false">2.11 </char><char style="ft" closed="false"> Exodus 20:13; Deuteronomy 5:17</char></note><verse eid="JAS 2:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="JAS 2:12"/>So speak and so act as being about to be judged by the law of freedom. <verse eid="JAS 2:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="JAS 2:13"/>For judgment without mercy <char style="add">will be</char> to the one not having done mercy. Mercy exults over judgment. <verse eid="JAS 2:13"/></para>
+
 <para style="s">Faith and WorksGalatians 3:1–9</para>
-<para style="p"><verse number="14" style="v" sid="JAS 2:14"/>What <char style="add">is</char> the gain, my brothers, if anyone says to have faith, but has no works? Is the faith able to save him? </para>
-<para style="p"><verse number="15" style="v" sid="JAS 2:15"/>Now if a brother or a sister is naked and lacking of daily food, </para>
-<para style="p"><verse number="16" style="v" sid="JAS 2:16"/>and anyone of you⁺ says to them, “Go in peace; be warmed and be filled,” but does not give to them the needful things for the body, what <char style="add">is</char> the gain? </para>
-<para style="p"><verse number="17" style="v" sid="JAS 2:17"/>So also, faith, if it has no works,<note caller="+" style="f"><char style="fr" closed="false">2.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">if it does not result in action</char></note> is dead by itself. </para>
-<para style="p"><verse number="18" style="v" sid="JAS 2:18"/>But someone will say, “You have faith, and I have works.” Show to me your faith without works,<note caller="+" style="f"><char style="fr" closed="false">2.18 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">(apart) from your works</char></note> and I will show to you faith by my works. </para>
-<para style="p"><verse number="19" style="v" sid="JAS 2:19"/>You believe that God is one.<note caller="+" style="f"><char style="fr" closed="false">2.19 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">that there is one God</char></note> You do well! Even the demons believe <char style="add">that</char>, and shudder! </para>
-<para style="p"><verse number="20" style="v" sid="JAS 2:20"/>But do you want to know, O foolish man, that faith without works is idle?<note caller="+" style="f"><char style="fr" closed="false">2.20 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">dead</char></note> </para>
-<para style="p"><verse number="21" style="v" sid="JAS 2:21"/>Was not Abraham our father justified by works, having offered his son Isaac upon the altar? </para>
-<para style="p"><verse number="22" style="v" sid="JAS 2:22"/>You see that faith was working with his works, and by works, faith was perfected. </para>
-<para style="p"><verse number="23" style="v" sid="JAS 2:23"/>And the Scripture was fulfilled, the one saying, “And Abraham believed God, and it was reckoned to him for righteousness,” and he was called a friend of God.<note caller="+" style="f"><char style="fr" closed="false">2.23 </char><char style="ft" closed="false"> Genesis 15:6</char></note> <note caller="+" style="f"><char style="fr" closed="false">2.23 </char><char style="ft" closed="false"> See Isaiah 41:8.</char></note></para>
-<para style="p"><verse number="24" style="v" sid="JAS 2:24"/>You⁺ see<note caller="+" style="f"><char style="fr" closed="false">2.24 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">then</char><char style="ft" closed="false">.</char></note> that a man is justified by works and not by faith alone. </para>
-<para style="p"><verse number="25" style="v" sid="JAS 2:25"/>And likewise was not Rahab the prostitute also justified by works, having received the messengers<note caller="+" style="f"><char style="fr" closed="false">2.25 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">spies</char></note> and having sent <char style="add">them</char> out by another way? </para>
-<para style="p"><verse number="26" style="v" sid="JAS 2:26"/>For just as the body without spirit is dead, so also faith without works is dead. </para>
+
+<para style="p"><verse number="14" style="v" sid="JAS 2:14"/>What <char style="add">is</char> the gain, my brothers, if anyone says to have faith, but has no works? Is the faith able to save him? <verse eid="JAS 2:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="JAS 2:15"/>Now if a brother or a sister is naked and lacking of daily food, <verse eid="JAS 2:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="JAS 2:16"/>and anyone of you⁺ says to them, “Go in peace; be warmed and be filled,” but does not give to them the needful things for the body, what <char style="add">is</char> the gain? <verse eid="JAS 2:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="JAS 2:17"/>So also, faith, if it has no works,<note caller="+" style="f"><char style="fr" closed="false">2.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">if it does not result in action</char></note> is dead by itself. <verse eid="JAS 2:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="JAS 2:18"/>But someone will say, “You have faith, and I have works.” Show to me your faith without works,<note caller="+" style="f"><char style="fr" closed="false">2.18 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">(apart) from your works</char></note> and I will show to you faith by my works. <verse eid="JAS 2:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="JAS 2:19"/>You believe that God is one.<note caller="+" style="f"><char style="fr" closed="false">2.19 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">that there is one God</char></note> You do well! Even the demons believe <char style="add">that</char>, and shudder! <verse eid="JAS 2:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="JAS 2:20"/>But do you want to know, O foolish man, that faith without works is idle?<note caller="+" style="f"><char style="fr" closed="false">2.20 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">dead</char></note> <verse eid="JAS 2:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="JAS 2:21"/>Was not Abraham our father justified by works, having offered his son Isaac upon the altar? <verse eid="JAS 2:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="JAS 2:22"/>You see that faith was working with his works, and by works, faith was perfected. <verse eid="JAS 2:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="JAS 2:23"/>And the Scripture was fulfilled, the one saying, “And Abraham believed God, and it was reckoned to him for righteousness,” and he was called a friend of God.<note caller="+" style="f"><char style="fr" closed="false">2.23 </char><char style="ft" closed="false"> Genesis 15:6</char></note> <note caller="+" style="f"><char style="fr" closed="false">2.23 </char><char style="ft" closed="false"> See Isaiah 41:8.</char></note><verse eid="JAS 2:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="JAS 2:24"/>You⁺ see<note caller="+" style="f"><char style="fr" closed="false">2.24 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">then</char><char style="ft" closed="false">.</char></note> that a man is justified by works and not by faith alone. <verse eid="JAS 2:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="JAS 2:25"/>And likewise was not Rahab the prostitute also justified by works, having received the messengers<note caller="+" style="f"><char style="fr" closed="false">2.25 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">spies</char></note> and having sent <char style="add">them</char> out by another way? <verse eid="JAS 2:25"/></para>
+
+<para style="p"><verse number="26" style="v" sid="JAS 2:26"/>For just as the body without spirit is dead, so also faith without works is dead. <verse eid="JAS 2:26"/></para>
+
 <chapter eid="JAS 2"/>
+
 <chapter number="3" style="c" sid="JAS 3"/>
+
 <para style="s">Taming the Tongue</para>
-<para style="p"><verse number="1" style="v" sid="JAS 3:1"/><note caller="-" style="x"><char style="xt" closed="false">Psalm 64:1–10</char></note>Let not many become teachers, my brothers, knowing that we will receive greater judgment. </para>
-<para style="p"><verse number="2" style="v" sid="JAS 3:2"/>For we all stumble in many ways. If anyone does not stumble in word, this one <char style="add">is</char> a perfect man, able to bridle even the whole body. </para>
-<para style="p"><verse number="3" style="v" sid="JAS 3:3"/>Now if we put bits into the mouths of the horses for them to obey us, we turn about even their whole body. </para>
-<para style="p"><verse number="4" style="v" sid="JAS 3:4"/>Behold also the ships, being so great and being driven by strong winds, are turned about by a very small rudder where the impulse of the one steering intends. </para>
-<para style="p"><verse number="5" style="v" sid="JAS 3:5"/>So also the tongue is a small member, and it boasts great <char style="add">things</char>. Behold what size a fire, what size a forest it kindles. </para>
-<para style="p"><verse number="6" style="v" sid="JAS 3:6"/>And the tongue <char style="add">is</char> a fire, the world of unrighteousness. The tongue is set among our members, staining the whole body, and setting aflame the course of nature, and <char style="add">itself</char> being set aflame by Gehenna.<note caller="+" style="f"><char style="fr" closed="false">3.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">hell</char></note> </para>
-<para style="p"><verse number="7" style="v" sid="JAS 3:7"/>For every nature both of beasts and of birds, both of creeping things and things of the sea, is subdued and has been subdued by the human race, </para>
-<para style="p"><verse number="8" style="v" sid="JAS 3:8"/>but no one of men is able to subdue the tongue; <char style="add">it is</char> an unstable evil,<note caller="+" style="f"><char style="fr" closed="false">3.8 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">an unruly evil</char></note> full of deadly poison. </para>
-<para style="p"><verse number="9" style="v" sid="JAS 3:9"/>With it we bless the Lord<note caller="+" style="f"><char style="fr" closed="false">3.9 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">God</char></note> and Father, and with it we curse men, those having been made according to the likeness of God. </para>
-<para style="p"><verse number="10" style="v" sid="JAS 3:10"/>Out of the same mouth come out blessing and cursing. My brothers, these things ought not to be so. </para>
-<para style="p"><verse number="11" style="v" sid="JAS 3:11"/>Does the spring send forth out of the same opening sweet and bitter?<note caller="+" style="f"><char style="fr" closed="false">3.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">both fresh water and salt water</char></note> </para>
-<para style="p"><verse number="12" style="v" sid="JAS 3:12"/>Is a fig tree able, my brothers, to make olives, or a vine, figs? Neither <char style="add">can</char> salt prooduce sweet water.<note caller="+" style="f"><char style="fr" closed="false">3.12 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">No spring can produce both salt water and fresh water</char></note> </para>
+
+<para style="p"><verse number="1" style="v" sid="JAS 3:1"/><note caller="-" style="x"><char style="xt" closed="false">Psalm 64:1–10</char></note>Let not many become teachers, my brothers, knowing that we will receive greater judgment. <verse eid="JAS 3:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="JAS 3:2"/>For we all stumble in many ways. If anyone does not stumble in word, this one <char style="add">is</char> a perfect man, able to bridle even the whole body. <verse eid="JAS 3:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="JAS 3:3"/>Now if we put bits into the mouths of the horses for them to obey us, we turn about even their whole body. <verse eid="JAS 3:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="JAS 3:4"/>Behold also the ships, being so great and being driven by strong winds, are turned about by a very small rudder where the impulse of the one steering intends. <verse eid="JAS 3:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JAS 3:5"/>So also the tongue is a small member, and it boasts great <char style="add">things</char>. Behold what size a fire, what size a forest it kindles. <verse eid="JAS 3:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="JAS 3:6"/>And the tongue <char style="add">is</char> a fire, the world of unrighteousness. The tongue is set among our members, staining the whole body, and setting aflame the course of nature, and <char style="add">itself</char> being set aflame by Gehenna.<note caller="+" style="f"><char style="fr" closed="false">3.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">hell</char></note> <verse eid="JAS 3:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="JAS 3:7"/>For every nature both of beasts and of birds, both of creeping things and things of the sea, is subdued and has been subdued by the human race, <verse eid="JAS 3:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="JAS 3:8"/>but no one of men is able to subdue the tongue; <char style="add">it is</char> an unstable evil,<note caller="+" style="f"><char style="fr" closed="false">3.8 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">an unruly evil</char></note> full of deadly poison. <verse eid="JAS 3:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="JAS 3:9"/>With it we bless the Lord<note caller="+" style="f"><char style="fr" closed="false">3.9 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">God</char></note> and Father, and with it we curse men, those having been made according to the likeness of God. <verse eid="JAS 3:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JAS 3:10"/>Out of the same mouth come out blessing and cursing. My brothers, these things ought not to be so. <verse eid="JAS 3:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="JAS 3:11"/>Does the spring send forth out of the same opening sweet and bitter?<note caller="+" style="f"><char style="fr" closed="false">3.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">both fresh water and salt water</char></note> <verse eid="JAS 3:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="JAS 3:12"/>Is a fig tree able, my brothers, to make olives, or a vine, figs? Neither <char style="add">can</char> salt prooduce sweet water.<note caller="+" style="f"><char style="fr" closed="false">3.12 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">No spring can produce both salt water and fresh water</char></note> <verse eid="JAS 3:12"/></para>
+
 <para style="s">The Wisdom from Above</para>
-<para style="p"><verse number="13" style="v" sid="JAS 3:13"/>Who <char style="add">is</char> wise and understanding among you⁺? Let him show <char style="add">it</char> out of the good conduct his works in meekness of wisdom. </para>
-<para style="p"><verse number="14" style="v" sid="JAS 3:14"/>But if you⁺ have bitter jealousy and self-interest in your⁺ heart, do not boast and lie against the truth. </para>
-<para style="p"><verse number="15" style="v" sid="JAS 3:15"/>This is not the wisdom coming down from above, but <char style="add">is</char> earthly, unspiritual, demonic. </para>
-<para style="p"><verse number="16" style="v" sid="JAS 3:16"/>For where jealousy and self-interest <char style="add">are</char>, there <char style="add">are</char> disorder and every evil thing. </para>
-<para style="p"><verse number="17" style="v" sid="JAS 3:17"/>But the wisdom from above is indeed first pure, then peaceable, gentle, compliant, full of mercy and of good fruits, impartial, unhypocritical. </para>
-<para style="p"><verse number="18" style="v" sid="JAS 3:18"/>And the fruit of righteousness in peace is sown by those making peace.<note caller="+" style="f"><char style="fr" closed="false">3.18 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Peacemakers who sow in peace reap the fruit of righteousness.</char></note> </para>
+
+<para style="p"><verse number="13" style="v" sid="JAS 3:13"/>Who <char style="add">is</char> wise and understanding among you⁺? Let him show <char style="add">it</char> out of the good conduct his works in meekness of wisdom. <verse eid="JAS 3:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="JAS 3:14"/>But if you⁺ have bitter jealousy and self-interest in your⁺ heart, do not boast and lie against the truth. <verse eid="JAS 3:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="JAS 3:15"/>This is not the wisdom coming down from above, but <char style="add">is</char> earthly, unspiritual, demonic. <verse eid="JAS 3:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="JAS 3:16"/>For where jealousy and self-interest <char style="add">are</char>, there <char style="add">are</char> disorder and every evil thing. <verse eid="JAS 3:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="JAS 3:17"/>But the wisdom from above is indeed first pure, then peaceable, gentle, compliant, full of mercy and of good fruits, impartial, unhypocritical. <verse eid="JAS 3:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="JAS 3:18"/>And the fruit of righteousness in peace is sown by those making peace.<note caller="+" style="f"><char style="fr" closed="false">3.18 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Peacemakers who sow in peace reap the fruit of righteousness.</char></note> <verse eid="JAS 3:18"/></para>
+
 <chapter eid="JAS 3"/>
+
 <chapter number="4" style="c" sid="JAS 4"/>
+
 <para style="s">A Warning against Pride</para>
-<para style="p"><verse number="1" style="v" sid="JAS 4:1"/>From where <char style="add">are</char> battles and from where <char style="add">are</char> fights among you⁺? <char style="add">Is it</char> not from there, out of your⁺ pleasures warring in your⁺ members? </para>
-<para style="p"><verse number="2" style="v" sid="JAS 4:2"/>You⁺ desire, and you⁺ do not have. You⁺ murder and are jealous, and you⁺ are not able to obtain. You⁺ fight and battle. You⁺ do not have, because you⁺ do not ask. </para>
-<para style="p"><verse number="3" style="v" sid="JAS 4:3"/>You⁺ ask and do not receive, because you⁺ ask wrongly, that you⁺ may spend <char style="add">it</char> in your⁺ pleasures. </para>
-<para style="p"><verse number="4" style="v" sid="JAS 4:4"/>Adulteresses!<note caller="+" style="f"><char style="fr" closed="false">4.4 </char><char style="ft" closed="false"> See Hosea 3:1.</char></note> Do you⁺ not know that friendship of the world is enmity <char style="add">with</char> God? Therefore whoever should wish to be a friend of the world is appointed<note caller="+" style="f"><char style="fr" closed="false">4.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">renders himself</char></note> an enemy of God. </para>
-<para style="p"><verse number="5" style="v" sid="JAS 4:5"/>Or do you⁺ think that the Scripture says in vain, “The Spirit<note caller="+" style="f"><char style="fr" closed="false">4.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">The spirit</char></note> that He made to dwell<note caller="+" style="f"><char style="fr" closed="false">4.5 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">The Spirit who dwells</char></note> in us yearns with envy”? </para>
+
+<para style="p"><verse number="1" style="v" sid="JAS 4:1"/>From where <char style="add">are</char> battles and from where <char style="add">are</char> fights among you⁺? <char style="add">Is it</char> not from there, out of your⁺ pleasures warring in your⁺ members? <verse eid="JAS 4:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="JAS 4:2"/>You⁺ desire, and you⁺ do not have. You⁺ murder and are jealous, and you⁺ are not able to obtain. You⁺ fight and battle. You⁺ do not have, because you⁺ do not ask. <verse eid="JAS 4:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="JAS 4:3"/>You⁺ ask and do not receive, because you⁺ ask wrongly, that you⁺ may spend <char style="add">it</char> in your⁺ pleasures. <verse eid="JAS 4:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="JAS 4:4"/>Adulteresses!<note caller="+" style="f"><char style="fr" closed="false">4.4 </char><char style="ft" closed="false"> See Hosea 3:1.</char></note> Do you⁺ not know that friendship of the world is enmity <char style="add">with</char> God? Therefore whoever should wish to be a friend of the world is appointed<note caller="+" style="f"><char style="fr" closed="false">4.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">renders himself</char></note> an enemy of God. <verse eid="JAS 4:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JAS 4:5"/>Or do you⁺ think that the Scripture says in vain, “The Spirit<note caller="+" style="f"><char style="fr" closed="false">4.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">The spirit</char></note> that He made to dwell<note caller="+" style="f"><char style="fr" closed="false">4.5 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">The Spirit who dwells</char></note> in us yearns with envy”? <verse eid="JAS 4:5"/></para>
+
 <para style="p"><verse number="6" style="v" sid="JAS 4:6"/>But He gives greater grace. Therefore it says: </para>
+
 <para style="q1" vid="JAS 4:6">“God opposes the proud, </para>
-<para style="q2" vid="JAS 4:6">but gives grace to the humble.” <note caller="+" style="f"><char style="fr" closed="false">4.6 </char><char style="ft" closed="false"> Proverbs 3:34 (see also LXX)</char></note></para>
+
+<para style="q2" vid="JAS 4:6">but gives grace to the humble.” <note caller="+" style="f"><char style="fr" closed="false">4.6 </char><char style="ft" closed="false"> Proverbs 3:34 (see also LXX)</char></note><verse eid="JAS 4:6"/></para>
+
 <para style="s">Drawing Near to God</para>
-<para style="p"><verse number="7" style="v" sid="JAS 4:7"/>Therefore subject yourselves to God. But resist the devil, and he will flee from you⁺. </para>
-<para style="p"><verse number="8" style="v" sid="JAS 4:8"/>Draw near to God, and He will draw near to you⁺. Cleanse <char style="add">your</char> hands, <char style="add">you</char> sinners, and purify hearts, <char style="add">you</char> double-souled. </para>
-<para style="p"><verse number="9" style="v" sid="JAS 4:9"/>Be miserable and mourn and weep. Let your⁺ laughter be turned to mourning and the joy to gloom. </para>
-<para style="p"><verse number="10" style="v" sid="JAS 4:10"/>Humble yourselves before the Lord, and He will exalt you⁺. </para>
-<para style="p"><verse number="11" style="v" sid="JAS 4:11"/>Do not speak against one another, brothers. The one speaking against a brother or<note caller="+" style="f"><char style="fr" closed="false">4.11 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">and</char></note> judging his brother speaks against the law and judges the law. But if you judge the law, you are not a doer of the law, but a judge. </para>
-<para style="p"><verse number="12" style="v" sid="JAS 4:12"/>One is the Lawgiver and Judge,<note caller="+" style="f"><char style="fr" closed="false">4.12 </char><char style="ft" closed="false"> RP and TR do not include </char><char style="fq" closed="false">and Judge</char><char style="ft" closed="false">.</char></note> the One being able to save and to destroy. But who are you, the one judging the neighbor?<note caller="+" style="f"><char style="fr" closed="false">4.12 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">to judge the other?</char></note> </para>
+
+<para style="p"><verse number="7" style="v" sid="JAS 4:7"/>Therefore subject yourselves to God. But resist the devil, and he will flee from you⁺. <verse eid="JAS 4:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="JAS 4:8"/>Draw near to God, and He will draw near to you⁺. Cleanse <char style="add">your</char> hands, <char style="add">you</char> sinners, and purify hearts, <char style="add">you</char> double-souled. <verse eid="JAS 4:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="JAS 4:9"/>Be miserable and mourn and weep. Let your⁺ laughter be turned to mourning and the joy to gloom. <verse eid="JAS 4:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JAS 4:10"/>Humble yourselves before the Lord, and He will exalt you⁺. <verse eid="JAS 4:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="JAS 4:11"/>Do not speak against one another, brothers. The one speaking against a brother or<note caller="+" style="f"><char style="fr" closed="false">4.11 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">and</char></note> judging his brother speaks against the law and judges the law. But if you judge the law, you are not a doer of the law, but a judge. <verse eid="JAS 4:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="JAS 4:12"/>One is the Lawgiver and Judge,<note caller="+" style="f"><char style="fr" closed="false">4.12 </char><char style="ft" closed="false"> RP and TR do not include </char><char style="fq" closed="false">and Judge</char><char style="ft" closed="false">.</char></note> the One being able to save and to destroy. But who are you, the one judging the neighbor?<note caller="+" style="f"><char style="fr" closed="false">4.12 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">to judge the other?</char></note> <verse eid="JAS 4:12"/></para>
+
 <para style="s">Do Not Boast about TomorrowProverbs 27:1</para>
-<para style="p"><verse number="13" style="v" sid="JAS 4:13"/>Come now, those saying, “Today or tomorrow we will go<note caller="+" style="f"><char style="fr" closed="false">4.13 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">Today and tomorrow let us go</char></note> into this city, and will spend a year there and will trade and make gain,” </para>
-<para style="p"><verse number="14" style="v" sid="JAS 4:14"/>who do not know what <char style="add">is</char> of tomorrow. What <char style="add">is</char> your⁺ life? For it is a vapor appearing for a little <char style="add">while</char> and then vanishing. </para>
-<para style="p"><verse number="15" style="v" sid="JAS 4:15"/>Instead, you⁺ <char style="add">ought</char> to say, “If the Lord is willing, both we will live and we will do<note caller="+" style="f"><char style="fr" closed="false">4.15 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">let us live and do</char></note> this or that.” </para>
-<para style="p"><verse number="16" style="v" sid="JAS 4:16"/>But now you⁺ boast in your⁺ arrogance. All such boasting is evil. </para>
-<para style="p"><verse number="17" style="v" sid="JAS 4:17"/>Therefore to the one knowing to do good, and not doing <char style="add">it</char>, to him it is sin. </para>
+
+<para style="p"><verse number="13" style="v" sid="JAS 4:13"/>Come now, those saying, “Today or tomorrow we will go<note caller="+" style="f"><char style="fr" closed="false">4.13 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">Today and tomorrow let us go</char></note> into this city, and will spend a year there and will trade and make gain,” <verse eid="JAS 4:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="JAS 4:14"/>who do not know what <char style="add">is</char> of tomorrow. What <char style="add">is</char> your⁺ life? For it is a vapor appearing for a little <char style="add">while</char> and then vanishing. <verse eid="JAS 4:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="JAS 4:15"/>Instead, you⁺ <char style="add">ought</char> to say, “If the Lord is willing, both we will live and we will do<note caller="+" style="f"><char style="fr" closed="false">4.15 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">let us live and do</char></note> this or that.” <verse eid="JAS 4:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="JAS 4:16"/>But now you⁺ boast in your⁺ arrogance. All such boasting is evil. <verse eid="JAS 4:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="JAS 4:17"/>Therefore to the one knowing to do good, and not doing <char style="add">it</char>, to him it is sin. <verse eid="JAS 4:17"/></para>
+
 <chapter eid="JAS 4"/>
+
 <chapter number="5" style="c" sid="JAS 5"/>
+
 <para style="s">A Warning to the Rich</para>
-<para style="p"><verse number="1" style="v" sid="JAS 5:1"/><note caller="-" style="x"><char style="xt" closed="false">1 Timothy 6:17–19</char></note><note caller="-" style="x"><char style="xt" closed="false">Proverbs 23:1–5</char></note>Come now, <char style="add">you</char> rich, weep, wailing over the miseries that <char style="add">are</char> coming upon you⁺. </para>
-<para style="p"><verse number="2" style="v" sid="JAS 5:2"/>Your⁺ riches have rotted and your⁺ garments have become moth-eaten. </para>
-<para style="p"><verse number="3" style="v" sid="JAS 5:3"/>Your⁺ gold and silver have corroded, and their corrosion will be for a testimony against you⁺ and will eat your⁺ flesh like fire. You⁺ treasured up in the last days. </para>
-<para style="p"><verse number="4" style="v" sid="JAS 5:4"/>Behold, the wage of the workers having mowed your⁺ fields—that having been kept back by you⁺—cries out, and the cries of those having reaped have entered into the ears of the Lord of Hosts.<note caller="+" style="f"><char style="fr" closed="false">5.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Lord of Armies</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Lord of the Saboath</char></note> </para>
-<para style="p"><verse number="5" style="v" sid="JAS 5:5"/>You⁺ lived in luxury and you⁺ lived in self-indulgence upon the earth. You⁺ fattened your⁺ hearts in<note caller="+" style="f"><char style="fr" closed="false">5.5 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">as in</char><char style="ft" closed="false">.</char></note> the day of slaughter. </para>
-<para style="p"><verse number="6" style="v" sid="JAS 5:6"/>You⁺ condemned <char style="add">and</char> murdered the righteous one; he does not resist you⁺. </para>
+
+<para style="p"><verse number="1" style="v" sid="JAS 5:1"/><note caller="-" style="x"><char style="xt" closed="false">1 Timothy 6:17–19</char></note><note caller="-" style="x"><char style="xt" closed="false">Proverbs 23:1–5</char></note>Come now, <char style="add">you</char> rich, weep, wailing over the miseries that <char style="add">are</char> coming upon you⁺. <verse eid="JAS 5:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="JAS 5:2"/>Your⁺ riches have rotted and your⁺ garments have become moth-eaten. <verse eid="JAS 5:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="JAS 5:3"/>Your⁺ gold and silver have corroded, and their corrosion will be for a testimony against you⁺ and will eat your⁺ flesh like fire. You⁺ treasured up in the last days. <verse eid="JAS 5:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="JAS 5:4"/>Behold, the wage of the workers having mowed your⁺ fields—that having been kept back by you⁺—cries out, and the cries of those having reaped have entered into the ears of the Lord of Hosts.<note caller="+" style="f"><char style="fr" closed="false">5.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Lord of Armies</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Lord of the Saboath</char></note> <verse eid="JAS 5:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JAS 5:5"/>You⁺ lived in luxury and you⁺ lived in self-indulgence upon the earth. You⁺ fattened your⁺ hearts in<note caller="+" style="f"><char style="fr" closed="false">5.5 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">as in</char><char style="ft" closed="false">.</char></note> the day of slaughter. <verse eid="JAS 5:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="JAS 5:6"/>You⁺ condemned <char style="add">and</char> murdered the righteous one; he does not resist you⁺. <verse eid="JAS 5:6"/></para>
+
 <para style="s">Patience in SufferingJob 1:1–5</para>
-<para style="p"><verse number="7" style="v" sid="JAS 5:7"/>Be patient, therefore, brothers, until the coming of the Lord. Behold, the farmer awaits the precious fruit of the earth, being patient for it until it receives the early and the late.<note caller="+" style="f"><char style="fr" closed="false">5.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the fall and spring rains</char></note> </para>
-<para style="p"><verse number="8" style="v" sid="JAS 5:8"/>You⁺ also be patient; strengthen your⁺ hearts, because the coming of the Lord has drawn near. </para>
-<para style="p"><verse number="9" style="v" sid="JAS 5:9"/>Do not groan against one another, brothers, so that you⁺ might not be judged.<note caller="+" style="f"><char style="fr" closed="false">5.9 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">condemned</char></note> Behold, the Judge is standing before the doors. </para>
-<para style="p"><verse number="10" style="v" sid="JAS 5:10"/>Brothers,<note caller="+" style="f"><char style="fr" closed="false">5.10 </char><char style="ft" closed="false"> RP and TR </char><char style="fq" closed="false">My brothers</char></note> <char style="add">as</char> an example of suffering evil and of patience, take the prophets who spoke in the name of the Lord. </para>
-<para style="p"><verse number="11" style="v" sid="JAS 5:11"/>Behold, we count blessed those having endured. You⁺ heard of the perseverance of Job, and you⁺ saw the outcome of the Lord, that the Lord is<note caller="+" style="f"><char style="fr" closed="false">5.11 </char><char style="ft" closed="false"> BYZ </char><char style="fq" closed="false">that He is</char></note> full of compassion and <char style="add">is</char> merciful. </para>
-<para style="p"><verse number="12" style="v" sid="JAS 5:12"/>But before all things, my brothers, do not swear, neither <char style="add">by</char> heaven nor the earth nor any other oath. But let your⁺ “Yes” be yes, and the “No,” no, so that you⁺ might not fall under judgment.<note caller="+" style="f"><char style="fr" closed="false">5.12 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">into hypocrisy</char></note> </para>
+
+<para style="p"><verse number="7" style="v" sid="JAS 5:7"/>Be patient, therefore, brothers, until the coming of the Lord. Behold, the farmer awaits the precious fruit of the earth, being patient for it until it receives the early and the late.<note caller="+" style="f"><char style="fr" closed="false">5.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the fall and spring rains</char></note> <verse eid="JAS 5:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="JAS 5:8"/>You⁺ also be patient; strengthen your⁺ hearts, because the coming of the Lord has drawn near. <verse eid="JAS 5:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="JAS 5:9"/>Do not groan against one another, brothers, so that you⁺ might not be judged.<note caller="+" style="f"><char style="fr" closed="false">5.9 </char><char style="ft" closed="false"> TR </char><char style="fq" closed="false">condemned</char></note> Behold, the Judge is standing before the doors. <verse eid="JAS 5:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JAS 5:10"/>Brothers,<note caller="+" style="f"><char style="fr" closed="false">5.10 </char><char style="ft" closed="false"> RP and TR </char><char style="fq" closed="false">My brothers</char></note> <char style="add">as</char> an example of suffering evil and of patience, take the prophets who spoke in the name of the Lord. <verse eid="JAS 5:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="JAS 5:11"/>Behold, we count blessed those having endured. You⁺ heard of the perseverance of Job, and you⁺ saw the outcome of the Lord, that the Lord is<note caller="+" style="f"><char style="fr" closed="false">5.11 </char><char style="ft" closed="false"> BYZ </char><char style="fq" closed="false">that He is</char></note> full of compassion and <char style="add">is</char> merciful. <verse eid="JAS 5:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="JAS 5:12"/>But before all things, my brothers, do not swear, neither <char style="add">by</char> heaven nor the earth nor any other oath. But let your⁺ “Yes” be yes, and the “No,” no, so that you⁺ might not fall under judgment.<note caller="+" style="f"><char style="fr" closed="false">5.12 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">into hypocrisy</char></note> <verse eid="JAS 5:12"/></para>
+
 <para style="s">The Prayer of Faith</para>
-<para style="p"><verse number="13" style="v" sid="JAS 5:13"/>Is anyone among you⁺ suffering evil? Let him pray. Is anyone cheerful? Let him sing praises. </para>
-<para style="p"><verse number="14" style="v" sid="JAS 5:14"/>Is anyone among you⁺ sick? Let him summon the elders of the church, and let them pray over him, having anointed him with oil in the name of the Lord. </para>
-<para style="p"><verse number="15" style="v" sid="JAS 5:15"/>And the prayer of faith will save the one ailing, and the Lord will raise him up, and if he might be one having committed sins, it will be forgiven him. </para>
-<para style="p"><verse number="16" style="v" sid="JAS 5:16"/>Therefore confess the sins<note caller="+" style="f"><char style="fr" closed="false">5.16 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Confess the trespasses</char></note> to one another and pray for one another, so that you⁺ may be healed. The supplication of a righteous <char style="add">man</char> being made effective prevails much. </para>
-<para style="p"><verse number="17" style="v" sid="JAS 5:17"/>Elijah was a man of like nature to us, and with prayer he prayed <char style="add">for it</char> not to rain, and it did not rain upon the land three years and six months. </para>
-<para style="p"><verse number="18" style="v" sid="JAS 5:18"/>And again he prayed, and the heaven gave rain, and the earth produced its fruit. </para>
+
+<para style="p"><verse number="13" style="v" sid="JAS 5:13"/>Is anyone among you⁺ suffering evil? Let him pray. Is anyone cheerful? Let him sing praises. <verse eid="JAS 5:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="JAS 5:14"/>Is anyone among you⁺ sick? Let him summon the elders of the church, and let them pray over him, having anointed him with oil in the name of the Lord. <verse eid="JAS 5:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="JAS 5:15"/>And the prayer of faith will save the one ailing, and the Lord will raise him up, and if he might be one having committed sins, it will be forgiven him. <verse eid="JAS 5:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="JAS 5:16"/>Therefore confess the sins<note caller="+" style="f"><char style="fr" closed="false">5.16 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Confess the trespasses</char></note> to one another and pray for one another, so that you⁺ may be healed. The supplication of a righteous <char style="add">man</char> being made effective prevails much. <verse eid="JAS 5:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="JAS 5:17"/>Elijah was a man of like nature to us, and with prayer he prayed <char style="add">for it</char> not to rain, and it did not rain upon the land three years and six months. <verse eid="JAS 5:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="JAS 5:18"/>And again he prayed, and the heaven gave rain, and the earth produced its fruit. <verse eid="JAS 5:18"/></para>
+
 <para style="s">Restoring a Sinner</para>
-<para style="p"><verse number="19" style="v" sid="JAS 5:19"/>My brothers,<note caller="+" style="f"><char style="fr" closed="false">5.19 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Brothers, if</char></note> if anyone among you⁺ should wander from the truth, and anyone should turn him back, </para>
-<para style="p"><verse number="20" style="v" sid="JAS 5:20"/>let him know that the one having turned back a sinner from the wandering of his way will save his soul<note caller="+" style="f"><char style="fr" closed="false">5.20 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">a soul</char></note> from death and will cover a multitude of sins. </para>
+
+<para style="p"><verse number="19" style="v" sid="JAS 5:19"/>My brothers,<note caller="+" style="f"><char style="fr" closed="false">5.19 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">Brothers, if</char></note> if anyone among you⁺ should wander from the truth, and anyone should turn him back, <verse eid="JAS 5:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="JAS 5:20"/>let him know that the one having turned back a sinner from the wandering of his way will save his soul<note caller="+" style="f"><char style="fr" closed="false">5.20 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">a soul</char></note> from death and will cover a multitude of sins. <verse eid="JAS 5:20"/></para>
+
 <chapter eid="JAS 5"/>
+
 </usx>

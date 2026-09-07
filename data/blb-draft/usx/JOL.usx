@@ -1,304 +1,605 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="JOL" style="id">BLB-Draft</book>
+
 <para style="h">Joel</para>
+
 <para style="toc1">Joel</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="JOL 1"/>
+
 <para style="s">The Invasion of Locusts</para>
-<para style="p"><verse number="1" style="v" sid="JOL 1:1"/>The word of YHWH that came to Joel son of Pethuel: </para>
+
+<para style="p"><verse number="1" style="v" sid="JOL 1:1"/>The word of YHWH that came to Joel son of Pethuel: <verse eid="JOL 1:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="JOL 1:2"/>Hear this, O elders, </para>
+
 <para style="q2" vid="JOL 1:2">and give ear, all dwellers of the land. </para>
+
 <para style="q1" vid="JOL 1:2">Has this come to be in your⁺ days, </para>
-<para style="q2" vid="JOL 1:2">or even in the days of your⁺ fathers? </para>
+
+<para style="q2" vid="JOL 1:2">or even in the days of your⁺ fathers? <verse eid="JOL 1:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="JOL 1:3"/>Give account of it to your⁺ sons, </para>
+
 <para style="q2" vid="JOL 1:3">and your⁺ sons to their sons, </para>
-<para style="q2" vid="JOL 1:3">and their sons to the generation after. </para>
+
+<para style="q2" vid="JOL 1:3">and their sons to the generation after. <verse eid="JOL 1:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="JOL 1:4"/>The remainder of the devouring locust </para>
+
 <para style="q2" vid="JOL 1:4">the swarming locust has eaten; </para>
+
 <para style="q1" vid="JOL 1:4">and the remainder of the swarming locust </para>
+
 <para style="q2" vid="JOL 1:4">the young locust has eaten; </para>
+
 <para style="q1" vid="JOL 1:4">and the remainder of the young locust </para>
-<para style="q2" vid="JOL 1:4">the destroying locust has eaten.<note caller="+" style="f"><char style="fr" closed="false">1.4 </char><char style="ft" closed="false"> The precise identification of the four kinds of locusts mentioned here is uncertain.</char></note> </para>
+
+<para style="q2" vid="JOL 1:4">the destroying locust has eaten.<note caller="+" style="f"><char style="fr" closed="false">1.4 </char><char style="ft" closed="false"> The precise identification of the four kinds of locusts mentioned here is uncertain.</char></note> <verse eid="JOL 1:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="JOL 1:5"/>Wake up, O drunkards, and weep; </para>
+
 <para style="q2" vid="JOL 1:5">wail, all drinkers of wine, </para>
+
 <para style="q1" vid="JOL 1:5">over the new wine, </para>
-<para style="q2" vid="JOL 1:5">for it has been cut off from your⁺ mouth! </para>
+
+<para style="q2" vid="JOL 1:5">for it has been cut off from your⁺ mouth! <verse eid="JOL 1:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="JOL 1:6"/>For a nation has come up against My land, </para>
+
 <para style="q2" vid="JOL 1:6">strong and without number; </para>
+
 <para style="q1" vid="JOL 1:6">his teeth <char style="add">are</char> the teeth of a lion, </para>
-<para style="q2" vid="JOL 1:6">and the fangs of a fierce lion <char style="add">are</char> unto him. </para>
+
+<para style="q2" vid="JOL 1:6">and the fangs of a fierce lion <char style="add">are</char> unto him. <verse eid="JOL 1:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="JOL 1:7"/>He has set My vine to waste, </para>
+
 <para style="q2" vid="JOL 1:7">and My fig tree to splinter; </para>
+
 <para style="q1" vid="JOL 1:7">he has thoroughly stripped off the bark and thrown it away, </para>
-<para style="q2" vid="JOL 1:7">its branches have become white. </para>
+
+<para style="q2" vid="JOL 1:7">its branches have become white. <verse eid="JOL 1:7"/></para>
+
 <para style="s">A Call to Mourning</para>
+
 <para style="q1"><verse number="8" style="v" sid="JOL 1:8"/>Lament like a virgin girded with sackcloth </para>
-<para style="q2" vid="JOL 1:8">over the husband of her youth. </para>
+
+<para style="q2" vid="JOL 1:8">over the husband of her youth. <verse eid="JOL 1:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="JOL 1:9"/>The grain offering and the drink offering have been cut off </para>
+
 <para style="q2" vid="JOL 1:9">from the house of YHWH; </para>
+
 <para style="q1" vid="JOL 1:9">the priests mourn—</para>
-<para style="q2" vid="JOL 1:9">those ministering to YHWH. </para>
+
+<para style="q2" vid="JOL 1:9">those ministering to YHWH. <verse eid="JOL 1:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="JOL 1:10"/>The field is ruined, </para>
+
 <para style="q2" vid="JOL 1:10">the land mourns; </para>
+
 <para style="q1" vid="JOL 1:10">for the grain is ruined, </para>
-<para style="q2" vid="JOL 1:10">the new wine is dried up, the oil languishes. </para>
+
+<para style="q2" vid="JOL 1:10">the new wine is dried up, the oil languishes. <verse eid="JOL 1:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="JOL 1:11"/>Be ashamed, O farmers, </para>
+
 <para style="q2" vid="JOL 1:11">wail, O vinedressers, </para>
+
 <para style="q1" vid="JOL 1:11">over the wheat and over the barley, </para>
-<para style="q2" vid="JOL 1:11">because the harvest of the field has perished. </para>
+
+<para style="q2" vid="JOL 1:11">because the harvest of the field has perished. <verse eid="JOL 1:11"/></para>
+
 <para style="q1"><verse number="12" style="v" sid="JOL 1:12"/>The vine has withered </para>
+
 <para style="q2" vid="JOL 1:12">and the fig tree has languished; </para>
+
 <para style="q1" vid="JOL 1:12">the pomegranate, also the palm tree and the apple tree—</para>
+
 <para style="q2" vid="JOL 1:12">all the trees of the field—have dried up. </para>
-<para style="q2" vid="JOL 1:12">For the joy of the sons of man has withered away. </para>
+
+<para style="q2" vid="JOL 1:12">For the joy of the sons of man has withered away. <verse eid="JOL 1:12"/></para>
+
 <para style="s">A Call to RepentanceAmos 5:4–15</para>
+
 <para style="q1"><verse number="13" style="v" sid="JOL 1:13"/><note caller="-" style="x"><char style="xt" closed="false">Luke 13:1–5</char></note><note caller="-" style="x"><char style="xt" closed="false">Zephaniah 2:1–3</char></note>Gird yourselves and lament, O priests; </para>
+
 <para style="q2" vid="JOL 1:13">wail, <char style="add">you</char> ministering before the altar. </para>
+
 <para style="q1" vid="JOL 1:13">Come, lodge in sackcloth, </para>
+
 <para style="q2" vid="JOL 1:13"><char style="add">you</char> ministering before my God, </para>
+
 <para style="q1" vid="JOL 1:13">for it is withheld from the house of your⁺ God—</para>
-<para style="q2" vid="JOL 1:13">the grain offering and the drink offering. </para>
+
+<para style="q2" vid="JOL 1:13">the grain offering and the drink offering. <verse eid="JOL 1:13"/></para>
+
 <para style="q1"><verse number="14" style="v" sid="JOL 1:14"/>Consecrate a fast, </para>
+
 <para style="q2" vid="JOL 1:14">call a solemn assembly! </para>
+
 <para style="q1" vid="JOL 1:14">Gather the elders </para>
+
 <para style="q2" vid="JOL 1:14"><char style="add">and</char> all those dwelling in the land </para>
+
 <para style="q1" vid="JOL 1:14"><char style="add">to</char> the house of YHWH your⁺ God, </para>
-<para style="q2" vid="JOL 1:14">and cry out to YHWH. </para>
+
+<para style="q2" vid="JOL 1:14">and cry out to YHWH. <verse eid="JOL 1:14"/></para>
+
 <para style="q1"><verse number="15" style="v" sid="JOL 1:15"/>Alas, for the day! </para>
+
 <para style="q2" vid="JOL 1:15">For the day of YHWH <char style="add">is</char> near, </para>
+
 <para style="q1" vid="JOL 1:15">and as destruction from Shaddai,<note caller="+" style="f"><char style="fr" closed="false">1.15 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Shaddai</char><char style="ft" closed="false"> means </char><char style="fq" closed="false">the Almighty</char></note> </para>
-<para style="q2" vid="JOL 1:15">it shall come. </para>
+
+<para style="q2" vid="JOL 1:15">it shall come. <verse eid="JOL 1:15"/></para>
+
 <para style="q1"><verse number="16" style="v" sid="JOL 1:16"/>Has not before our eyes </para>
+
 <para style="q2" vid="JOL 1:16">the food been cut off—</para>
+
 <para style="q1" vid="JOL 1:16">from the house of our God </para>
-<para style="q2" vid="JOL 1:16">joy and rejoicing? </para>
+
+<para style="q2" vid="JOL 1:16">joy and rejoicing? <verse eid="JOL 1:16"/></para>
+
 <para style="q1"><verse number="17" style="v" sid="JOL 1:17"/>The seed shrivels under their clods; </para>
+
 <para style="q2" vid="JOL 1:17">the storehouses are desolate; </para>
+
 <para style="q1" vid="JOL 1:17">the granaries are torn down, </para>
-<para style="q2" vid="JOL 1:17">for the grain has withered. </para>
+
+<para style="q2" vid="JOL 1:17">for the grain has withered. <verse eid="JOL 1:17"/></para>
+
 <para style="q1"><verse number="18" style="v" sid="JOL 1:18"/>How the cattle groan! </para>
+
 <para style="q2" vid="JOL 1:18">The herds of cattle are perplexed, </para>
+
 <para style="q1" vid="JOL 1:18">because <char style="add">there is</char> no pasture unto them; </para>
-<para style="q2" vid="JOL 1:18">even the flocks of the sheep suffer punishment. </para>
+
+<para style="q2" vid="JOL 1:18">even the flocks of the sheep suffer punishment. <verse eid="JOL 1:18"/></para>
+
 <para style="q1"><verse number="19" style="v" sid="JOL 1:19"/>To You, O YHWH, I call out, </para>
+
 <para style="q2" vid="JOL 1:19">for fire has devoured the pastures of the wilderness, </para>
-<para style="q2" vid="JOL 1:19">and a flame has burned all the trees of the field. </para>
+
+<para style="q2" vid="JOL 1:19">and a flame has burned all the trees of the field. <verse eid="JOL 1:19"/></para>
+
 <para style="q1"><verse number="20" style="v" sid="JOL 1:20"/>Even the beasts of the field pant for You, </para>
+
 <para style="q2" vid="JOL 1:20">for the channels of water have dried up, </para>
-<para style="q2" vid="JOL 1:20">and fire has devoured the pastures of the wilderness. </para>
+
+<para style="q2" vid="JOL 1:20">and fire has devoured the pastures of the wilderness. <verse eid="JOL 1:20"/></para>
+
 <chapter eid="JOL 1"/>
+
 <chapter number="2" style="c" sid="JOL 2"/>
+
 <para style="s">The Army of Locusts</para>
+
 <para style="q1"><verse number="1" style="v" sid="JOL 2:1"/><note caller="-" style="x"><char style="xt" closed="false">Amos 7:1–9</char></note>Blow the shofar in Zion, </para>
+
 <para style="q2" vid="JOL 2:1">and give a shout on the mountain of My holiness! </para>
+
 <para style="q1" vid="JOL 2:1">Let all those dwelling in the land tremble, </para>
+
 <para style="q2" vid="JOL 2:1">for the day of YHWH is coming; </para>
-<para style="q2" vid="JOL 2:1">indeed, <char style="add">it is</char> near— </para>
+
+<para style="q2" vid="JOL 2:1">indeed, <char style="add">it is</char> near— <verse eid="JOL 2:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="JOL 2:2"/>a day of darkness and gloom, </para>
+
 <para style="q2" vid="JOL 2:2">a day of clouds and thick darkness, </para>
+
 <para style="q1" vid="JOL 2:2">like dawn spreading over the mountains, </para>
+
 <para style="q2" vid="JOL 2:2">a people great and strong, </para>
+
 <para style="q1" vid="JOL 2:2">the like has not been from of old, </para>
-<para style="q2" vid="JOL 2:2">and after them will not be again, even to years of generation and generation. </para>
+
+<para style="q2" vid="JOL 2:2">and after them will not be again, even to years of generation and generation. <verse eid="JOL 2:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="JOL 2:3"/>Before its face a fire devours, </para>
+
 <para style="q2" vid="JOL 2:3">and behind them burns a flame; </para>
+
 <para style="q1" vid="JOL 2:3">like the garden of Eden <char style="add">is</char> the land before its face, </para>
+
 <para style="q2" vid="JOL 2:3">and behind it a wilderness of desolation—</para>
-<para style="q2" vid="JOL 2:3">and surely nothing shall escape from them. </para>
+
+<para style="q2" vid="JOL 2:3">and surely nothing shall escape from them. <verse eid="JOL 2:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="JOL 2:4"/>Like the appearance of horses <char style="add">is</char> its appearance, </para>
-<para style="q2" vid="JOL 2:4">and like steeds<note caller="+" style="f"><char style="fr" closed="false">2.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">like charioteers</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">like cavalry</char></note> so they run. </para>
+
+<para style="q2" vid="JOL 2:4">and like steeds<note caller="+" style="f"><char style="fr" closed="false">2.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">like charioteers</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">like cavalry</char></note> so they run. <verse eid="JOL 2:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="JOL 2:5"/>As <char style="add">with</char> the sound of chariots </para>
+
 <para style="q2" vid="JOL 2:5">over the tops of mountains, they leap; </para>
+
 <para style="q1" vid="JOL 2:5">like the sound of a flaming fire devouring the stubble, </para>
-<para style="q2" vid="JOL 2:5">like a strong people arrayed for battle. </para>
+
+<para style="q2" vid="JOL 2:5">like a strong people arrayed for battle. <verse eid="JOL 2:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="JOL 2:6"/>Before its face the peoples writhe; </para>
-<para style="q2" vid="JOL 2:6">all faces gather paleness. </para>
+
+<para style="q2" vid="JOL 2:6">all faces gather paleness. <verse eid="JOL 2:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="JOL 2:7"/>Like mighty men they run, </para>
+
 <para style="q2" vid="JOL 2:7">like men of war they climb the wall, </para>
+
 <para style="q1" vid="JOL 2:7">and a man in his ways marches, </para>
-<para style="q2" vid="JOL 2:7">and they do not swerve <char style="add">from</char> their paths. </para>
+
+<para style="q2" vid="JOL 2:7">and they do not swerve <char style="add">from</char> their paths. <verse eid="JOL 2:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="JOL 2:8"/>A man <char style="add">and</char> his brother do not jostle, </para>
+
 <para style="q2" vid="JOL 2:8">each man marches in his path; </para>
+
 <para style="q1" vid="JOL 2:8">between the weapon they lunge; </para>
-<para style="q2" vid="JOL 2:8">they are not cut down. </para>
+
+<para style="q2" vid="JOL 2:8">they are not cut down. <verse eid="JOL 2:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="JOL 2:9"/>Into the city they rush, </para>
+
 <para style="q2" vid="JOL 2:9">on the wall they run; </para>
+
 <para style="q1" vid="JOL 2:9">into the houses they come up, </para>
-<para style="q2" vid="JOL 2:9"><char style="add">and</char> at the windows they come <char style="add">in</char> like a thief. </para>
+
+<para style="q2" vid="JOL 2:9"><char style="add">and</char> at the windows they come <char style="add">in</char> like a thief. <verse eid="JOL 2:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="JOL 2:10"/>Before their faces quakes the earth; </para>
+
 <para style="q2" vid="JOL 2:10">the heavens quake; </para>
+
 <para style="q1" vid="JOL 2:10">the sun and moon grow dark, </para>
-<para style="q2" vid="JOL 2:10">and the stars withdraw their brightness. </para>
+
+<para style="q2" vid="JOL 2:10">and the stars withdraw their brightness. <verse eid="JOL 2:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="JOL 2:11"/>And YHWH gives forth His voice </para>
+
 <para style="q2" vid="JOL 2:11">before the face of His army, </para>
+
 <para style="q1" vid="JOL 2:11">for exceedingly large <char style="add">is</char> His camp, </para>
+
 <para style="q2" vid="JOL 2:11">for strong <char style="add">is</char> the One doing His word, </para>
+
 <para style="q1" vid="JOL 2:11">for great <char style="add">is</char> the day of YHWH and very fearsome—</para>
-<para style="q2" vid="JOL 2:11">and who can endure it? </para>
+
+<para style="q2" vid="JOL 2:11">and who can endure it? <verse eid="JOL 2:11"/></para>
+
 <para style="s">Return with All Your Heart</para>
+
 <para style="q1"><verse number="12" style="v" sid="JOL 2:12"/>“Even now,” </para>
+
 <para style="q2" vid="JOL 2:12">a declaration of YHWH, </para>
+
 <para style="q1" vid="JOL 2:12">“May you turn to Me with all your⁺ heart, </para>
-<para style="q2" vid="JOL 2:12">and with fasting, and with weeping, and with mourning.” </para>
+
+<para style="q2" vid="JOL 2:12">and with fasting, and with weeping, and with mourning.” <verse eid="JOL 2:12"/></para>
+
 <para style="q1"><verse number="13" style="v" sid="JOL 2:13"/>And rend your⁺ heart and not your⁺ garments. </para>
+
 <para style="q2" vid="JOL 2:13">May you return to YHWH your⁺ God, </para>
+
 <para style="q1" vid="JOL 2:13">for He <char style="add">is</char> gracious and compassionate, </para>
+
 <para style="q2" vid="JOL 2:13">slow to anger, and great in loving devotion, </para>
-<para style="q2" vid="JOL 2:13">and relenting from harm. <note caller="+" style="f"><char style="fr" closed="false">2.13 </char><char style="ft" closed="false"> Forms of the Hebrew </char><char style="fq" closed="false">chesed</char><char style="ft" closed="false"> are translated here and in most cases throughout the Scriptures as </char><char style="fq" closed="false">loving devotion</char><char style="ft" closed="false">; the range of meaning includes </char><char style="fq" closed="false">love</char><char style="ft" closed="false">, </char><char style="fq" closed="false">goodness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">kindness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">faithfulness</char><char style="ft" closed="false">, and </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">, as well as </char><char style="fq" closed="false">loyalty to a covenant</char><char style="ft" closed="false">.</char></note></para>
+
+<para style="q2" vid="JOL 2:13">and relenting from harm. <note caller="+" style="f"><char style="fr" closed="false">2.13 </char><char style="ft" closed="false"> Forms of the Hebrew </char><char style="fq" closed="false">chesed</char><char style="ft" closed="false"> are translated here and in most cases throughout the Scriptures as </char><char style="fq" closed="false">loving devotion</char><char style="ft" closed="false">; the range of meaning includes </char><char style="fq" closed="false">love</char><char style="ft" closed="false">, </char><char style="fq" closed="false">goodness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">kindness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">faithfulness</char><char style="ft" closed="false">, and </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">, as well as </char><char style="fq" closed="false">loyalty to a covenant</char><char style="ft" closed="false">.</char></note><verse eid="JOL 2:13"/></para>
+
 <para style="q1"><verse number="14" style="v" sid="JOL 2:14"/>Who knows <char style="add">if</char> He will turn and relent, </para>
+
 <para style="q2" vid="JOL 2:14">and will leave behind Him a blessing—</para>
+
 <para style="q1" vid="JOL 2:14">a grain offering and a drink offering </para>
-<para style="q2" vid="JOL 2:14">for YHWH your⁺ God? </para>
+
+<para style="q2" vid="JOL 2:14">for YHWH your⁺ God? <verse eid="JOL 2:14"/></para>
+
 <para style="q1"><verse number="15" style="v" sid="JOL 2:15"/>Blow the shofar in Zion. </para>
+
 <para style="q2" vid="JOL 2:15">Consecrate a fast; </para>
-<para style="q2" vid="JOL 2:15">call a solemn assembly. </para>
+
+<para style="q2" vid="JOL 2:15">call a solemn assembly. <verse eid="JOL 2:15"/></para>
+
 <para style="q1"><verse number="16" style="v" sid="JOL 2:16"/>Gather the people, sanctify the congregation, </para>
+
 <para style="q2" vid="JOL 2:16">assemble the elders, gather the infants </para>
+
 <para style="q2" vid="JOL 2:16">and those suckling the breasts; </para>
+
 <para style="q1" vid="JOL 2:16">let the bridegroom go out from his chamber, </para>
-<para style="q2" vid="JOL 2:16">and the bride from her chamber. </para>
+
+<para style="q2" vid="JOL 2:16">and the bride from her chamber. <verse eid="JOL 2:16"/></para>
+
 <para style="q1"><verse number="17" style="v" sid="JOL 2:17"/>Between the porch and the altar, </para>
+
 <para style="q2" vid="JOL 2:17">let the priests weep, those ministering to YHWH, </para>
+
 <para style="q1" vid="JOL 2:17">and let them say, “Have pity, O YHWH, on Your people, </para>
+
 <para style="q2" vid="JOL 2:17">and do not give Your heritage to reproach </para>
+
 <para style="q2" vid="JOL 2:17">for the ruling over them <char style="add">by</char> the nations. </para>
+
 <para style="q1" vid="JOL 2:17">Why should they say among the peoples, </para>
-<para style="q2" vid="JOL 2:17">‘Where <char style="add">is</char> their God?’” </para>
+
+<para style="q2" vid="JOL 2:17">‘Where <char style="add">is</char> their God?’” <verse eid="JOL 2:17"/></para>
+
 <para style="s">Restoration Promised</para>
+
 <para style="q1"><verse number="18" style="v" sid="JOL 2:18"/>And YHWH will be jealous for His land, </para>
-<para style="q2" vid="JOL 2:18">and He will have pity on His people. </para>
+
+<para style="q2" vid="JOL 2:18">and He will have pity on His people. <verse eid="JOL 2:18"/></para>
+
 <para style="q1"><verse number="19" style="v" sid="JOL 2:19"/>And YHWH will answer and say to His people, </para>
+
 <para style="q1" vid="JOL 2:19">“Behold, I am sending to you⁺ </para>
+
 <para style="q2" vid="JOL 2:19">the grain and the new wine and the oil, </para>
+
 <para style="q2" vid="JOL 2:19">and you⁺ will be satisfied with them, </para>
+
 <para style="q1" vid="JOL 2:19">and I will give you⁺ no longer </para>
-<para style="q2" vid="JOL 2:19">to reproach among the nations. </para>
+
+<para style="q2" vid="JOL 2:19">to reproach among the nations. <verse eid="JOL 2:19"/></para>
+
 <para style="q1"><verse number="20" style="v" sid="JOL 2:20"/>And the northern I will put far away from you⁺, </para>
+
 <para style="q2" vid="JOL 2:20">and I will drive him away into a land of dryness and desolation, </para>
+
 <para style="q1" vid="JOL 2:20">with his face toward the Eastern Sea,<note caller="+" style="f"><char style="fr" closed="false">2.20 </char><char style="ft" closed="false"> That is, the Dead Sea</char></note> </para>
+
 <para style="q2" vid="JOL 2:20">and his back toward the western sea;<note caller="+" style="f"><char style="fr" closed="false">2.20 </char><char style="ft" closed="false"> That is, the Mediterranean Sea, also called the Great Sea</char></note> </para>
+
 <para style="q1" vid="JOL 2:20">and his stench will come up, </para>
+
 <para style="q2" vid="JOL 2:20">and his smell will rise up, </para>
-<para style="q1" vid="JOL 2:20">for He has been great in doing. </para>
+
+<para style="q1" vid="JOL 2:20">for He has been great in doing. <verse eid="JOL 2:20"/></para>
+
 <para style="q1"><verse number="21" style="v" sid="JOL 2:21"/>You should not fear, O land; </para>
+
 <para style="q2" vid="JOL 2:21">be glad and rejoice, </para>
-<para style="q2" vid="JOL 2:21">for YHWH has been great in doing. </para>
+
+<para style="q2" vid="JOL 2:21">for YHWH has been great in doing. <verse eid="JOL 2:21"/></para>
+
 <para style="q1"><verse number="22" style="v" sid="JOL 2:22"/>You⁺ shall not be afraid, O beasts of the field; </para>
+
 <para style="q2" vid="JOL 2:22">for the pastures of the wilderness have sprouted, </para>
+
 <para style="q1" vid="JOL 2:22">for the tree has borne its fruit, </para>
-<para style="q2" vid="JOL 2:22">the fig tree and the vine give forth their strength.<note caller="+" style="f"><char style="fr" closed="false">2.22 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">their best</char></note> </para>
+
+<para style="q2" vid="JOL 2:22">the fig tree and the vine give forth their strength.<note caller="+" style="f"><char style="fr" closed="false">2.22 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">their best</char></note> <verse eid="JOL 2:22"/></para>
+
 <para style="q1"><verse number="23" style="v" sid="JOL 2:23"/>And you sons of Zion, </para>
+
 <para style="q2" vid="JOL 2:23">rejoice and be glad in YHWH your⁺ God, </para>
+
 <para style="q1" vid="JOL 2:23">for He gives to you⁺ the early rain </para>
+
 <para style="q2" vid="JOL 2:23">for vindication, </para>
+
 <para style="q1" vid="JOL 2:23">and He brings down for you⁺ the rain—</para>
-<para style="q2" vid="JOL 2:23">the early rain and the latter rain as at first. </para>
+
+<para style="q2" vid="JOL 2:23">the early rain and the latter rain as at first. <verse eid="JOL 2:23"/></para>
+
 <para style="q1"><verse number="24" style="v" sid="JOL 2:24"/>Will be full and the threshing floors of wheat, </para>
-<para style="q2" vid="JOL 2:24">and the wine vats will overflow <char style="add">with</char> new wine and oil. </para>
+
+<para style="q2" vid="JOL 2:24">and the wine vats will overflow <char style="add">with</char> new wine and oil. <verse eid="JOL 2:24"/></para>
+
 <para style="q1"><verse number="25" style="v" sid="JOL 2:25"/>And I will restore to you⁺ the years that he has eaten—</para>
+
 <para style="q2" vid="JOL 2:25">the swarming locust, the young locust, </para>
+
 <para style="q1" vid="JOL 2:25">and the destroying locust, and the devouring locust<note caller="+" style="f"><char style="fr" closed="false">2.25 </char><char style="ft" closed="false"> The precise identification of the four kinds of insects mentioned here is uncertain.</char></note>—</para>
-<para style="q2" vid="JOL 2:25">My great army that I have sent among you⁺. </para>
+
+<para style="q2" vid="JOL 2:25">My great army that I have sent among you⁺. <verse eid="JOL 2:25"/></para>
+
 <para style="q1"><verse number="26" style="v" sid="JOL 2:26"/>You⁺ will have eat your⁺ fill </para>
+
 <para style="q2" vid="JOL 2:26">and be satisfied, </para>
+
 <para style="q1" vid="JOL 2:26">and you⁺ will praise the name of YHWH your⁺ God, </para>
+
 <para style="q2" vid="JOL 2:26">who has worked over you⁺ to do wonders, </para>
+
 <para style="q1" vid="JOL 2:26">and My people will not be put to shame </para>
-<para style="q2" vid="JOL 2:26">forever. </para>
+
+<para style="q2" vid="JOL 2:26">forever. <verse eid="JOL 2:26"/></para>
+
 <para style="q1"><verse number="27" style="v" sid="JOL 2:27"/>And you⁺ will know that I <char style="add">am</char> in the midst of Israel, </para>
+
 <para style="q2" vid="JOL 2:27">and <char style="add">that</char> I <char style="add">am</char> YHWH your⁺ God, </para>
+
 <para style="q2" vid="JOL 2:27">and there is no other; </para>
+
 <para style="q1" vid="JOL 2:27">and My people will not be put to shame </para>
-<para style="q2" vid="JOL 2:27">forever. </para>
+
+<para style="q2" vid="JOL 2:27">forever. <verse eid="JOL 2:27"/></para>
+
 <para style="s">I Will Pour Out My SpiritActs 2:14–36</para>
+
 <para style="q1"><verse number="28" style="v" sid="JOL 2:28"/>And it will come to pass after this, <char style="add">that</char> I will pour out My Spirit on all flesh, </para>
+
 <para style="q2" vid="JOL 2:28">and your⁺ sons and your⁺ daughters will prophesy; </para>
+
 <para style="q1" vid="JOL 2:28">your⁺ old men will dream dreams, </para>
-<para style="q2" vid="JOL 2:28">your⁺ young men will see visions. </para>
+
+<para style="q2" vid="JOL 2:28">your⁺ young men will see visions. <verse eid="JOL 2:28"/></para>
+
 <para style="q1"><verse number="29" style="v" sid="JOL 2:29"/>And even on the menservants and on the maidservants, </para>
-<para style="q2" vid="JOL 2:29">I will pour out My Spirit in those days. </para>
+
+<para style="q2" vid="JOL 2:29">I will pour out My Spirit in those days. <verse eid="JOL 2:29"/></para>
+
 <para style="q1"><verse number="30" style="v" sid="JOL 2:30"/>And I will give wonders in the heavens and on the earth—</para>
-<para style="q2" vid="JOL 2:30">blood and fire and columns<note caller="+" style="f"><char style="fr" closed="false">2.30 </char><char style="ft" closed="false"> LXX </char><char style="fq" closed="false">clouds</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">billows</char></note> of smoke. </para>
+
+<para style="q2" vid="JOL 2:30">blood and fire and columns<note caller="+" style="f"><char style="fr" closed="false">2.30 </char><char style="ft" closed="false"> LXX </char><char style="fq" closed="false">clouds</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">billows</char></note> of smoke. <verse eid="JOL 2:30"/></para>
+
 <para style="q1"><verse number="31" style="v" sid="JOL 2:31"/>The sun will be turned to darkness, </para>
+
 <para style="q2" vid="JOL 2:31">and the moon to blood, </para>
-<para style="q2" vid="JOL 2:31">before the coming of of the great and awesome<note caller="+" style="f"><char style="fr" closed="false">2.31 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">dreadful</char><char style="ft" closed="false">; LXX </char><char style="fq" closed="false">glorious</char></note> day of YHWH. </para>
+
+<para style="q2" vid="JOL 2:31">before the coming of of the great and awesome<note caller="+" style="f"><char style="fr" closed="false">2.31 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">dreadful</char><char style="ft" closed="false">; LXX </char><char style="fq" closed="false">glorious</char></note> day of YHWH. <verse eid="JOL 2:31"/></para>
+
 <para style="q1"><verse number="32" style="v" sid="JOL 2:32"/>And it will come to pass <char style="add">that</char> everyone who calls on the name of YHWH </para>
+
 <para style="q2" vid="JOL 2:32">will be saved. </para>
+
 <para style="q1" vid="JOL 2:32">For on Mount Zion and in Jerusalem </para>
+
 <para style="q2" vid="JOL 2:32">there will be escape—according to that which YHWH has said—</para>
-<para style="q2" vid="JOL 2:32">and among those remaining whom YHWH is calling. <note caller="+" style="f"><char style="fr" closed="false">2.32 </char><char style="ft" closed="false"> Cited in Acts 2:17–21 and Romans 10:13</char></note></para>
+
+<para style="q2" vid="JOL 2:32">and among those remaining whom YHWH is calling. <note caller="+" style="f"><char style="fr" closed="false">2.32 </char><char style="ft" closed="false"> Cited in Acts 2:17–21 and Romans 10:13</char></note><verse eid="JOL 2:32"/></para>
+
 <chapter eid="JOL 2"/>
+
 <chapter number="3" style="c" sid="JOL 3"/>
+
 <para style="s">Yahweh Judges the Nations</para>
+
 <para style="q1"><verse number="1" style="v" sid="JOL 3:1"/><char style="add">“</char> For behold, in those days and at that time, </para>
-<para style="q2" vid="JOL 3:1">when I turn back the captivity of Judah and Jerusalem,<note caller="+" style="f"><char style="fr" closed="false">3.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">when I restore the fortunes of Judah and Jerusalem</char></note> </para>
+
+<para style="q2" vid="JOL 3:1">when I turn back the captivity of Judah and Jerusalem,<note caller="+" style="f"><char style="fr" closed="false">3.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">when I restore the fortunes of Judah and Jerusalem</char></note> <verse eid="JOL 3:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="JOL 3:2"/>I will gather all the nations, </para>
+
 <para style="q2" vid="JOL 3:2">and I will bring them down to the Valley of Jehoshaphat,<note caller="+" style="f"><char style="fr" closed="false">3.2 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Jehoshaphat</char><char style="ft" closed="false"> means </char><char style="fq" closed="false">YHWH judges</char><char style="ft" closed="false">; also in verse 12.</char></note> </para>
+
 <para style="q1" vid="JOL 3:2">and I will enter into judgment with them there </para>
+
 <para style="q2" vid="JOL 3:2">over My people and My heritage Israel, </para>
+
 <para style="q1" vid="JOL 3:2">whom they have scattered among the nations—</para>
-<para style="q2" vid="JOL 3:2">and they have divided up My land. </para>
+
+<para style="q2" vid="JOL 3:2">and they have divided up My land. <verse eid="JOL 3:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="JOL 3:3"/>And for My people they have cast lots, </para>
+
 <para style="q2" vid="JOL 3:3">and they have given a boy for a prostitute, </para>
-<para style="q2" vid="JOL 3:3">and a girl they have sold for wine, that they may drink. </para>
-<para style="p"><verse number="4" style="v" sid="JOL 3:4"/>And indeed, what <char style="add">are</char> you⁺ to Me, O Tyre, and Sidon, and all the coasts of Philistia? A recompense are you⁺ rendering against Me, or are you⁺ retaliating against Me? Swiftly <char style="add">and</char> speedily I will return your⁺ recompense upon your⁺ head, </para>
-<para style="p"><verse number="5" style="v" sid="JOL 3:5"/>because you⁺ took My silver and My gold, and My precious treasures you⁺ have brought in into your⁺ temples!<note caller="+" style="f"><char style="fr" closed="false">3.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">palaces</char></note> </para>
-<para style="p"><verse number="6" style="v" sid="JOL 3:6"/>And the sons of Judah and the sons of Jerusalem you⁺ sold to the sons of Javan,<note caller="+" style="f"><char style="fr" closed="false">3.6 </char><char style="ft" closed="false"> That is, Greece</char></note> that you might remove them far from their borders. </para>
-<para style="p"><verse number="7" style="v" sid="JOL 3:7"/>Behold, I am rousing them from the place where there you⁺ have sold them, and I will return your⁺ recompense upon your⁺ head! </para>
+
+<para style="q2" vid="JOL 3:3">and a girl they have sold for wine, that they may drink. <verse eid="JOL 3:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="JOL 3:4"/>And indeed, what <char style="add">are</char> you⁺ to Me, O Tyre, and Sidon, and all the coasts of Philistia? A recompense are you⁺ rendering against Me, or are you⁺ retaliating against Me? Swiftly <char style="add">and</char> speedily I will return your⁺ recompense upon your⁺ head, <verse eid="JOL 3:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JOL 3:5"/>because you⁺ took My silver and My gold, and My precious treasures you⁺ have brought in into your⁺ temples!<note caller="+" style="f"><char style="fr" closed="false">3.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">palaces</char></note> <verse eid="JOL 3:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="JOL 3:6"/>And the sons of Judah and the sons of Jerusalem you⁺ sold to the sons of Javan,<note caller="+" style="f"><char style="fr" closed="false">3.6 </char><char style="ft" closed="false"> That is, Greece</char></note> that you might remove them far from their borders. <verse eid="JOL 3:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="JOL 3:7"/>Behold, I am rousing them from the place where there you⁺ have sold them, and I will return your⁺ recompense upon your⁺ head! <verse eid="JOL 3:7"/></para>
+
 <para style="p"><verse number="8" style="v" sid="JOL 3:8"/>And I will sell your⁺ sons and your⁺ daughters into the hand of the sons of Judah, and they will sell them to the Sabeans, to a people far off!” </para>
-<para style="p" vid="JOL 3:8">Indeed, YHWH has spoken. </para>
+
+<para style="p" vid="JOL 3:8">Indeed, YHWH has spoken. <verse eid="JOL 3:8"/></para>
+
 <para style="p"><verse number="9" style="v" sid="JOL 3:9"/>Call this out among the nations: </para>
+
 <para style="q1" vid="JOL 3:9">“Consecrate for war; </para>
+
 <para style="q2" vid="JOL 3:9">Rouse the mighty ones; </para>
+
 <para style="q1" vid="JOL 3:9">let draw near; let them come up—</para>
-<para style="q2" vid="JOL 3:9">all the men of war! </para>
+
+<para style="q2" vid="JOL 3:9">all the men of war! <verse eid="JOL 3:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="JOL 3:10"/>Beat your⁺ plowshares into swords, </para>
+
 <para style="q2" vid="JOL 3:10">and your⁺ pruning hooks into spears; </para>
-<para style="q2" vid="JOL 3:10">let the weak say, ‘I <char style="add">am</char> strong.’ </para>
+
+<para style="q2" vid="JOL 3:10">let the weak say, ‘I <char style="add">am</char> strong.’ <verse eid="JOL 3:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="JOL 3:11"/>Hurry and come in, all nations from around, </para>
+
 <para style="q2" vid="JOL 3:11">and gather together there. </para>
+
 <para style="q1" vid="JOL 3:11">Bring down, O YHWH, </para>
-<para style="q2" vid="JOL 3:11">Your mighty ones. </para>
+
+<para style="q2" vid="JOL 3:11">Your mighty ones. <verse eid="JOL 3:11"/></para>
+
 <para style="q1"><verse number="12" style="v" sid="JOL 3:12"/>May they be roused and come up—</para>
+
 <para style="q2" vid="JOL 3:12">the nations to the Valley of Jehoshaphat. </para>
+
 <para style="q1" vid="JOL 3:12">For there I will sit to judge </para>
-<para style="q2" vid="JOL 3:12">all the nations from around. </para>
+
+<para style="q2" vid="JOL 3:12">all the nations from around. <verse eid="JOL 3:12"/></para>
+
 <para style="q1"><verse number="13" style="v" sid="JOL 3:13"/>Send forth the sickle, </para>
+
 <para style="q2" vid="JOL 3:13">for the harvest is ripe. </para>
+
 <para style="q1" vid="JOL 3:13">Come, go down, </para>
+
 <para style="q2" vid="JOL 3:13">for the winepress is full; </para>
+
 <para style="q1" vid="JOL 3:13">the wine vats overflow, </para>
-<para style="q2" vid="JOL 3:13">for great <char style="add">is</char> their wickedness! <note caller="+" style="f"><char style="fr" closed="false">3.13 </char><char style="ft" closed="false"> LXX </char><char style="fq" closed="false">the harvest has come</char><char style="ft" closed="false">; see also Mark 4:29.</char></note></para>
+
+<para style="q2" vid="JOL 3:13">for great <char style="add">is</char> their wickedness! <note caller="+" style="f"><char style="fr" closed="false">3.13 </char><char style="ft" closed="false"> LXX </char><char style="fq" closed="false">the harvest has come</char><char style="ft" closed="false">; see also Mark 4:29.</char></note><verse eid="JOL 3:13"/></para>
+
 <para style="q1"><verse number="14" style="v" sid="JOL 3:14"/>Multitudes, multitudes </para>
+
 <para style="q2" vid="JOL 3:14">in the valley of decision. </para>
+
 <para style="q1" vid="JOL 3:14">For the day of YHWH <char style="add">is</char> near </para>
-<para style="q2" vid="JOL 3:14">in the valley of decision. </para>
+
+<para style="q2" vid="JOL 3:14">in the valley of decision. <verse eid="JOL 3:14"/></para>
+
 <para style="q1"><verse number="15" style="v" sid="JOL 3:15"/>The sun and moon will grow dark, </para>
-<para style="q2" vid="JOL 3:15">and the stars will withdraw their brightness. </para>
+
+<para style="q2" vid="JOL 3:15">and the stars will withdraw their brightness. <verse eid="JOL 3:15"/></para>
+
 <para style="q1"><verse number="16" style="v" sid="JOL 3:16"/>And YHWH will roar from Zion, </para>
+
 <para style="q2" vid="JOL 3:16">and from Jerusalem He will give forth His voice, </para>
+
 <para style="q2" vid="JOL 3:16">and the heavens and the earth will quake, </para>
+
 <para style="q1" vid="JOL 3:16">and YHWH <char style="add">will be</char> a refuge for His people </para>
-<para style="q2" vid="JOL 3:16">and a stronghold for the sons of Israel. </para>
+
+<para style="q2" vid="JOL 3:16">and a stronghold for the sons of Israel. <verse eid="JOL 3:16"/></para>
+
 <para style="s">Blessings for God’s People</para>
+
 <para style="q1"><verse number="17" style="v" sid="JOL 3:17"/>And you⁺ will know that I <char style="add">am</char> YHWH your⁺ God, </para>
+
 <para style="q2" vid="JOL 3:17">the One dwelling on Zion, the mountain of My holiness; </para>
+
 <para style="q1" vid="JOL 3:17">and Jerusalem will be holy, </para>
-<para style="q2" vid="JOL 3:17">and strangers will not pass through her anymore. </para>
+
+<para style="q2" vid="JOL 3:17">and strangers will not pass through her anymore. <verse eid="JOL 3:17"/></para>
+
 <para style="q1"><verse number="18" style="v" sid="JOL 3:18"/>And it will come to pass in that day <char style="add">that</char> the mountains will drip new wine, </para>
+
 <para style="q2" vid="JOL 3:18">and the hills will flow <char style="add">with</char> milk; </para>
+
 <para style="q1" vid="JOL 3:18">and all the channels of Judah will flow with water, </para>
+
 <para style="q2" vid="JOL 3:18">and a fountain will come forth from the house of YHWH </para>
-<para style="q2" vid="JOL 3:18">and will water the Valley of Shittim.<note caller="+" style="f"><char style="fr" closed="false">3.18 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Valley of the Acacias</char></note> </para>
+
+<para style="q2" vid="JOL 3:18">and will water the Valley of Shittim.<note caller="+" style="f"><char style="fr" closed="false">3.18 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Valley of the Acacias</char></note> <verse eid="JOL 3:18"/></para>
+
 <para style="q1"><verse number="19" style="v" sid="JOL 3:19"/>Egypt will be as a desolation </para>
+
 <para style="q2" vid="JOL 3:19">and Edom will be as a wilderness of desolation, </para>
+
 <para style="q1" vid="JOL 3:19">because of violence <char style="add">to</char> the sons of Judah; </para>
-<para style="q2" vid="JOL 3:19">for in their land they have poured out innocent blood. </para>
+
+<para style="q2" vid="JOL 3:19">for in their land they have poured out innocent blood. <verse eid="JOL 3:19"/></para>
+
 <para style="q1"><verse number="20" style="v" sid="JOL 3:20"/>And Judah will abide forever, </para>
-<para style="q2" vid="JOL 3:20">and Jerusalem for generation and generation. </para>
+
+<para style="q2" vid="JOL 3:20">and Jerusalem for generation and generation. <verse eid="JOL 3:20"/></para>
+
 <para style="q1"><verse number="21" style="v" sid="JOL 3:21"/>And I will clear their bloodguilt </para>
+
 <para style="q2" vid="JOL 3:21"><char style="add">that</char> I have not cleared.<note caller="+" style="f"><char style="fr" closed="false">3.21 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">And I will pardon their bloodguilt, which I have not yet pardoned.</char></note> </para>
-<para style="qs" vid="JOL 3:21">And YHWH is dwelling in Zion! </para>
+
+<para style="qs" vid="JOL 3:21">And YHWH is dwelling in Zion! <verse eid="JOL 3:21"/></para>
+
 <chapter eid="JOL 3"/>
+
 </usx>

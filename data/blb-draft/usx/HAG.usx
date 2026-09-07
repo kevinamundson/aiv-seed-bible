@@ -1,118 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="HAG" style="id">BLB-Draft</book>
+
 <para style="h">Haggai</para>
+
 <para style="toc1">Haggai</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="HAG 1"/>
+
 <para style="s">A Call to Rebuild the Temple</para>
-<para style="p"><verse number="1" style="v" sid="HAG 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Ezra 5:1–5</char></note>In the second year of Darius the king, in the sixth month, on the first day of the month, the word of YHWH came by the hand of Haggai the prophet to Zerubbabel son of Shealtiel, governor of Judah, and to Joshua son of Jehozadak,<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Jehozadak</char><char style="ft" closed="false"> is a variant of </char><char style="fq" closed="false">Jozadak</char><char style="ft" closed="false">; also in verses 12 and 14; see Ezra 3:2.</char></note> the high priest, saying: </para>
+
+<para style="p"><verse number="1" style="v" sid="HAG 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Ezra 5:1–5</char></note>In the second year of Darius the king, in the sixth month, on the first day of the month, the word of YHWH came by the hand of Haggai the prophet to Zerubbabel son of Shealtiel, governor of Judah, and to Joshua son of Jehozadak,<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Jehozadak</char><char style="ft" closed="false"> is a variant of </char><char style="fq" closed="false">Jozadak</char><char style="ft" closed="false">; also in verses 12 and 14; see Ezra 3:2.</char></note> the high priest, saying: <verse eid="HAG 1:1"/></para>
+
 <para style="p"><verse number="2" style="v" sid="HAG 1:2"/>Thus speaks YHWH of Hosts, </para>
+
 <para style="q1" vid="HAG 1:2">saying: “This people says, ‘The time has not come, </para>
-<para style="q2" vid="HAG 1:2">the time for the house of YHWH to be built.’” </para>
-<para style="p"><verse number="3" style="v" sid="HAG 1:3"/>And the word came of YHWH by the hand of Haggai the prophet, saying: </para>
+
+<para style="q2" vid="HAG 1:2">the time for the house of YHWH to be built.’” <verse eid="HAG 1:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HAG 1:3"/>And the word came of YHWH by the hand of Haggai the prophet, saying: <verse eid="HAG 1:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="HAG 1:4"/>“<char style="add">Is it</char> time for you⁺ yourselves </para>
+
 <para style="q2" vid="HAG 1:4">to dwell in your⁺ paneled houses, </para>
-<para style="q2" vid="HAG 1:4">and this house <char style="add">is</char> desolate?” </para>
+
+<para style="q2" vid="HAG 1:4">and this house <char style="add">is</char> desolate?” <verse eid="HAG 1:4"/></para>
+
 <para style="p"><verse number="5" style="v" sid="HAG 1:5"/>And now, thus says YHWH of Hosts: </para>
-<para style="q1" vid="HAG 1:5">“Set your⁺ heart upon your⁺ ways. </para>
+
+<para style="q1" vid="HAG 1:5">“Set your⁺ heart upon your⁺ ways. <verse eid="HAG 1:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="HAG 1:6"/>You⁺ have sown much, </para>
+
 <para style="q2" vid="HAG 1:6">and you have brought in little; </para>
+
 <para style="q1" vid="HAG 1:6">you eat, and not to satisfaction; </para>
+
 <para style="q2" vid="HAG 1:6">you drink, and not to drunkenness; </para>
+
 <para style="q1" vid="HAG 1:6">One wears clothes, and there is no warmth to it; </para>
-<para style="q2" vid="HAG 1:6">and the wage earner earns wages into a bag pierced through.” </para>
+
+<para style="q2" vid="HAG 1:6">and the wage earner earns wages into a bag pierced through.” <verse eid="HAG 1:6"/></para>
+
 <para style="p"><verse number="7" style="v" sid="HAG 1:7"/>Thus says YHWH of Hosts: </para>
-<para style="q1" vid="HAG 1:7">“Set your⁺ heart upon your⁺ ways. </para>
+
+<para style="q1" vid="HAG 1:7">“Set your⁺ heart upon your⁺ ways. <verse eid="HAG 1:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="HAG 1:8"/>Go up to the mountains, </para>
+
 <para style="q2" vid="HAG 1:8">and bring wood, and build the house, </para>
+
 <para style="q1" vid="HAG 1:8">that I may take pleasure in it and be glorified, </para>
-<para style="q2" vid="HAG 1:8">says YHWH. </para>
+
+<para style="q2" vid="HAG 1:8">says YHWH. <verse eid="HAG 1:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="HAG 1:9"/><char style="add">You</char> turned for much, </para>
+
 <para style="q2" vid="HAG 1:9">and behold, little; </para>
+
 <para style="q1" vid="HAG 1:9">and you⁺ brought it home, and I blew it away. </para>
+
 <para style="q2" vid="HAG 1:9">Because of what? An utterance of YHWH of Hosts, </para>
+
 <para style="q1" vid="HAG 1:9">because of My house, the <char style="add">way</char> that it <char style="add">is</char> <char style="add">in</char> ruins, </para>
+
 <para style="q2" vid="HAG 1:9">while you⁺ are running, </para>
-<para style="q2" vid="HAG 1:9">each man to his house. </para>
+
+<para style="q2" vid="HAG 1:9">each man to his house. <verse eid="HAG 1:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="HAG 1:10"/>Upon thus, </para>
+
 <para style="q2" vid="HAG 1:10">the heavens above you⁺ withhold the dew, </para>
-<para style="q2" vid="HAG 1:10">and the earth withholds its fruit. </para>
+
+<para style="q2" vid="HAG 1:10">and the earth withholds its fruit. <verse eid="HAG 1:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="HAG 1:11"/>And I have called for a drought on the land, </para>
+
 <para style="q2" vid="HAG 1:11">and on the mountains, </para>
+
 <para style="q1" vid="HAG 1:11">and on the grain and on the new wine and on the oil, </para>
+
 <para style="q2" vid="HAG 1:11">and on whatever the ground brings forth, </para>
+
 <para style="q1" vid="HAG 1:11">and on mankind and on the livestock, </para>
-<para style="q2" vid="HAG 1:11">and on all the labor of the hands.” </para>
+
+<para style="q2" vid="HAG 1:11">and on all the labor of the hands.” <verse eid="HAG 1:11"/></para>
+
 <para style="s">The People Obey</para>
-<para style="p"><verse number="12" style="v" sid="HAG 1:12"/>And Zerubbabel son of Shealtiel, and Joshua son of Jehozadak, the high priest, along with all the remnant of the people, listened to the voice of YHWH their God and to the words of Haggai the prophet, because YHWH their God had sent him; and the people were afraid before the face of YHWH. </para>
+
+<para style="p"><verse number="12" style="v" sid="HAG 1:12"/>And Zerubbabel son of Shealtiel, and Joshua son of Jehozadak, the high priest, along with all the remnant of the people, listened to the voice of YHWH their God and to the words of Haggai the prophet, because YHWH their God had sent him; and the people were afraid before the face of YHWH. <verse eid="HAG 1:12"/></para>
+
 <para style="p"><verse number="13" style="v" sid="HAG 1:13"/>And Haggai the messenger of YHWH spoke the message of YHWH to the people, saying: </para>
+
 <para style="q1" vid="HAG 1:13">“I <char style="add">am</char> with you⁺,” </para>
-<para style="q2" vid="HAG 1:13">a declaration of YHWH. </para>
-<para style="p"><verse number="14" style="v" sid="HAG 1:14"/>And YHWH stirred up the spirit of Zerubbabel son of Shealtiel, governor of Judah, and the spirit of Joshua son of Jehozadak, the high priest, and the spirit of all the remnant of the people; and they came and did work on the house of YHWH of Hosts, their God, </para>
-<para style="p"><verse number="15" style="v" sid="HAG 1:15"/>on the twenty-fourth day of the month, in the sixth <char style="add">month</char>, in the second year of Darius the king. </para>
+
+<para style="q2" vid="HAG 1:13">a declaration of YHWH. <verse eid="HAG 1:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HAG 1:14"/>And YHWH stirred up the spirit of Zerubbabel son of Shealtiel, governor of Judah, and the spirit of Joshua son of Jehozadak, the high priest, and the spirit of all the remnant of the people; and they came and did work on the house of YHWH of Hosts, their God, <verse eid="HAG 1:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HAG 1:15"/>on the twenty-fourth day of the month, in the sixth <char style="add">month</char>, in the second year of Darius the king. <verse eid="HAG 1:15"/></para>
+
 <chapter eid="HAG 1"/>
+
 <chapter number="2" style="c" sid="HAG 2"/>
+
 <para style="s">The Coming Glory of God’s House</para>
-<para style="p"><verse number="1" style="v" sid="HAG 2:1"/>In the seventh <char style="add">month</char>, on the twenty-first of the month, the word of YHWH came by the hand Haggai the prophet, saying, </para>
-<para style="p"><verse number="2" style="v" sid="HAG 2:2"/>“Speak now to Zerubbabel son of Shealtiel, governor of Judah, and to Joshua son of Jehozadak,<note caller="+" style="f"><char style="fr" closed="false">2.2 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Jehozadak</char><char style="ft" closed="false"> is a variant of </char><char style="fq" closed="false">Jozadak</char><char style="ft" closed="false">; also in verse 4; see Ezra 3:2.</char></note> the high priest, and to the remnant of the people, saying: </para>
-<para style="p"><verse number="3" style="v" sid="HAG 2:3"/>‘Who <char style="add">is</char> remaining among you⁺ that saw this house in its former glory? And how are you⁺ seeing it now? <char style="add">Is it</char> not in comparison as nothing in your⁺ eyes?’ </para>
+
+<para style="p"><verse number="1" style="v" sid="HAG 2:1"/>In the seventh <char style="add">month</char>, on the twenty-first of the month, the word of YHWH came by the hand Haggai the prophet, saying, <verse eid="HAG 2:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="HAG 2:2"/>“Speak now to Zerubbabel son of Shealtiel, governor of Judah, and to Joshua son of Jehozadak,<note caller="+" style="f"><char style="fr" closed="false">2.2 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Jehozadak</char><char style="ft" closed="false"> is a variant of </char><char style="fq" closed="false">Jozadak</char><char style="ft" closed="false">; also in verse 4; see Ezra 3:2.</char></note> the high priest, and to the remnant of the people, saying: <verse eid="HAG 2:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="HAG 2:3"/>‘Who <char style="add">is</char> remaining among you⁺ that saw this house in its former glory? And how are you⁺ seeing it now? <char style="add">Is it</char> not in comparison as nothing in your⁺ eyes?’ <verse eid="HAG 2:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="HAG 2:4"/>And now be strong, O Zerubbabel, </para>
+
 <para style="q2" vid="HAG 2:4">a declaration of YHWH, </para>
+
 <para style="q1" vid="HAG 2:4">and be strong, O Joshua son of Jehozadak, </para>
+
 <para style="q2" vid="HAG 2:4">the high priest; </para>
+
 <para style="q1" vid="HAG 2:4">and be strong, all you people of the land, </para>
+
 <para style="q2" vid="HAG 2:4">a declaration of YHWH, </para>
+
 <para style="q1" vid="HAG 2:4">and work. For I <char style="add">am</char> with you⁺, </para>
-<para style="q2" vid="HAG 2:4">a declaration of YHWH of Hosts, </para>
+
+<para style="q2" vid="HAG 2:4">a declaration of YHWH of Hosts, <verse eid="HAG 2:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="HAG 2:5"/>the word that I cut with you⁺ </para>
+
 <para style="q2" vid="HAG 2:5">at your⁺ coming forth from Egypt, </para>
+
 <para style="q1" vid="HAG 2:5">and My Spirit is standing in your⁺ midst. </para>
-<para style="q2" vid="HAG 2:5">Do not be afraid!” </para>
+
+<para style="q2" vid="HAG 2:5">Do not be afraid!” <verse eid="HAG 2:5"/></para>
+
 <para style="p"><verse number="6" style="v" sid="HAG 2:6"/>For thus says YHWH of Hosts: </para>
+
 <para style="q1" vid="HAG 2:6">“Once more, it <char style="add">is</char> a little while, </para>
+
 <para style="q2" vid="HAG 2:6">and I will be shaking the heavens and the earth, </para>
-<para style="q2" vid="HAG 2:6">and the sea and the dry land. <note caller="+" style="f"><char style="fr" closed="false">2.6 </char><char style="ft" closed="false"> Cited in Hebrews 12:26</char></note></para>
+
+<para style="q2" vid="HAG 2:6">and the sea and the dry land. <note caller="+" style="f"><char style="fr" closed="false">2.6 </char><char style="ft" closed="false"> Cited in Hebrews 12:26</char></note><verse eid="HAG 2:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="HAG 2:7"/>And I will shake all the nations, </para>
+
 <para style="q2" vid="HAG 2:7">and they will come with the treasure of all the nations, </para>
+
 <para style="q1" vid="HAG 2:7">and I will fill this house with glory, </para>
-<para style="q2" vid="HAG 2:7">says YHWH of Hosts. </para>
+
+<para style="q2" vid="HAG 2:7">says YHWH of Hosts. <verse eid="HAG 2:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="HAG 2:8"/>Unto Me <char style="add">is</char> the silver, and unto Me the gold, </para>
-<para style="q2" vid="HAG 2:8">a declaration of YHWH of Hosts. </para>
+
+<para style="q2" vid="HAG 2:8">a declaration of YHWH of Hosts. <verse eid="HAG 2:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="HAG 2:9"/>Greater will be the glory of this latter house </para>
+
 <para style="q2" vid="HAG 2:9">than the former, </para>
+
 <para style="q2" vid="HAG 2:9">says YHWH of Hosts, </para>
+
 <para style="q1" vid="HAG 2:9">and in this place I will give peace, </para>
-<para style="q2" vid="HAG 2:9">a declaration of YHWH of Hosts.” </para>
+
+<para style="q2" vid="HAG 2:9">a declaration of YHWH of Hosts.” <verse eid="HAG 2:9"/></para>
+
 <para style="s">Blessings for a Defiled People</para>
-<para style="p"><verse number="10" style="v" sid="HAG 2:10"/>On the twenty-fourth of the ninth <char style="add">month</char>, in the second year of Darius, the word of YHWH came to Haggai the prophet, saying: </para>
-<para style="p"><verse number="11" style="v" sid="HAG 2:11"/>“Thus says YHWH of Hosts: ‘Ask now the priests <char style="add">about</char> the law, saying, </para>
+
+<para style="p"><verse number="10" style="v" sid="HAG 2:10"/>On the twenty-fourth of the ninth <char style="add">month</char>, in the second year of Darius, the word of YHWH came to Haggai the prophet, saying: <verse eid="HAG 2:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="HAG 2:11"/>“Thus says YHWH of Hosts: ‘Ask now the priests <char style="add">about</char> the law, saying, <verse eid="HAG 2:11"/></para>
+
 <para style="p"><verse number="12" style="v" sid="HAG 2:12"/>behold, <char style="add">if</char> a man should carry holy flesh in the fold of his garment, and he touches with his fold against bread, or stew, or wine, or oil, or any food, will it become holy?’” </para>
-<para style="p" vid="HAG 2:12">And the priests answered and said, “No.” </para>
+
+<para style="p" vid="HAG 2:12">And the priests answered and said, “No.” <verse eid="HAG 2:12"/></para>
+
 <para style="p"><verse number="13" style="v" sid="HAG 2:13"/>And Haggai said, “If one unclean by a dead body touches any of these <char style="add">things</char>, will it be unclean?” </para>
-<para style="p" vid="HAG 2:13">And the priests answered and said, “It will be unclean.” </para>
-<para style="p"><verse number="14" style="v" sid="HAG 2:14"/>And Haggai answered and said, “Thus <char style="add">is</char> this people, and thus <char style="add">is</char> this nation before My face, a declaration of YHWH, and thus <char style="add">is</char> every work of their hands, and what they offer there, it <char style="add">is</char> unclean. </para>
-<para style="p"><verse number="15" style="v" sid="HAG 2:15"/>And now, set, please, your⁺ heart from this day and onward:<note caller="+" style="f"><char style="fr" closed="false">2.15 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">backward</char><char style="ft" closed="false">; also in verse 18</char></note> From before a stone was placed upon a stone in the house of YHWH, </para>
-<para style="p"><verse number="16" style="v" sid="HAG 2:16"/>From their being, <char style="add">when</char> one came toward a heap of twenty, then there were <char style="add">but</char> ten. When one came to the wine vat to draw out fifty <char style="add">from</char> the press, then there were <char style="add">but</char> twenty. </para>
-<para style="p"><verse number="17" style="v" sid="HAG 2:17"/>I struck you⁺ with the blight and with mildew and with hail, all the work of your⁺ hands, and you⁺ <char style="add">were</char> not with Me, a declaration of YHWH. </para>
-<para style="p"><verse number="18" style="v" sid="HAG 2:18"/>Set now your⁺ heart from this day and onward, from the twenty-fourth day of the ninth <char style="add">month</char>, from the day that the temple of YHWH was founded—set your⁺ heart! </para>
-<para style="p"><verse number="19" style="v" sid="HAG 2:19"/>Is the seed still in the barn? Until now the vine and the fig tree and the pomegranate and the olive tree have not borne; from this day I will bless.” </para>
+
+<para style="p" vid="HAG 2:13">And the priests answered and said, “It will be unclean.” <verse eid="HAG 2:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="HAG 2:14"/>And Haggai answered and said, “Thus <char style="add">is</char> this people, and thus <char style="add">is</char> this nation before My face, a declaration of YHWH, and thus <char style="add">is</char> every work of their hands, and what they offer there, it <char style="add">is</char> unclean. <verse eid="HAG 2:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="HAG 2:15"/>And now, set, please, your⁺ heart from this day and onward:<note caller="+" style="f"><char style="fr" closed="false">2.15 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">backward</char><char style="ft" closed="false">; also in verse 18</char></note> From before a stone was placed upon a stone in the house of YHWH, <verse eid="HAG 2:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="HAG 2:16"/>From their being, <char style="add">when</char> one came toward a heap of twenty, then there were <char style="add">but</char> ten. When one came to the wine vat to draw out fifty <char style="add">from</char> the press, then there were <char style="add">but</char> twenty. <verse eid="HAG 2:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="HAG 2:17"/>I struck you⁺ with the blight and with mildew and with hail, all the work of your⁺ hands, and you⁺ <char style="add">were</char> not with Me, a declaration of YHWH. <verse eid="HAG 2:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="HAG 2:18"/>Set now your⁺ heart from this day and onward, from the twenty-fourth day of the ninth <char style="add">month</char>, from the day that the temple of YHWH was founded—set your⁺ heart! <verse eid="HAG 2:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="HAG 2:19"/>Is the seed still in the barn? Until now the vine and the fig tree and the pomegranate and the olive tree have not borne; from this day I will bless.” <verse eid="HAG 2:19"/></para>
+
 <para style="s">Zerubbabel Yahweh’s Signet Ring</para>
-<para style="p"><verse number="20" style="v" sid="HAG 2:20"/>And the word of YHWH came a second <char style="add">time</char> to Haggai on the twenty-fourth of the month, saying, </para>
-<para style="p"><verse number="21" style="v" sid="HAG 2:21"/>“Speak to Zerubbabel, governor of Judah, saying: I am going to shake the heavens and the earth; </para>
+
+<para style="p"><verse number="20" style="v" sid="HAG 2:20"/>And the word of YHWH came a second <char style="add">time</char> to Haggai on the twenty-fourth of the month, saying, <verse eid="HAG 2:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="HAG 2:21"/>“Speak to Zerubbabel, governor of Judah, saying: I am going to shake the heavens and the earth; <verse eid="HAG 2:21"/></para>
+
 <para style="q1"><verse number="22" style="v" sid="HAG 2:22"/>and I will overthrow the throne of kingdoms, </para>
+
 <para style="q2" vid="HAG 2:22">and I will destroy the strength </para>
+
 <para style="q2" vid="HAG 2:22">of the kingdoms of the nations; </para>
+
 <para style="q1" vid="HAG 2:22">and I will overthrow the chariots and those riding them, </para>
+
 <para style="q2" vid="HAG 2:22">and the horses and their riders will come down, </para>
-<para style="q2" vid="HAG 2:22">each man by the sword of his brother. </para>
+
+<para style="q2" vid="HAG 2:22">each man by the sword of his brother. <verse eid="HAG 2:22"/></para>
+
 <para style="q1"><verse number="23" style="v" sid="HAG 2:23"/>On that day, </para>
+
 <para style="q2" vid="HAG 2:23">a declaration of YHWH of Hosts, </para>
+
 <para style="q1" vid="HAG 2:23">I will take you, Zerubbabel </para>
+
 <para style="q2" vid="HAG 2:23">son of Shealtiel, My servant, </para>
+
 <para style="q2" vid="HAG 2:23">a declaration of YHWH, </para>
+
 <para style="q1" vid="HAG 2:23">and will set you as a signet ring, </para>
+
 <para style="q2" vid="HAG 2:23">for I have chosen you, </para>
-<para style="q2" vid="HAG 2:23">a declaration of YHWH of Hosts.” </para>
+
+<para style="q2" vid="HAG 2:23">a declaration of YHWH of Hosts.” <verse eid="HAG 2:23"/></para>
+
 <chapter eid="HAG 2"/>
+
 </usx>

@@ -933,18 +933,18 @@
       "samples": [
         {
           "usfm": "GEN.34.7",
-          "docx": "And the sons of Jacob came in from the field when they heard; and the men were grieved, and it burned to them exceedingly because he has done an outrage in Israel— to lie with the ",
-          "txt": "And the sons of Jacob came in from the field when they heard; and the men were grieved, and it burned to them exceedingly because he has done an outrage in Israel—to lie with the d"
+          "docx": "And the sons of Jacob came in from the field when they heard; and the men were grieved, and it burned to them exceedingly because he has done an outrage in Israel\u2014 to lie with the ",
+          "txt": "And the sons of Jacob came in from the field when they heard; and the men were grieved, and it burned to them exceedingly because he has done an outrage in Israel\u2014to lie with the d"
         },
         {
           "usfm": "GEN.49.23",
-          "docx": "The masters of arrows— and they have embittered him, and shot and hated him.",
-          "txt": "The masters of arrows—and they have embittered him, and shot and hated him."
+          "docx": "The masters of arrows\u2014 and they have embittered him, and shot and hated him.",
+          "txt": "The masters of arrows\u2014and they have embittered him, and shot and hated him."
         },
         {
           "usfm": "EXO.15.17",
-          "docx": "You will bring them in and plant them in the mountain of Your inheritance— the place for Your own dwelling, which You have made, O YHWH, the sanctuary, O Lord, that Your hands have",
-          "txt": "You will bring them in and plant them in the mountain of Your inheritance—the place for Your own dwelling, which You have made, O YHWH, the sanctuary, O Lord, that Your hands have "
+          "docx": "You will bring them in and plant them in the mountain of Your inheritance\u2014 the place for Your own dwelling, which You have made, O YHWH, the sanctuary, O Lord, that Your hands have",
+          "txt": "You will bring them in and plant them in the mountain of Your inheritance\u2014the place for Your own dwelling, which You have made, O YHWH, the sanctuary, O Lord, that Your hands have "
         },
         {
           "usfm": "EXO.28.36",
@@ -958,18 +958,18 @@
         },
         {
           "usfm": "NUM.20.4",
-          "docx": "And why have you⁺ brought up the assembly of YHWH into this wilderness to die—here—we and our livestock?",
-          "txt": "And why have you⁺ brought up the assembly of YHWH into this wilderness to die here—we and our livestock?"
+          "docx": "And why have you\u207a brought up the assembly of YHWH into this wilderness to die\u2014here\u2014we and our livestock?",
+          "txt": "And why have you\u207a brought up the assembly of YHWH into this wilderness to die here\u2014we and our livestock?"
         },
         {
           "usfm": "DEU.32.15",
-          "docx": "And Jeshurun grew fat and kicked— you grew fat, you grew thick, you gorged— and he forsook God who made him and scorned the Rock of his salvation.",
-          "txt": "And Jeshurun grew fat and kicked—you grew fat, you grew thick, you gorged—and he forsook God who made him and scorned the Rock of his salvation."
+          "docx": "And Jeshurun grew fat and kicked\u2014 you grew fat, you grew thick, you gorged\u2014 and he forsook God who made him and scorned the Rock of his salvation.",
+          "txt": "And Jeshurun grew fat and kicked\u2014you grew fat, you grew thick, you gorged\u2014and he forsook God who made him and scorned the Rock of his salvation."
         },
         {
           "usfm": "DEU.32.17",
-          "docx": "They sacrificed to demons, not to God, to gods they had not known. New ones—from the vicinity they came— that your⁺ fathers did not fear.",
-          "txt": "They sacrificed to demons, not to God, to gods they had not known. New ones—from the vicinity they came—that your⁺ fathers did not fear."
+          "docx": "They sacrificed to demons, not to God, to gods they had not known. New ones\u2014from the vicinity they came\u2014 that your\u207a fathers did not fear.",
+          "txt": "They sacrificed to demons, not to God, to gods they had not known. New ones\u2014from the vicinity they came\u2014that your\u207a fathers did not fear."
         }
       ],
       "resolution": "not averaged; USX wording and marks follow docx"
@@ -982,5 +982,15 @@
     "GEN.1.6": "footnote: Or a canopy / an expanse / a vault"
   },
   "stop": "corpus on this computer only; no publish",
-  "path": "/workspace/aiv-translations/blb-draft"
+  "path": "/workspace/aiv-translations/blb-draft",
+  "usxEidRebuild": {
+    "atUtc": "2026-09-07T17:50:00Z",
+    "atAmericaChicago": "7 Sep 2026, 12:50 PM CDT",
+    "verseSid": 31084,
+    "verseEid": 31084,
+    "chapterSid": 1189,
+    "chapterEid": 1189,
+    "source": "/workspace/aiv-translations/blb-draft/usx/",
+    "note": "USX 3.x verse end milestones (eid) added; wording/markers unchanged; still draft"
+  }
 }

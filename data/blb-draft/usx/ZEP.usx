@@ -1,264 +1,525 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="ZEP" style="id">BLB-Draft</book>
+
 <para style="h">Zephaniah</para>
+
 <para style="toc1">Zephaniah</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="ZEP 1"/>
+
 <para style="s">Zephaniah Prophesies Judgment on Judah</para>
-<para style="p"><verse number="1" style="v" sid="ZEP 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Matthew 13:36–43</char></note>The word of YHWH that came to be to Zephaniah son of Cushi, son of Gedaliah, son of Amariah, son of Hezekiah, in the days of Josiah son of Amon king of Judah. </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEP 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Matthew 13:36–43</char></note>The word of YHWH that came to be to Zephaniah son of Cushi, son of Gedaliah, son of Amariah, son of Hezekiah, in the days of Josiah son of Amon king of Judah. <verse eid="ZEP 1:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="ZEP 1:2"/>“Removing I will bring to an end </para>
+
 <para style="q2" vid="ZEP 1:2">everything from the face of the earth,” </para>
-<para style="qs" vid="ZEP 1:2">a declaration of YHWH. </para>
+
+<para style="qs" vid="ZEP 1:2">a declaration of YHWH. <verse eid="ZEP 1:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="ZEP 1:3"/>“I will bring to an end man and beast; </para>
+
 <para style="q2" vid="ZEP 1:3">I will bring to an end the birds of the heavens </para>
+
 <para style="q1" vid="ZEP 1:3">and the fish of the sea </para>
+
 <para style="q2" vid="ZEP 1:3">and the stumbling blocks with the wicked;<note caller="+" style="f"><char style="fr" closed="false">1.3 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">and the idols that cause the wicked to stumble</char></note> </para>
+
 <para style="q1" vid="ZEP 1:3">and I will cut off mankind </para>
+
 <para style="q2" vid="ZEP 1:3">from the face of the earth,” </para>
-<para style="qs" vid="ZEP 1:3">a declaration of YHWH. </para>
+
+<para style="qs" vid="ZEP 1:3">a declaration of YHWH. <verse eid="ZEP 1:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="ZEP 1:4"/>“And I will stretch out My hand against Judah, </para>
+
 <para style="q2" vid="ZEP 1:4">and against all those dwelling in Jerusalem; </para>
+
 <para style="q1" vid="ZEP 1:4">I will cut off from this place the remnant of Baal, </para>
-<para style="q2" vid="ZEP 1:4"><char style="add">and</char> the names of the idolatrous priests, with the priests, </para>
+
+<para style="q2" vid="ZEP 1:4"><char style="add">and</char> the names of the idolatrous priests, with the priests, <verse eid="ZEP 1:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="ZEP 1:5"/>and those bowing down on the housetops </para>
+
 <para style="q2" vid="ZEP 1:5">to the host of the heavens, </para>
+
 <para style="q1" vid="ZEP 1:5">and those bowing down swearing to YHWH, </para>
-<para style="q2" vid="ZEP 1:5">and swearing to Milcom,<note caller="+" style="f"><char style="fr" closed="false">1.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">swearing by their king</char><char style="ft" closed="false">; </char><char style="fq" closed="false">Milcom</char><char style="ft" closed="false"> is a variant of </char><char style="fq" closed="false">Molech</char><char style="ft" closed="false">; see Leviticus 18:21 and 1 Kings 11:7.</char></note> </para>
+
+<para style="q2" vid="ZEP 1:5">and swearing to Milcom,<note caller="+" style="f"><char style="fr" closed="false">1.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">swearing by their king</char><char style="ft" closed="false">; </char><char style="fq" closed="false">Milcom</char><char style="ft" closed="false"> is a variant of </char><char style="fq" closed="false">Molech</char><char style="ft" closed="false">; see Leviticus 18:21 and 1 Kings 11:7.</char></note> <verse eid="ZEP 1:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="ZEP 1:6"/>and those having turned </para>
+
 <para style="q2" vid="ZEP 1:6">from after YHWH, </para>
+
 <para style="q1" vid="ZEP 1:6">and who have not sought YHWH </para>
-<para style="q2" vid="ZEP 1:6">and not having inquired of Him.” </para>
+
+<para style="q2" vid="ZEP 1:6">and not having inquired of Him.” <verse eid="ZEP 1:6"/></para>
+
 <para style="s">The Day of YahwehMalachi 4:1–6</para>
+
 <para style="q1"><verse number="7" style="v" sid="ZEP 1:7"/><note caller="-" style="x"><char style="xt" closed="false">2 Peter 3:8–13</char></note><note caller="-" style="x"><char style="xt" closed="false">1 Thessalonians 5:1–11</char></note>Be silent before the face of the Lord YHWH, </para>
+
 <para style="q2" vid="ZEP 1:7">for the day of YHWH <char style="add">is</char> near, </para>
+
 <para style="q1" vid="ZEP 1:7">for YHWH has prepared a sacrifice; </para>
-<para style="q2" vid="ZEP 1:7">He has consecrated those called by Him. </para>
+
+<para style="q2" vid="ZEP 1:7">He has consecrated those called by Him. <verse eid="ZEP 1:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="ZEP 1:8"/>“And it will come to pass in the day of the sacrifice of YHWH </para>
+
 <para style="q2" vid="ZEP 1:8">that I will visit punishment on the princes </para>
+
 <para style="q1" vid="ZEP 1:8">and on the sons of the king </para>
-<para style="q2" vid="ZEP 1:8">and on all those clothing themselves <char style="add">with</char> foreign apparel. </para>
+
+<para style="q2" vid="ZEP 1:8">and on all those clothing themselves <char style="add">with</char> foreign apparel. <verse eid="ZEP 1:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="ZEP 1:9"/>And I will visit punishment on all those leaping over the threshold </para>
+
 <para style="q2" vid="ZEP 1:9">on that day,<note caller="+" style="f"><char style="fr" closed="false">1.9 </char><char style="ft" closed="false"> See 1 Samuel 5:5.</char></note> </para>
+
 <para style="q1" vid="ZEP 1:9">those filling the house of their masters<note caller="+" style="f"><char style="fr" closed="false">1.9 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the temple of their gods</char></note> </para>
-<para style="q2" vid="ZEP 1:9">with violence and deceit. </para>
+
+<para style="q2" vid="ZEP 1:9">with violence and deceit. <verse eid="ZEP 1:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="ZEP 1:10"/>And it will come to pass on that day,” </para>
+
 <para style="q2" vid="ZEP 1:10">a declaration of YHWH, “The voice of an outcry from the Gate of the Fish, </para>
+
 <para style="q1" vid="ZEP 1:10">and a wailing from the Mishneh,<note caller="+" style="f"><char style="fr" closed="false">1.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Second Quarter</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Second District</char></note> </para>
-<para style="q2" vid="ZEP 1:10">and a great crashing from the hills. </para>
+
+<para style="q2" vid="ZEP 1:10">and a great crashing from the hills. <verse eid="ZEP 1:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="ZEP 1:11"/>Wail, O dwellers of the Maktesh!<note caller="+" style="f"><char style="fr" closed="false">1.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Hollow</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the market district</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Mortar</char></note> </para>
+
 <para style="q2" vid="ZEP 1:11">For all the merchant people<note caller="+" style="f"><char style="fr" closed="false">1.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">all the people of Canaan</char></note> are destroyed; </para>
-<para style="q2" vid="ZEP 1:11">all the bearers of silver are cut off. </para>
+
+<para style="q2" vid="ZEP 1:11">all the bearers of silver are cut off. <verse eid="ZEP 1:11"/></para>
+
 <para style="q1"><verse number="12" style="v" sid="ZEP 1:12"/>And it will come to pass, at that time <char style="add">that</char> I will search Jerusalem with lamps, </para>
+
 <para style="q2" vid="ZEP 1:12">and I will visit punishment upon the men settled in their dregs,<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">settled in complacency</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">thickening on the dregs</char></note> </para>
+
 <para style="q1" vid="ZEP 1:12">those saying in their heart, </para>
+
 <para style="q2" vid="ZEP 1:12">‘YHWH does no good, </para>
-<para style="q2" vid="ZEP 1:12">and He will not bring evil.’ </para>
+
+<para style="q2" vid="ZEP 1:12">and He will not bring evil.’ <verse eid="ZEP 1:12"/></para>
+
 <para style="q1"><verse number="13" style="v" sid="ZEP 1:13"/>And their wealth will become as plunder, </para>
+
 <para style="q2" vid="ZEP 1:13">and their houses as a desolation; </para>
+
 <para style="q1" vid="ZEP 1:13">they will build houses, and they will not dwell; </para>
-<para style="q2" vid="ZEP 1:13">they will plant vineyards, and they will not drink their wine. </para>
+
+<para style="q2" vid="ZEP 1:13">they will plant vineyards, and they will not drink their wine. <verse eid="ZEP 1:13"/></para>
+
 <para style="q1"><verse number="14" style="v" sid="ZEP 1:14"/>Near <char style="add">is</char> the great day of YHWH—</para>
+
 <para style="q2" vid="ZEP 1:14">near, and hastening exceedingly; </para>
+
 <para style="q1" vid="ZEP 1:14">the noise of the day of YHWH is bitter, </para>
-<para style="q2" vid="ZEP 1:14">then cries out the mighty. </para>
+
+<para style="q2" vid="ZEP 1:14">then cries out the mighty. <verse eid="ZEP 1:14"/></para>
+
 <para style="q1"><verse number="15" style="v" sid="ZEP 1:15"/>A day of wrath </para>
+
 <para style="q2" vid="ZEP 1:15"><char style="add">is</char> that day, </para>
+
 <para style="q1" vid="ZEP 1:15">a day of adversity and distress, </para>
+
 <para style="q2" vid="ZEP 1:15">a day of devastation and desolation, </para>
+
 <para style="q1" vid="ZEP 1:15">a day of darkness and gloom, </para>
-<para style="q2" vid="ZEP 1:15">a day of cloud and thick darkness, </para>
+
+<para style="q2" vid="ZEP 1:15">a day of cloud and thick darkness, <verse eid="ZEP 1:15"/></para>
+
 <para style="q1"><verse number="16" style="v" sid="ZEP 1:16"/>a day of shofar and battle cry </para>
+
 <para style="q2" vid="ZEP 1:16">against the fortified cities </para>
-<para style="q2" vid="ZEP 1:16">and against the high corners. </para>
+
+<para style="q2" vid="ZEP 1:16">and against the high corners. <verse eid="ZEP 1:16"/></para>
+
 <para style="q1"><verse number="17" style="v" sid="ZEP 1:17"/>And I will bring distress to mankind, </para>
+
 <para style="q2" vid="ZEP 1:17">and they will walk like the blind, </para>
+
 <para style="q2" vid="ZEP 1:17">for against YHWH they have sinned; </para>
+
 <para style="q1" vid="ZEP 1:17">and their blood will be poured out like the dust, </para>
-<para style="q2" vid="ZEP 1:17">and their flesh like dung! </para>
+
+<para style="q2" vid="ZEP 1:17">and their flesh like dung! <verse eid="ZEP 1:17"/></para>
+
 <para style="q1"><verse number="18" style="v" sid="ZEP 1:18"/>Even their silver, even their gold, </para>
+
 <para style="q2" vid="ZEP 1:18">will not be able to deliver them </para>
+
 <para style="q2" vid="ZEP 1:18">on the day of the wrath of YHWH; </para>
+
 <para style="q1" vid="ZEP 1:18">and by the fire of His jealousy will be consumed </para>
+
 <para style="q2" vid="ZEP 1:18">all the earth, </para>
+
 <para style="q1" vid="ZEP 1:18">for indeed He will make a sudden end </para>
-<para style="q2" vid="ZEP 1:18">of all those dwelling on the earth!<note caller="+" style="f"><char style="fr" closed="false">1.18 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">of all the people living in the land</char></note>” </para>
+
+<para style="q2" vid="ZEP 1:18">of all those dwelling on the earth!<note caller="+" style="f"><char style="fr" closed="false">1.18 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">of all the people living in the land</char></note>” <verse eid="ZEP 1:18"/></para>
+
 <chapter eid="ZEP 1"/>
+
 <chapter number="2" style="c" sid="ZEP 2"/>
+
 <para style="s">A Call to Repentance</para>
+
 <para style="q1"><verse number="1" style="v" sid="ZEP 2:1"/><note caller="-" style="x"><char style="xt" closed="false">Luke 13:1–5</char></note><note caller="-" style="x"><char style="xt" closed="false">Amos 5:4–15</char></note><note caller="-" style="x"><char style="xt" closed="false">Joel 1:13–20</char></note>Gather together, and gather together, </para>
-<para style="q2" vid="ZEP 2:1">O nation not desired, </para>
+
+<para style="q2" vid="ZEP 2:1">O nation not desired, <verse eid="ZEP 2:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="ZEP 2:2"/>before the bringing forth of the decree—</para>
+
 <para style="q2" vid="ZEP 2:2">the day passes like chaff—</para>
+
 <para style="q1" vid="ZEP 2:2">before the burning of the anger of YHWH comes upon you⁺, </para>
-<para style="q2" vid="ZEP 2:2">before the day of the anger of YHWH comes upon you⁺. </para>
+
+<para style="q2" vid="ZEP 2:2">before the day of the anger of YHWH comes upon you⁺. <verse eid="ZEP 2:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="ZEP 2:3"/>Seek YHWH, all humble ones of the earth, </para>
+
 <para style="q2" vid="ZEP 2:3">who have done His justice; </para>
+
 <para style="q1" vid="ZEP 2:3">seek righteousness, seek humility; </para>
+
 <para style="q2" vid="ZEP 2:3">perhaps you⁺ will be hidden away </para>
-<para style="q2" vid="ZEP 2:3">on the day of the nose of YHWH. </para>
+
+<para style="q2" vid="ZEP 2:3">on the day of the nose of YHWH. <verse eid="ZEP 2:3"/></para>
+
 <para style="s">Judgment on the PhilistinesJeremiah 47:1–7</para>
+
 <para style="q1"><verse number="4" style="v" sid="ZEP 2:4"/>For Gaza will be forsaken, </para>
+
 <para style="q2" vid="ZEP 2:4">and Ashkelon as a desolation; </para>
+
 <para style="q1" vid="ZEP 2:4">they will drive out Ashdod at noon, </para>
-<para style="q2" vid="ZEP 2:4">and Ekron will be uprooted. </para>
+
+<para style="q2" vid="ZEP 2:4">and Ekron will be uprooted. <verse eid="ZEP 2:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="ZEP 2:5"/>Woe <char style="add">to</char> those dwelling on the coast of the sea, </para>
+
 <para style="q2" vid="ZEP 2:5">O nation of Cherethites. </para>
+
 <para style="q1" vid="ZEP 2:5">The word of YHWH <char style="add">is</char> against you⁺, </para>
+
 <para style="q2" vid="ZEP 2:5">O Canaan, land of the Philistines, </para>
+
 <para style="q1" vid="ZEP 2:5">“And I will make you perish </para>
-<para style="q2" vid="ZEP 2:5">and no one will be dwelling!” </para>
+
+<para style="q2" vid="ZEP 2:5">and no one will be dwelling!” <verse eid="ZEP 2:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="ZEP 2:6"/>And the coast of the sea will become pastures, </para>
-<para style="q2" vid="ZEP 2:6">with wells<note caller="+" style="f"><char style="fr" closed="false">2.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">caves</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">camps</char></note> for shepherds and folds the flock. </para>
+
+<para style="q2" vid="ZEP 2:6">with wells<note caller="+" style="f"><char style="fr" closed="false">2.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">caves</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">camps</char></note> for shepherds and folds the flock. <verse eid="ZEP 2:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="ZEP 2:7"/>And the coast will be for the remnant of the house of Judah; </para>
+
 <para style="q2" vid="ZEP 2:7">upon them they will shepherd; </para>
+
 <para style="q1" vid="ZEP 2:7">in the houses of Ashkelon </para>
+
 <para style="q2" vid="ZEP 2:7">they will lie down in the evening. </para>
+
 <para style="q1" vid="ZEP 2:7">For YHWH their God will attend to them </para>
-<para style="q2" vid="ZEP 2:7">and turn back their captivity.<note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">restore their fortunes</char></note> </para>
+
+<para style="q2" vid="ZEP 2:7">and turn back their captivity.<note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">restore their fortunes</char></note> <verse eid="ZEP 2:7"/></para>
+
 <para style="s">Judgment on Moab and AmmonIsaiah 16:1–14</para>
+
 <para style="q1"><verse number="8" style="v" sid="ZEP 2:8"/><note caller="-" style="x"><char style="xt" closed="false">Jeremiah 48:1–47</char></note>“I have heard the reproach of Moab, </para>
+
 <para style="q2" vid="ZEP 2:8">and the insults of the sons of Ammon, </para>
+
 <para style="q1" vid="ZEP 2:8">with which they have scorned My people, </para>
-<para style="q2" vid="ZEP 2:8">and magnified <char style="add">themselves</char> against their border. </para>
+
+<para style="q2" vid="ZEP 2:8">and magnified <char style="add">themselves</char> against their border. <verse eid="ZEP 2:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="ZEP 2:9"/>Therefore, <char style="add">as</char> I live,” </para>
+
 <para style="q2" vid="ZEP 2:9">a declaration of YHWH of Hosts </para>
+
 <para style="q2" vid="ZEP 2:9">the God of Israel, </para>
+
 <para style="q1" vid="ZEP 2:9">“Surely Moab will become like Sodom, </para>
+
 <para style="q2" vid="ZEP 2:9">and the sons of Ammon like Gomorrah, </para>
+
 <para style="q1" vid="ZEP 2:9">a possession of the nettle and the pit of salt, </para>
+
 <para style="q2" vid="ZEP 2:9">and a desolation even to forever! </para>
+
 <para style="q1" vid="ZEP 2:9">The remnant of My people will plunder them, </para>
-<para style="q2" vid="ZEP 2:9">and the remainder of My people will possess them.” </para>
+
+<para style="q2" vid="ZEP 2:9">and the remainder of My people will possess them.” <verse eid="ZEP 2:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="ZEP 2:10"/>This <char style="add">is</char> unto them in exchange for their pride, </para>
+
 <para style="q2" vid="ZEP 2:10">because they have scorned and magnified <char style="add">themselves</char> </para>
-<para style="q2" vid="ZEP 2:10">against the people of YHWH of Hosts. </para>
+
+<para style="q2" vid="ZEP 2:10">against the people of YHWH of Hosts. <verse eid="ZEP 2:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="ZEP 2:11"/>Fearsome <char style="add">is</char> YHWH against them, </para>
+
 <para style="q2" vid="ZEP 2:11">for he will starve all the gods of the earth; </para>
+
 <para style="q1" vid="ZEP 2:11">and will bow down to Him all </para>
+
 <para style="q2" vid="ZEP 2:11">the coasts of the nations, </para>
-<para style="q2" vid="ZEP 2:11">each man from his place. </para>
+
+<para style="q2" vid="ZEP 2:11">each man from his place. <verse eid="ZEP 2:11"/></para>
+
 <para style="s">Judgment on Cush and Assyria</para>
+
 <para style="q1"><verse number="12" style="v" sid="ZEP 2:12"/>“Also you⁺, O Cushites<note caller="+" style="f"><char style="fr" closed="false">2.12 </char><char style="ft" closed="false"> That is, people from the upper Nile region</char></note>—</para>
-<para style="q2" vid="ZEP 2:12">they will be slain by My sword.” </para>
+
+<para style="q2" vid="ZEP 2:12">they will be slain by My sword.” <verse eid="ZEP 2:12"/></para>
+
 <para style="q1"><verse number="13" style="v" sid="ZEP 2:13"/>And He will stretch out His hand against the north, </para>
+
 <para style="q2" vid="ZEP 2:13">and He will destroy Assyria; </para>
+
 <para style="q1" vid="ZEP 2:13">and He will set Nineveh as a desolation, </para>
-<para style="q2" vid="ZEP 2:13">as dry as the desert. </para>
+
+<para style="q2" vid="ZEP 2:13">as dry as the desert. <verse eid="ZEP 2:13"/></para>
+
 <para style="q1"><verse number="14" style="v" sid="ZEP 2:14"/>And the herds will lie down in her midst, </para>
+
 <para style="q2" vid="ZEP 2:14">every beast of the nation; </para>
+
 <para style="q1" vid="ZEP 2:14">even the desert owl and screech owl<note caller="+" style="f"><char style="fr" closed="false">2.14 </char><char style="ft" closed="false"> The precise identification of the animals rendered </char><char style="fq" closed="false">desert owl</char><char style="ft" closed="false"> and </char><char style="fq" closed="false">screech owl</char><char style="ft" closed="false"> is uncertain.</char></note> </para>
+
 <para style="q2" vid="ZEP 2:14">will lodge in her capitals. </para>
+
 <para style="q1" vid="ZEP 2:14">Their voice will sing in the window, </para>
+
 <para style="q2" vid="ZEP 2:14">desolation on the threshold; </para>
-<para style="q2" vid="ZEP 2:14">for He will lay bare the cedar work. </para>
+
+<para style="q2" vid="ZEP 2:14">for He will lay bare the cedar work. <verse eid="ZEP 2:14"/></para>
+
 <para style="q1"><verse number="15" style="v" sid="ZEP 2:15"/>This <char style="add">is</char> the jubilant city </para>
+
 <para style="q2" vid="ZEP 2:15">the one dwelling in security, </para>
+
 <para style="q1" vid="ZEP 2:15">saying in her heart, </para>
+
 <para style="q2" vid="ZEP 2:15">“I <char style="add">am</char>, and ceases to be another!” </para>
+
 <para style="q1" vid="ZEP 2:15">How she has become as a desolation, </para>
+
 <para style="q2" vid="ZEP 2:15">a resting place for the beast! </para>
+
 <para style="q1" vid="ZEP 2:15">Everyone passing by her </para>
-<para style="q2" vid="ZEP 2:15">will hiss and shake his fist. </para>
+
+<para style="q2" vid="ZEP 2:15">will hiss and shake his fist. <verse eid="ZEP 2:15"/></para>
+
 <chapter eid="ZEP 2"/>
+
 <chapter number="3" style="c" sid="ZEP 3"/>
+
 <para style="s">Judgment on Jerusalem</para>
+
 <para style="q1"><verse number="1" style="v" sid="ZEP 3:1"/>Woe <char style="add">to</char> her who is rebellious and defiled, </para>
-<para style="q2" vid="ZEP 3:1">the oppressing city! </para>
+
+<para style="q2" vid="ZEP 3:1">the oppressing city! <verse eid="ZEP 3:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="ZEP 3:2"/>She has not listened to <char style="add">His</char> voice, </para>
+
 <para style="q2" vid="ZEP 3:2">she does not receive discipline; </para>
+
 <para style="q1" vid="ZEP 3:2">in YHWH she does not trust; </para>
-<para style="q2" vid="ZEP 3:2">to her God she does not draw near. </para>
+
+<para style="q2" vid="ZEP 3:2">to her God she does not draw near. <verse eid="ZEP 3:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="ZEP 3:3"/>Her princes within her <char style="add">are</char> roaring lions, </para>
+
 <para style="q2" vid="ZEP 3:3">her judges <char style="add">are</char> wolves of the evening </para>
-<para style="q2" vid="ZEP 3:3">leaving nothing for the morning. </para>
+
+<para style="q2" vid="ZEP 3:3">leaving nothing for the morning. <verse eid="ZEP 3:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="ZEP 3:4"/>Her prophets are reckless, </para>
+
 <para style="q2" vid="ZEP 3:4">men of treacheries; </para>
+
 <para style="q1" vid="ZEP 3:4">her priests have profaned the sanctuary; </para>
-<para style="q2" vid="ZEP 3:4">they do violence to the law. </para>
+
+<para style="q2" vid="ZEP 3:4">they do violence to the law. <verse eid="ZEP 3:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="ZEP 3:5"/>YHWH <char style="add">is</char> righteous within her; </para>
+
 <para style="q2" vid="ZEP 3:5">He will not do injustice; </para>
+
 <para style="q1" vid="ZEP 3:5">morning by morning He gives His justice; </para>
+
 <para style="q2" vid="ZEP 3:5">at the light He is not lacking; </para>
-<para style="q2" vid="ZEP 3:5">the unjust one is knowning no shame. </para>
+
+<para style="q2" vid="ZEP 3:5">the unjust one is knowning no shame. <verse eid="ZEP 3:5"/></para>
+
 <para style="s">Purification of the Nations</para>
+
 <para style="q1"><verse number="6" style="v" sid="ZEP 3:6"/>“I have cut off nations; </para>
+
 <para style="q2" vid="ZEP 3:6">their corners are desolate; </para>
+
 <para style="q1" vid="ZEP 3:6">I have made desolate their streets </para>
+
 <para style="q2" vid="ZEP 3:6">without one passing through; </para>
+
 <para style="q1" vid="ZEP 3:6">their cities are destroyed, </para>
-<para style="q2" vid="ZEP 3:6">without a man, with no one dwelling. </para>
+
+<para style="q2" vid="ZEP 3:6">without a man, with no one dwelling. <verse eid="ZEP 3:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="ZEP 3:7"/>I said, ‘Surely you will fear Me; </para>
+
 <para style="q2" vid="ZEP 3:7">you will receive discipline.’ </para>
+
 <para style="q1" vid="ZEP 3:7">Then her dwelling would not be cut off, </para>
+
 <para style="q2" vid="ZEP 3:7">by all that I have visited upon her. </para>
+
 <para style="q1" vid="ZEP 3:7">Nevertheless, they rose early </para>
-<para style="q2" vid="ZEP 3:7">to corrupt all their deeds. </para>
+
+<para style="q2" vid="ZEP 3:7">to corrupt all their deeds. <verse eid="ZEP 3:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="ZEP 3:8"/>Therefore wait for Me,” </para>
+
 <para style="q2" vid="ZEP 3:8">a declaration of YHWH, </para>
+
 <para style="q1" vid="ZEP 3:8">“Until the day </para>
+
 <para style="q2" vid="ZEP 3:8">of My arising to testify.<note caller="+" style="f"><char style="fr" closed="false">3.8 </char><char style="ft" closed="false"> LXX and Syriac; Hebrew </char><char style="fq" closed="false">arising to seize the prey</char></note> </para>
+
 <para style="q1" vid="ZEP 3:8">For My judgment <char style="add">is</char> to gather the nations, </para>
+
 <para style="q2" vid="ZEP 3:8">to assemble unto Me the kingdoms, </para>
+
 <para style="q1" vid="ZEP 3:8">to pour out on them My indignation, </para>
+
 <para style="q2" vid="ZEP 3:8">all the burning of my nose! </para>
+
 <para style="q1" vid="ZEP 3:8">Indeed, with the fire of My jealousy </para>
-<para style="q2" vid="ZEP 3:8">all the earth will be consumed. </para>
+
+<para style="q2" vid="ZEP 3:8">all the earth will be consumed. <verse eid="ZEP 3:8"/></para>
+
 <para style="s">A Faithful Remnant</para>
+
 <para style="q1"><verse number="9" style="v" sid="ZEP 3:9"/>For then I will turn over to the peoples </para>
+
 <para style="q2" vid="ZEP 3:9">a lip made pure, to call </para>
+
 <para style="q1" vid="ZEP 3:9">for all of them on the name of YHWH, </para>
-<para style="q2" vid="ZEP 3:9">to serve Him with one shoulder. </para>
+
+<para style="q2" vid="ZEP 3:9">to serve Him with one shoulder. <verse eid="ZEP 3:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="ZEP 3:10"/>From beyond the rivers of Cush,<note caller="+" style="f"><char style="fr" closed="false">3.10 </char><char style="ft" closed="false"> That is, the upper Nile region</char></note> </para>
+
 <para style="q2" vid="ZEP 3:10">My worshipers, the daughter of My dispersed ones, </para>
-<para style="q2" vid="ZEP 3:10">will bring My offering. </para>
+
+<para style="q2" vid="ZEP 3:10">will bring My offering. <verse eid="ZEP 3:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="ZEP 3:11"/>On that day you will not feel shame </para>
+
 <para style="q2" vid="ZEP 3:11">from any of your deeds, </para>
+
 <para style="q2" vid="ZEP 3:11">with which you have transgressed against Me; </para>
+
 <para style="q1" vid="ZEP 3:11">for then I will turn away from your midst </para>
+
 <para style="q2" vid="ZEP 3:11">the jubilant ones of your pride, </para>
+
 <para style="q1" vid="ZEP 3:11">and you will continue no longer to be haughty </para>
-<para style="q2" vid="ZEP 3:11">on the mountain of My holiness. </para>
+
+<para style="q2" vid="ZEP 3:11">on the mountain of My holiness. <verse eid="ZEP 3:11"/></para>
+
 <para style="q1"><verse number="12" style="v" sid="ZEP 3:12"/>And I will leave in your midst a people humble and poor, </para>
-<para style="q2" vid="ZEP 3:12">and they will take refuge in the name of YHWH. </para>
+
+<para style="q2" vid="ZEP 3:12">and they will take refuge in the name of YHWH. <verse eid="ZEP 3:12"/></para>
+
 <para style="q1"><verse number="13" style="v" sid="ZEP 3:13"/>The remnant of Israel will not do injustice, </para>
+
 <para style="q2" vid="ZEP 3:13">and they will not speak lies, </para>
+
 <para style="q1" vid="ZEP 3:13">and in their mouth will not be found </para>
+
 <para style="q2" vid="ZEP 3:13">a tongue of deceit. </para>
+
 <para style="q1" vid="ZEP 3:13">For they will feed the flocks and will lie down, </para>
-<para style="q2" vid="ZEP 3:13">and there will not be one frightening them.” </para>
+
+<para style="q2" vid="ZEP 3:13">and there will not be one frightening them.” <verse eid="ZEP 3:13"/></para>
+
 <para style="s">Israel’s Restoration</para>
+
 <para style="q1"><verse number="14" style="v" sid="ZEP 3:14"/>Sing out, O daughter of Zion; </para>
+
 <para style="q2" vid="ZEP 3:14">shout, O Israel; </para>
+
 <para style="q1" vid="ZEP 3:14">be glad and rejoice with all the heart, </para>
-<para style="q2" vid="ZEP 3:14">O daughter of Jerusalem! </para>
+
+<para style="q2" vid="ZEP 3:14">O daughter of Jerusalem! <verse eid="ZEP 3:14"/></para>
+
 <para style="q1"><verse number="15" style="v" sid="ZEP 3:15"/>YHWH has turned aside your judgments; </para>
+
 <para style="q2" vid="ZEP 3:15">He has turned back your enemy; </para>
+
 <para style="q1" vid="ZEP 3:15">the King of Israel, YHWH, <char style="add">is</char> among you; </para>
-<para style="q2" vid="ZEP 3:15">you will fear evil no more. </para>
+
+<para style="q2" vid="ZEP 3:15">you will fear evil no more. <verse eid="ZEP 3:15"/></para>
+
 <para style="q1"><verse number="16" style="v" sid="ZEP 3:16"/>On that day it will be said to Jerusalem: </para>
+
 <para style="q2" vid="ZEP 3:16">“Do not fear, O Zion, </para>
-<para style="q2" vid="ZEP 3:16">do not let your hands be slack! </para>
+
+<para style="q2" vid="ZEP 3:16">do not let your hands be slack! <verse eid="ZEP 3:16"/></para>
+
 <para style="q1"><verse number="17" style="v" sid="ZEP 3:17"/><char style="add">For</char> YHWH your God <char style="add">is</char> among you, </para>
+
 <para style="q2" vid="ZEP 3:17">the Mighty One <char style="add">who</char> saves; </para>
+
 <para style="q1" vid="ZEP 3:17">He will rejoice over you with gladness; </para>
+
 <para style="q2" vid="ZEP 3:17">He will quiet <char style="add">you</char> with His love;<note caller="+" style="f"><char style="fr" closed="false">3.17 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">He will be silent in His love</char><char style="ft" closed="false">; LXX and Syriac </char><char style="fq" closed="false">He will renew you with His love</char></note> </para>
-<para style="q2" vid="ZEP 3:17">He will be joyous over you with singing.” </para>
+
+<para style="q2" vid="ZEP 3:17">He will be joyous over you with singing.” <verse eid="ZEP 3:17"/></para>
+
 <para style="q1"><verse number="18" style="v" sid="ZEP 3:18"/>“Those sorrowing from the appointed <char style="add">assembly</char> I will gather <char style="add">up</char>, </para>
+
 <para style="q2" vid="ZEP 3:18"><char style="add">put away</char> from you </para>
-<para style="q2" vid="ZEP 3:18">they will be—a lifting away, <char style="add">and</char> along with it reproach. </para>
+
+<para style="q2" vid="ZEP 3:18">they will be—a lifting away, <char style="add">and</char> along with it reproach. <verse eid="ZEP 3:18"/></para>
+
 <para style="q1"><verse number="19" style="v" sid="ZEP 3:19"/>Behold, I will be dealing with all who afflict you </para>
+
 <para style="q2" vid="ZEP 3:19">at that time; </para>
+
 <para style="q1" vid="ZEP 3:19">and I will save the lame, </para>
+
 <para style="q2" vid="ZEP 3:19">and those driven out I will gather, </para>
+
 <para style="q1" vid="ZEP 3:19">and I will set them for praise and for renown </para>
-<para style="q2" vid="ZEP 3:19">in every land of their shame. </para>
+
+<para style="q2" vid="ZEP 3:19">in every land of their shame. <verse eid="ZEP 3:19"/></para>
+
 <para style="q1"><verse number="20" style="v" sid="ZEP 3:20"/>At that time I will bring you⁺ in, </para>
+
 <para style="q2" vid="ZEP 3:20">at the time I gather you⁺. </para>
+
 <para style="q1" vid="ZEP 3:20">For I will give to you⁺ renown and praise </para>
+
 <para style="q2" vid="ZEP 3:20">among all the peoples of the earth, </para>
+
 <para style="q1" vid="ZEP 3:20">in my returning your⁺ captives<note caller="+" style="f"><char style="fr" closed="false">3.20 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">restoring your fortunes</char></note> </para>
+
 <para style="q2" vid="ZEP 3:20">before your⁺ eyes!” </para>
-<para style="qs" vid="ZEP 3:20">Says YHWH. </para>
+
+<para style="qs" vid="ZEP 3:20">Says YHWH. <verse eid="ZEP 3:20"/></para>
+
 <chapter eid="ZEP 3"/>
+
 </usx>

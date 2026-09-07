@@ -1,105 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="OBA" style="id">BLB-Draft</book>
+
 <para style="h">Obadiah</para>
+
 <para style="toc1">Obadiah</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="OBA 1"/>
+
 <para style="s">The Destruction of Edom</para>
+
 <para style="p"><verse number="1" style="v" sid="OBA 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Jeremiah 49:7–22</char></note>The vision of Obadiah. </para>
+
 <para style="q1" vid="OBA 1:1">Thus says the Lord YHWH concerning Edom: </para>
+
 <para style="q1" vid="OBA 1:1">We have heard a report from YHWH, </para>
+
 <para style="q2" vid="OBA 1:1">and a messenger among the nations has been sent: </para>
+
 <para style="q1" vid="OBA 1:1">“Rise up, </para>
-<para style="q2" vid="OBA 1:1">and let us rise against her for battle. </para>
+
+<para style="q2" vid="OBA 1:1">and let us rise against her for battle. <verse eid="OBA 1:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="OBA 1:2"/>Behold, I am making you small among the nations—</para>
-<para style="q2" vid="OBA 1:2">you are exceedingly despised. </para>
+
+<para style="q2" vid="OBA 1:2">you are exceedingly despised. <verse eid="OBA 1:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="OBA 1:3"/>The pride of your heart has deceived you, </para>
+
 <para style="q2" vid="OBA 1:3">O dweller in the clefts of the rock,<note caller="+" style="f"><char style="fr" closed="false">1.3 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">in the retreats of Sela</char></note> </para>
+
 <para style="q2" vid="OBA 1:3"><char style="add">in</char> the height of his dwelling, </para>
+
 <para style="q1" vid="OBA 1:3">the one saying in his heart, </para>
-<para style="q2" vid="OBA 1:3">‘Who will bring me down to the ground?’ </para>
+
+<para style="q2" vid="OBA 1:3">‘Who will bring me down to the ground?’ <verse eid="OBA 1:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="OBA 1:4"/>Though you rise high like the eagle, </para>
+
 <para style="q2" vid="OBA 1:4">and though your nest is set between the stars, </para>
+
 <para style="q2" vid="OBA 1:4">from there I will bring you down,” </para>
-<para style="qs" vid="OBA 1:4">a declaration of YHWH. </para>
+
+<para style="qs" vid="OBA 1:4">a declaration of YHWH. <verse eid="OBA 1:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="OBA 1:5"/>“If thieves had come to you, </para>
+
 <para style="q2" vid="OBA 1:5">if plunderers by night—</para>
+
 <para style="q1" vid="OBA 1:5">how you have been cut off—</para>
+
 <para style="q2" vid="OBA 1:5">would they not have stolen enough for themselves? </para>
+
 <para style="q1" vid="OBA 1:5">If grape-gatherers had come to you, </para>
-<para style="q2" vid="OBA 1:5">would they not have left remaining <char style="add">some</char> gleanings? </para>
+
+<para style="q2" vid="OBA 1:5">would they not have left remaining <char style="add">some</char> gleanings? <verse eid="OBA 1:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="OBA 1:6"/>How Esau has been searched out, </para>
-<para style="q2" vid="OBA 1:6">his hidden treasures sought out. </para>
+
+<para style="q2" vid="OBA 1:6">his hidden treasures sought out. <verse eid="OBA 1:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="OBA 1:7"/>Up to the border they will force you—</para>
+
 <para style="q2" vid="OBA 1:7">all the men of your alliance; </para>
+
 <para style="q1" vid="OBA 1:7">they will deceive you <char style="add">and</char> prevail against you—</para>
+
 <para style="q2" vid="OBA 1:7">the men at peace with you; </para>
+
 <para style="q1" vid="OBA 1:7">those of your bread<note caller="+" style="f"><char style="fr" closed="false">1.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Those who eat your bread</char></note> </para>
+
 <para style="q2" vid="OBA 1:7">will set a trap for you; </para>
-<para style="q2" vid="OBA 1:7">there is no understanding of it. </para>
+
+<para style="q2" vid="OBA 1:7">there is no understanding of it. <verse eid="OBA 1:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="OBA 1:8"/>Will not, on that day,” a declaration of YHWH, </para>
+
 <para style="q2" vid="OBA 1:8">“I even destroy the wise men from Edom, </para>
+
 <para style="q1" vid="OBA 1:8">and of understanding </para>
-<para style="q2" vid="OBA 1:8">from the mountains of Esau? </para>
+
+<para style="q2" vid="OBA 1:8">from the mountains of Esau? <verse eid="OBA 1:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="OBA 1:9"/>And your mighty men will be dismayed, </para>
+
 <para style="q2" vid="OBA 1:9">O Teman, </para>
+
 <para style="q1" vid="OBA 1:9">so that each man from the mountains of Esau </para>
-<para style="q2" vid="OBA 1:9">will be cut down in the slaughter. </para>
+
+<para style="q2" vid="OBA 1:9">will be cut down in the slaughter. <verse eid="OBA 1:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="OBA 1:10"/>From the violence <char style="add">to</char> your brother Jacob, </para>
+
 <para style="q2" vid="OBA 1:10">shame will cover you, </para>
-<para style="q2" vid="OBA 1:10">and you will be cut off forever! </para>
+
+<para style="q2" vid="OBA 1:10">and you will be cut off forever! <verse eid="OBA 1:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="OBA 1:11"/>On the day of your standing away from before <char style="add">him</char>, </para>
+
 <para style="q2" vid="OBA 1:11">on the day strangers carried away captive his wealth, </para>
+
 <para style="q1" vid="OBA 1:11">and foreigners entered his gates, </para>
+
 <para style="q2" vid="OBA 1:11">and over Jerusalem they cast lots, </para>
-<para style="q2" vid="OBA 1:11">even you <char style="add">were</char> as one of them. </para>
+
+<para style="q2" vid="OBA 1:11">even you <char style="add">were</char> as one of them. <verse eid="OBA 1:11"/></para>
+
 <para style="q1"><verse number="12" style="v" sid="OBA 1:12"/>And you should not look on the day of your brother, </para>
+
 <para style="q2" vid="OBA 1:12">on the day of his captivity; </para>
+
 <para style="q1" vid="OBA 1:12">and you should not rejoice over the sons of Judah </para>
+
 <para style="q2" vid="OBA 1:12">on the day of their destruction, </para>
+
 <para style="q1" vid="OBA 1:12">and you should not enlarge your mouth </para>
-<para style="q2" vid="OBA 1:12">in the day of distress. </para>
+
+<para style="q2" vid="OBA 1:12">in the day of distress. <verse eid="OBA 1:12"/></para>
+
 <para style="q1"><verse number="13" style="v" sid="OBA 1:13"/>You should not come into the gate of My people </para>
+
 <para style="q2" vid="OBA 1:13">on the day of their calamity; </para>
+
 <para style="q1" vid="OBA 1:13">you should not look—yes you—on his affliction </para>
+
 <para style="q2" vid="OBA 1:13">in the day of his calamity, </para>
+
 <para style="q1" vid="OBA 1:13">and you⁺ should not send forth upon his wealth </para>
-<para style="q2" vid="OBA 1:13">in the day of his calamity! </para>
+
+<para style="q2" vid="OBA 1:13">in the day of his calamity! <verse eid="OBA 1:13"/></para>
+
 <para style="q1"><verse number="14" style="v" sid="OBA 1:14"/>And you should not stand at the crossroad </para>
+
 <para style="q2" vid="OBA 1:14">to cut down his fugitives; </para>
+
 <para style="q1" vid="OBA 1:14">and you should not deliver up his survivors </para>
-<para style="q2" vid="OBA 1:14">in the day of distress. </para>
+
+<para style="q2" vid="OBA 1:14">in the day of distress. <verse eid="OBA 1:14"/></para>
+
 <para style="s">The Deliverance of Israel</para>
+
 <para style="q1"><verse number="15" style="v" sid="OBA 1:15"/>For the day of YHWH <char style="add">is</char> near, </para>
+
 <para style="q2" vid="OBA 1:15">upon all the nations! </para>
+
 <para style="q1" vid="OBA 1:15">As you have done, it will be done to you—</para>
-<para style="q2" vid="OBA 1:15">your recompense will return upon your own head! </para>
+
+<para style="q2" vid="OBA 1:15">your recompense will return upon your own head! <verse eid="OBA 1:15"/></para>
+
 <para style="q1"><verse number="16" style="v" sid="OBA 1:16"/>For according to how you⁺ drank on the mountain of my holiness, </para>
+
 <para style="q2" vid="OBA 1:16">all the nations will drink continually; </para>
+
 <para style="q1" vid="OBA 1:16">they will drink and they will swallow, </para>
-<para style="q2" vid="OBA 1:16">and they will be as if they had never existed. </para>
+
+<para style="q2" vid="OBA 1:16">and they will be as if they had never existed. <verse eid="OBA 1:16"/></para>
+
 <para style="q1"><verse number="17" style="v" sid="OBA 1:17"/>And on Mount Zion there will be an escape, </para>
+
 <para style="q2" vid="OBA 1:17">and there will be holiness, </para>
+
 <para style="q1" vid="OBA 1:17">and the house of Jacob will repossess </para>
-<para style="q2" vid="OBA 1:17">their possessions. </para>
+
+<para style="q2" vid="OBA 1:17">their possessions. <verse eid="OBA 1:17"/></para>
+
 <para style="q1"><verse number="18" style="v" sid="OBA 1:18"/>And the house of Jacob will become a fire, </para>
+
 <para style="q2" vid="OBA 1:18">and the house of Joseph a flame, </para>
+
 <para style="q1" vid="OBA 1:18">and the house of Esau as stubble; </para>
+
 <para style="q2" vid="OBA 1:18">and they will burn them and consume them, </para>
+
 <para style="q1" vid="OBA 1:18">and there will not be a survivor </para>
+
 <para style="q2" vid="OBA 1:18">to the house of Esau.” </para>
-<para style="qs" vid="OBA 1:18">For YHWH has spoken. </para>
+
+<para style="qs" vid="OBA 1:18">For YHWH has spoken. <verse eid="OBA 1:18"/></para>
+
 <para style="q1"><verse number="19" style="v" sid="OBA 1:19"/>And the Negev will possess the mountains of Esau, </para>
+
 <para style="q2" vid="OBA 1:19">and the Shephelah<note caller="+" style="f"><char style="fr" closed="false">1.19 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">foothills</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">lowlands</char><char style="ft" closed="false">; that is, the western foothills of Judea</char></note> the Philistines; </para>
+
 <para style="q1" vid="OBA 1:19">and they will possess the land of Ephraim and the land of Samaria, </para>
-<para style="q2" vid="OBA 1:19">and Benjamin Gilead, </para>
+
+<para style="q2" vid="OBA 1:19">and Benjamin Gilead, <verse eid="OBA 1:19"/></para>
+
 <para style="q1"><verse number="20" style="v" sid="OBA 1:20"/>and the captivity of this host of the sons of Israel, </para>
+
 <para style="q2" vid="OBA 1:20">that of the Canaanites as far as Zarephath, </para>
+
 <para style="q1" vid="OBA 1:20">and the captives of Jerusalem who are in Sepharad </para>
-<para style="q2" vid="OBA 1:20">will possess the cities of the Negev. </para>
+
+<para style="q2" vid="OBA 1:20">will possess the cities of the Negev. <verse eid="OBA 1:20"/></para>
+
 <para style="q1"><verse number="21" style="v" sid="OBA 1:21"/>And those delivering will go up onto Mount Zion<note caller="+" style="f"><char style="fr" closed="false">1.21 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">those delivering will go up from Mount Zion</char><char style="ft" closed="false">; LXX </char><char style="fq" closed="false">Those being delivered will go up from Mount Zion</char></note> </para>
+
 <para style="q2" vid="OBA 1:21">to judge the mountains of Esau, </para>
-<para style="q1" vid="OBA 1:21">and the kingdom will be unto YHWH. </para>
+
+<para style="q1" vid="OBA 1:21">and the kingdom will be unto YHWH. <verse eid="OBA 1:21"/></para>
+
 <chapter eid="OBA 1"/>
+
 </usx>

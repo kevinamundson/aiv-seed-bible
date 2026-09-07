@@ -1,408 +1,813 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="ZEC" style="id">BLB-Draft</book>
+
 <para style="h">Zechariah</para>
+
 <para style="toc1">Zechariah</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="ZEC 1"/>
+
 <para style="s">A Call to Repentance</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Hosea 14:1–3</char></note><note caller="-" style="x"><char style="xt" closed="false">Jeremiah 3:11–25</char></note>In the eighth month, in the second year of Darius, the word of YHWH came to Zechariah son of Berechiah son of Iddo, the prophet, saying: </para>
-<para style="p"><verse number="2" style="v" sid="ZEC 1:2"/>“YHWH has been angry at your⁺ fathers with wrath. </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 1:3"/>Therefore you shall say to them, thus says YHWH of Hosts: ‘Return to Me, a declaration of YHWH of Hosts, and I will return to you⁺, says YHWH of Hosts.’ </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 1:1"/><note caller="-" style="x"><char style="xt" closed="false">Hosea 14:1–3</char></note><note caller="-" style="x"><char style="xt" closed="false">Jeremiah 3:11–25</char></note>In the eighth month, in the second year of Darius, the word of YHWH came to Zechariah son of Berechiah son of Iddo, the prophet, saying: <verse eid="ZEC 1:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="ZEC 1:2"/>“YHWH has been angry at your⁺ fathers with wrath. <verse eid="ZEC 1:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 1:3"/>Therefore you shall say to them, thus says YHWH of Hosts: ‘Return to Me, a declaration of YHWH of Hosts, and I will return to you⁺, says YHWH of Hosts.’ <verse eid="ZEC 1:3"/></para>
+
 <para style="p"><verse number="4" style="v" sid="ZEC 1:4"/>Do not be like your⁺ fathers, to whom the former prophets called, saying, thus says YHWH of Hosts: ‘Turn aside now from your⁺ evil ways and your⁺ evil deeds.’ </para>
-<para style="p" vid="ZEC 1:4">They did not hear and did not pay attention to Me, a declaration of YHWH. </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 1:5"/>Your⁺ fathers, where <char style="add">are</char> they? And the prophets, do they live forever? </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 1:6"/>Indeed, My words and My statutes, which I commanded My servants the prophets, did not they overtake your⁺ fathers? And they returned and said, ‘As YHWH of Hosts determined to do to us, according to our ways and according to our deeds, so He has done <char style="add">to</char> us.’” </para>
+
+<para style="p" vid="ZEC 1:4">They did not hear and did not pay attention to Me, a declaration of YHWH. <verse eid="ZEC 1:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 1:5"/>Your⁺ fathers, where <char style="add">are</char> they? And the prophets, do they live forever? <verse eid="ZEC 1:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 1:6"/>Indeed, My words and My statutes, which I commanded My servants the prophets, did not they overtake your⁺ fathers? And they returned and said, ‘As YHWH of Hosts determined to do to us, according to our ways and according to our deeds, so He has done <char style="add">to</char> us.’” <verse eid="ZEC 1:6"/></para>
+
 <para style="s">The Vision of the Horses</para>
-<para style="p"><verse number="7" style="v" sid="ZEC 1:7"/>On the twenty and fourth day of the one <char style="add">and</char> tenth month, it <char style="add">is</char> the month of Shebat,<note caller="+" style="f"><char style="fr" closed="false">1.7 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Shebat</char><char style="ft" closed="false"> is the eleventh month of the Hebrew lunar calendar, usually occurring within the months of January and February.</char></note> in the second year of Darius, the word of YHWH came to Zechariah son of Berechiah son of Iddo, the prophet, saying: </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 1:8"/>I saw <char style="add">in</char> the night, and behold, a man was riding on a red horse, and it was standing among the myrtle trees that <char style="add">were</char> in the hollow; and behind him <char style="add">were</char> red, sorrel, and white horses. </para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 1:7"/>On the twenty and fourth day of the one <char style="add">and</char> tenth month, it <char style="add">is</char> the month of Shebat,<note caller="+" style="f"><char style="fr" closed="false">1.7 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Shebat</char><char style="ft" closed="false"> is the eleventh month of the Hebrew lunar calendar, usually occurring within the months of January and February.</char></note> in the second year of Darius, the word of YHWH came to Zechariah son of Berechiah son of Iddo, the prophet, saying: <verse eid="ZEC 1:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 1:8"/>I saw <char style="add">in</char> the night, and behold, a man was riding on a red horse, and it was standing among the myrtle trees that <char style="add">were</char> in the hollow; and behind him <char style="add">were</char> red, sorrel, and white horses. <verse eid="ZEC 1:8"/></para>
+
 <para style="p"><verse number="9" style="v" sid="ZEC 1:9"/>And I said, “What <char style="add">are</char> these, my lord?” </para>
-<para style="p" vid="ZEC 1:9">And the angel speaking with me said to me, “I will show you what they <char style="add">are</char>, these <char style="add">things</char>.” </para>
-<para style="p"><verse number="10" style="v" sid="ZEC 1:10"/>And the man standing among the myrtle trees answered, and he said: “These <char style="add">are they</char> whom YHWH has sent to walk to and fro on the earth.” </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 1:11"/>And they answered the angel of YHWH standing among the myrtle trees, and they said, “We have walked to and fro on the earth, and behold, all the earth is sitting and being quiet.” </para>
-<para style="p"><verse number="12" style="v" sid="ZEC 1:12"/>And the angel of YHWH answered and said, “O YHWH of Hosts, until when will You have no compassion <char style="add">on</char> Jerusalem and the cities of Judah, with which You have been angry these seventy years?” </para>
-<para style="p"><verse number="13" style="v" sid="ZEC 1:13"/>And YHWH answered the angel speaking with me good words, words of comfort. </para>
-<para style="p"><verse number="14" style="v" sid="ZEC 1:14"/>And the angel speaking with me said to me, “Call out, saying, thus says YHWH of Hosts: ‘I am jealous for Jerusalem and for Zion with great zeal. </para>
-<para style="p"><verse number="15" style="v" sid="ZEC 1:15"/>And with great wrath I am angry with the nations at ease; for I was a little angry, and they have helped the calamity!<note caller="+" style="f"><char style="fr" closed="false">1.15 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">they have overdone the punishment</char></note>” </para>
-<para style="p"><verse number="16" style="v" sid="ZEC 1:16"/>Therefore, thus says YHWH: ‘I have returned to Jerusalem with compassion; My house will be built within her, a declaration of YHWH of Hosts, and a line will be stretched out over Jerusalem.’ </para>
-<para style="p"><verse number="17" style="v" sid="ZEC 1:17"/>Again call out, saying, thus says YHWH of Hosts: ‘Again My cities will overflow with goodness; and YHWH again will comfort Zion, and He will choose again Jerusalem.’” </para>
+
+<para style="p" vid="ZEC 1:9">And the angel speaking with me said to me, “I will show you what they <char style="add">are</char>, these <char style="add">things</char>.” <verse eid="ZEC 1:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 1:10"/>And the man standing among the myrtle trees answered, and he said: “These <char style="add">are they</char> whom YHWH has sent to walk to and fro on the earth.” <verse eid="ZEC 1:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 1:11"/>And they answered the angel of YHWH standing among the myrtle trees, and they said, “We have walked to and fro on the earth, and behold, all the earth is sitting and being quiet.” <verse eid="ZEC 1:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="ZEC 1:12"/>And the angel of YHWH answered and said, “O YHWH of Hosts, until when will You have no compassion <char style="add">on</char> Jerusalem and the cities of Judah, with which You have been angry these seventy years?” <verse eid="ZEC 1:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="ZEC 1:13"/>And YHWH answered the angel speaking with me good words, words of comfort. <verse eid="ZEC 1:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="ZEC 1:14"/>And the angel speaking with me said to me, “Call out, saying, thus says YHWH of Hosts: ‘I am jealous for Jerusalem and for Zion with great zeal. <verse eid="ZEC 1:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="ZEC 1:15"/>And with great wrath I am angry with the nations at ease; for I was a little angry, and they have helped the calamity!<note caller="+" style="f"><char style="fr" closed="false">1.15 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">they have overdone the punishment</char></note>” <verse eid="ZEC 1:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="ZEC 1:16"/>Therefore, thus says YHWH: ‘I have returned to Jerusalem with compassion; My house will be built within her, a declaration of YHWH of Hosts, and a line will be stretched out over Jerusalem.’ <verse eid="ZEC 1:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="ZEC 1:17"/>Again call out, saying, thus says YHWH of Hosts: ‘Again My cities will overflow with goodness; and YHWH again will comfort Zion, and He will choose again Jerusalem.’” <verse eid="ZEC 1:17"/></para>
+
 <para style="s">The Vision of the Horns and the Craftsmen</para>
-<para style="p"><verse number="18" style="v" sid="ZEC 1:18"/>And I raised my eyes, and looked, and behold, four horns. </para>
+
+<para style="p"><verse number="18" style="v" sid="ZEC 1:18"/>And I raised my eyes, and looked, and behold, four horns. <verse eid="ZEC 1:18"/></para>
+
 <para style="p"><verse number="19" style="v" sid="ZEC 1:19"/>And I said to the angel <char style="add">who</char> was speaking with me, “What <char style="add">are</char> these?” </para>
-<para style="p" vid="ZEC 1:19">And he said to me, “These <char style="add">are</char> the horns that have scattered Judah, Israel, and Jerusalem.” </para>
-<para style="p"><verse number="20" style="v" sid="ZEC 1:20"/>And YHWH showed me four craftsmen. </para>
+
+<para style="p" vid="ZEC 1:19">And he said to me, “These <char style="add">are</char> the horns that have scattered Judah, Israel, and Jerusalem.” <verse eid="ZEC 1:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="ZEC 1:20"/>And YHWH showed me four craftsmen. <verse eid="ZEC 1:20"/></para>
+
 <para style="p"><verse number="21" style="v" sid="ZEC 1:21"/>And I said, “What <char style="add">are</char> these coming to do?” </para>
-<para style="p" vid="ZEC 1:21">And He answered, saying, “These <char style="add">are</char> the horns that scattered Judah so that not a person could lift up his head; and these are coming to make them tremble, to cast down the horns of the nations <char style="add">who</char> have lifted up the horn against the land of Judah to scatter it.” </para>
+
+<para style="p" vid="ZEC 1:21">And He answered, saying, “These <char style="add">are</char> the horns that scattered Judah so that not a person could lift up his head; and these are coming to make them tremble, to cast down the horns of the nations <char style="add">who</char> have lifted up the horn against the land of Judah to scatter it.” <verse eid="ZEC 1:21"/></para>
+
 <chapter eid="ZEC 1"/>
+
 <chapter number="2" style="c" sid="ZEC 2"/>
+
 <para style="s">The Vision of the Measuring Line</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 2:1"/><note caller="-" style="x"><char style="xt" closed="false">Ezekiel 40:1–4</char></note>And I raised my eyes and looked, and behold, a man, and in his hand <char style="add">was</char> a measuring line. </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 2:1"/><note caller="-" style="x"><char style="xt" closed="false">Ezekiel 40:1–4</char></note>And I raised my eyes and looked, and behold, a man, and in his hand <char style="add">was</char> a measuring line. <verse eid="ZEC 2:1"/></para>
+
 <para style="p"><verse number="2" style="v" sid="ZEC 2:2"/>And I said, “Where <char style="add">are</char> you going?” </para>
-<para style="p" vid="ZEC 2:2">And he said to me, “To measure Jerusalem, to see what <char style="add">is</char> its width and what <char style="add">is</char> its length.” </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 2:3"/>And behold, the angel <char style="add">who</char> was speaking with me went forth, and another angel was coming out to meet him. </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 2:4"/>And he said to him, “Run, speak to this young man, saying, ‘Jerusalem will sit in the open country, because of the multitude of men and livestock in her midst. </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 2:5"/>And I will be unto her, a declaration of YHWH, a wall of fire all around, and I will be as glory in her midst!’” </para>
+
+<para style="p" vid="ZEC 2:2">And he said to me, “To measure Jerusalem, to see what <char style="add">is</char> its width and what <char style="add">is</char> its length.” <verse eid="ZEC 2:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 2:3"/>And behold, the angel <char style="add">who</char> was speaking with me went forth, and another angel was coming out to meet him. <verse eid="ZEC 2:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 2:4"/>And he said to him, “Run, speak to this young man, saying, ‘Jerusalem will sit in the open country, because of the multitude of men and livestock in her midst. <verse eid="ZEC 2:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 2:5"/>And I will be unto her, a declaration of YHWH, a wall of fire all around, and I will be as glory in her midst!’” <verse eid="ZEC 2:5"/></para>
+
 <para style="s">The Redemption of ZionHosea 3:1–5</para>
-<para style="p"><verse number="6" style="v" sid="ZEC 2:6"/>“Up, up, and flee from the land of the north,” a declaration of YHWH, “For like the four winds of the heavens, I have scattered you⁺,” a declaration of YHWH. </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 2:7"/>“Up, O Zion, Escape, <char style="add">you who</char> are dwelling with the daughter of Babylon.” </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 2:8"/>For thus says YHWH of Hosts: “After <char style="add">His</char> Glory sent me<note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">After the Glorious One has sent Me</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">After He has honored Me and sent Me</char></note> to the nations <char style="add">who</char> are plundering you⁺—for the one touching you⁺ is touching the apple<note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the pupil</char></note> of His eye— </para>
-<para style="p"><verse number="9" style="v" sid="ZEC 2:9"/>for, behold, I I am waving My hand against them, and they will become plunder for their own servants. And you⁺ will know that YHWH of Hosts has sent me. </para>
-<para style="p"><verse number="10" style="v" sid="ZEC 2:10"/>Sing out and be glad, O daughter of Zion! For behold, I am coming, and I will dwell in your midst,” a declaration of YHWH. </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 2:11"/>“And many nations will be joined to YHWH on that day; and they will become unto Me as a people, and I will dwell in your midst. And you will know that YHWH of Hosts has sent me to you. </para>
-<para style="p"><verse number="12" style="v" sid="ZEC 2:12"/>And YHWH will inherit Judah <char style="add">as</char> His portion upon the land of Holiness, and He will choose again Jerusalem. </para>
-<para style="p"><verse number="13" style="v" sid="ZEC 2:13"/>Be silent, all flesh, before the face of YHWH! For He has roused Himself from the abode of His holiness!” </para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 2:6"/>“Up, up, and flee from the land of the north,” a declaration of YHWH, “For like the four winds of the heavens, I have scattered you⁺,” a declaration of YHWH. <verse eid="ZEC 2:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 2:7"/>“Up, O Zion, Escape, <char style="add">you who</char> are dwelling with the daughter of Babylon.” <verse eid="ZEC 2:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 2:8"/>For thus says YHWH of Hosts: “After <char style="add">His</char> Glory sent me<note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">After the Glorious One has sent Me</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">After He has honored Me and sent Me</char></note> to the nations <char style="add">who</char> are plundering you⁺—for the one touching you⁺ is touching the apple<note caller="+" style="f"><char style="fr" closed="false">2.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the pupil</char></note> of His eye— <verse eid="ZEC 2:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 2:9"/>for, behold, I I am waving My hand against them, and they will become plunder for their own servants. And you⁺ will know that YHWH of Hosts has sent me. <verse eid="ZEC 2:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 2:10"/>Sing out and be glad, O daughter of Zion! For behold, I am coming, and I will dwell in your midst,” a declaration of YHWH. <verse eid="ZEC 2:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 2:11"/>“And many nations will be joined to YHWH on that day; and they will become unto Me as a people, and I will dwell in your midst. And you will know that YHWH of Hosts has sent me to you. <verse eid="ZEC 2:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="ZEC 2:12"/>And YHWH will inherit Judah <char style="add">as</char> His portion upon the land of Holiness, and He will choose again Jerusalem. <verse eid="ZEC 2:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="ZEC 2:13"/>Be silent, all flesh, before the face of YHWH! For He has roused Himself from the abode of His holiness!” <verse eid="ZEC 2:13"/></para>
+
 <chapter eid="ZEC 2"/>
+
 <chapter number="3" style="c" sid="ZEC 3"/>
+
 <para style="s">The Vision of Joshua the High Priest</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 3:1"/>And he showed me Joshua the high priest standing before the angel<note caller="+" style="f"><char style="fr" closed="false">3.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Angel</char><char style="ft" closed="false">; also in verses 3, 4, 5, and 6; corresponding pronouns may also be capitalized.</char></note> of YHWH, and Satan<note caller="+" style="f"><char style="fr" closed="false">3.1 </char><char style="ft" closed="false"> That is, </char><char style="fq" closed="false">the Accuser</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Adversary</char><char style="ft" closed="false">; also in verse 2</char></note> was standing at his right hand to oppose him. </para>
-<para style="p"><verse number="2" style="v" sid="ZEC 3:2"/>And YHWH said to Satan, “YHWH rebukes you, Satan! And may YHWH who has chosen Jerusalem, rebuke you. Is not this a firebrand<note caller="+" style="f"><char style="fr" closed="false">3.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a burning stick</char></note> snatched from the fire?” </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 3:3"/>And Joshua was there, dressed in filthy garments, and he was standing before the angel. </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 3:1"/>And he showed me Joshua the high priest standing before the angel<note caller="+" style="f"><char style="fr" closed="false">3.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Angel</char><char style="ft" closed="false">; also in verses 3, 4, 5, and 6; corresponding pronouns may also be capitalized.</char></note> of YHWH, and Satan<note caller="+" style="f"><char style="fr" closed="false">3.1 </char><char style="ft" closed="false"> That is, </char><char style="fq" closed="false">the Accuser</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Adversary</char><char style="ft" closed="false">; also in verse 2</char></note> was standing at his right hand to oppose him. <verse eid="ZEC 3:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="ZEC 3:2"/>And YHWH said to Satan, “YHWH rebukes you, Satan! And may YHWH who has chosen Jerusalem, rebuke you. Is not this a firebrand<note caller="+" style="f"><char style="fr" closed="false">3.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a burning stick</char></note> snatched from the fire?” <verse eid="ZEC 3:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 3:3"/>And Joshua was there, dressed in filthy garments, and he was standing before the angel. <verse eid="ZEC 3:3"/></para>
+
 <para style="p"><verse number="4" style="v" sid="ZEC 3:4"/>And he answered and spoke to those standing before Him, saying, “Take away the filthy garments from him.” </para>
-<para style="p" vid="ZEC 3:4">And he said to him, “See, your iniquity I have made pass from you, and I will clothe you with splendid robes.” </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 3:5"/>And I said, “Let them put a clean turban on his head.” And they put a clean turban on his head, and they clothed him with garments, and the angel of YHWH was standing by. </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 3:6"/>And the angel of YHWH testified to Joshua, saying, </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 3:7"/>“Thus says YHWH of Hosts, ‘If you will walk in My ways and if you will keep My command, then you will judge My house, and also guard My courts, and I will give to you goings among these ones standing by. </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 3:8"/>Hear now, O Joshua the high priest, you and your companions sitting before you, for they <char style="add">are</char> men of a sign: Now behold, I am bringing forth My Servant the Branch. </para>
-<para style="p"><verse number="9" style="v" sid="ZEC 3:9"/>For behold, the stone that I have given before the face of Joshua, upon a single stone <char style="add">with</char> seven eyes,<note caller="+" style="f"><char style="fr" closed="false">3.9 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">facets</char></note> behold, I am engraving its inscription, a declaration of YHWH of Hosts, and I will remove the iniquity of that land in one day. </para>
-<para style="p"><verse number="10" style="v" sid="ZEC 3:10"/>On that day, a declaration of YHWH of Hosts, each man will call his neighbor to <char style="add">be</char> under his vine and under his fig tree.’” </para>
+
+<para style="p" vid="ZEC 3:4">And he said to him, “See, your iniquity I have made pass from you, and I will clothe you with splendid robes.” <verse eid="ZEC 3:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 3:5"/>And I said, “Let them put a clean turban on his head.” And they put a clean turban on his head, and they clothed him with garments, and the angel of YHWH was standing by. <verse eid="ZEC 3:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 3:6"/>And the angel of YHWH testified to Joshua, saying, <verse eid="ZEC 3:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 3:7"/>“Thus says YHWH of Hosts, ‘If you will walk in My ways and if you will keep My command, then you will judge My house, and also guard My courts, and I will give to you goings among these ones standing by. <verse eid="ZEC 3:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 3:8"/>Hear now, O Joshua the high priest, you and your companions sitting before you, for they <char style="add">are</char> men of a sign: Now behold, I am bringing forth My Servant the Branch. <verse eid="ZEC 3:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 3:9"/>For behold, the stone that I have given before the face of Joshua, upon a single stone <char style="add">with</char> seven eyes,<note caller="+" style="f"><char style="fr" closed="false">3.9 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">facets</char></note> behold, I am engraving its inscription, a declaration of YHWH of Hosts, and I will remove the iniquity of that land in one day. <verse eid="ZEC 3:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 3:10"/>On that day, a declaration of YHWH of Hosts, each man will call his neighbor to <char style="add">be</char> under his vine and under his fig tree.’” <verse eid="ZEC 3:10"/></para>
+
 <chapter eid="ZEC 3"/>
+
 <chapter number="4" style="c" sid="ZEC 4"/>
+
 <para style="s">The Vision of the Lampstand and Olive Trees</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 4:1"/>And the angel speaking with me returned, and he woke me as a man who is wakened from his sleep; </para>
-<para style="p"><verse number="2" style="v" sid="ZEC 4:2"/>and he said to me: “What <char style="add">are</char> you seeing?” And I said, “I am looking, and behold, a lampstand of gold, all of it, and a bowl on its head, and seven lamps on it—seven and seven pipes for the lamps that are on its head. </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 4:3"/>And two olive trees <char style="add">are</char> by it, one on the right of the bowl, and one on its left.” </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 4:4"/>And I answered and spoke to the angel who was speaking with me, saying: “What <char style="add">are</char> these, my lord?” </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 4:1"/>And the angel speaking with me returned, and he woke me as a man who is wakened from his sleep; <verse eid="ZEC 4:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="ZEC 4:2"/>and he said to me: “What <char style="add">are</char> you seeing?” And I said, “I am looking, and behold, a lampstand of gold, all of it, and a bowl on its head, and seven lamps on it—seven and seven pipes for the lamps that are on its head. <verse eid="ZEC 4:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 4:3"/>And two olive trees <char style="add">are</char> by it, one on the right of the bowl, and one on its left.” <verse eid="ZEC 4:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 4:4"/>And I answered and spoke to the angel who was speaking with me, saying: “What <char style="add">are</char> these, my lord?” <verse eid="ZEC 4:4"/></para>
+
 <para style="p"><verse number="5" style="v" sid="ZEC 4:5"/>And the angel who was speaking with me answered, and he said to me, “Do you not know what these are?” </para>
-<para style="p" vid="ZEC 4:5">And I said, “No, my lord.” </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 4:6"/>And he answered and spoke to me, saying: “This <char style="add">is</char> the word of YHWH to Zerubbabel, saying: Not by might, and not by power, but only by My Spirit, says YHWH of Hosts. </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 4:7"/>Who <char style="add">are</char> you, great mountain? Before the face of Zerubbabel as a plain; and he will bring forth the stone <char style="add">at</char> the head <char style="add">with</char> shouts: ‘Grace, grace to it!’” </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 4:8"/>And the word of YHWH came to me, saying: </para>
-<para style="p"><verse number="9" style="v" sid="ZEC 4:9"/>“The hands of Zerubbabel have laid the foundation of this house, and His hands will complete it. And you will know that YHWH of Hosts has sent Me to you⁺. </para>
-<para style="p"><verse number="10" style="v" sid="ZEC 4:10"/>For who has despised the day of small things, and they will rejoice when they see the tin plummet<note caller="+" style="f"><char style="fr" closed="false">4.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the plumb line</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the chosen capstone</char></note> in the hand of Zerubbabel? These seven, they <char style="add">are</char> the eyes<note caller="+" style="f"><char style="fr" closed="false">4.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">facets</char></note> of YHWH, roving about through all the earth.” </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 4:11"/>And I answered and said to him: “What <char style="add">are</char> these two olive trees at the right of the lampstand and at its left?” </para>
-<para style="p"><verse number="12" style="v" sid="ZEC 4:12"/>And I answered a second time and said to him: “What <char style="add">are</char> the two branches of the olive trees that, into the hands of the two pipes of gold, are emptying out from them the gold?” </para>
+
+<para style="p" vid="ZEC 4:5">And I said, “No, my lord.” <verse eid="ZEC 4:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 4:6"/>And he answered and spoke to me, saying: “This <char style="add">is</char> the word of YHWH to Zerubbabel, saying: Not by might, and not by power, but only by My Spirit, says YHWH of Hosts. <verse eid="ZEC 4:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 4:7"/>Who <char style="add">are</char> you, great mountain? Before the face of Zerubbabel as a plain; and he will bring forth the stone <char style="add">at</char> the head <char style="add">with</char> shouts: ‘Grace, grace to it!’” <verse eid="ZEC 4:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 4:8"/>And the word of YHWH came to me, saying: <verse eid="ZEC 4:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 4:9"/>“The hands of Zerubbabel have laid the foundation of this house, and His hands will complete it. And you will know that YHWH of Hosts has sent Me to you⁺. <verse eid="ZEC 4:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 4:10"/>For who has despised the day of small things, and they will rejoice when they see the tin plummet<note caller="+" style="f"><char style="fr" closed="false">4.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the plumb line</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the chosen capstone</char></note> in the hand of Zerubbabel? These seven, they <char style="add">are</char> the eyes<note caller="+" style="f"><char style="fr" closed="false">4.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">facets</char></note> of YHWH, roving about through all the earth.” <verse eid="ZEC 4:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 4:11"/>And I answered and said to him: “What <char style="add">are</char> these two olive trees at the right of the lampstand and at its left?” <verse eid="ZEC 4:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="ZEC 4:12"/>And I answered a second time and said to him: “What <char style="add">are</char> the two branches of the olive trees that, into the hands of the two pipes of gold, are emptying out from them the gold?” <verse eid="ZEC 4:12"/></para>
+
 <para style="p"><verse number="13" style="v" sid="ZEC 4:13"/>And he answered to me and said: “Do not you know what these <char style="add">are</char>?” </para>
-<para style="p" vid="ZEC 4:13">And I said, “No, my lord.” </para>
-<para style="p"><verse number="14" style="v" sid="ZEC 4:14"/>And he said, “These <char style="add">are</char> the two sons of new oil, <char style="add">who are</char> standing beside the Lord of all the earth.” <note caller="+" style="f"><char style="fr" closed="false">4.14 </char><char style="ft" closed="false"> See Revelation 11:4.</char></note></para>
+
+<para style="p" vid="ZEC 4:13">And I said, “No, my lord.” <verse eid="ZEC 4:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="ZEC 4:14"/>And he said, “These <char style="add">are</char> the two sons of new oil, <char style="add">who are</char> standing beside the Lord of all the earth.” <note caller="+" style="f"><char style="fr" closed="false">4.14 </char><char style="ft" closed="false"> See Revelation 11:4.</char></note><verse eid="ZEC 4:14"/></para>
+
 <chapter eid="ZEC 4"/>
+
 <chapter number="5" style="c" sid="ZEC 5"/>
+
 <para style="s">The Vision of the Flying Scroll</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 5:1"/>And I turned and lifted up my eyes, and looked, and behold, a flying scroll. </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 5:1"/>And I turned and lifted up my eyes, and looked, and behold, a flying scroll. <verse eid="ZEC 5:1"/></para>
+
 <para style="p"><verse number="2" style="v" sid="ZEC 5:2"/>And he said to me, “What <char style="add">are</char> you seeing?” </para>
-<para style="p" vid="ZEC 5:2">And I answered, “I am seeing a flying scroll. Its length <char style="add">is</char> twenty by the cubit, and its width <char style="add">is</char> ten by the cubit.<note caller="+" style="f"><char style="fr" closed="false">5.2 </char><char style="ft" closed="false"> The flying scroll was approximately 30 feet long and 15 feet wide (9.1 meters long and 4.6 meters wide).</char></note>” </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 5:3"/>And he said to me, “This <char style="add">is</char> the curse that is going out over the face of all the earth. For everyone stealing, on this side according to it he will be cleaned out, and everyone swearing falsely, on this side according to it he will be cleaned out. </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 5:4"/>I will send it out, a declaration of YHWH of Hosts, and it will enter into the house of the thief, and into the house of the one swearing by My name for deception, and it will lodge in the midst of his house and will put an end to it and its timbers and its stones!” </para>
+
+<para style="p" vid="ZEC 5:2">And I answered, “I am seeing a flying scroll. Its length <char style="add">is</char> twenty by the cubit, and its width <char style="add">is</char> ten by the cubit.<note caller="+" style="f"><char style="fr" closed="false">5.2 </char><char style="ft" closed="false"> The flying scroll was approximately 30 feet long and 15 feet wide (9.1 meters long and 4.6 meters wide).</char></note>” <verse eid="ZEC 5:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 5:3"/>And he said to me, “This <char style="add">is</char> the curse that is going out over the face of all the earth. For everyone stealing, on this side according to it he will be cleaned out, and everyone swearing falsely, on this side according to it he will be cleaned out. <verse eid="ZEC 5:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 5:4"/>I will send it out, a declaration of YHWH of Hosts, and it will enter into the house of the thief, and into the house of the one swearing by My name for deception, and it will lodge in the midst of his house and will put an end to it and its timbers and its stones!” <verse eid="ZEC 5:4"/></para>
+
 <para style="s">The Vision of the Woman in a Basket</para>
-<para style="p"><verse number="5" style="v" sid="ZEC 5:5"/>And the angel speaking with me came forth, and he said to me: “Lift now your eyes, and see what this <char style="add">is</char> that is going forth.” </para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 5:5"/>And the angel speaking with me came forth, and he said to me: “Lift now your eyes, and see what this <char style="add">is</char> that is going forth.” <verse eid="ZEC 5:5"/></para>
+
 <para style="p"><verse number="6" style="v" sid="ZEC 5:6"/>And I said, “What <char style="add">is</char> it?” </para>
-<para style="p" vid="ZEC 5:6">And he said, “This <char style="add">is</char> the basket<note caller="+" style="f"><char style="fr" closed="false">5.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the ephah</char></note> that is going forth.” And he said, “This <char style="add">is</char> their iniquity<note caller="+" style="f"><char style="fr" closed="false">5.6 </char><char style="ft" closed="false"> One Hebrew manuscript, LXX, and Syriac; most Hebrew manuscripts </char><char style="fq" closed="false">their appearance</char><char style="ft" closed="false"> or literally </char><char style="fq" closed="false">their eye</char></note> in all the land.” </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 5:7"/>And behold, a disc of lead was being lifted, and this <char style="add">is</char> a lone woman sitting in the midst of the basket. </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 5:8"/>And he said, “This <char style="add">is</char> Wickedness.” And he threw her down into the midst of the basket, and he threw the weight of lead over its mouth. </para>
-<para style="p"><verse number="9" style="v" sid="ZEC 5:9"/>And I lifted my eyes and looked, and behold, two women were coming forth, and the wind <char style="add">was</char> in their wings! And unto them <char style="add">were</char> wings like the wings of a stork, and they lifted up the basket between the earth and between the heavens. </para>
-<para style="p"><verse number="10" style="v" sid="ZEC 5:10"/>And I said to the angel speaking with me, “Where <char style="add">are</char> they bringing the basket?” </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 5:11"/>And he said to me, “To build for it a house in the land of Shinar;<note caller="+" style="f"><char style="fr" closed="false">5.11 </char><char style="ft" closed="false"> That is, Babylonia</char></note> and when it is ready, it will be made to rest there on its base.” </para>
+
+<para style="p" vid="ZEC 5:6">And he said, “This <char style="add">is</char> the basket<note caller="+" style="f"><char style="fr" closed="false">5.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the ephah</char></note> that is going forth.” And he said, “This <char style="add">is</char> their iniquity<note caller="+" style="f"><char style="fr" closed="false">5.6 </char><char style="ft" closed="false"> One Hebrew manuscript, LXX, and Syriac; most Hebrew manuscripts </char><char style="fq" closed="false">their appearance</char><char style="ft" closed="false"> or literally </char><char style="fq" closed="false">their eye</char></note> in all the land.” <verse eid="ZEC 5:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 5:7"/>And behold, a disc of lead was being lifted, and this <char style="add">is</char> a lone woman sitting in the midst of the basket. <verse eid="ZEC 5:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 5:8"/>And he said, “This <char style="add">is</char> Wickedness.” And he threw her down into the midst of the basket, and he threw the weight of lead over its mouth. <verse eid="ZEC 5:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 5:9"/>And I lifted my eyes and looked, and behold, two women were coming forth, and the wind <char style="add">was</char> in their wings! And unto them <char style="add">were</char> wings like the wings of a stork, and they lifted up the basket between the earth and between the heavens. <verse eid="ZEC 5:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 5:10"/>And I said to the angel speaking with me, “Where <char style="add">are</char> they bringing the basket?” <verse eid="ZEC 5:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 5:11"/>And he said to me, “To build for it a house in the land of Shinar;<note caller="+" style="f"><char style="fr" closed="false">5.11 </char><char style="ft" closed="false"> That is, Babylonia</char></note> and when it is ready, it will be made to rest there on its base.” <verse eid="ZEC 5:11"/></para>
+
 <chapter eid="ZEC 5"/>
+
 <chapter number="6" style="c" sid="ZEC 6"/>
+
 <para style="s">The Vision of the Four Chariots</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 6:1"/>And I turned and lifted up my eyes, and I looked, and behold, four chariots were coming forth from between two mountains; and the mountains <char style="add">were</char> mountains of bronze. </para>
-<para style="p"><verse number="2" style="v" sid="ZEC 6:2"/>With the first chariot <char style="add">were</char> red horses, and with the second chariot black horses, </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 6:3"/>and with the third chariot white horses, and with the fourth chariot spotted horses—strong. </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 6:4"/>And I answered and said to the angel speaking with me, “What <char style="add">are</char> these, my lord?” </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 6:5"/>And the angel answered and said to me, “These <char style="add">are</char> the four spirits<note caller="+" style="f"><char style="fr" closed="false">6.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">winds</char></note> of the heavens going forth from the standing next to the Lord of all the earth. </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 6:6"/>The one with the black horses is going forth to the land of the north, and the white ones are going forth to the west,<note caller="+" style="f"><char style="fr" closed="false">6.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">going forth after them</char></note> and the spotted ones are going forth to the land of the south.” </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 6:7"/>And the strong ones went forth, they sought to go about, going to and fro on the earth. And He said, “Go, walk up and down on the earth.” And they went to and fro on the earth. </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 6:8"/>And He called to me and spoke to me, saying: “See, those going forth to the land of the north have given rest to My Spirit in the land of the north.” </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 6:1"/>And I turned and lifted up my eyes, and I looked, and behold, four chariots were coming forth from between two mountains; and the mountains <char style="add">were</char> mountains of bronze. <verse eid="ZEC 6:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="ZEC 6:2"/>With the first chariot <char style="add">were</char> red horses, and with the second chariot black horses, <verse eid="ZEC 6:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 6:3"/>and with the third chariot white horses, and with the fourth chariot spotted horses—strong. <verse eid="ZEC 6:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 6:4"/>And I answered and said to the angel speaking with me, “What <char style="add">are</char> these, my lord?” <verse eid="ZEC 6:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 6:5"/>And the angel answered and said to me, “These <char style="add">are</char> the four spirits<note caller="+" style="f"><char style="fr" closed="false">6.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">winds</char></note> of the heavens going forth from the standing next to the Lord of all the earth. <verse eid="ZEC 6:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 6:6"/>The one with the black horses is going forth to the land of the north, and the white ones are going forth to the west,<note caller="+" style="f"><char style="fr" closed="false">6.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">going forth after them</char></note> and the spotted ones are going forth to the land of the south.” <verse eid="ZEC 6:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 6:7"/>And the strong ones went forth, they sought to go about, going to and fro on the earth. And He said, “Go, walk up and down on the earth.” And they went to and fro on the earth. <verse eid="ZEC 6:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 6:8"/>And He called to me and spoke to me, saying: “See, those going forth to the land of the north have given rest to My Spirit in the land of the north.” <verse eid="ZEC 6:8"/></para>
+
 <para style="s">The Crown and the Temple</para>
-<para style="p"><verse number="9" style="v" sid="ZEC 6:9"/>And the word of YHWH came to me, saying: </para>
-<para style="p"><verse number="10" style="v" sid="ZEC 6:10"/>“Take from the captive, from Heldai, from Tobiah, and from Jedaiah (who have come from Babylon). And you will come on that day and go into the house of Josiah son of Zephaniah. </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 6:11"/>And you shall take silver and gold, and you shall make crowns. And you shall set <char style="add">them</char> on the head of Joshua son of Jehozadak,<note caller="+" style="f"><char style="fr" closed="false">6.11 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Jehozadak</char><char style="ft" closed="false"> is a variant of </char><char style="fq" closed="false">Jozadak</char><char style="ft" closed="false">; see Ezra 3:2.</char></note> the high priest, </para>
-<para style="p"><verse number="12" style="v" sid="ZEC 6:12"/>and you shall speak to him, saying, thus says YHWH of Hosts, saying: ‘Behold, a man—the Branch <char style="add">is</char> his name—and from underneath him, he will branch forth and will build the temple of YHWH. </para>
-<para style="p"><verse number="13" style="v" sid="ZEC 6:13"/>And he will build the temple of YHWH, and <char style="add">it is</char> he <char style="add">who</char> will bear the splendor, and he will sit and rule upon his throne. And He will be a priest on His throne,<note caller="+" style="f"><char style="fr" closed="false">6.13 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">And there will be a priest on His throne</char></note> and a counsel of peace will be between the two of them.’ </para>
-<para style="p"><verse number="14" style="v" sid="ZEC 6:14"/>And the crowns will be for Helem,<note caller="+" style="f"><char style="fr" closed="false">6.14 </char><char style="ft" closed="false"> Hebrew; Syriac </char><char style="fq" closed="false">Heldai</char><char style="ft" closed="false">; see verse 10.</char></note> and Tobiah, and Jedaiah, and Hen<note caller="+" style="f"><char style="fr" closed="false">6.14 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">and the gracious</char><char style="ft" closed="false">; Syriac </char><char style="fq" closed="false">and Josiah</char><char style="ft" closed="false">; see verse 10.</char></note> son of Zephaniah, as a memorial in the temple of YHWH. </para>
-<para style="p"><verse number="15" style="v" sid="ZEC 6:15"/>And the far off will come and do building work on the temple of YHWH, and you⁺ will know that YHWH of Hosts has sent Me to you⁺. And it will come to pass if you⁺ diligently listen to the voice of YHWH your⁺ God.” </para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 6:9"/>And the word of YHWH came to me, saying: <verse eid="ZEC 6:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 6:10"/>“Take from the captive, from Heldai, from Tobiah, and from Jedaiah (who have come from Babylon). And you will come on that day and go into the house of Josiah son of Zephaniah. <verse eid="ZEC 6:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 6:11"/>And you shall take silver and gold, and you shall make crowns. And you shall set <char style="add">them</char> on the head of Joshua son of Jehozadak,<note caller="+" style="f"><char style="fr" closed="false">6.11 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Jehozadak</char><char style="ft" closed="false"> is a variant of </char><char style="fq" closed="false">Jozadak</char><char style="ft" closed="false">; see Ezra 3:2.</char></note> the high priest, <verse eid="ZEC 6:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="ZEC 6:12"/>and you shall speak to him, saying, thus says YHWH of Hosts, saying: ‘Behold, a man—the Branch <char style="add">is</char> his name—and from underneath him, he will branch forth and will build the temple of YHWH. <verse eid="ZEC 6:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="ZEC 6:13"/>And he will build the temple of YHWH, and <char style="add">it is</char> he <char style="add">who</char> will bear the splendor, and he will sit and rule upon his throne. And He will be a priest on His throne,<note caller="+" style="f"><char style="fr" closed="false">6.13 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">And there will be a priest on His throne</char></note> and a counsel of peace will be between the two of them.’ <verse eid="ZEC 6:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="ZEC 6:14"/>And the crowns will be for Helem,<note caller="+" style="f"><char style="fr" closed="false">6.14 </char><char style="ft" closed="false"> Hebrew; Syriac </char><char style="fq" closed="false">Heldai</char><char style="ft" closed="false">; see verse 10.</char></note> and Tobiah, and Jedaiah, and Hen<note caller="+" style="f"><char style="fr" closed="false">6.14 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">and the gracious</char><char style="ft" closed="false">; Syriac </char><char style="fq" closed="false">and Josiah</char><char style="ft" closed="false">; see verse 10.</char></note> son of Zephaniah, as a memorial in the temple of YHWH. <verse eid="ZEC 6:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="ZEC 6:15"/>And the far off will come and do building work on the temple of YHWH, and you⁺ will know that YHWH of Hosts has sent Me to you⁺. And it will come to pass if you⁺ diligently listen to the voice of YHWH your⁺ God.” <verse eid="ZEC 6:15"/></para>
+
 <chapter eid="ZEC 6"/>
+
 <chapter number="7" style="c" sid="ZEC 7"/>
+
 <para style="s">A Call to Justice and Mercy</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 7:1"/>And it came to pass in the fourth year of Darius the king, <char style="add">that</char> the word of YHWH came to Zechariah on the fourth <char style="add">day</char> of the ninth month, in Chislev.<note caller="+" style="f"><char style="fr" closed="false">7.1 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Chislev</char><char style="ft" closed="false"> is the ninth month of the Hebrew lunar calendar, usually occurring within the months of November and December.</char></note> </para>
-<para style="p"><verse number="2" style="v" sid="ZEC 7:2"/>And Bethel had sent Sar-ezer, and Regem-melech,<note caller="+" style="f"><char style="fr" closed="false">7.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">And Bethel-sharezer had sent Regem-melech</char></note> and his men to ask for favor before YHWH </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 7:3"/><char style="add">and</char> to speak to the priests who <char style="add">were</char> in the house of YHWH of Hosts, and to the prophets, saying, “Should I weep in the fifth month and fast, even as I have done this how many years?” </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 7:4"/>And the word of YHWH of Hosts came to me, saying, </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 7:5"/>“Speak to all the people of the land, and to the priests, saying, ‘When you⁺ fasted and mourned in the fifth and in the seventh <char style="add">months</char>, and these seventy years, were you⁺ truly fasting <char style="add">for</char> Me? </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 7:6"/>For when you⁺ were eating and when you⁺ were drinking, <char style="add">was it</char> not <char style="add">for</char> yourselves <char style="add">that</char> you were eating and <char style="add">for</char> yourselves <char style="add">that</char> you were drinking? </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 7:7"/>Are not <char style="add">these</char> the words that YHWH called out by the hand of the former prophets, when Jerusalem was inhabited and prosperous, and her cities around her, and the Negev and the Shephelah<note caller="+" style="f"><char style="fr" closed="false">7.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">foothills</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">lowlands</char><char style="ft" closed="false">; that is, the western foothills of Judea</char></note> were inhabited?’” </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 7:8"/>And the word of YHWH came to Zechariah, saying, </para>
-<para style="p"><verse number="9" style="v" sid="ZEC 7:9"/>“Thus says YHWH of Hosts, saying: ‘Judge with true justice, and loving devotion<note caller="+" style="f"><char style="fr" closed="false">7.9 </char><char style="ft" closed="false"> Forms of the Hebrew </char><char style="fq" closed="false">chesed</char><char style="ft" closed="false"> are translated here and in most cases throughout the Scriptures as </char><char style="fq" closed="false">loving devotion</char><char style="ft" closed="false">; the range of meaning includes </char><char style="fq" closed="false">love</char><char style="ft" closed="false">, </char><char style="fq" closed="false">goodness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">kindness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">faithfulness</char><char style="ft" closed="false">, and </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">, as well as </char><char style="fq" closed="false">loyalty to a covenant</char><char style="ft" closed="false">.</char></note> and compassion each man must do with his brother; </para>
-<para style="p"><verse number="10" style="v" sid="ZEC 7:10"/>and the widow and fatherless, the sojourner and the poor, you⁺ shall not oppress; and you⁺ shall not devise in your⁺ heart the evil of a man <char style="add">against</char> his brother!’ </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 7:11"/>And they refused to pay attention, and they gave the shoulder, acting rebelliously, and their ears they made heavy from hearing;<note caller="+" style="f"><char style="fr" closed="false">7.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">they stopped up their ears from hearing</char></note> </para>
-<para style="p"><verse number="12" style="v" sid="ZEC 7:12"/>and their hearts they made flint, from hearing the law and the words that YHWH of Hosts had sent by His Spirit, by the hand of the former prophets. And there was great wrath from YHWH of Hosts. </para>
-<para style="p"><verse number="13" style="v" sid="ZEC 7:13"/>And it came to pass <char style="add">that</char> when He called out, then they would not listen. So they will call out, and I will not listen, a declaration of YHWH of Hosts— </para>
-<para style="p"><verse number="14" style="v" sid="ZEC 7:14"/>and I scattered them with a whirlwind among all the nations that they had not known. And the land was left desolate after them from passing through or returning; and they made the land of desire into a desolation!” </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 7:1"/>And it came to pass in the fourth year of Darius the king, <char style="add">that</char> the word of YHWH came to Zechariah on the fourth <char style="add">day</char> of the ninth month, in Chislev.<note caller="+" style="f"><char style="fr" closed="false">7.1 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Chislev</char><char style="ft" closed="false"> is the ninth month of the Hebrew lunar calendar, usually occurring within the months of November and December.</char></note> <verse eid="ZEC 7:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="ZEC 7:2"/>And Bethel had sent Sar-ezer, and Regem-melech,<note caller="+" style="f"><char style="fr" closed="false">7.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">And Bethel-sharezer had sent Regem-melech</char></note> and his men to ask for favor before YHWH <verse eid="ZEC 7:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 7:3"/><char style="add">and</char> to speak to the priests who <char style="add">were</char> in the house of YHWH of Hosts, and to the prophets, saying, “Should I weep in the fifth month and fast, even as I have done this how many years?” <verse eid="ZEC 7:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 7:4"/>And the word of YHWH of Hosts came to me, saying, <verse eid="ZEC 7:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 7:5"/>“Speak to all the people of the land, and to the priests, saying, ‘When you⁺ fasted and mourned in the fifth and in the seventh <char style="add">months</char>, and these seventy years, were you⁺ truly fasting <char style="add">for</char> Me? <verse eid="ZEC 7:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 7:6"/>For when you⁺ were eating and when you⁺ were drinking, <char style="add">was it</char> not <char style="add">for</char> yourselves <char style="add">that</char> you were eating and <char style="add">for</char> yourselves <char style="add">that</char> you were drinking? <verse eid="ZEC 7:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 7:7"/>Are not <char style="add">these</char> the words that YHWH called out by the hand of the former prophets, when Jerusalem was inhabited and prosperous, and her cities around her, and the Negev and the Shephelah<note caller="+" style="f"><char style="fr" closed="false">7.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">foothills</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">lowlands</char><char style="ft" closed="false">; that is, the western foothills of Judea</char></note> were inhabited?’” <verse eid="ZEC 7:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 7:8"/>And the word of YHWH came to Zechariah, saying, <verse eid="ZEC 7:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 7:9"/>“Thus says YHWH of Hosts, saying: ‘Judge with true justice, and loving devotion<note caller="+" style="f"><char style="fr" closed="false">7.9 </char><char style="ft" closed="false"> Forms of the Hebrew </char><char style="fq" closed="false">chesed</char><char style="ft" closed="false"> are translated here and in most cases throughout the Scriptures as </char><char style="fq" closed="false">loving devotion</char><char style="ft" closed="false">; the range of meaning includes </char><char style="fq" closed="false">love</char><char style="ft" closed="false">, </char><char style="fq" closed="false">goodness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">kindness</char><char style="ft" closed="false">, </char><char style="fq" closed="false">faithfulness</char><char style="ft" closed="false">, and </char><char style="fq" closed="false">mercy</char><char style="ft" closed="false">, as well as </char><char style="fq" closed="false">loyalty to a covenant</char><char style="ft" closed="false">.</char></note> and compassion each man must do with his brother; <verse eid="ZEC 7:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 7:10"/>and the widow and fatherless, the sojourner and the poor, you⁺ shall not oppress; and you⁺ shall not devise in your⁺ heart the evil of a man <char style="add">against</char> his brother!’ <verse eid="ZEC 7:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 7:11"/>And they refused to pay attention, and they gave the shoulder, acting rebelliously, and their ears they made heavy from hearing;<note caller="+" style="f"><char style="fr" closed="false">7.11 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">they stopped up their ears from hearing</char></note> <verse eid="ZEC 7:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="ZEC 7:12"/>and their hearts they made flint, from hearing the law and the words that YHWH of Hosts had sent by His Spirit, by the hand of the former prophets. And there was great wrath from YHWH of Hosts. <verse eid="ZEC 7:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="ZEC 7:13"/>And it came to pass <char style="add">that</char> when He called out, then they would not listen. So they will call out, and I will not listen, a declaration of YHWH of Hosts— <verse eid="ZEC 7:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="ZEC 7:14"/>and I scattered them with a whirlwind among all the nations that they had not known. And the land was left desolate after them from passing through or returning; and they made the land of desire into a desolation!” <verse eid="ZEC 7:14"/></para>
+
 <chapter eid="ZEC 7"/>
+
 <chapter number="8" style="c" sid="ZEC 8"/>
+
 <para style="s">The Restoration of Jerusalem</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 8:1"/><note caller="-" style="x"><char style="xt" closed="false">Micah 4:6–13</char></note>And the word of YHWH of Hosts came, saying, </para>
-<para style="p"><verse number="2" style="v" sid="ZEC 8:2"/>thus says YHWH of Hosts: “I am jealous for Zion with great jealousy, and with great rage I am jealous for her!” </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 8:3"/>Thus says YHWH: “I will return to Zion, and I will dwell in the midst of Jerusalem; and Jerusalem will be called the City of Truth, and the mountain of YHWH of Hosts, the Mountain of Holiness.” </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 8:4"/>Thus says YHWH of Hosts: “Again old men and old women will sit in the streets of Jerusalem, each man with his staff in his hand from an abundance of days. </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 8:5"/>And the streets of the city will be full of boys and girls playing in its streets.” </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 8:6"/>Thus says YHWH of Hosts: “If it is marvelous<note caller="+" style="f"><char style="fr" closed="false">8.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">impossible</char><char style="ft" closed="false">; twice in this verse</char></note> in the eyes of the remnant of this people in these days, will it also in My eyes be marvelous?” An utterance of YHWH of Hosts. </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 8:7"/>Thus says YHWH of Hosts: “Behold, I am going to save My people from the land of the sunrise and from the land of the going in of the sun. </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 8:8"/>And I will bring them in, and they will dwell in the midst of Jerusalem, and they will be unto Me as a people, and I will be unto them God, in truth and in righteousness.” </para>
-<para style="p"><verse number="9" style="v" sid="ZEC 8:9"/>Thus says YHWH of Hosts: “Let your⁺ hands be strong, hearing in these days these words by the mouth of the prophets who <char style="add">spoke</char> in the day <char style="add">that</char> the house of YHWH of Hosts was founded to build the temple. </para>
-<para style="p"><verse number="10" style="v" sid="ZEC 8:10"/>For before those days there was not a wage for man or a wage for beast. There was not one going forth and one coming in, nor peace from the enemy, and I sent all mankind—each man—against his neighbor. </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 8:11"/>And now not as <char style="add">in</char> the former days <char style="add">am</char> I to the remnant of this people,” a declaration of YHWH of Hosts. </para>
-<para style="p"><verse number="12" style="v" sid="ZEC 8:12"/>“Because of the sowing of peace, the vine will give her fruit, and the ground will give her increase, and the heavens will give their dew; and <char style="add">to</char> the remnant of this people I will give as an inheritance all these <char style="add">things</char>. </para>
-<para style="p"><verse number="13" style="v" sid="ZEC 8:13"/>And it will come to pass <char style="add">that</char> as you⁺ were a curse among the nations, O house of Judah and house of Israel, so I will save you⁺, and you⁺ will be a blessing. Do not be afraid; let your⁺ hands be strong.” </para>
-<para style="p"><verse number="14" style="v" sid="ZEC 8:14"/>For thus says YHWH of Hosts: “As I purposed to bring disaster upon you⁺ when your⁺ fathers provoked Me to wrath, says YHWH of Hosts, and I would not relent, </para>
-<para style="p"><verse number="15" style="v" sid="ZEC 8:15"/>so again I have purposed in these days to do good to Jerusalem and to the house of Judah. Do not fear! </para>
-<para style="p"><verse number="16" style="v" sid="ZEC 8:16"/>These <char style="add">are</char> the things that you⁺ will do: Speak the truth, every man with his neighbor; <char style="add">in</char> truth and judgment of peace render judgment in your⁺ gates; </para>
-<para style="p"><verse number="17" style="v" sid="ZEC 8:17"/>and each man, you⁺ shall not devise evil against a neighbor in your⁺ heart, and an oath of deception you⁺ shall not love, for all these <char style="add">are</char> that which I hate,” a declaration of YHWH. </para>
-<para style="p"><verse number="18" style="v" sid="ZEC 8:18"/>And the word of YHWH of Hosts came to me, saying: </para>
-<para style="p"><verse number="19" style="v" sid="ZEC 8:19"/>“Thus says YHWH of Hosts: The fast of the fourth <char style="add">month</char>, and the fast of the fifth, and the fast of the seventh, and the fast of the tenth, will be for the house of Judah as joy and gladness, and cheerful feasts. And love the truth and the peace.” </para>
-<para style="p"><verse number="20" style="v" sid="ZEC 8:20"/>Thus says YHWH of Hosts: “Yet that peoples will come, and dwellers of many cities. </para>
-<para style="p"><verse number="21" style="v" sid="ZEC 8:21"/>And will go those dwelling in one to one, saying, ‘Let us go at once to ask for favor before the face of YHWH, and to seek YHWH of Hosts; I will go—even I.’ </para>
-<para style="p"><verse number="22" style="v" sid="ZEC 8:22"/>And will come many peoples and strong nations to seek YHWH of Hosts in Jerusalem, and to ask for favor before the face of YHWH.” </para>
-<para style="p"><verse number="23" style="v" sid="ZEC 8:23"/>Thus says YHWH of Hosts: “In those days, will take hold ten men from every language of the nations, and they will take hold on the sleeve of a man, a Jew, saying, ‘Let us go with you⁺, for we have heard <char style="add">that</char> God <char style="add">is</char> with you⁺.’” </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 8:1"/><note caller="-" style="x"><char style="xt" closed="false">Micah 4:6–13</char></note>And the word of YHWH of Hosts came, saying, <verse eid="ZEC 8:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="ZEC 8:2"/>thus says YHWH of Hosts: “I am jealous for Zion with great jealousy, and with great rage I am jealous for her!” <verse eid="ZEC 8:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 8:3"/>Thus says YHWH: “I will return to Zion, and I will dwell in the midst of Jerusalem; and Jerusalem will be called the City of Truth, and the mountain of YHWH of Hosts, the Mountain of Holiness.” <verse eid="ZEC 8:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 8:4"/>Thus says YHWH of Hosts: “Again old men and old women will sit in the streets of Jerusalem, each man with his staff in his hand from an abundance of days. <verse eid="ZEC 8:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 8:5"/>And the streets of the city will be full of boys and girls playing in its streets.” <verse eid="ZEC 8:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 8:6"/>Thus says YHWH of Hosts: “If it is marvelous<note caller="+" style="f"><char style="fr" closed="false">8.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">impossible</char><char style="ft" closed="false">; twice in this verse</char></note> in the eyes of the remnant of this people in these days, will it also in My eyes be marvelous?” An utterance of YHWH of Hosts. <verse eid="ZEC 8:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 8:7"/>Thus says YHWH of Hosts: “Behold, I am going to save My people from the land of the sunrise and from the land of the going in of the sun. <verse eid="ZEC 8:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 8:8"/>And I will bring them in, and they will dwell in the midst of Jerusalem, and they will be unto Me as a people, and I will be unto them God, in truth and in righteousness.” <verse eid="ZEC 8:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 8:9"/>Thus says YHWH of Hosts: “Let your⁺ hands be strong, hearing in these days these words by the mouth of the prophets who <char style="add">spoke</char> in the day <char style="add">that</char> the house of YHWH of Hosts was founded to build the temple. <verse eid="ZEC 8:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 8:10"/>For before those days there was not a wage for man or a wage for beast. There was not one going forth and one coming in, nor peace from the enemy, and I sent all mankind—each man—against his neighbor. <verse eid="ZEC 8:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 8:11"/>And now not as <char style="add">in</char> the former days <char style="add">am</char> I to the remnant of this people,” a declaration of YHWH of Hosts. <verse eid="ZEC 8:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="ZEC 8:12"/>“Because of the sowing of peace, the vine will give her fruit, and the ground will give her increase, and the heavens will give their dew; and <char style="add">to</char> the remnant of this people I will give as an inheritance all these <char style="add">things</char>. <verse eid="ZEC 8:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="ZEC 8:13"/>And it will come to pass <char style="add">that</char> as you⁺ were a curse among the nations, O house of Judah and house of Israel, so I will save you⁺, and you⁺ will be a blessing. Do not be afraid; let your⁺ hands be strong.” <verse eid="ZEC 8:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="ZEC 8:14"/>For thus says YHWH of Hosts: “As I purposed to bring disaster upon you⁺ when your⁺ fathers provoked Me to wrath, says YHWH of Hosts, and I would not relent, <verse eid="ZEC 8:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="ZEC 8:15"/>so again I have purposed in these days to do good to Jerusalem and to the house of Judah. Do not fear! <verse eid="ZEC 8:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="ZEC 8:16"/>These <char style="add">are</char> the things that you⁺ will do: Speak the truth, every man with his neighbor; <char style="add">in</char> truth and judgment of peace render judgment in your⁺ gates; <verse eid="ZEC 8:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="ZEC 8:17"/>and each man, you⁺ shall not devise evil against a neighbor in your⁺ heart, and an oath of deception you⁺ shall not love, for all these <char style="add">are</char> that which I hate,” a declaration of YHWH. <verse eid="ZEC 8:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="ZEC 8:18"/>And the word of YHWH of Hosts came to me, saying: <verse eid="ZEC 8:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="ZEC 8:19"/>“Thus says YHWH of Hosts: The fast of the fourth <char style="add">month</char>, and the fast of the fifth, and the fast of the seventh, and the fast of the tenth, will be for the house of Judah as joy and gladness, and cheerful feasts. And love the truth and the peace.” <verse eid="ZEC 8:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="ZEC 8:20"/>Thus says YHWH of Hosts: “Yet that peoples will come, and dwellers of many cities. <verse eid="ZEC 8:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="ZEC 8:21"/>And will go those dwelling in one to one, saying, ‘Let us go at once to ask for favor before the face of YHWH, and to seek YHWH of Hosts; I will go—even I.’ <verse eid="ZEC 8:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="ZEC 8:22"/>And will come many peoples and strong nations to seek YHWH of Hosts in Jerusalem, and to ask for favor before the face of YHWH.” <verse eid="ZEC 8:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="ZEC 8:23"/>Thus says YHWH of Hosts: “In those days, will take hold ten men from every language of the nations, and they will take hold on the sleeve of a man, a Jew, saying, ‘Let us go with you⁺, for we have heard <char style="add">that</char> God <char style="add">is</char> with you⁺.’” <verse eid="ZEC 8:23"/></para>
+
 <chapter eid="ZEC 8"/>
+
 <chapter number="9" style="c" sid="ZEC 9"/>
+
 <para style="s">The Burden against Israel’s Enemies</para>
+
 <para style="q1"><verse number="1" style="v" sid="ZEC 9:1"/>The burden of the word of YHWH </para>
+
 <para style="q2" vid="ZEC 9:1">against the land of Hadrach, </para>
+
 <para style="q2" vid="ZEC 9:1">and Damascus its resting place—</para>
+
 <para style="q1" vid="ZEC 9:1">For unto YHWH <char style="add">is</char> an eye </para>
+
 <para style="q2" vid="ZEC 9:1">on mankind, and <char style="add">on</char> all the tribes </para>
-<para style="q2" vid="ZEC 9:1">of Israel<note caller="+" style="f"><char style="fr" closed="false">9.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Ror the eye of YHWH is on all men and all the tribes of Israel</char></note>— </para>
+
+<para style="q2" vid="ZEC 9:1">of Israel<note caller="+" style="f"><char style="fr" closed="false">9.1 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Ror the eye of YHWH is on all men and all the tribes of Israel</char></note>— <verse eid="ZEC 9:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="ZEC 9:2"/>and Hamath </para>
+
 <para style="q2" vid="ZEC 9:2"><char style="add">that</char> borders on her, </para>
+
 <para style="q1" vid="ZEC 9:2">and Tyre and Sidon, </para>
-<para style="q2" vid="ZEC 9:2">though they are very wise. </para>
+
+<para style="q2" vid="ZEC 9:2">though they are very wise. <verse eid="ZEC 9:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="ZEC 9:3"/>And Tyre has built a tower for herself, </para>
+
 <para style="q2" vid="ZEC 9:3">and she has heaped up silver like the dust </para>
-<para style="q2" vid="ZEC 9:3">and gold like the mud of the streets. </para>
+
+<para style="q2" vid="ZEC 9:3">and gold like the mud of the streets. <verse eid="ZEC 9:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="ZEC 9:4"/>Behold, the Lord will dispossess her, </para>
+
 <para style="q2" vid="ZEC 9:4">and cast her wealth into the sea,<note caller="+" style="f"><char style="fr" closed="false">9.4 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">and strike down her power on the sea</char></note> </para>
-<para style="q2" vid="ZEC 9:4">and she will be consumed by the fire! </para>
+
+<para style="q2" vid="ZEC 9:4">and she will be consumed by the fire! <verse eid="ZEC 9:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="ZEC 9:5"/>Ashkelon will see and fear, </para>
+
 <para style="q2" vid="ZEC 9:5">and also Gaza will greatly writhe, </para>
+
 <para style="q1" vid="ZEC 9:5">and Ekron, </para>
+
 <para style="q2" vid="ZEC 9:5">for her expectation He has dried up. </para>
+
 <para style="q1" vid="ZEC 9:5">And the king will perish from Gaza, </para>
-<para style="q2" vid="ZEC 9:5">and Ashkelon will not be inhabited, </para>
+
+<para style="q2" vid="ZEC 9:5">and Ashkelon will not be inhabited, <verse eid="ZEC 9:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="ZEC 9:6"/>and a mixed race will dwell in Ashdod, </para>
-<para style="q2" vid="ZEC 9:6">and I will cut off the pride of the Philistines. </para>
+
+<para style="q2" vid="ZEC 9:6">and I will cut off the pride of the Philistines. <verse eid="ZEC 9:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="ZEC 9:7"/>And I will turn away the blood from his mouth, </para>
+
 <para style="q2" vid="ZEC 9:7">and the abominations from between his teeth; </para>
+
 <para style="q1" vid="ZEC 9:7">and the one who remains, even he <char style="add">is</char> unto our God, </para>
+
 <para style="q2" vid="ZEC 9:7">and he will be like a clan<note caller="+" style="f"><char style="fr" closed="false">9.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">like a leader</char></note> in Judah, </para>
-<para style="q2" vid="ZEC 9:7">and Ekron like a Jebusite. </para>
+
+<para style="q2" vid="ZEC 9:7">and Ekron like a Jebusite. <verse eid="ZEC 9:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="ZEC 9:8"/>And I will camp around My house <char style="add">as</char> a guard </para>
+
 <para style="q2" vid="ZEC 9:8">against the one passing by and the one returning; </para>
+
 <para style="q1" vid="ZEC 9:8">and no oppressor will pass through them anymore, </para>
-<para style="q2" vid="ZEC 9:8">for now I look on with My own eyes! </para>
+
+<para style="q2" vid="ZEC 9:8">for now I look on with My own eyes! <verse eid="ZEC 9:8"/></para>
+
 <para style="s">Zion’s Coming KingMatthew 21:1–11</para>
+
 <para style="q1"><verse number="9" style="v" sid="ZEC 9:9"/><note caller="-" style="x"><char style="xt" closed="false">John 12:12–19</char></note><note caller="-" style="x"><char style="xt" closed="false">Luke 19:28–40</char></note><note caller="-" style="x"><char style="xt" closed="false">Mark 11:1–11</char></note>Rejoice greatly, O daughter of Zion; </para>
+
 <para style="q2" vid="ZEC 9:9">shout, O daughter of Jerusalem! </para>
+
 <para style="q1" vid="ZEC 9:9">Behold, your King is coming to you; </para>
+
 <para style="q2" vid="ZEC 9:9">He <char style="add">is</char> righteous and bearing salvation,<note caller="+" style="f"><char style="fr" closed="false">9.9 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">righteous and endowed with salvation</char></note> </para>
+
 <para style="q1" vid="ZEC 9:9">lowly and riding on a donkey, </para>
-<para style="q2" vid="ZEC 9:9">on a colt, the foal of a donkey.<note caller="+" style="f"><char style="fr" closed="false">9.9 </char><char style="ft" closed="false"> Cited in Matthew 21:5 and John 12:15</char></note> </para>
+
+<para style="q2" vid="ZEC 9:9">on a colt, the foal of a donkey.<note caller="+" style="f"><char style="fr" closed="false">9.9 </char><char style="ft" closed="false"> Cited in Matthew 21:5 and John 12:15</char></note> <verse eid="ZEC 9:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="ZEC 9:10"/>And I will cut off the chariot from Ephraim<note caller="+" style="f"><char style="fr" closed="false">9.10 </char><char style="ft" closed="false"> That is, the northern kingdom of Israel</char></note> </para>
+
 <para style="q2" vid="ZEC 9:10">and the horse from Jerusalem; </para>
+
 <para style="q2" vid="ZEC 9:10">and the bow of battle will be cut off, </para>
+
 <para style="q1" vid="ZEC 9:10">and He will speak peace to the nations, </para>
+
 <para style="q2" vid="ZEC 9:10">and His dominion <char style="add">is</char> from sea to sea </para>
+
 <para style="q1" vid="ZEC 9:10">and from the River<note caller="+" style="f"><char style="fr" closed="false">9.10 </char><char style="ft" closed="false"> That is, </char><char style="fq" closed="false">the Euphrates</char></note> </para>
-<para style="q2" vid="ZEC 9:10">to the ends of the earth. </para>
+
+<para style="q2" vid="ZEC 9:10">to the ends of the earth. <verse eid="ZEC 9:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="ZEC 9:11"/>As <char style="add">for</char> you also, </para>
+
 <para style="q2" vid="ZEC 9:11">by the blood of your covenant, </para>
+
 <para style="q1" vid="ZEC 9:11">I will set free your prisoners from the pit </para>
-<para style="q2" vid="ZEC 9:11">without water in it. </para>
+
+<para style="q2" vid="ZEC 9:11">without water in it. <verse eid="ZEC 9:11"/></para>
+
 <para style="q1"><verse number="12" style="v" sid="ZEC 9:12"/>So return to the stronghold, </para>
+
 <para style="q2" vid="ZEC 9:12">O prisoners of hope. </para>
+
 <para style="q1" vid="ZEC 9:12">Even this day I declare </para>
-<para style="q2" vid="ZEC 9:12"><char style="add">that</char> I will return double to you. </para>
+
+<para style="q2" vid="ZEC 9:12"><char style="add">that</char> I will return double to you. <verse eid="ZEC 9:12"/></para>
+
 <para style="q1"><verse number="13" style="v" sid="ZEC 9:13"/>For I have bent for Myself Judah <char style="add">as</char> a bow, </para>
+
 <para style="q2" vid="ZEC 9:13">I have filled <char style="add">it</char> with Ephraim, </para>
+
 <para style="q1" vid="ZEC 9:13">and I have raised up your sons, O Zion, </para>
+
 <para style="q2" vid="ZEC 9:13">against your sons, O Javan,<note caller="+" style="f"><char style="fr" closed="false">9.13 </char><char style="ft" closed="false"> That is, Greece</char></note> </para>
+
 <para style="q1" vid="ZEC 9:13">and I have set like the sword </para>
-<para style="q2" vid="ZEC 9:13">of a mighty one! </para>
+
+<para style="q2" vid="ZEC 9:13">of a mighty one! <verse eid="ZEC 9:13"/></para>
+
 <para style="s">Yahweh Will Save His People</para>
+
 <para style="q1"><verse number="14" style="v" sid="ZEC 9:14"/>And YHWH will be seen over them, </para>
+
 <para style="q2" vid="ZEC 9:14">and His arrow will go forth like lightning; </para>
+
 <para style="q1" vid="ZEC 9:14">and the Lord YHWH will blow on the shofar, </para>
-<para style="q2" vid="ZEC 9:14">and He will go forth with storms from the south. </para>
+
+<para style="q2" vid="ZEC 9:14">and He will go forth with storms from the south. <verse eid="ZEC 9:14"/></para>
+
 <para style="q1"><verse number="15" style="v" sid="ZEC 9:15"/>YHWH of Hosts will give cover over them, </para>
+
 <para style="q2" vid="ZEC 9:15">and they will devour, and they will conquer with stones of a sling; </para>
+
 <para style="q2" vid="ZEC 9:15">and they will drink <char style="add">and</char> roar as if <char style="add">with</char> wine, </para>
+
 <para style="q1" vid="ZEC 9:15">and they will be full like a bowl, </para>
-<para style="q2" vid="ZEC 9:15">like the corners of the altar! </para>
+
+<para style="q2" vid="ZEC 9:15">like the corners of the altar! <verse eid="ZEC 9:15"/></para>
+
 <para style="q1"><verse number="16" style="v" sid="ZEC 9:16"/>And YHWH their God will save them on that day, </para>
+
 <para style="q2" vid="ZEC 9:16">as the flock of His people; </para>
+
 <para style="q1" vid="ZEC 9:16">indeed the stones of a diadem, </para>
-<para style="q2" vid="ZEC 9:16">will be shining over His land. </para>
+
+<para style="q2" vid="ZEC 9:16">will be shining over His land. <verse eid="ZEC 9:16"/></para>
+
 <para style="q1"><verse number="17" style="v" sid="ZEC 9:17"/>For how great His goodness, </para>
+
 <para style="q2" vid="ZEC 9:17">and what His beauty! </para>
+
 <para style="q1" vid="ZEC 9:17">Grain <char style="add">for</char> the young men, </para>
-<para style="q2" vid="ZEC 9:17">and new wine will make flourish the young women. </para>
+
+<para style="q2" vid="ZEC 9:17">and new wine will make flourish the young women. <verse eid="ZEC 9:17"/></para>
+
 <chapter eid="ZEC 9"/>
+
 <chapter number="10" style="c" sid="ZEC 10"/>
+
 <para style="s">Judah and Israel Will Be Restored</para>
+
 <para style="q1"><verse number="1" style="v" sid="ZEC 10:1"/>Ask from YHWH the rain in the time of the spring rain; </para>
+
 <para style="q2" vid="ZEC 10:1">and YHWH, the One making the storm clouds, </para>
+
 <para style="q1" vid="ZEC 10:1">He will give to them the shower of rain, </para>
-<para style="q2" vid="ZEC 10:1">to each man the herb in the field. </para>
+
+<para style="q2" vid="ZEC 10:1">to each man the herb in the field. <verse eid="ZEC 10:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="ZEC 10:2"/>For the teraphim speak delusion, </para>
+
 <para style="q2" vid="ZEC 10:2">and the diviners see deception, </para>
+
 <para style="q1" vid="ZEC 10:2">and they speak of dreams of emptiness; </para>
+
 <para style="q2" vid="ZEC 10:2">in vain they give comfort. </para>
+
 <para style="q1" vid="ZEC 10:2">Upon thus they set out like sheep; </para>
-<para style="q2" vid="ZEC 10:2">they are afflicted because there is no shepherd. </para>
+
+<para style="q2" vid="ZEC 10:2">they are afflicted because there is no shepherd. <verse eid="ZEC 10:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="ZEC 10:3"/>“Against the shepherds, My anger is kindled; </para>
+
 <para style="q2" vid="ZEC 10:3">and against the he-goats,<note caller="+" style="f"><char style="fr" closed="false">10.3 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the leaders</char></note> I lay a charge. </para>
+
 <para style="q1" vid="ZEC 10:3">But YHWH of Hosts will attend to His flock, </para>
+
 <para style="q2" vid="ZEC 10:3">the house of Judah, </para>
+
 <para style="q1" vid="ZEC 10:3">and He will set them </para>
-<para style="q2" vid="ZEC 10:3">as a horse of His splendor in the battle. </para>
+
+<para style="q2" vid="ZEC 10:3">as a horse of His splendor in the battle. <verse eid="ZEC 10:3"/></para>
+
 <para style="q1"><verse number="4" style="v" sid="ZEC 10:4"/>From him <char style="add">is</char> the cornerstone, </para>
+
 <para style="q2" vid="ZEC 10:4">from him the <char style="add">tent</char> peg, </para>
+
 <para style="q1" vid="ZEC 10:4">from him the bow of battle; </para>
-<para style="q2" vid="ZEC 10:4">from him comes every ruler together. </para>
+
+<para style="q2" vid="ZEC 10:4">from him comes every ruler together. <verse eid="ZEC 10:4"/></para>
+
 <para style="q1"><verse number="5" style="v" sid="ZEC 10:5"/>And they will be like mighty ones, </para>
+
 <para style="q2" vid="ZEC 10:5">trampling in the mud of the streets in the battle; </para>
+
 <para style="q1" vid="ZEC 10:5">and they will fight, for YHWH <char style="add">is</char> with them, </para>
-<para style="q2" vid="ZEC 10:5">and they will put to shame the riders of horses. </para>
+
+<para style="q2" vid="ZEC 10:5">and they will put to shame the riders of horses. <verse eid="ZEC 10:5"/></para>
+
 <para style="q1"><verse number="6" style="v" sid="ZEC 10:6"/>And I will strengthen the house of Judah, </para>
+
 <para style="q2" vid="ZEC 10:6">and the house of Joseph I will save; </para>
+
 <para style="q1" vid="ZEC 10:6">and I will bring them back because I have compassion on them, </para>
+
 <para style="q2" vid="ZEC 10:6">and they will be as though I had not cast them aside. </para>
+
 <para style="q1" vid="ZEC 10:6">For I <char style="add">am</char> YHWH their God, </para>
-<para style="q2" vid="ZEC 10:6">and I will answer them. </para>
+
+<para style="q2" vid="ZEC 10:6">and I will answer them. <verse eid="ZEC 10:6"/></para>
+
 <para style="q1"><verse number="7" style="v" sid="ZEC 10:7"/>And Ephraim will become like a mighty one, </para>
+
 <para style="q2" vid="ZEC 10:7">and their heart will be glad as with wine; </para>
+
 <para style="q1" vid="ZEC 10:7">and their children will see <char style="add">it</char> and will be glad; </para>
-<para style="q2" vid="ZEC 10:7">their heart will rejoice in YHWH. </para>
+
+<para style="q2" vid="ZEC 10:7">their heart will rejoice in YHWH. <verse eid="ZEC 10:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="ZEC 10:8"/>I will whistle for them and gather them, </para>
+
 <para style="q2" vid="ZEC 10:8">for I have redeemed them; </para>
+
 <para style="q1" vid="ZEC 10:8">and they will be many, </para>
-<para style="q2" vid="ZEC 10:8">as they were many. </para>
+
+<para style="q2" vid="ZEC 10:8">as they were many. <verse eid="ZEC 10:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="ZEC 10:9"/>And I will sow them among the peoples, </para>
+
 <para style="q2" vid="ZEC 10:9">and in far-off places they will remember Me; </para>
+
 <para style="q1" vid="ZEC 10:9">and they will live together with their sons, </para>
-<para style="q2" vid="ZEC 10:9">and they will return. </para>
+
+<para style="q2" vid="ZEC 10:9">and they will return. <verse eid="ZEC 10:9"/></para>
+
 <para style="q1"><verse number="10" style="v" sid="ZEC 10:10"/>And I will bring them back from the land of Egypt, </para>
+
 <para style="q2" vid="ZEC 10:10">and from Assyria I will gather them, </para>
+
 <para style="q1" vid="ZEC 10:10">and to the lands of Gilead and Lebanon I will bring them, </para>
-<para style="q2" vid="ZEC 10:10">until no <char style="add">place</char> can be found for them. </para>
+
+<para style="q2" vid="ZEC 10:10">until no <char style="add">place</char> can be found for them. <verse eid="ZEC 10:10"/></para>
+
 <para style="q1"><verse number="11" style="v" sid="ZEC 10:11"/>And He will pass through the sea of distress, </para>
+
 <para style="q2" vid="ZEC 10:11">and He will strike the waves of that sea, </para>
+
 <para style="q2" vid="ZEC 10:11">and He will dry up all the depths of the River. </para>
+
 <para style="q1" vid="ZEC 10:11">And the pride of Assyria will be brought down, </para>
-<para style="q2" vid="ZEC 10:11">and the scepter of Egypt will depart. </para>
+
+<para style="q2" vid="ZEC 10:11">and the scepter of Egypt will depart. <verse eid="ZEC 10:11"/></para>
+
 <para style="q1"><verse number="12" style="v" sid="ZEC 10:12"/>And I will make them mighty in YHWH, </para>
+
 <para style="q2" vid="ZEC 10:12">and in His name they will walk,” </para>
-<para style="qs" vid="ZEC 10:12">a declaration of YHWH. </para>
+
+<para style="qs" vid="ZEC 10:12">a declaration of YHWH. <verse eid="ZEC 10:12"/></para>
+
 <chapter eid="ZEC 10"/>
+
 <chapter number="11" style="c" sid="ZEC 11"/>
+
 <para style="s">The Doomed Flock</para>
+
 <para style="q1"><verse number="1" style="v" sid="ZEC 11:1"/>Open, O Lebanon, your doors, </para>
-<para style="q2" vid="ZEC 11:1">that fire may devour your cedars! </para>
+
+<para style="q2" vid="ZEC 11:1">that fire may devour your cedars! <verse eid="ZEC 11:1"/></para>
+
 <para style="q1"><verse number="2" style="v" sid="ZEC 11:2"/>Wail, O cypress,<note caller="+" style="f"><char style="fr" closed="false">11.2 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">pine</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">juniper</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">fir</char></note> for the cedar has fallen, </para>
+
 <para style="q2" vid="ZEC 11:2">for the mighty ones are ruined! </para>
+
 <para style="q1" vid="ZEC 11:2">Wail, O oaks of Bashan, </para>
-<para style="q2" vid="ZEC 11:2">for forest the dense has gone down. </para>
+
+<para style="q2" vid="ZEC 11:2">for forest the dense has gone down. <verse eid="ZEC 11:2"/></para>
+
 <para style="q1"><verse number="3" style="v" sid="ZEC 11:3"/>A voice of wailing <char style="add">is</char> among the shepherds, </para>
+
 <para style="q2" vid="ZEC 11:3">for their glory is in ruins </para>
+
 <para style="q1" vid="ZEC 11:3">a voice of the roaring of lions, </para>
-<para style="q2" vid="ZEC 11:3">for the height of the Jordan has been devastated. </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 11:4"/>Thus says YHWH my God: “Shepherd the flock of the slaughter. </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 11:5"/>Those who are buying them will slaughter them, and they will not be <char style="add">held</char> guilty; and those selling them will say, ‘Blessed be YHWH, for I have become rich.’ And their own shepherds have no compassion on them. </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 11:6"/>So I will not have compassion any longer on those dwelling in the land, a declaration of YHWH, and behold, I am causing to come forth mankind—each man into the hand of his neighbor, and into the hand of his king—and they will crush the land, and I will not deliver from their hand.” </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 11:7"/>And I pastured the flock of slaughter, the afflicted of the flock, and I took for myself two staffs—to one I called Favor, and to one I called Union—and I pastured the flock. </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 11:8"/>And I cut off the three shepherds in one month, and My soul became short with them, and also their soul felt loathing for me. </para>
-<para style="p"><verse number="9" style="v" sid="ZEC 11:9"/>And I said, “I will not shepherd you⁺. The one dying, let die, and the one cut off, let it be cut off. And those remaining, let each one eat the flesh of its neighbor!” </para>
+
+<para style="q2" vid="ZEC 11:3">for the height of the Jordan has been devastated. <verse eid="ZEC 11:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 11:4"/>Thus says YHWH my God: “Shepherd the flock of the slaughter. <verse eid="ZEC 11:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 11:5"/>Those who are buying them will slaughter them, and they will not be <char style="add">held</char> guilty; and those selling them will say, ‘Blessed be YHWH, for I have become rich.’ And their own shepherds have no compassion on them. <verse eid="ZEC 11:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 11:6"/>So I will not have compassion any longer on those dwelling in the land, a declaration of YHWH, and behold, I am causing to come forth mankind—each man into the hand of his neighbor, and into the hand of his king—and they will crush the land, and I will not deliver from their hand.” <verse eid="ZEC 11:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 11:7"/>And I pastured the flock of slaughter, the afflicted of the flock, and I took for myself two staffs—to one I called Favor, and to one I called Union—and I pastured the flock. <verse eid="ZEC 11:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 11:8"/>And I cut off the three shepherds in one month, and My soul became short with them, and also their soul felt loathing for me. <verse eid="ZEC 11:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 11:9"/>And I said, “I will not shepherd you⁺. The one dying, let die, and the one cut off, let it be cut off. And those remaining, let each one eat the flesh of its neighbor!” <verse eid="ZEC 11:9"/></para>
+
 <para style="s">Thirty Pieces of SilverMatthew 27:3–10</para>
-<para style="p"><verse number="10" style="v" sid="ZEC 11:10"/>And I took my staff Favor, and cut<note caller="+" style="f"><char style="fr" closed="false">11.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">broke</char><char style="ft" closed="false">; similarly in verse 14</char></note> it in two, to break apart the covenant that I had made with all the peoples. </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 11:11"/>And it was broken on that day, so the afflicted of the flock watching me knew that it <char style="add">was</char> the word of YHWH. </para>
-<para style="p"><verse number="12" style="v" sid="ZEC 11:12"/>And I said to them, “If <char style="add">it is</char> good to you⁺, give <char style="add">me</char> my wage; and if not, forgo <char style="add">it</char>.” And they weighed out my wage, thirty of silver. </para>
-<para style="p"><verse number="13" style="v" sid="ZEC 11:13"/>And YHWH said to me, “Throw it to the potter,” the magnificent price at which I was valued by them. And I took the thirty of silver, and I threw it <char style="add">into</char> the house of YHWH, to the potter. </para>
-<para style="p"><verse number="14" style="v" sid="ZEC 11:14"/>And I cut in two my second staff, Union, to break the brotherhood between Judah and between Israel. </para>
-<para style="p"><verse number="15" style="v" sid="ZEC 11:15"/>And YHWH said to me, “Again take for yourself the implement of a foolish shepherd. </para>
-<para style="p"><verse number="16" style="v" sid="ZEC 11:16"/>For behold, I am raising up a shepherd in the land: Those being cut off he will not attend to; the young one he will not seek, and the one being broken he will not heal. The one standing still he will not sustain, and the flesh of the fat one he will devour, and their hooves he will tear off! </para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 11:10"/>And I took my staff Favor, and cut<note caller="+" style="f"><char style="fr" closed="false">11.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">broke</char><char style="ft" closed="false">; similarly in verse 14</char></note> it in two, to break apart the covenant that I had made with all the peoples. <verse eid="ZEC 11:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 11:11"/>And it was broken on that day, so the afflicted of the flock watching me knew that it <char style="add">was</char> the word of YHWH. <verse eid="ZEC 11:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="ZEC 11:12"/>And I said to them, “If <char style="add">it is</char> good to you⁺, give <char style="add">me</char> my wage; and if not, forgo <char style="add">it</char>.” And they weighed out my wage, thirty of silver. <verse eid="ZEC 11:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="ZEC 11:13"/>And YHWH said to me, “Throw it to the potter,” the magnificent price at which I was valued by them. And I took the thirty of silver, and I threw it <char style="add">into</char> the house of YHWH, to the potter. <verse eid="ZEC 11:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="ZEC 11:14"/>And I cut in two my second staff, Union, to break the brotherhood between Judah and between Israel. <verse eid="ZEC 11:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="ZEC 11:15"/>And YHWH said to me, “Again take for yourself the implement of a foolish shepherd. <verse eid="ZEC 11:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="ZEC 11:16"/>For behold, I am raising up a shepherd in the land: Those being cut off he will not attend to; the young one he will not seek, and the one being broken he will not heal. The one standing still he will not sustain, and the flesh of the fat one he will devour, and their hooves he will tear off! <verse eid="ZEC 11:16"/></para>
+
 <para style="q1"><verse number="17" style="v" sid="ZEC 11:17"/>Woe to the worthless shepherd, </para>
+
 <para style="q2" vid="ZEC 11:17">leaving behind the flock. </para>
+
 <para style="q1" vid="ZEC 11:17">May a sword <char style="add">be</char> against his arm </para>
+
 <para style="q2" vid="ZEC 11:17">and against his right eye. </para>
+
 <para style="q1" vid="ZEC 11:17">May his arm completely wither, </para>
-<para style="q2" vid="ZEC 11:17">and his right eye be exceedingly!” </para>
+
+<para style="q2" vid="ZEC 11:17">and his right eye be exceedingly!” <verse eid="ZEC 11:17"/></para>
+
 <chapter eid="ZEC 11"/>
+
 <chapter number="12" style="c" sid="ZEC 12"/>
+
 <para style="s">The Coming Deliverance of Jerusalem</para>
+
 <para style="s">1 The burden of the word of YHWH against Israel.</para>
-<para style="p"><verse number="2" style="v" sid="ZEC 12:2"/>“Behold, I am setting Jerusalem <char style="add">as</char> a cup of drunkenness for all the peoples round about. Even against Judah it will be in the siege <char style="add">and</char> against Jerusalem. </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 12:3"/>And it will come to pass in that day, <char style="add">that</char> I will set Jerusalem <char style="add">as</char> a stone of burden for all the peoples; all loading it will be severely cut. They will gather against it—all the nations of the earth. </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 12:4"/>On that day, a declaration of YHWH, I will strike every horse with confusion, and its rider with madness. And upon the house of Judah I will <char style="add">keep</char> open My eyes, and every horse of the peoples I will strike with blindness. </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 12:5"/>And the clans of Judah will say in their heart, ‘Strength for those dwelling in Jerusalem <char style="add">is</char> in YHWH of Hosts, their God.’ </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 12:6"/>On that day I will set the clans of Judah as a basin of fire among the trees, and as a torch of fire among the sheaves; and they will devour on the right and on the left all the peoples round about, and Jerusalem will dwell again in her place, in Jerusalem. </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 12:7"/>And YHWH will save the tents of Judah first, so that the glory of the house of David and the glory of those dwelling in Jerusalem will not become great beyond Judah. </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 12:8"/>On that day YHWH will cover over those dwelling in Jerusalem, and the one stumbling among them will be on that day like David, and the house of David like God, like the angel<note caller="+" style="f"><char style="fr" closed="false">12.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Angel</char></note> of YHWH, before their faces! </para>
-<para style="p"><verse number="9" style="v" sid="ZEC 12:9"/>And it will come to pass on that day, <char style="add">that</char> I will seek to destroy all the nations who are coming against Jerusalem. </para>
+
+<para style="p"><verse number="2" style="v" sid="ZEC 12:2"/>“Behold, I am setting Jerusalem <char style="add">as</char> a cup of drunkenness for all the peoples round about. Even against Judah it will be in the siege <char style="add">and</char> against Jerusalem. <verse eid="ZEC 12:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 12:3"/>And it will come to pass in that day, <char style="add">that</char> I will set Jerusalem <char style="add">as</char> a stone of burden for all the peoples; all loading it will be severely cut. They will gather against it—all the nations of the earth. <verse eid="ZEC 12:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 12:4"/>On that day, a declaration of YHWH, I will strike every horse with confusion, and its rider with madness. And upon the house of Judah I will <char style="add">keep</char> open My eyes, and every horse of the peoples I will strike with blindness. <verse eid="ZEC 12:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 12:5"/>And the clans of Judah will say in their heart, ‘Strength for those dwelling in Jerusalem <char style="add">is</char> in YHWH of Hosts, their God.’ <verse eid="ZEC 12:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 12:6"/>On that day I will set the clans of Judah as a basin of fire among the trees, and as a torch of fire among the sheaves; and they will devour on the right and on the left all the peoples round about, and Jerusalem will dwell again in her place, in Jerusalem. <verse eid="ZEC 12:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 12:7"/>And YHWH will save the tents of Judah first, so that the glory of the house of David and the glory of those dwelling in Jerusalem will not become great beyond Judah. <verse eid="ZEC 12:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 12:8"/>On that day YHWH will cover over those dwelling in Jerusalem, and the one stumbling among them will be on that day like David, and the house of David like God, like the angel<note caller="+" style="f"><char style="fr" closed="false">12.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Angel</char></note> of YHWH, before their faces! <verse eid="ZEC 12:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 12:9"/>And it will come to pass on that day, <char style="add">that</char> I will seek to destroy all the nations who are coming against Jerusalem. <verse eid="ZEC 12:9"/></para>
+
 <para style="s">Mourning the One They PiercedJohn 19:31–37</para>
-<para style="p"><verse number="10" style="v" sid="ZEC 12:10"/>And I will pour out on the house of David and on those dwelling in Jerusalem a spirit<note caller="+" style="f"><char style="fr" closed="false">12.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Spirit</char></note> of grace and supplication, and they will look on Me,<note caller="+" style="f"><char style="fr" closed="false">12.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">to Me</char></note> whom they have pierced.<note caller="+" style="f"><char style="fr" closed="false">12.10 </char><char style="ft" closed="false"> Cited in John 19:37</char></note> And they will mourn for Him, like the mourning over the only one, and grieving over Him like the grieving over a firstborn. </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 12:11"/>On that day the mourning in Jerusalem will be great, like the mourning of Hadad-rimmon in the plain of Megiddo. </para>
-<para style="p"><verse number="12" style="v" sid="ZEC 12:12"/>And the land will mourn, clans <char style="add">by</char> clans, each by itself; the clan of the house of David by itself, and their wives by themselves; the clan of the house of Nathan by itself, and their wives by themselves; </para>
-<para style="p"><verse number="13" style="v" sid="ZEC 12:13"/>the clan of the house of Levi by itself, and their wives by themselves; the clan of Shimei by itself, and their wives by themselves; </para>
-<para style="p"><verse number="14" style="v" sid="ZEC 12:14"/>all the clans remaining, clans <char style="add">by</char> clans, each by itself, and their wives by themselves. </para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 12:10"/>And I will pour out on the house of David and on those dwelling in Jerusalem a spirit<note caller="+" style="f"><char style="fr" closed="false">12.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">the Spirit</char></note> of grace and supplication, and they will look on Me,<note caller="+" style="f"><char style="fr" closed="false">12.10 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">to Me</char></note> whom they have pierced.<note caller="+" style="f"><char style="fr" closed="false">12.10 </char><char style="ft" closed="false"> Cited in John 19:37</char></note> And they will mourn for Him, like the mourning over the only one, and grieving over Him like the grieving over a firstborn. <verse eid="ZEC 12:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 12:11"/>On that day the mourning in Jerusalem will be great, like the mourning of Hadad-rimmon in the plain of Megiddo. <verse eid="ZEC 12:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="ZEC 12:12"/>And the land will mourn, clans <char style="add">by</char> clans, each by itself; the clan of the house of David by itself, and their wives by themselves; the clan of the house of Nathan by itself, and their wives by themselves; <verse eid="ZEC 12:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="ZEC 12:13"/>the clan of the house of Levi by itself, and their wives by themselves; the clan of Shimei by itself, and their wives by themselves; <verse eid="ZEC 12:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="ZEC 12:14"/>all the clans remaining, clans <char style="add">by</char> clans, each by itself, and their wives by themselves. <verse eid="ZEC 12:14"/></para>
+
 <chapter eid="ZEC 12"/>
+
 <chapter number="13" style="c" sid="ZEC 13"/>
+
 <para style="s">An End to Idolatry</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 13:1"/><char style="add">“</char> On that day a fountain will be opened for the house of David, and for those dwelling in Jerusalem, for sin and for impurity. </para>
-<para style="p"><verse number="2" style="v" sid="ZEC 13:2"/>And it will come to pass on that day, a declaration of YHWH of Hosts, <char style="add">that</char> I will cut off the names of the idols from the land, and they will not be remembered anymore; and also the prophets and the spirit of impurity I will make pass from the land. </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 13:3"/>And it will come to pass, if a man prophesies still, that his father and mother <char style="add">who</char> bore him will say to him, ‘You will not live, for you have spoken deception in the name of YHWH.’ And his father and mother <char style="add">who</char> bore him will pierce him through at his prophesying. </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 13:4"/>And it will come to pass in that day, <char style="add">that</char> will feel shame the prophets, each man from his vision, in his prophesying; and they will not clothe themselves <char style="add">with</char> a cloak of hair in order to deceive. </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 13:5"/>And he will say, ‘I <char style="add">am</char> not a prophet; I <char style="add">am</char> a farmer working the land, for a man acquired me in my youth.<note caller="+" style="f"><char style="fr" closed="false">13.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">I am a farmer, for the land has been my livelihood since my youth.</char></note> </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 13:6"/>And <char style="add">if</char> it is said to him, ‘What <char style="add">are</char> these wounds between your hands?’ He will answer, ‘Those with which I was wounded in the house of my friends.’ </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 13:1"/><char style="add">“</char> On that day a fountain will be opened for the house of David, and for those dwelling in Jerusalem, for sin and for impurity. <verse eid="ZEC 13:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="ZEC 13:2"/>And it will come to pass on that day, a declaration of YHWH of Hosts, <char style="add">that</char> I will cut off the names of the idols from the land, and they will not be remembered anymore; and also the prophets and the spirit of impurity I will make pass from the land. <verse eid="ZEC 13:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 13:3"/>And it will come to pass, if a man prophesies still, that his father and mother <char style="add">who</char> bore him will say to him, ‘You will not live, for you have spoken deception in the name of YHWH.’ And his father and mother <char style="add">who</char> bore him will pierce him through at his prophesying. <verse eid="ZEC 13:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 13:4"/>And it will come to pass in that day, <char style="add">that</char> will feel shame the prophets, each man from his vision, in his prophesying; and they will not clothe themselves <char style="add">with</char> a cloak of hair in order to deceive. <verse eid="ZEC 13:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 13:5"/>And he will say, ‘I <char style="add">am</char> not a prophet; I <char style="add">am</char> a farmer working the land, for a man acquired me in my youth.<note caller="+" style="f"><char style="fr" closed="false">13.5 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">I am a farmer, for the land has been my livelihood since my youth.</char></note> <verse eid="ZEC 13:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 13:6"/>And <char style="add">if</char> it is said to him, ‘What <char style="add">are</char> these wounds between your hands?’ He will answer, ‘Those with which I was wounded in the house of my friends.’ <verse eid="ZEC 13:6"/></para>
+
 <para style="s">The Shepherd Struck, the Sheep ScatteredMatthew 26:31–35</para>
+
 <para style="q1"><verse number="7" style="v" sid="ZEC 13:7"/><note caller="-" style="x"><char style="xt" closed="false">Mark 14:27–31</char></note>O Sword, awake against My shepherd, </para>
+
 <para style="q2" vid="ZEC 13:7">and against a man, My companion, </para>
+
 <para style="q2" vid="ZEC 13:7">a declaration of YHWH of hosts. </para>
+
 <para style="q1" vid="ZEC 13:7">Strike the shepherd, and the sheep will be scattered,<note caller="+" style="f"><char style="fr" closed="false">13.7 </char><char style="ft" closed="false"> Cited in Matthew 26:31 and Mark 14:27</char></note> </para>
-<para style="q2" vid="ZEC 13:7">and I will turn My hand against the little ones! </para>
+
+<para style="q2" vid="ZEC 13:7">and I will turn My hand against the little ones! <verse eid="ZEC 13:7"/></para>
+
 <para style="q1"><verse number="8" style="v" sid="ZEC 13:8"/>And it will come to pass, in all the land, </para>
+
 <para style="q2" vid="ZEC 13:8">a declaration of YHWH, </para>
+
 <para style="q1" vid="ZEC 13:8">a measure that two in it will be cut off <char style="add">and</char> die, </para>
-<para style="q2" vid="ZEC 13:8">and the third will remain in it. </para>
+
+<para style="q2" vid="ZEC 13:8">and the third will remain in it. <verse eid="ZEC 13:8"/></para>
+
 <para style="q1"><verse number="9" style="v" sid="ZEC 13:9"/>And I will bring the third through the fire, </para>
+
 <para style="q2" vid="ZEC 13:9">and I will refine them like the refining of silver, </para>
+
 <para style="q2" vid="ZEC 13:9">and I will test them like the testing of gold. </para>
+
 <para style="q1" vid="ZEC 13:9">He will call on my name, </para>
+
 <para style="q2" vid="ZEC 13:9">and I will answer him. </para>
+
 <para style="q1" vid="ZEC 13:9">I will say, ‘It <char style="add">is</char> My people,’ </para>
-<para style="q2" vid="ZEC 13:9">and he will say, ‘YHWH <char style="add">is</char> My God.’” </para>
+
+<para style="q2" vid="ZEC 13:9">and he will say, ‘YHWH <char style="add">is</char> My God.’” <verse eid="ZEC 13:9"/></para>
+
 <chapter eid="ZEC 13"/>
+
 <chapter number="14" style="c" sid="ZEC 14"/>
+
 <para style="s">The Destroyers of Jerusalem Destroyed</para>
-<para style="p"><verse number="1" style="v" sid="ZEC 14:1"/>Behold, a day of YHWH is coming, and your plunder will be divided in your midst, </para>
-<para style="p"><verse number="2" style="v" sid="ZEC 14:2"/>and I will gather all the nations against Jerusalem for battle. And the city will be captured, and the houses plundered, and the women ravished; and half of the city will go forth into exile, and the remnant of the people will not be cut off from the city. </para>
-<para style="p"><verse number="3" style="v" sid="ZEC 14:3"/>And YHWH will go forth, and He will do battle against those nations, as in the day of His fighting in a day of battle. </para>
-<para style="p"><verse number="4" style="v" sid="ZEC 14:4"/>And His feet will stand on that day upon the Mount of Olives, which <char style="add">is</char> upon the face of Jerusalem from the east; and the Mount of Olives will be split, from half of it on the east and on the west, a very great valley; and half of the mountain will move toward the north, and half of it toward the south. </para>
-<para style="p"><verse number="5" style="v" sid="ZEC 14:5"/>And you⁺ will flee by the valley of my mountains, for the valley of the mountains will reach to Azal; and you⁺ will flee, as when you⁺ fled from the face of the earthquake in the days of Uzziah king of Judah. And YHWH my God will come, <char style="add">and</char> all the holy ones with Him.<note caller="+" style="f"><char style="fr" closed="false">14.5 </char><char style="ft" closed="false"> LXX; Hebrew </char><char style="fq" closed="false">with You</char></note> </para>
-<para style="p"><verse number="6" style="v" sid="ZEC 14:6"/>And it will come to pass on that day, <char style="add">that</char> there will not be light, cold, or frost. </para>
-<para style="p"><verse number="7" style="v" sid="ZEC 14:7"/>And it will be a unique day—it <char style="add">is</char> known to YHWH—with no day and no night, and it will come to pass at the time of evening, <char style="add">that</char> there will be light. </para>
-<para style="p"><verse number="8" style="v" sid="ZEC 14:8"/>And it will come to pass, in that day, <char style="add">that</char> will go forth living waters from Jerusalem—half of them toward the Eastern Sea,<note caller="+" style="f"><char style="fr" closed="false">14.8 </char><char style="ft" closed="false"> That is, the Dead Sea</char></note> and half of them toward the Western Sea;<note caller="+" style="f"><char style="fr" closed="false">14.8 </char><char style="ft" closed="false"> That is, the Mediterranean Sea, also called the Great Sea</char></note> in the summer and in the winter it will come to pass. </para>
-<para style="p"><verse number="9" style="v" sid="ZEC 14:9"/>And YHWH will be King over all the earth; in that day YHWH will be one, and His name one. </para>
-<para style="p"><verse number="10" style="v" sid="ZEC 14:10"/>All the land will be turned into a plain, from Geba to Rimmon south of Jerusalem, and she will be raised up and dwell in her place, from the Gate of Benjamin to the place of the First Gate, to the Gate of the Corner, and <char style="add">from</char> the Tower of Hananel to the winepresses of the king. </para>
-<para style="p"><verse number="11" style="v" sid="ZEC 14:11"/>And they will dwell in her, and there will be utter destruction no longer, and Jerusalem will dwell in safety. </para>
-<para style="p"><verse number="12" style="v" sid="ZEC 14:12"/>And this will be the plague with which YHWH will strike all the people who fought against Jerusalem: The rotting of his flesh, and he is standing on his feet; his eyes will rot in their sockets, and the tongue will rot in their mouth. </para>
-<para style="p"><verse number="13" style="v" sid="ZEC 14:13"/>And it will come to pass, in that day, <char style="add">that</char> there will be a great panic from YHWH among them, and each man will seize the hand of his neighbor, and will raise his hand against the hand of his neighbor. </para>
-<para style="p"><verse number="14" style="v" sid="ZEC 14:14"/>And also Judah will fight in Jerusalem, and the wealth of all the nations round about will be gathered together—gold, and silver, and garments, in great abundance. </para>
-<para style="p"><verse number="15" style="v" sid="ZEC 14:15"/>And so will be the plague on the horse, the mule, the camel, and the donkey, and on all the cattle that may be in those camps, as this plague. </para>
+
+<para style="p"><verse number="1" style="v" sid="ZEC 14:1"/>Behold, a day of YHWH is coming, and your plunder will be divided in your midst, <verse eid="ZEC 14:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="ZEC 14:2"/>and I will gather all the nations against Jerusalem for battle. And the city will be captured, and the houses plundered, and the women ravished; and half of the city will go forth into exile, and the remnant of the people will not be cut off from the city. <verse eid="ZEC 14:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="ZEC 14:3"/>And YHWH will go forth, and He will do battle against those nations, as in the day of His fighting in a day of battle. <verse eid="ZEC 14:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="ZEC 14:4"/>And His feet will stand on that day upon the Mount of Olives, which <char style="add">is</char> upon the face of Jerusalem from the east; and the Mount of Olives will be split, from half of it on the east and on the west, a very great valley; and half of the mountain will move toward the north, and half of it toward the south. <verse eid="ZEC 14:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="ZEC 14:5"/>And you⁺ will flee by the valley of my mountains, for the valley of the mountains will reach to Azal; and you⁺ will flee, as when you⁺ fled from the face of the earthquake in the days of Uzziah king of Judah. And YHWH my God will come, <char style="add">and</char> all the holy ones with Him.<note caller="+" style="f"><char style="fr" closed="false">14.5 </char><char style="ft" closed="false"> LXX; Hebrew </char><char style="fq" closed="false">with You</char></note> <verse eid="ZEC 14:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="ZEC 14:6"/>And it will come to pass on that day, <char style="add">that</char> there will not be light, cold, or frost. <verse eid="ZEC 14:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="ZEC 14:7"/>And it will be a unique day—it <char style="add">is</char> known to YHWH—with no day and no night, and it will come to pass at the time of evening, <char style="add">that</char> there will be light. <verse eid="ZEC 14:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="ZEC 14:8"/>And it will come to pass, in that day, <char style="add">that</char> will go forth living waters from Jerusalem—half of them toward the Eastern Sea,<note caller="+" style="f"><char style="fr" closed="false">14.8 </char><char style="ft" closed="false"> That is, the Dead Sea</char></note> and half of them toward the Western Sea;<note caller="+" style="f"><char style="fr" closed="false">14.8 </char><char style="ft" closed="false"> That is, the Mediterranean Sea, also called the Great Sea</char></note> in the summer and in the winter it will come to pass. <verse eid="ZEC 14:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="ZEC 14:9"/>And YHWH will be King over all the earth; in that day YHWH will be one, and His name one. <verse eid="ZEC 14:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="ZEC 14:10"/>All the land will be turned into a plain, from Geba to Rimmon south of Jerusalem, and she will be raised up and dwell in her place, from the Gate of Benjamin to the place of the First Gate, to the Gate of the Corner, and <char style="add">from</char> the Tower of Hananel to the winepresses of the king. <verse eid="ZEC 14:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="ZEC 14:11"/>And they will dwell in her, and there will be utter destruction no longer, and Jerusalem will dwell in safety. <verse eid="ZEC 14:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="ZEC 14:12"/>And this will be the plague with which YHWH will strike all the people who fought against Jerusalem: The rotting of his flesh, and he is standing on his feet; his eyes will rot in their sockets, and the tongue will rot in their mouth. <verse eid="ZEC 14:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="ZEC 14:13"/>And it will come to pass, in that day, <char style="add">that</char> there will be a great panic from YHWH among them, and each man will seize the hand of his neighbor, and will raise his hand against the hand of his neighbor. <verse eid="ZEC 14:13"/></para>
+
+<para style="p"><verse number="14" style="v" sid="ZEC 14:14"/>And also Judah will fight in Jerusalem, and the wealth of all the nations round about will be gathered together—gold, and silver, and garments, in great abundance. <verse eid="ZEC 14:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="ZEC 14:15"/>And so will be the plague on the horse, the mule, the camel, and the donkey, and on all the cattle that may be in those camps, as this plague. <verse eid="ZEC 14:15"/></para>
+
 <para style="s">All Nations Will Worship the KingLeviticus 23:33–44</para>
-<para style="p"><verse number="16" style="v" sid="ZEC 14:16"/><note caller="-" style="x"><char style="xt" closed="false">Nehemiah 8:13–18</char></note>And it will come to pass <char style="add">that</char> everyone remaining from all the nations coming against Jerusalem will go up, year by year, to bow down to the King, YHWH of Hosts, and to keep the feast of Booths.<note caller="+" style="f"><char style="fr" closed="false">14.16 </char><char style="ft" closed="false"> That is, Sukkot, the autumn feast of pilgrimage to Jerusalem; also translated as </char><char style="fq" closed="false">the Feast of Tabernacles</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Feast of Shelters</char><char style="ft" closed="false"> and originally called </char><char style="fq" closed="false">the Feast of Ingathering</char><char style="ft" closed="false"> (see Exodus 23:16 and Exodus 34:22).</char></note> </para>
-<para style="p"><verse number="17" style="v" sid="ZEC 14:17"/>And it will come to pass <char style="add">that</char> whoever does not go up from the families of the earth to Jerusalem, to bow down to the King, YHWH of Hosts, there will not be on them rain. </para>
-<para style="p"><verse number="18" style="v" sid="ZEC 14:18"/>And if the family of Egypt does not go up and does not go in, then <char style="add">it is</char> not upon them; <char style="add">this</char> will be the plague with which YHWH strikes the nations who do not come up to celebrate the feast of Booths. </para>
-<para style="p"><verse number="19" style="v" sid="ZEC 14:19"/>This will be the punishment of Egypt, and the punishment of all the nations that do not come up to celebrate the feast of Booths. </para>
-<para style="p"><verse number="20" style="v" sid="ZEC 14:20"/>On that day it will be on the bells of the horses: HOLY TO YHWH. And the pots in the house of YHWH will be like the bowls before the altar. </para>
-<para style="p"><verse number="21" style="v" sid="ZEC 14:21"/>And every pot in Jerusalem and in Judah will be a holy thing to YHWH of hosts; and everyone sacrificing will come and will take from them and will cook in them. And there will be no longer a Canaanite<note caller="+" style="f"><char style="fr" closed="false">14.21 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">merchant</char></note> in the house of YHWH of hosts on that day. </para>
+
+<para style="p"><verse number="16" style="v" sid="ZEC 14:16"/><note caller="-" style="x"><char style="xt" closed="false">Nehemiah 8:13–18</char></note>And it will come to pass <char style="add">that</char> everyone remaining from all the nations coming against Jerusalem will go up, year by year, to bow down to the King, YHWH of Hosts, and to keep the feast of Booths.<note caller="+" style="f"><char style="fr" closed="false">14.16 </char><char style="ft" closed="false"> That is, Sukkot, the autumn feast of pilgrimage to Jerusalem; also translated as </char><char style="fq" closed="false">the Feast of Tabernacles</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">the Feast of Shelters</char><char style="ft" closed="false"> and originally called </char><char style="fq" closed="false">the Feast of Ingathering</char><char style="ft" closed="false"> (see Exodus 23:16 and Exodus 34:22).</char></note> <verse eid="ZEC 14:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="ZEC 14:17"/>And it will come to pass <char style="add">that</char> whoever does not go up from the families of the earth to Jerusalem, to bow down to the King, YHWH of Hosts, there will not be on them rain. <verse eid="ZEC 14:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="ZEC 14:18"/>And if the family of Egypt does not go up and does not go in, then <char style="add">it is</char> not upon them; <char style="add">this</char> will be the plague with which YHWH strikes the nations who do not come up to celebrate the feast of Booths. <verse eid="ZEC 14:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="ZEC 14:19"/>This will be the punishment of Egypt, and the punishment of all the nations that do not come up to celebrate the feast of Booths. <verse eid="ZEC 14:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="ZEC 14:20"/>On that day it will be on the bells of the horses: HOLY TO YHWH. And the pots in the house of YHWH will be like the bowls before the altar. <verse eid="ZEC 14:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="ZEC 14:21"/>And every pot in Jerusalem and in Judah will be a holy thing to YHWH of hosts; and everyone sacrificing will come and will take from them and will cook in them. And there will be no longer a Canaanite<note caller="+" style="f"><char style="fr" closed="false">14.21 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">merchant</char></note> in the house of YHWH of hosts on that day. <verse eid="ZEC 14:21"/></para>
+
 <chapter eid="ZEC 14"/>
+
 </usx>
