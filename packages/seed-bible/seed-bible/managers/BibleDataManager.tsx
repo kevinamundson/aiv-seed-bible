@@ -10,6 +10,7 @@ import {
 } from "../managers/FreeUseBibleAPI";
 import {
   BLB_DRAFT_ID,
+  canonicalizeBlbDraftTranslationId,
   getBlbDraftBooks,
   getBlbDraftChapter,
   injectBlbDraftTranslation,
@@ -1085,6 +1086,7 @@ export function createBibleDataManager(
     translationId: string,
     options?: ApiRequestOptions
   ): Promise<TranslationBooks> => {
+    translationId = canonicalizeBlbDraftTranslationId(translationId);
     const existing = translationBooks.value.get(translationId);
     if (existing) {
       return existing;
@@ -1142,6 +1144,7 @@ export function createBibleDataManager(
     chapter: number | string,
     options?: ApiRequestOptions
   ): Promise<TranslationBookChapter> => {
+    translationId = canonicalizeBlbDraftTranslationId(translationId);
     if (isBlbDraftTranslationId(translationId)) {
       return await getBlbDraftChapter(book, chapter);
     }
@@ -1233,6 +1236,12 @@ export function createBibleDataManager(
   };
 
   const buildTranslationId = (translationId: string) => {
+    // Local USX adapter must stay a plain id in the path. Encoding it as
+    // `blb-draft://local/api/BLB-Draft/books.json` made post-nav reloads miss
+    // the BLB adapter and paint "Chapter unavailable".
+    if (isBlbDraftTranslationId(translationId)) {
+      return BLB_DRAFT_ID;
+    }
     const endpoint = getTranslationEndpointInfo(translationId);
     if (endpoint.isDefault) {
       return translationId;

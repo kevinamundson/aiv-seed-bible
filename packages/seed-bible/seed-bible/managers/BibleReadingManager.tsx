@@ -13,6 +13,11 @@ import {
   type VerseRef,
 } from "../managers/BibleDataManager";
 import {
+  BLB_DRAFT_ID,
+  canonicalizeBlbDraftTranslationId,
+  isBlbDraftTranslationId,
+} from "../managers/BlbDraftAdapter";
+import {
   batch,
   computed,
   effect,
@@ -1795,7 +1800,17 @@ export function createBibleReadingState(
   };
 
   const resolveTranslationInput = async (input: string): Promise<string> => {
+    // Never treat the synthetic blb-draft:// endpoint as a HelloAO host —
+    // fetching available_translations from it fails and leaves Chapter unavailable.
+    if (isBlbDraftTranslationId(input)) {
+      return BLB_DRAFT_ID;
+    }
     const parsedInput = parseTranslationInput(input);
+    if (parsedInput.endpoint && parsedInput.endpoint.startsWith("blb-draft:")) {
+      return canonicalizeBlbDraftTranslationId(
+        parsedInput.translationId ?? input
+      );
+    }
     if (!parsedInput.endpoint) {
       return parsedInput.translationId ?? input;
     }
