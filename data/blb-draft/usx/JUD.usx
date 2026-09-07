@@ -1,45 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <usx version="3.1">
 <book code="JUD" style="id">BLB-Draft</book>
+
 <para style="h">Jude</para>
+
 <para style="toc1">Jude</para>
+
 <para style="rem">sourceUrl=https://literalbible.com/blb.docx fetchedAtUtc=2026-09-01T15:43:00Z status=draft id=BLB-Draft spec=USFM-USX 3.1.1 char:add=docx-italic note:f=docx-footnotes note:x=docx-heading-crossrefs</para>
+
 <chapter number="1" style="c" sid="JUD 1"/>
+
 <para style="s">A Greeting from Jude</para>
+
 <para style="p"><verse number="1" style="v" sid="JUD 1:1"/><note caller="-" style="x"><char style="xt" closed="false">James 1:1</char></note>Jude, a servant of Jesus Christ, and brother of James, </para>
-<para style="p" vid="JUD 1:1">To those called, having been loved<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">having been sanctified</char></note> in God the Father and having been kept in Jesus Christ. </para>
-<para style="p"><verse number="2" style="v" sid="JUD 1:2"/>Mercy and peace and love be multiplied to you⁺. </para>
+
+<para style="p" vid="JUD 1:1">To those called, having been loved<note caller="+" style="f"><char style="fr" closed="false">1.1 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">having been sanctified</char></note> in God the Father and having been kept in Jesus Christ. <verse eid="JUD 1:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="JUD 1:2"/>Mercy and peace and love be multiplied to you⁺. <verse eid="JUD 1:2"/></para>
+
 <para style="s">God’s Judgment on the Ungodly2 Peter 3:1–7</para>
-<para style="p"><verse number="3" style="v" sid="JUD 1:3"/>Beloved, using all diligence to write to you⁺ concerning our common salvation, I had necessity to write to you⁺, exhorting <char style="add">you</char> to contend earnestly for the faith having been delivered once for all to the saints. </para>
-<para style="p"><verse number="4" style="v" sid="JUD 1:4"/>For certain men came in stealthily, those having been designated long ago unto this judgment, ungodly ones changing the grace of our God into sensuality and denying<note caller="+" style="f"><char style="fr" closed="false">1.4 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">God</char><char style="ft" closed="false">.</char></note> our only Master and Lord, Jesus Christ. </para>
-<para style="p"><verse number="5" style="v" sid="JUD 1:5"/>Now I want to remind you⁺—you⁺ knowing all things once for all—that Jesus,<note caller="+" style="f"><char style="fr" closed="false">1.5 </char><char style="ft" closed="false"> NE, NA27, WH, BYZ, and TR </char><char style="fq" closed="false">the Lord</char></note> having saved a people out of the land of Egypt, secondly destroyed those not having believed. </para>
-<para style="p"><verse number="6" style="v" sid="JUD 1:6"/>And the angels not having kept their domain, but having abandoned <char style="add">their</char> own dwelling, He has kept in eternal chains under gloomy darkness unto the judgment of the great day, </para>
-<para style="p"><verse number="7" style="v" sid="JUD 1:7"/>as Sodom and Gomorrah and the cities around them, in like manner to these having indulged in sexual immorality and having gone after other flesh, are set forth as an example, undergoing the penalty of eternal fire. </para>
-<para style="p"><verse number="8" style="v" sid="JUD 1:8"/>Yet likewise also these dreaming ones indeed defile the flesh, and set aside authority, and blaspheme glorious ones. </para>
-<para style="p"><verse number="9" style="v" sid="JUD 1:9"/>But Michael the archangel, when disputing with the devil, reasoning about the body of Moses, did not dare to bring against <char style="add">him</char> a judgment of blasphemy, but he said, “The Lord rebuke you!”<note caller="+" style="f"><char style="fr" closed="false">1.9 </char><char style="ft" closed="false"> This account is attributed by Origen to the Testament of Moses, also called the Assumption of Moses.</char></note> </para>
-<para style="p"><verse number="10" style="v" sid="JUD 1:10"/>But these indeed blaspheme whatever things they have not seen; and whatever things they understand naturally, as the irrational animals, in these things they corrupt themselves. </para>
-<para style="p"><verse number="11" style="v" sid="JUD 1:11"/>Woe to them, because they went in the way of Cain, and they rushed for profit to the error of Balaam, and they perished in the rebellion of Korah. </para>
-<para style="p"><verse number="12" style="v" sid="JUD 1:12"/>These are the ones in your⁺ love feasts, hidden reefs<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">blemishes</char></note> feasting with <char style="add">you</char> fearlessly, shepherding themselves; clouds without waters, being carried about by winds; autumnal trees without fruit, twice having died, having been uprooted; </para>
-<para style="p"><verse number="13" style="v" sid="JUD 1:13"/>wild waves of the sea, foaming out of their shame; wandering stars, for whom the gloom of darkness has been kept unto the age. </para>
+
+<para style="p"><verse number="3" style="v" sid="JUD 1:3"/>Beloved, using all diligence to write to you⁺ concerning our common salvation, I had necessity to write to you⁺, exhorting <char style="add">you</char> to contend earnestly for the faith having been delivered once for all to the saints. <verse eid="JUD 1:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="JUD 1:4"/>For certain men came in stealthily, those having been designated long ago unto this judgment, ungodly ones changing the grace of our God into sensuality and denying<note caller="+" style="f"><char style="fr" closed="false">1.4 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">God</char><char style="ft" closed="false">.</char></note> our only Master and Lord, Jesus Christ. <verse eid="JUD 1:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="JUD 1:5"/>Now I want to remind you⁺—you⁺ knowing all things once for all—that Jesus,<note caller="+" style="f"><char style="fr" closed="false">1.5 </char><char style="ft" closed="false"> NE, NA27, WH, BYZ, and TR </char><char style="fq" closed="false">the Lord</char></note> having saved a people out of the land of Egypt, secondly destroyed those not having believed. <verse eid="JUD 1:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="JUD 1:6"/>And the angels not having kept their domain, but having abandoned <char style="add">their</char> own dwelling, He has kept in eternal chains under gloomy darkness unto the judgment of the great day, <verse eid="JUD 1:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="JUD 1:7"/>as Sodom and Gomorrah and the cities around them, in like manner to these having indulged in sexual immorality and having gone after other flesh, are set forth as an example, undergoing the penalty of eternal fire. <verse eid="JUD 1:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="JUD 1:8"/>Yet likewise also these dreaming ones indeed defile the flesh, and set aside authority, and blaspheme glorious ones. <verse eid="JUD 1:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="JUD 1:9"/>But Michael the archangel, when disputing with the devil, reasoning about the body of Moses, did not dare to bring against <char style="add">him</char> a judgment of blasphemy, but he said, “The Lord rebuke you!”<note caller="+" style="f"><char style="fr" closed="false">1.9 </char><char style="ft" closed="false"> This account is attributed by Origen to the Testament of Moses, also called the Assumption of Moses.</char></note> <verse eid="JUD 1:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="JUD 1:10"/>But these indeed blaspheme whatever things they have not seen; and whatever things they understand naturally, as the irrational animals, in these things they corrupt themselves. <verse eid="JUD 1:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="JUD 1:11"/>Woe to them, because they went in the way of Cain, and they rushed for profit to the error of Balaam, and they perished in the rebellion of Korah. <verse eid="JUD 1:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="JUD 1:12"/>These are the ones in your⁺ love feasts, hidden reefs<note caller="+" style="f"><char style="fr" closed="false">1.12 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">blemishes</char></note> feasting with <char style="add">you</char> fearlessly, shepherding themselves; clouds without waters, being carried about by winds; autumnal trees without fruit, twice having died, having been uprooted; <verse eid="JUD 1:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="JUD 1:13"/>wild waves of the sea, foaming out of their shame; wandering stars, for whom the gloom of darkness has been kept unto the age. <verse eid="JUD 1:13"/></para>
+
 <para style="p"><verse number="14" style="v" sid="JUD 1:14"/>And Enoch, the seventh from Adam, also prophesied as to these, saying: </para>
+
 <para style="q1" vid="JUD 1:14">“Behold, the Lord came </para>
-<para style="q2" vid="JUD 1:14">amidst myriads of His holy ones, </para>
+
+<para style="q2" vid="JUD 1:14">amidst myriads of His holy ones, <verse eid="JUD 1:14"/></para>
+
 <para style="q2"><verse number="15" style="v" sid="JUD 1:15"/>to do judgment against all, </para>
+
 <para style="q1" vid="JUD 1:15">and to convict all the ungodly<note caller="+" style="f"><char style="fr" closed="false">1.15 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">among them</char><char style="ft" closed="false">.</char></note> </para>
+
 <para style="q2" vid="JUD 1:15">concerning all their works of ungodliness that they did in an ungodly way, </para>
-<para style="q2" vid="JUD 1:15">and concerning all the harsh <char style="add">things</char> that ungodly sinners spoke against Him.”<note caller="+" style="f"><char style="fr" closed="false">1.15 </char><char style="ft" closed="false"> See the First Book of Enoch (1 Enoch 1:9).</char></note> </para>
-<para style="p"><verse number="16" style="v" sid="JUD 1:16"/>These are grumblers, discontented, going according to their <char style="add">own</char> passions; and their mouth speaks great swelling <char style="add">words</char>, flattering faces for the sake of profit. </para>
+
+<para style="q2" vid="JUD 1:15">and concerning all the harsh <char style="add">things</char> that ungodly sinners spoke against Him.”<note caller="+" style="f"><char style="fr" closed="false">1.15 </char><char style="ft" closed="false"> See the First Book of Enoch (1 Enoch 1:9).</char></note> <verse eid="JUD 1:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="JUD 1:16"/>These are grumblers, discontented, going according to their <char style="add">own</char> passions; and their mouth speaks great swelling <char style="add">words</char>, flattering faces for the sake of profit. <verse eid="JUD 1:16"/></para>
+
 <para style="s">A Call to PersevereHebrews 10:19–39</para>
-<para style="p"><verse number="17" style="v" sid="JUD 1:17"/><note caller="-" style="x"><char style="xt" closed="false">2 Peter 3:1–7</char></note>But you⁺, beloved, remember the words having been spoken beforehand by the apostles of our Lord Jesus Christ, </para>
-<para style="p"><verse number="18" style="v" sid="JUD 1:18"/>that they were saying to you⁺, “In the last time there will be scoffers, going according to their <char style="add">own</char> passions of ungodlinesses.” <note caller="+" style="f"><char style="fr" closed="false">1.18 </char><char style="ft" closed="false"> See 2 Peter 3:3.</char></note></para>
-<para style="p"><verse number="19" style="v" sid="JUD 1:19"/>These are those causing divisions,<note caller="+" style="f"><char style="fr" closed="false">1.19 </char><char style="ft" closed="false"> Scrivener TR </char><char style="fq" closed="false">who separate themselves</char></note> natural <char style="add">men</char>, not having the Spirit. </para>
-<para style="p"><verse number="20" style="v" sid="JUD 1:20"/>But you⁺, beloved, building up yourselves in your⁺ most holy faith, praying in the Holy Spirit, </para>
-<para style="p"><verse number="21" style="v" sid="JUD 1:21"/>keep yourselves in the love of God, awaiting the mercy of our Lord Jesus Christ unto eternal life. </para>
-<para style="p"><verse number="22" style="v" sid="JUD 1:22"/>And indeed have mercy on those who are doubting;<note caller="+" style="f"><char style="fr" closed="false">1.22 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">have mercy on some, making a distinction</char></note> </para>
-<para style="p"><verse number="23" style="v" sid="JUD 1:23"/>and save others,<note caller="+" style="f"><char style="fr" closed="false">1.23 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">with fear</char><char style="ft" closed="false">.</char></note> snatching <char style="add">them</char> out of the fire; and show mercy to others with fear,<note caller="+" style="f"><char style="fr" closed="false">1.23 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">and show mercy to others with fear</char><char style="ft" closed="false">.</char></note> hating even the clothing having been stained from the flesh. </para>
+
+<para style="p"><verse number="17" style="v" sid="JUD 1:17"/><note caller="-" style="x"><char style="xt" closed="false">2 Peter 3:1–7</char></note>But you⁺, beloved, remember the words having been spoken beforehand by the apostles of our Lord Jesus Christ, <verse eid="JUD 1:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="JUD 1:18"/>that they were saying to you⁺, “In the last time there will be scoffers, going according to their <char style="add">own</char> passions of ungodlinesses.” <note caller="+" style="f"><char style="fr" closed="false">1.18 </char><char style="ft" closed="false"> See 2 Peter 3:3.</char></note><verse eid="JUD 1:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="JUD 1:19"/>These are those causing divisions,<note caller="+" style="f"><char style="fr" closed="false">1.19 </char><char style="ft" closed="false"> Scrivener TR </char><char style="fq" closed="false">who separate themselves</char></note> natural <char style="add">men</char>, not having the Spirit. <verse eid="JUD 1:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="JUD 1:20"/>But you⁺, beloved, building up yourselves in your⁺ most holy faith, praying in the Holy Spirit, <verse eid="JUD 1:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="JUD 1:21"/>keep yourselves in the love of God, awaiting the mercy of our Lord Jesus Christ unto eternal life. <verse eid="JUD 1:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="JUD 1:22"/>And indeed have mercy on those who are doubting;<note caller="+" style="f"><char style="fr" closed="false">1.22 </char><char style="ft" closed="false"> BYZ and TR </char><char style="fq" closed="false">have mercy on some, making a distinction</char></note> <verse eid="JUD 1:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="JUD 1:23"/>and save others,<note caller="+" style="f"><char style="fr" closed="false">1.23 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">with fear</char><char style="ft" closed="false">.</char></note> snatching <char style="add">them</char> out of the fire; and show mercy to others with fear,<note caller="+" style="f"><char style="fr" closed="false">1.23 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">and show mercy to others with fear</char><char style="ft" closed="false">.</char></note> hating even the clothing having been stained from the flesh. <verse eid="JUD 1:23"/></para>
+
 <para style="s">DoxologyRomans 16:25–27</para>
-<para style="p"><verse number="24" style="v" sid="JUD 1:24"/>Now to Him being able to keep you⁺ from stumbling and to present <char style="add">you</char><note caller="+" style="f"><char style="fr" closed="false">1.24 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">to keep them from stumbling and present (them)</char></note> blameless in the presence of His glory, with exultation— </para>
+
+<para style="p"><verse number="24" style="v" sid="JUD 1:24"/>Now to Him being able to keep you⁺ from stumbling and to present <char style="add">you</char><note caller="+" style="f"><char style="fr" closed="false">1.24 </char><char style="ft" closed="false"> BYZ and Stephanus TR </char><char style="fq" closed="false">to keep them from stumbling and present (them)</char></note> blameless in the presence of His glory, with exultation— <verse eid="JUD 1:24"/></para>
+
 <para style="p"><verse number="25" style="v" sid="JUD 1:25"/>to the only<note caller="+" style="f"><char style="fr" closed="false">1.25 </char><char style="ft" closed="false"> BYZ and TR include </char><char style="fq" closed="false">wise</char><char style="ft" closed="false">.</char></note> God our Savior, through Jesus Christ our Lord,<note caller="+" style="f"><char style="fr" closed="false">1.25 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">through Jesus Christ our Lord</char><char style="ft" closed="false">.</char></note> <char style="add">be</char> glory, majesty, dominion, and authority, before all time<note caller="+" style="f"><char style="fr" closed="false">1.25 </char><char style="ft" closed="false"> BYZ and TR do not include </char><char style="fq" closed="false">before all time</char><char style="ft" closed="false">.</char></note> and now and to all the ages. </para>
-<para style="p" vid="JUD 1:25">Amen. </para>
+
+<para style="p" vid="JUD 1:25">Amen. <verse eid="JUD 1:25"/></para>
+
 <chapter eid="JUD 1"/>
+
 </usx>
