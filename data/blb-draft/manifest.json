@@ -40,14 +40,8 @@
     "tab1stline": "p"
   },
   "unmappedDocxParaStyles": [
-    [
-      "red",
-      458
-    ],
-    [
-      "tab1stlinered",
-      32
-    ]
+    ["red", 458],
+    ["tab1stlinered", 32]
   ],
   "sources": {
     "txt": {
@@ -992,5 +986,13 @@
     "chapterEid": 1189,
     "source": "/workspace/aiv-translations/blb-draft/usx/",
     "note": "USX 3.x verse end milestones (eid) added; wording/markers unchanged; still draft"
-  }
+  },
+  "corrections": [
+    {
+      "log": "CORRECTION-LOG-2026-10-04.md",
+      "appliedAmericaChicago": "4 Oct 2026",
+      "summary": "Typo/punctuation pass applied to 31 USX books (e.g. GEN 9:11 established, MAT 10:25 Sufficient); italic add spans kept. Text remains draft.",
+      "logUrl": "https://aivbible.kevinamundson.me/CORRECTION-LOG-2026-10-04.md"
+    }
+  ]
 }
