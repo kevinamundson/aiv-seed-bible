@@ -377,6 +377,9 @@ function createMobileState(selectorState?: BibleSelectorState): SeedBibleState {
       getSaveForLocation: vi.fn(() => undefined),
       addSave: vi.fn(async () => {}),
     },
+    bookmarks: {
+      getBookmarksForLocation: vi.fn(() => []),
+    },
     login: {
       userId: signal<string | null>(null),
       profile: signal<{ name?: string; pictureUrl?: string } | null>(null),
@@ -1394,6 +1397,94 @@ describe("BibleReader", () => {
 
     expect(selectFootnote).toHaveBeenCalledWith(7);
     expect(selectVerse).not.toHaveBeenCalled();
+  });
+
+  it("keeps an inline footnote attached to the preceding word", () => {
+    const { slot, selectorState, readingState, chapterData } = createFixture();
+
+    chapterData.value = {
+      ...chapterData.value!,
+      chapter: {
+        ...chapterData.value!.chapter,
+        content: [
+          {
+            type: "verse",
+            number: 1,
+            content: ["the last words ", { noteId: 7 }, " more"],
+          },
+        ],
+      },
+    };
+
+    act(() => {
+      render(
+        <BibleReader
+          currentSlot={slot}
+          selectorState={selectorState}
+          readingState={readingState}
+        />,
+        container
+      );
+    });
+
+    const verse = container.querySelector<HTMLElement>(".sb-verse");
+    expect(verse).not.toBeNull();
+
+    const footnoteButton = verse!.querySelector<HTMLButtonElement>(
+      ".sb-inline-footnote-button"
+    );
+    expect(footnoteButton).not.toBeNull();
+
+    const text = verse!.textContent ?? "";
+    const marker = footnoteButton!.textContent ?? "";
+    const markerIndex = text.indexOf(marker);
+
+    expect(markerIndex).toBeGreaterThan(1);
+    expect(text[markerIndex - 1]).toBe("\u00A0");
+    expect(text[markerIndex - 2]).not.toBe(" ");
+  });
+
+  it("keeps a footnote after a poetry line break in the preceding poetry line", () => {
+    const { slot, selectorState, readingState, chapterData } = createFixture();
+    chapterData.value = {
+      ...chapterData.value!,
+      chapter: {
+        ...chapterData.value!.chapter,
+        content: [
+          {
+            type: "verse",
+            number: 1,
+            content: [
+              { text: "line one", poem: 1 },
+              { lineBreak: true },
+              { noteId: 7 },
+              { text: "line two", poem: 1 },
+            ],
+          },
+        ],
+      },
+    };
+
+    act(() => {
+      render(
+        <BibleReader
+          currentSlot={slot}
+          selectorState={selectorState}
+          readingState={readingState}
+        />,
+        container
+      );
+    });
+    const poetryLines = container.querySelectorAll(".sb-verse-line");
+    expect(poetryLines).toHaveLength(2);
+    expect(poetryLines[0]?.textContent).toContain("line one");
+    expect(poetryLines[1]?.textContent).toContain("line two");
+    const footnoteButton = container.querySelector<HTMLButtonElement>(
+      '.sb-inline-footnote-button[aria-label="Open footnote 7"]'
+    );
+    expect(footnoteButton).not.toBeNull();
+    expect(poetryLines[0]?.contains(footnoteButton)).toBe(true);
+    expect(poetryLines[1]?.contains(footnoteButton)).toBe(false);
   });
 
   it("marks selected and poetry verses with their CSS classes", () => {
@@ -4273,6 +4364,9 @@ describe("BibleReader", () => {
       saves: {
         isLocationSaved: vi.fn(() => false),
       },
+      bookmarks: {
+        getBookmarksForLocation: vi.fn(() => []),
+      },
       friends: { friendIds: signal([]) },
       annotations: {
         getAnnotationsForChapter: vi.fn(() => signal([])),
@@ -4408,14 +4502,14 @@ describe("BibleReader", () => {
       );
     });
 
-    // Hidden behind SHOW_BOOKMARK_BUTTON until #1658. The placeholder and its
-    // "coming soon" toast are still in the file, just not rendered — flipping
-    // the flag is what brings them back.
-    it("shows no bookmark button beside it while bookmarks are off", () => {
+    it("shows the bookmark button beside it", () => {
       renderHeader(createMobileState());
 
       expect(saveButton()).not.toBeNull();
-      expect(bookmarkButton()).toBeNull();
+      expect(bookmarkButton()).not.toBeNull();
+      expect(bookmarkButton()!.getAttribute("aria-label")).toBe(
+        "Bookmark this chapter"
+      );
     });
 
     // The two header clusters are built separately, and they had drifted:

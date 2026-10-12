@@ -67,6 +67,11 @@ import {
   openSaveModalForLocation,
   saveChapterLabel,
 } from "../Tabs/Tabs";
+import {
+  BookmarkStackIcon,
+  bookmarkButtonLabel,
+  openBookmarkModal,
+} from "../Bookmarks/Bookmarks";
 import { VerseReferenceText } from "../../app/verseReferenceLink";
 import { flingSafeTapHandlers } from "../../app/flingSafeTap";
 import { DiscoverContentPanel } from "../DiscoverContentPanel/DiscoverContentPanel";
@@ -126,15 +131,6 @@ function ReaderSaveButton(props: ReaderChapterActionProps) {
     </button>
   );
 }
-
-/**
- * Whether the reader header shows a bookmark button at all.
- *
- * Off until #1658 builds the real one. The placeholder below stays in the tree
- * — and keeps its slot in both header clusters — so turning bookmarks back on
- * is this one line rather than a rebuild of the layout around it.
- */
-const SHOW_BOOKMARK_BUTTON = false;
 
 /**
  * Offers downloaded translations the reader can switch to after a chapter
@@ -203,46 +199,38 @@ function OfflineFallbackSwitch(props: {
 }
 
 /**
- * Placeholder for the redesigned bookmarks of #1658. The archival behavior
- * this button used to have moved to Saves (the button beside it), and the
- * replacement — a named, colored marker you move as you read — does not exist
- * yet, so pressing it says so rather than quietly doing nothing.
+ * Opens the bookmark modal for the chapter in the reader. The icon shows what
+ * is already here: an outline for nothing, the bookmark's own color for one,
+ * and a fan of colors for several — only bookmarks in this translation count.
  */
 function ReaderBookmarkButton(props: ReaderChapterActionProps) {
-  const { state } = props;
+  const { state, translationId, bookId, chapterNumber } = props;
   const { t } = useI18n();
-  const label = t("bookmark", { defaultValue: "Bookmark" });
+  const canBookmark = !!(translationId && bookId && chapterNumber);
+  const bookmarksHere = state.bookmarks.getBookmarksForLocation(
+    translationId,
+    bookId,
+    chapterNumber
+  );
+  const label = bookmarkButtonLabel(t, bookmarksHere);
 
   return (
     <button
       type="button"
-      className="sb-bible-reader-bookmark-button"
+      className={`sb-bible-reader-bookmark-button${
+        bookmarksHere.length > 0 ? " sb-bible-reader-bookmark-button-set" : ""
+      }`}
       onClick={() => {
-        state.app.toast(
-          t("bookmark-redesign-coming-soon", {
-            defaultValue: "Bookmark redesign coming soon",
-          })
-        );
+        if (!translationId || !bookId || !chapterNumber) {
+          return;
+        }
+        void openBookmarkModal(state, { translationId, bookId, chapterNumber });
       }}
+      disabled={!canBookmark}
       aria-label={label}
       title={label}
     >
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M18 7V21L12 17L6 21V7C6 5.93913 6.42143 4.92172 7.17157 4.17157C7.92172 3.42143 8.93913 3 10 3H14C15.0609 3 16.0783 3.42143 16.8284 4.17157C17.5786 4.92172 18 5.93913 18 7Z"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
+      <BookmarkStackIcon bookmarks={bookmarksHere} />
     </button>
   );
 }
@@ -345,8 +333,41 @@ function getPoemIndentLevel(part: ChapterVerse["content"][0]) {
 
   return null;
 }
+// Move a footnote before an immediately preceding line break so the marker
+// stays attached to the text it belongs to instead of starting on the next line.
+function reorderFootnoteBeforeLineBreak(
+  content: ChapterVerse["content"]
+): ChapterVerse["content"] {
+  let reorderedContent: ChapterVerse["content"] | undefined;
 
-function isFootnotePart(part: ChapterVerse["content"][0]) {
+  for (let index = 0; index < content.length - 1; index += 1) {
+    const currentPart = content[index]!;
+    const nextPart = content[index + 1]!;
+
+    if (isLineBreakPart(currentPart) && isFootnotePart(nextPart)) {
+      reorderedContent ??= [...content];
+
+      reorderedContent[index] = nextPart;
+      reorderedContent[index + 1] = currentPart;
+
+      index += 1;
+    }
+  }
+
+  return reorderedContent ?? content;
+}
+function isLineBreakPart(
+  part: ChapterVerse["content"][0] | undefined
+): boolean {
+  return (
+    !!part &&
+    typeof part === "object" &&
+    "lineBreak" in part &&
+    part.lineBreak === true
+  );
+}
+
+function isFootnotePart(part: ChapterVerse["content"][0] | undefined) {
   return (
     !!part &&
     typeof part === "object" &&
@@ -503,11 +524,7 @@ function splitVerseIntoSegments(
   for (const part of content) {
     const isFootnote = isFootnotePart(part);
     const indentLevel = getPoemIndentLevel(part);
-    const isLineBreak =
-      part &&
-      typeof part === "object" &&
-      "lineBreak" in part &&
-      part.lineBreak === true;
+    const isLineBreak = isLineBreakPart(part);
 
     if (isFootnote) {
       if (inPoetry) {
@@ -561,7 +578,8 @@ function renderInlineContent(
   showFootnotes: boolean,
   showRedLettering: boolean,
   contentRanges: ContentDecorationRange[] = [],
-  partStartIndex = 0
+  partStartIndex = 0,
+  isBeforeFootnote = false
 ) {
   const splitTextByDecorations = (text: string) => {
     const partEndIndex = partStartIndex + text.length;
@@ -649,7 +667,8 @@ function renderInlineContent(
   };
 
   if (typeof part === "string") {
-    const segments = splitTextByDecorations(part);
+    const text = isBeforeFootnote ? part.trimEnd() : part;
+    const segments = splitTextByDecorations(text);
     return (
       <span key={index}>
         {segments.map((segment, segmentIndex) => (
@@ -679,7 +698,8 @@ function renderInlineContent(
       className += " sb-translator-add";
     }
 
-    const segments = splitTextByDecorations(part.text);
+    const text = isBeforeFootnote ? part.text.trimEnd() : part.text;
+    const segments = splitTextByDecorations(text);
     return (
       <span
         key={index}
@@ -706,27 +726,29 @@ function renderInlineContent(
     return <strong key={index}>{part.heading}</strong>;
   }
 
-  if ("lineBreak" in part && part.lineBreak === true) {
+  if (isLineBreakPart(part)) {
     return <br key={index} />;
   }
 
   if ("noteId" in part && typeof part.noteId === "number") {
     if (!showFootnotes) {
-      return <span> </span>;
+      return <span key={index}> </span>;
     }
     return (
-      <button
-        key={index}
-        className="sb-inline-footnote-button"
-        aria-label={`Open footnote ${part.noteId}`}
-        title={`Open footnote ${part.noteId}`}
-        onClick={(event: MouseEvent) => {
-          event.stopPropagation();
-          onOpenFootnote(part.noteId);
-        }}
-      >
-        <span className="material-symbols-outlined">info</span>
-      </button>
+      <span key={index} className="sb-inline-footnote">
+        {"\u00A0"}
+        <button
+          className="sb-inline-footnote-button"
+          aria-label={`Open footnote ${part.noteId}`}
+          title={`Open footnote ${part.noteId}`}
+          onClick={(event: MouseEvent) => {
+            event.stopPropagation();
+            onOpenFootnote(part.noteId);
+          }}
+        >
+          <span className="material-symbols-outlined">info</span>
+        </button>
+      </span>
     );
   }
 
@@ -991,7 +1013,8 @@ function renderChapterContent(
         v.bookId === chapterData.book.id &&
         v.chapterNumber === chapterData.chapter.number
     );
-    const segments = splitVerseIntoSegments(value.content);
+    const content = reorderFootnoteBeforeLineBreak(value.content);
+    const segments = splitVerseIntoSegments(content);
     const hasPoetry = segments.some((s) => s.type === "poetry");
     const verseDecorations = getVerseDecorations(value.number);
     const decorationPresentation = getDecorationPresentation(verseDecorations);
@@ -1081,7 +1104,8 @@ function renderChapterContent(
                       scriptureElements.showFootnotes,
                       scriptureElements.showRedLettering,
                       contentRanges,
-                      getPartTextStartIndex(part)
+                      getPartTextStartIndex(part),
+                      isFootnotePart(segment.parts[partIndex + 1])
                     )
                   )}
                 </span>
@@ -1114,7 +1138,8 @@ function renderChapterContent(
                       scriptureElements.showFootnotes,
                       scriptureElements.showRedLettering,
                       contentRanges,
-                      getPartTextStartIndex(part)
+                      getPartTextStartIndex(part),
+                      isFootnotePart(line.parts[partIndex + 1])
                     )
                   )}
                 </span>
@@ -1141,7 +1166,7 @@ function renderChapterContent(
       >
         <span className={verseDecoratorClassName} style={verseDecoratorStyle}>
           {renderVerseNumberOrIcon(value.number, verse)}
-          {value.content.map((part, index) =>
+          {content.map((part, index) =>
             renderInlineContent(
               part,
               index,
@@ -1150,7 +1175,8 @@ function renderChapterContent(
               scriptureElements.showFootnotes,
               scriptureElements.showRedLettering,
               contentRanges,
-              getPartTextStartIndex(part)
+              getPartTextStartIndex(part),
+              isFootnotePart(content[index + 1])
             )
           )}
         </span>
@@ -1228,7 +1254,10 @@ function renderChapterContent(
               (noteId) => onOpenFootnote(noteId, null),
               scriptureElements.showHeadings,
               scriptureElements.showFootnotes,
-              scriptureElements.showRedLettering
+              scriptureElements.showRedLettering,
+              [],
+              0,
+              isFootnotePart(entry.content[index + 1])
             )
           )}
         </p>
@@ -3265,14 +3294,12 @@ export function BibleReader(props: BibleReaderProps) {
                         bookId={bookId.value}
                         chapterNumber={chapterNumber.value}
                       />
-                      {SHOW_BOOKMARK_BUTTON && (
-                        <ReaderBookmarkButton
-                          state={state}
-                          translationId={translationId.value}
-                          bookId={bookId.value}
-                          chapterNumber={chapterNumber.value}
-                        />
-                      )}
+                      <ReaderBookmarkButton
+                        state={state}
+                        translationId={translationId.value}
+                        bookId={bookId.value}
+                        chapterNumber={chapterNumber.value}
+                      />
                     </>
                   )}
                   <QuickToolbar
@@ -3413,14 +3440,12 @@ export function BibleReader(props: BibleReaderProps) {
                       bookId={bookId.value}
                       chapterNumber={chapterNumber.value}
                     />
-                    {SHOW_BOOKMARK_BUTTON && (
-                      <ReaderBookmarkButton
-                        state={state}
-                        translationId={translationId.value}
-                        bookId={bookId.value}
-                        chapterNumber={chapterNumber.value}
-                      />
-                    )}
+                    <ReaderBookmarkButton
+                      state={state}
+                      translationId={translationId.value}
+                      bookId={bookId.value}
+                      chapterNumber={chapterNumber.value}
+                    />
                   </>
                 )}
                 <QuickToolbar
