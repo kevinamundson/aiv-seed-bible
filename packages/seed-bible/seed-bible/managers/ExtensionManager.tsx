@@ -1,4 +1,5 @@
-import { effect, signal } from "@preact/signals";
+import { effect, signal, type ReadonlySignal } from "@preact/signals";
+import type { ComponentChildren } from "preact";
 import { orderBy, union } from "es-toolkit";
 import type { SeedBibleState } from "../managers/SeedBibleStateManager";
 import type { LoginManager } from "../managers/LoginManager";
@@ -11,6 +12,10 @@ import {
 } from "./ProfileConfigSync";
 import hash from "hash.js";
 import stringify from "@casual-simulation/fast-json-stable-stringify";
+import type {
+  ExtensionSensitiveProxyDefinition,
+  ExtensionSettingDefinition,
+} from "./extensionSettingConstraints";
 
 const { sha256 } = hash;
 
@@ -40,6 +45,31 @@ export interface ExtensionTranslation {
   [key: string]: string;
 }
 
+/**
+ * The types a single extension setting can declare. Modeled on VSCode's
+ * `contributes.configuration` (https://code.visualstudio.com/api/references/contribution-points#contributes.configuration),
+ * trimmed to what this app supports today.
+ */
+export type ExtensionSettingType = "string" | "boolean" | "number";
+
+export type {
+  ExtensionBooleanSettingDefinition,
+  ExtensionNumberSettingDefinition,
+  ExtensionSensitiveProxyDefinition,
+  ExtensionSensitiveProxyVisibility,
+  ExtensionSettingDefinition,
+  ExtensionSettingValue,
+  ExtensionStringSettingDefinition,
+} from "./extensionSettingConstraints";
+export {
+  firstAcceptableSettingValue,
+  isMultipleOf,
+  isSensitiveSetting,
+  nonSensitiveSettings,
+  numberFieldLimits,
+  settingValueSatisfiesDefinition,
+} from "./extensionSettingConstraints";
+
 export interface ExtensionMeta {
   /**
    * The identifier of this extension, which should be unique across all extensions.
@@ -64,7 +94,33 @@ export interface ExtensionMeta {
    * Defaults to false.
    */
   autoinstall?: boolean;
+
+  /**
+   * The settings this extension supports, keyed by setting name. A setting's
+   * label/description come from the extension's own translations (`t("setting-<key>-title", { ns: id })` /
+   * `t("setting-<key>-description", { ns: id })`), not from this object.
+   */
+  settings?: Record<string, ExtensionSettingDefinition>;
+
+  /**
+   * The destinations this extension's sensitive settings may be sent to, keyed
+   * by an id that each sensitive setting names in its own `sensitive` field.
+   * Several settings can share one entry, so a "Client ID" and an "API key"
+   * both reach `api.example.com` on the same request.
+   */
+  sensitive?: Record<string, ExtensionSensitiveProxyDefinition>;
 }
+
+/**
+ * Renders an extension's own custom content for its "Configure" button in
+ * Settings → Extensions, in place of the generic scalar `ExtensionSettingsForm`
+ * built from `ExtensionMeta.settings`. For settings that can't be expressed as
+ * flat string/boolean/number values (e.g. a repeating list, or a field that
+ * shouldn't round-trip through the shared settings record), an extension
+ * registers one of these via `ExtensionManager.registerSettingsPanel` instead
+ * of declaring `meta.settings`.
+ */
+export type ExtensionSettingsPanelRenderer = () => ComponentChildren;
 
 export type Extension = UploadedExtension | ImportExtension;
 
@@ -574,6 +630,34 @@ export function createExtensionManager(
   const installedExtensionIds = new Set<string>();
   const pendingInstallations = new Map<string, Promise<boolean>>();
 
+  // Custom "Configure" panels extensions register for themselves, keyed by
+  // extension id. Kept here (rather than on `ExtensionSettingsManager`) since
+  // it's a property of the extension itself, like `meta.settings` — not of
+  // any one viewer's saved values.
+  const settingsPanelsSignal = signal<
+    Record<string, ExtensionSettingsPanelRenderer>
+  >({});
+
+  const registerSettingsPanel = (
+    extensionId: string,
+    render: ExtensionSettingsPanelRenderer
+  ): CleanupFunction => {
+    settingsPanelsSignal.value = {
+      ...settingsPanelsSignal.value,
+      [extensionId]: render,
+    };
+    return () => {
+      // A later registration for the same id (e.g. a reinstall) already
+      // replaced this entry — only remove it if it's still the one we added.
+      if (settingsPanelsSignal.value[extensionId] !== render) {
+        return;
+      }
+      const next = { ...settingsPanelsSignal.value };
+      delete next[extensionId];
+      settingsPanelsSignal.value = next;
+    };
+  };
+
   /**
    * The localStorage key under which the IDs of the extensions that the user has
    * installed are persisted, so they can be re-loaded automatically on startup.
@@ -1060,7 +1144,8 @@ export function createExtensionManager(
    */
   const loadExtension = async (
     uploaded: Extension,
-    installStack: Set<string> = new Set()
+    installStack: Set<string> = new Set(),
+    options?: { persist?: boolean }
   ) => {
     const extensionId = uploaded.meta.id;
     knownExtensionsById.set(extensionId, uploaded);
@@ -1099,7 +1184,11 @@ export function createExtensionManager(
           return false;
         }
 
-        const loadedDependency = await loadExtension(dependency, installStack);
+        const loadedDependency = await loadExtension(
+          dependency,
+          installStack,
+          options
+        );
         if (!loadedDependency) {
           installStack.delete(extensionId);
           console.error(
@@ -1153,7 +1242,7 @@ export function createExtensionManager(
     refreshExtensionsSignal();
     try {
       const result = await installationPromise;
-      if (result) {
+      if (result && options?.persist !== false) {
         await persistInstalledExtensionId(extensionId);
       }
       return result;
@@ -1198,19 +1287,19 @@ export function createExtensionManager(
   };
 
   /**
-   * Loads the extensions that the user previously installed. The saved set
-   * merges the IDs persisted in local storage with the IDs stored in the
+   * Computes the viewer's true default installed-extension set: the merge
+   * of the IDs persisted in local storage with the IDs stored in the
    * logged-in user's profile config via `mergeInstalledExtensionIds` — so
    * extensions installed while logged out are adopted into the account,
    * extensions installed on another device are installed here, and an
    * extension uninstalled on another device (which already reached the
-   * profile) is not resurrected by a stale local copy, or vice versa (#1454).
-   * The merged set and its sync metadata are written back to whichever
-   * store(s) changed. Extensions that are already installed are skipped, and
-   * IDs that are not part of any known extension set are left in storage (a
-   * later build may reintroduce them) but skipped for now.
+   * profile) is not resurrected by a stale local copy, or vice versa
+   * (#1454). The merged set and its sync metadata are written back to
+   * whichever store(s) changed. Otherwise read-only, so it's safe to call
+   * repeatedly (e.g. from `reconcileInstalledExtensions`) without further
+   * side effects beyond that sync.
    */
-  const loadSavedExtensions = async () => {
+  const computeSavedExtensionIds = async (): Promise<Set<string>> => {
     await awaitProfileLoaded();
     const localIds = readPersistedExtensionIds();
     const profileIds = readProfileExtensionIds();
@@ -1232,6 +1321,18 @@ export function createExtensionManager(
     if (!setsEqual(profileIds, savedIds)) {
       writeProfileExtensionState(savedIds, merged.profileMeta);
     }
+
+    return savedIds;
+  };
+
+  /**
+   * Loads the extensions in the viewer's true default set (see
+   * `computeSavedExtensionIds`). Extensions that are already installed are
+   * skipped, and IDs that are not part of any known extension set are left
+   * in storage (a later build may reintroduce them) but skipped for now.
+   */
+  const loadSavedExtensions = async () => {
+    const savedIds = await computeSavedExtensionIds();
 
     const promises: Promise<boolean>[] = [];
     for (const id of savedIds) {
@@ -1323,17 +1424,56 @@ export function createExtensionManager(
    * Unloads the extension with the given ID by unregistering it and removing it from the set of installed extensions. An "onExtensionUninstalled" event will be shouted with the extension ID as a parameter.
    * @param id The ID of the extension to unload.
    */
-  const unloadExtension = (id: string) => {
+  const unloadExtension = (id: string, options?: { persist?: boolean }) => {
     unregisterExtension(id);
     installedExtensionIds.delete(id);
-    void forgetInstalledExtensionId(id);
-    // Extensions that are only ever force-installed as a dependency (e.g.
-    // `seed-bible-utils`) never carry `autoinstall: true` themselves, so
-    // `loadDefaultExtensions` never records them in the "handled" set. This
-    // is what records their uninstall, so they aren't dragged back in the
-    // next time their dependent gets (re)installed.
-    void persistHandledExtensionId(id);
+    if (options?.persist !== false) {
+      void forgetInstalledExtensionId(id);
+      // Extensions that are only ever force-installed as a dependency (e.g.
+      // `seed-bible-utils`) never carry `autoinstall: true` themselves, so
+      // `loadDefaultExtensions` never records them in the "handled" set.
+      // This is what records their uninstall, so they aren't dragged back
+      // in the next time their dependent gets (re)installed.
+      void persistHandledExtensionId(id);
+    }
     refreshExtensionsSignal();
+  };
+
+  /**
+   * Swaps the currently-installed extension set to exactly `targetIds`,
+   * installing what's missing and uninstalling what's not wanted — all
+   * session-only (`persist: false`), so none of it touches the viewer's
+   * real default-profile storage. Pass `null` to mean "no customization is
+   * active," which reconciles back to the viewer's true default set
+   * (`computeSavedExtensionIds()`) rather than an explicit list.
+   */
+  const reconcileInstalledExtensions = async (
+    targetIds: string[] | null
+  ): Promise<void> => {
+    const target =
+      targetIds === null
+        ? await computeSavedExtensionIds()
+        : new Set(targetIds);
+    const current = new Set(installedExtensionIds);
+
+    for (const id of current) {
+      if (!target.has(id)) {
+        unloadExtension(id, { persist: false });
+      }
+    }
+    for (const id of target) {
+      if (installedExtensionIds.has(id)) {
+        continue;
+      }
+      const extension = knownExtensionsById.get(id);
+      if (!extension) {
+        console.warn(
+          `reconcileInstalledExtensions: unknown extension id '${id}'; skipping.`
+        );
+        continue;
+      }
+      await loadExtension(extension, undefined, { persist: false });
+    }
   };
 
   /**
@@ -1400,10 +1540,16 @@ export function createExtensionManager(
     loadExtensionSet,
     loadExtension,
     unloadExtension,
+    reconcileInstalledExtensions,
 
     extensions: extensionsSignal,
     getExtensions,
 
     getAllExtensionsAsSet,
+
+    registerSettingsPanel,
+    settingsPanels: settingsPanelsSignal as ReadonlySignal<
+      Record<string, ExtensionSettingsPanelRenderer>
+    >,
   };
 }

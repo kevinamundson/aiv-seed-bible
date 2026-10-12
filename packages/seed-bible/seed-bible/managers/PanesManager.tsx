@@ -57,6 +57,20 @@ export interface Pane {
    * sync external state that mirrors the pane's open/closed status.
    */
   onClose?: (reason: PaneCloseReason) => void;
+  /**
+   * Optional guard consulted before the pane closes via the header's close
+   * (X) button, before anything else happens. Returning `false` blocks that
+   * close — the guard is then responsible for closing the pane itself (e.g.
+   * after the user confirms in a modal it opens), typically via `closePane`.
+   * Returning `true` (or omitting `confirmClose` entirely) lets the close
+   * proceed immediately, same as today. Only consulted for the header's
+   * close button — a programmatic `closePane`/`closeAll`/
+   * `closeFullscreenPanes` call, or displacement when another pane opens,
+   * bypasses it entirely, since those already represent a decision made
+   * elsewhere and blocking them on an unrelated confirmation would surprise
+   * the caller.
+   */
+  confirmClose?: () => boolean;
   /** Placement mode, fixed at creation time. */
   placement: PanePlacement;
   /** Pane X position for floating placement. */
@@ -108,12 +122,31 @@ export interface PaneOpenOptions {
    */
   onClose?: (reason: PaneCloseReason) => void;
   /**
+   * Optional guard consulted before the pane closes via the header's close
+   * (X) button. See the identical field on `Pane` for the full contract.
+   */
+  confirmClose?: () => boolean;
+  /**
    * Optional stable pane identifier.
    * When provided, an existing pane with this ID is reused and updated with
    * the given title/component (placement is not changed). If no pane with
    * this ID exists, a new pane with this ID is created.
    */
   id?: string;
+  /**
+   * Optional starting size in pixels, defaulting to 480x320. Side panes use
+   * only the width — their height is the height of the reader area. Applied
+   * when the pane is first created: reopening a pane by `id` keeps whatever
+   * size the user dragged it to.
+   */
+  size?: { width: number; height: number };
+  /**
+   * When true, opening (or reusing) this pane closes every other pane —
+   * including fullscreen ones — so it is the only pane left open, the same
+   * way a fullscreen pane does. Each displaced pane's `onClose` receives
+   * `"displaced"`. Not stored on the pane: it applies to this open only.
+   */
+  exclusive?: boolean;
 }
 
 export interface PanesManager {
@@ -135,7 +168,8 @@ export interface PanesManager {
    * pane is displayed fullscreen — closes all other panes first, leaving just
    * the new/reused pane. Only one `"side"` pane may be open at a time; opening
    * a new one closes the existing side pane first. `"floating"` panes
-   * otherwise coexist, stacked by open/selection order.
+   * otherwise coexist, stacked by open/selection order. `options.exclusive`
+   * closes all other panes regardless of placement.
    */
   openPane: (options: PaneOpenOptions) => Pane;
 
@@ -176,33 +210,22 @@ export interface PanesManager {
 function createPaneFactory() {
   let nextPaneId = 1;
 
-  return (
-    title: PaneTitle,
-    component: () => ComponentChild,
-    placement: PanePlacement,
-    customId?: string,
-    header?: () => ComponentChild,
-    icon?: () => ComponentChild,
-    leading?: () => ComponentChild,
-    onClose?: (reason: PaneCloseReason) => void
-  ): Pane => {
+  return ({
+    size,
+    exclusive: _exclusive,
+    ...options
+  }: PaneOpenOptions): Pane => {
     const paneId = nextPaneId;
     nextPaneId += 1;
     const offset = (paneId - 1) * 24;
 
     return {
-      id: customId ?? `pane-${paneId}`,
-      title,
-      component,
-      icon,
-      leading,
-      header,
-      onClose,
-      placement,
+      ...options,
+      id: options.id ?? `pane-${paneId}`,
       x: 48 + offset,
       y: 48 + offset,
-      width: 480,
-      height: 320,
+      width: size?.width ?? 480,
+      height: size?.height ?? 320,
     };
   };
 }
@@ -272,9 +295,12 @@ export function createPanes(isMobile?: ReadonlySignal<boolean>): PanesManager {
   const openPane = (options: PaneOpenOptions): Pane => {
     // A pane fills the whole screen when it's fullscreen, or when we're on a
     // mobile viewport (where every pane is displayed fullscreen). Only one
-    // such pane is allowed at a time, so opening one closes all others.
-    const willFillScreen =
-      options.placement === "fullscreen" || (isMobile?.value ?? false);
+    // such pane is allowed at a time, so opening one closes all others. An
+    // exclusive pane closes all others too, whatever its placement.
+    const closesOthers =
+      options.exclusive === true ||
+      options.placement === "fullscreen" ||
+      (isMobile?.value ?? false);
 
     if (options.id) {
       const existingPane =
@@ -288,9 +314,10 @@ export function createPanes(isMobile?: ReadonlySignal<boolean>): PanesManager {
           leading: options.leading,
           header: options.header,
           onClose: options.onClose,
+          confirmClose: options.confirmClose,
         };
         syncPaneState(
-          willFillScreen
+          closesOthers
             ? [updatedPane]
             : panes
                 .peek()
@@ -304,24 +331,15 @@ export function createPanes(isMobile?: ReadonlySignal<boolean>): PanesManager {
       }
     }
 
-    // A fullscreen/mobile pane closes every other pane; a side pane replaces
-    // only the existing side pane (at most one may be open at a time).
-    const basePanes = willFillScreen
+    // A fullscreen/mobile/exclusive pane closes every other pane; a side pane
+    // replaces only the existing side pane (at most one may be open at a time).
+    const basePanes = closesOthers
       ? []
       : options.placement === "side"
         ? panes.peek().filter((pane) => pane.placement !== "side")
         : panes.peek();
 
-    const nextPane = createPane(
-      options.title,
-      options.component,
-      options.placement,
-      options.id,
-      options.header,
-      options.icon,
-      options.leading,
-      options.onClose
-    );
+    const nextPane = createPane(options);
     syncPaneState([...basePanes, nextPane], nextPane.id, "displaced");
     return nextPane;
   };
@@ -400,7 +418,7 @@ export function createPanes(isMobile?: ReadonlySignal<boolean>): PanesManager {
 
   const closeFullscreenPanes = () => {
     // On mobile every pane is displayed fullscreen (see effectivePanes /
-    // openPane's willFillScreen), so treat them all as fullscreen there; on
+    // openPane's closesOthers), so treat them all as fullscreen there; on
     // desktop only real fullscreen panes fill the reader.
     const remaining =
       (isMobile?.value ?? false)

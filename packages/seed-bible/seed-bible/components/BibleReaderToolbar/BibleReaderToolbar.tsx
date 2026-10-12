@@ -6,12 +6,14 @@ import { translateTitle } from "../../app/utils";
 import { flingSafeTapHandlers } from "../../app/flingSafeTap";
 import {
   applyToolbarCustomization,
+  MAX_CUSTOM_HIGHLIGHT_COLORS,
   UI_SIZE_SCALE_MAP,
 } from "../../managers/SettingsManager";
 import { highlightContainsVerse } from "../../managers/HighlightsManager";
 import type { BibleReadingSession } from "../../managers/SessionsManager";
 import type { BibleReadingState } from "../../managers/BibleReadingManager";
 import type { BibleReaderToolbarTool } from "../../managers/BibleToolsManager";
+import { ToolActionElement } from "../ToolActionElement";
 import {
   handleGridKeyNav,
   handleHorizontalListKeyNav,
@@ -23,14 +25,26 @@ import {
   SbTabsIcon,
   StopIcon,
 } from "../../components/icons";
-import { useEffect, useRef } from "preact/hooks";
-import { openBookmarkCategoryModal } from "../Tabs/Tabs";
+import type { ComponentChildren } from "preact";
+import { createPortal } from "preact/compat";
+import { useCallback, useEffect, useLayoutEffect, useRef } from "preact/hooks";
+import {
+  SaveStarIcon,
+  SelfAvatarVisual,
+  openSaveModalForLocation,
+} from "../Tabs/Tabs";
 import { playlistItemLabel } from "../playlistItemLabel";
+import {
+  AudioProgressRing,
+  AudioScrubber,
+} from "../AudioScrubber/AudioScrubber";
 import type { PlayingState } from "../../managers/PlaylistManager";
+import type { AudioPlaybackController } from "../../managers/AudioPlaybackManager";
 import {
   annotationVerseNumbers,
   annotationListHasOtherAuthors,
   groupAnnotationsByVerseRange,
+  type Annotation,
   type AnnotationGroup,
   type AnnotationsManager,
 } from "../../managers/AnnotationsManager";
@@ -49,13 +63,17 @@ import type { VerseRef } from "../../managers/BibleDataManager";
 import type { LoginManager } from "../../managers/LoginManager";
 import type { ModalManager } from "../../managers/ModalManager";
 import { DEFAULT_HIGHLIGHT_IDS } from "../../managers/ThemeManager";
+import {
+  LazyColorPicker,
+  preloadColorPicker,
+} from "../ColorPicker/LazyColorPicker";
 
 /** Shared always-true visibility for Chat when `?chatFirst=true`. */
 const CHAT_FIRST_VISIBLE = signal(true);
 
 /**
  * Boot-only integration flag: `?chatFirst=true` promotes Chat on mobile (fourth
- * bottom tab instead of Bookmarks/Discover) and keeps Chat prominent on
+ * bottom tab instead of Saves/Discover) and keeps Chat prominent on
  * desktop/laptop. Case-insensitive `"true"` only — `"1"` / `"yes"` stay off.
  */
 function readChatFirstFlag(url: URL): boolean {
@@ -175,7 +193,7 @@ interface MobileMoreMenuProps {
   tools: BibleReaderToolbarTool[];
   /**
    * App-level items (not extension tools) appended after extension tools, e.g.
-   * Tabs, or Bookmarks when chat-first has demoted it off the bottom toolbar.
+   * Tabs, or Saves when chat-first has demoted it off the bottom toolbar.
    * Each item's `onClick` is responsible for closing the menu.
    */
   pinnedItems?: Array<{
@@ -422,6 +440,217 @@ function removeSharedHighlightsFromSelection(
 }
 
 /**
+ * Ref callback (not a hook — both menus render inside a per-tool loop) for
+ * the scrollable `.sb-tool-context-menu-scroll` list. Flips the menu to open
+ * downward when it doesn't fit above its button (the verse toolbar can dock
+ * near the top of the viewport), and toggles the `.sb-tool-context-menu-fade`
+ * sibling's `hidden` attribute to show more-content-below scroll affordance.
+ */
+function attachMenuOverflowFade(el: HTMLDivElement | null): void {
+  if (!el) {
+    return;
+  }
+  const menu = el.parentElement;
+  if (menu?.classList.contains("sb-tool-context-menu")) {
+    if (menu.getBoundingClientRect().top < 0) {
+      menu.classList.add("sb-tool-context-menu-below");
+    }
+  }
+
+  attachMenuScrollFade(el);
+}
+
+/** Shows the fade when the menu list can still scroll. */
+function attachMenuScrollFade(el: HTMLDivElement | null): void {
+  if (!el) {
+    return;
+  }
+  const fade = el.nextElementSibling as HTMLElement | null;
+  if (!fade?.classList.contains("sb-tool-context-menu-fade")) {
+    return;
+  }
+  const update = () => {
+    fade.hidden = el.scrollHeight - el.scrollTop - el.clientHeight <= 1;
+  };
+  update();
+  el.addEventListener("scroll", update, { passive: true });
+}
+
+/** Attribute-selector escape. `CSS.escape` is missing in some test DOMs. */
+function escapeAttrSelector(value: string): string {
+  if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
+    return CSS.escape(value);
+  }
+  return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+}
+
+/** Gap between a card and its submenu. Matches the card grid's 0.375rem. */
+const FLOATING_TOOL_MENU_GAP_PX = 6;
+/** Inset that keeps a portaled submenu off the screen edges. */
+const FLOATING_TOOL_MENU_PAD_PX = 8;
+
+/**
+ * Pins a portaled submenu to its trigger in viewport coordinates.
+ *
+ * The menu prefers to open upward, matching the inline card menus. When that
+ * would cross the top of the screen it opens downward instead, and it shifts
+ * horizontally so a card near either edge doesn't push the menu off-screen.
+ * The scrolling list is capped to the room on the chosen side so a long menu
+ * scrolls inside the viewport rather than being cut off.
+ */
+function placeFloatingToolMenu(anchor: HTMLElement, menu: HTMLElement): void {
+  const pad = FLOATING_TOOL_MENU_PAD_PX;
+  const gap = FLOATING_TOOL_MENU_GAP_PX;
+  const anchorRect = anchor.getBoundingClientRect();
+  const spaceAbove = anchorRect.top - pad;
+  const spaceBelow = window.innerHeight - anchorRect.bottom - pad;
+
+  const maxWidth = Math.max(0, window.innerWidth - pad * 2);
+  if (menu.style.maxWidth !== `${maxWidth}px`) {
+    menu.style.maxWidth = `${maxWidth}px`;
+  }
+
+  const scroll = menu.querySelector<HTMLElement>(
+    ".sb-tool-context-menu-scroll"
+  );
+  const menuRect = menu.getBoundingClientRect();
+  const chrome = scroll
+    ? Math.max(0, menuRect.height - scroll.clientHeight)
+    : 0;
+  // scrollHeight survives a max-height cap, so the side decision stays put
+  // once the list is shortened to fit. Unmeasured (0) falls back to the box.
+  const contentHeight = scroll?.scrollHeight ?? 0;
+  const naturalHeight =
+    contentHeight > 0 ? contentHeight + chrome : menuRect.height;
+  const fitsAbove = naturalHeight + gap <= spaceAbove;
+  const fitsBelow = naturalHeight + gap <= spaceBelow;
+  const placeAbove = fitsAbove || (!fitsBelow && spaceAbove >= spaceBelow);
+  const available = Math.max(0, (placeAbove ? spaceAbove : spaceBelow) - gap);
+
+  // Cap only when the chosen side cannot hold the menu. An inline max-height
+  // overrides the stylesheet cap (24rem), so a menu that already fits must
+  // keep that stylesheet rule.
+  if (scroll) {
+    const chosenFits = placeAbove ? fitsAbove : fitsBelow;
+    if (!chosenFits) {
+      const cap = `${Math.max(0, available - chrome)}px`;
+      if (scroll.style.maxHeight !== cap) scroll.style.maxHeight = cap;
+    } else if (scroll.style.maxHeight !== "") {
+      scroll.style.maxHeight = "";
+    }
+  }
+
+  const placed = menu.getBoundingClientRect();
+  const height = placed.height;
+  const width = placed.width;
+
+  let top = placeAbove
+    ? anchorRect.top - gap - height
+    : anchorRect.bottom + gap;
+  if (top < pad) top = pad;
+  const maxTop = window.innerHeight - pad - height;
+  if (top > maxTop) top = Math.max(pad, maxTop);
+
+  const alignToInlineStart = getComputedStyle(anchor).direction === "rtl";
+  let left = alignToInlineStart ? anchorRect.left : anchorRect.right - width;
+  if (left < pad) left = pad;
+  const maxLeft = window.innerWidth - pad - width;
+  if (left > maxLeft) left = Math.max(pad, maxLeft);
+
+  const topPx = `${top}px`;
+  const leftPx = `${left}px`;
+  if (menu.style.top !== topPx) menu.style.top = topPx;
+  if (menu.style.left !== leftPx) menu.style.left = leftPx;
+  if (menu.style.visibility !== "visible") menu.style.visibility = "visible";
+}
+
+/**
+ * Verse-tool submenu rendered on `document.body`.
+ *
+ * Cards in the sheet's overflow row sit inside a container with
+ * `overflow: hidden` (the drag reveal clips that row instead of laying it
+ * out). An absolutely positioned menu that opens upward is painted outside
+ * that box and disappears. Portaling it leaves the clip — and the reveal
+ * animation — alone.
+ */
+function FloatingVerseToolMenu(props: {
+  anchorId: string;
+  onClose: () => void;
+  children: ComponentChildren;
+}) {
+  const menuRef = useRef<HTMLDivElement>(null);
+  const onCloseRef = useRef(props.onClose);
+  onCloseRef.current = props.onClose;
+
+  useLayoutEffect(() => {
+    const menu = menuRef.current;
+    if (!menu) return;
+
+    let frame = 0;
+    let stopped = false;
+    let focused = false;
+
+    const tick = () => {
+      if (stopped) return;
+      const anchor = document.querySelector<HTMLElement>(
+        `[data-verse-tool-id="${escapeAttrSelector(props.anchorId)}"]`
+      );
+      const current = menuRef.current;
+      if (!anchor || !current) return;
+      // The row is fully shut (visibility: hidden). Drop the menu with it
+      // rather than leaving a panel floating over the collapsed sheet.
+      if (anchor.closest(".sb-verse-toolbar-overflow-closed")) {
+        stopped = true;
+        onCloseRef.current();
+        return;
+      }
+      placeFloatingToolMenu(anchor, current);
+      if (!focused) {
+        focused = true;
+        current
+          .querySelector<HTMLElement>('[role="menuitem"]:not([disabled])')
+          ?.focus({ preventScroll: true });
+      }
+      frame = requestAnimationFrame(tick);
+    };
+
+    tick();
+
+    return () => {
+      stopped = true;
+      cancelAnimationFrame(frame);
+    };
+  }, [props.anchorId]);
+
+  return createPortal(
+    <div
+      ref={menuRef}
+      className="sb-tool-context-menu sb-tool-context-menu-floating"
+      role="menu"
+      onKeyDown={(event) => {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          props.onClose();
+          document
+            .querySelector<HTMLButtonElement>(
+              `[data-verse-tool-id="${escapeAttrSelector(props.anchorId)}"] .sb-verse-toolbar-action`
+            )
+            ?.focus();
+          return;
+        }
+        handleVerticalListKeyNav(event, event.currentTarget);
+      }}
+    >
+      <div className="sb-tool-context-menu-scroll" ref={attachMenuScrollFade}>
+        {props.children}
+      </div>
+      <div className="sb-tool-context-menu-fade" hidden />
+    </div>,
+    document.body
+  );
+}
+
+/**
  * Applies a highlight to the current selection with the right lifetime for the
  * current context:
  *
@@ -442,11 +671,7 @@ function removeSharedHighlightsFromSelection(
  *
  * By default the verse selection is cleared once the highlight is applied —
  * the selection and its toolbar were otherwise left sitting open after every
- * highlight, forcing an extra dismiss (#1704). `clearSelection` lets a caller
- * opt out: the custom-color picker's live-drag commits pass `false` so the
- * selection survives while the color dialog is still open, letting the user
- * keep tweaking the shade instead of losing the selection after the first
- * settled color.
+ * highlight, forcing an extra dismiss (#1704).
  */
 function applyHighlightWithSession(
   rs: BibleReadingState,
@@ -456,8 +681,7 @@ function applyHighlightWithSession(
     customColor?: string;
     customFontColor?: string;
   },
-  isSignedIn: boolean,
-  clearSelection = true
+  isSignedIn: boolean
 ): void {
   if (!session || !session.userCanDecorate(session.localSessionId.value)) {
     // A participant who can't broadcast used to match neither branch here, so
@@ -475,9 +699,7 @@ function applyHighlightWithSession(
     broadcastDecorationToSession(session, rs, details);
   }
 
-  if (clearSelection) {
-    rs.clearSelectedVerses();
-  }
+  rs.clearSelectedVerses();
 }
 
 /**
@@ -490,6 +712,8 @@ function applyHighlightWithSession(
 function VerseToolbarAnnotationGroup(props: {
   id: string;
   group: AnnotationGroup;
+  /** The signed-in user's own notes in this chapter, which they may edit. */
+  ownAnnotations: ReadonlySet<Annotation>;
   tabs: TabsManager;
   login: LoginManager;
   annotations: AnnotationsManager;
@@ -502,6 +726,7 @@ function VerseToolbarAnnotationGroup(props: {
   const {
     id,
     group,
+    ownAnnotations,
     tabs,
     login,
     annotations,
@@ -557,40 +782,42 @@ function VerseToolbarAnnotationGroup(props: {
                   otherPeoplePresent={otherPeoplePresent}
                 />
               </div>
-              <ContextMenuWithButton
-                buttonClassName="sb-annotation-item-menu"
-                aria-label={t("annotation-options", {
-                  defaultValue: "Annotation options",
-                })}
-              >
-                <ContextMenuItem
-                  onClick={() => {
-                    console.log("Editing annotation", annotation);
-                    annotations.editAnnotation(annotation);
-                  }}
+              {ownAnnotations.has(annotation) ? (
+                <ContextMenuWithButton
+                  buttonClassName="sb-annotation-item-menu"
+                  aria-label={t("annotation-options", {
+                    defaultValue: "Annotation options",
+                  })}
                 >
-                  <MaterialIcon className="sb-context-menu-item-icon">
-                    edit
-                  </MaterialIcon>
-                  {t("edit-annotation", { defaultValue: "Edit" })}
-                </ContextMenuItem>
-                <ContextMenuItem
-                  className="sb-context-menu-item--danger"
-                  onClick={() => {
-                    openDeleteAnnotationConfirm(
-                      modals,
-                      annotations,
-                      annotation,
-                      toast
-                    );
-                  }}
-                >
-                  <MaterialIcon className="sb-context-menu-item-icon">
-                    delete
-                  </MaterialIcon>
-                  {t("delete-annotation", { defaultValue: "Delete" })}
-                </ContextMenuItem>
-              </ContextMenuWithButton>
+                  <ContextMenuItem
+                    onClick={() => {
+                      console.log("Editing annotation", annotation);
+                      annotations.editAnnotation(annotation);
+                    }}
+                  >
+                    <MaterialIcon className="sb-context-menu-item-icon">
+                      edit
+                    </MaterialIcon>
+                    {t("edit-annotation", { defaultValue: "Edit" })}
+                  </ContextMenuItem>
+                  <ContextMenuItem
+                    className="sb-context-menu-item--danger"
+                    onClick={() => {
+                      openDeleteAnnotationConfirm(
+                        modals,
+                        annotations,
+                        annotation,
+                        toast
+                      );
+                    }}
+                  >
+                    <MaterialIcon className="sb-context-menu-item-icon">
+                      delete
+                    </MaterialIcon>
+                    {t("delete-annotation", { defaultValue: "Delete" })}
+                  </ContextMenuItem>
+                </ContextMenuWithButton>
+              ) : null}
             </li>
           ))}
         </ul>
@@ -598,6 +825,78 @@ function VerseToolbarAnnotationGroup(props: {
     </div>
   );
 }
+
+/**
+ * How far the finger must travel before releasing commits the mobile verse
+ * sheet open or closed. A fraction of the content height would make a long
+ * note nearly impossible to drag open — the same short movement works for
+ * every verse.
+ */
+const VERSE_SHEET_SNAP_DISTANCE_PX = 50;
+
+/**
+ * Room kept for the handle, reference, and action row until those are
+ * measured, so a tall note can't cover the handle on the first frame.
+ */
+const VERSE_SHEET_FALLBACK_CHROME_PX = 200;
+
+/** Space left above a fully open sheet so the handle clears the status bar. */
+const VERSE_SHEET_TOP_GAP_PX = 8;
+
+/**
+ * Room a long note must keep below the pinned actions. Less than this and the
+ * buttons would cover the note, so they scroll with it instead of sticking.
+ */
+const VERSE_SHEET_PINNED_MIN_NOTE_ROOM_PX = 48;
+
+/**
+ * Registered tools that come right after Highlight and Save on the mobile
+ * sheet, in this order, ahead of everything else. With Highlight and Save that
+ * makes the collapsed row Highlight, Save, Note, Copy and starts the drawer
+ * with Share and Compare, so extension tools (Ask AI, Locations, ...) can't
+ * push the core actions off the first row however low their priority.
+ */
+const VERSE_SHEET_LEADING_TOOL_IDS = [
+  "annotate-verse",
+  "copy-verse",
+  "share-verse",
+  "compare-verses",
+];
+
+/** Leading tools in their fixed order, then the rest by priority. */
+function orderVerseSheetTools<T extends { id: string }>(tools: T[]): T[] {
+  const leading = VERSE_SHEET_LEADING_TOOL_IDS.flatMap((id) =>
+    tools.filter((tool) => tool.id === id)
+  );
+  const rest = tools.filter(
+    (tool) => !VERSE_SHEET_LEADING_TOOL_IDS.includes(tool.id)
+  );
+  return [...leading, ...rest];
+}
+
+/** Visible viewport below the notch, or 0 when it can't be measured. */
+function readMobileSheetViewportCap(): number {
+  if (typeof document === "undefined") return 0;
+  const probe = document.createElement("div");
+  probe.style.cssText = [
+    "position:fixed",
+    "left:0",
+    "top:0",
+    "width:0",
+    "visibility:hidden",
+    "pointer-events:none",
+    "height:calc(100dvh - env(safe-area-inset-top, 0px))",
+  ].join(";");
+  document.body.appendChild(probe);
+  try {
+    return probe.offsetHeight;
+  } finally {
+    probe.remove();
+  }
+}
+
+/** Cards kept on the collapsed mobile verse sheet — one row of the four-per-row grid. */
+const VERSE_SHEET_COLLAPSED_COUNT = 4;
 
 interface BibleReaderToolbarProps {
   state: SeedBibleState;
@@ -613,8 +912,9 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     chats,
     tools: toolsManager,
     settings,
-    bookmarks,
+    saves,
     login,
+    navigation,
   } = props.state;
   const selectedTab = useComputed(
     () =>
@@ -631,19 +931,24 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     return null;
   }
 
+  // Server only: wait for the initial load to settle before rendering.
+  //
   // `BibleReaderToolbar` is a sibling of `<TabsLayout>` (which contains
   // `BibleReader`), not a descendant of it — `BibleReader.tsx` suspending on
   // its own chapter load does nothing for this component, since
   // `preact-render-to-string` only defers the specific subtree that actually
   // threw. Without this, the tools below (`hasNext`/`hasPrevious`-driven
-  // chapter nav buttons among them) render off of whatever `chapterData`/
-  // `translationBooks` happen to hold on the very first synchronous pass —
-  // typically nothing yet — baking incorrect availability into the SSR HTML
-  // that a live client would never show.
-  if (
-    import.meta.env.SSR &&
-    !readingState.value.initialChapterLoadSettled.value
-  ) {
+  // chapter nav buttons, and the chapter links this component renders for
+  // them) render off of whatever `chapterData`/`translationBooks` happen to
+  // hold on the very first synchronous pass — typically nothing yet — baking
+  // incorrect availability, and a chapter page with no links out of it, into
+  // SSR HTML a live client would never show. `chapterDataPromise` never
+  // rejects, and the deadline behind it bounds the wait.
+  //
+  // `initialLoadSettled`, not `initialChapterLoadSettled`: the catalog is a
+  // separate request from the chapter, so the chapter can settle first and
+  // leave that narrower latch true while the catalog is still on its way.
+  if (import.meta.env.SSR && !readingState.value.initialLoadSettled.value) {
     throw readingState.value.chapterDataPromise;
   }
 
@@ -651,8 +956,15 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   const viewportHeight = props.state.app.viewportHeight;
 
   // Boot-only integration flag — latched from `initialUrl` so later navigation
-  // cannot flip the layout mid-session. Affects mobile bottom tabs and the
-  // desktop/laptop labeled toolbar.
+  // cannot flip the layout mid-session.
+  //
+  // It no longer changes the mobile bottom tabs, which are fixed at five:
+  // Today, You, Bible, Search, More. All it does on mobile now is keep chat
+  // reachable: `applyChatFirstDesktopTools` forces the chat tool visible, so
+  // it appears in the More menu even where chat's own `isVisible` would hide
+  // it for having no providers and no chats. It does not reorder that menu —
+  // the tools there are priority-ordered and chat keeps its own slot. On
+  // desktop/laptop it keeps chat in the labeled toolbar.
   const isChatFirst = readChatFirstFlag(props.state.navigation.initialUrl);
 
   const tools = useComputed(() => {
@@ -665,6 +977,10 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
       tabsLayoutManager: tabsLayout,
       readingPlans: props.state.readingPlans,
       playlists: props.state.playlists,
+      friends: props.state.friends,
+      os: props.state.os,
+      login: props.state.login,
+      gallery: props.state.gallery,
       features: props.state.features,
       window: {
         isMobile: props.state.app.isMobile.value,
@@ -678,6 +994,8 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
       modals: props.state.modals,
       app: props.state.app,
       annotations: props.state.annotations,
+      navigation: props.state.navigation,
+      data: props.state.bibleData,
     });
     const customized = applyToolbarCustomization(
       resolved,
@@ -709,9 +1027,10 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     )
   );
 
-  const hiddenToolIds = new Set(
-    isChatFirst ? ["open-search", "open-chat"] : ["open-search"]
-  );
+  // Search has its own bottom tab, so it is not repeated in the More menu.
+  // Chat is not hidden even under chat-first: the mobile bar is fixed at five
+  // tabs, so the More menu is chat's only home there.
+  const hiddenToolIds = new Set(["open-search"]);
 
   const moreTools = useComputed(() =>
     tools.value.filter(
@@ -720,19 +1039,11 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     )
   );
 
-  // Chat-first always shows More so demoted Bookmarks (and Tabs) have a home,
-  // even when no controllable extension tools remain after hiding open-chat.
-  const showMoreMenu = useComputed(
-    () => moreTools.value.length > 0 || isChatFirst
-  );
-
-  // Whether the chat tool is tucked inside the mobile More menu. When it is, its
-  // unread badge is hidden until the menu is opened, so the More tab itself
-  // needs to carry the indicator. When chat is a bottom tab, the tab itself
-  // carries the badge instead.
-  const chatInMoreMenu = useComputed(
-    () =>
-      !isChatFirst && moreTools.value.some((tool) => tool.id === "open-chat")
+  // Whether the chat tool is inside the mobile More menu, which it now always
+  // is when it exists at all. Its unread badge is hidden until the menu is
+  // opened, so the More tab itself has to carry the indicator.
+  const chatInMoreMenu = useComputed(() =>
+    moreTools.value.some((tool) => tool.id === "open-chat")
   );
 
   const verseToolbarTools = useComputed(() => {
@@ -745,6 +1056,10 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
       tabsLayoutManager: tabsLayout,
       readingPlans: props.state.readingPlans,
       playlists: props.state.playlists,
+      friends: props.state.friends,
+      os: props.state.os,
+      login: props.state.login,
+      gallery: props.state.gallery,
       features: props.state.features,
       window: {
         isMobile: props.state.app.isMobile.value,
@@ -758,6 +1073,8 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
       modals: props.state.modals,
       app: props.state.app,
       annotations: props.state.annotations,
+      navigation: props.state.navigation,
+      data: props.state.bibleData,
     });
 
     const { selectionUI } = settings.settings.value;
@@ -773,10 +1090,16 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   const hasVerseSelection = useComputed(
     () => readingState.value!.selectedVerses.value.length > 0
   );
-  // Align with the app-wide mobile breakpoint (`state.app.isMobile`, 480px).
-  // Kept as a local computed signal so its own viewport listener continues to
-  // drive re-renders even if `app.isMobile` is not consumed elsewhere.
-  const isSmallScreen = props.state.app.isMobile;
+  // Align with compact reader chrome (`app.isCompactReader`): phone layout
+  // or a partner-site embed. Local computed so this toolbar re-renders from
+  // those signals without waiting on a parent.
+  const isSmallScreen = useComputed(
+    () =>
+      props.state.app.isCompactReader?.value ?? props.state.app.isMobile.value
+  );
+  const isMinimalEmbed = useComputed(
+    () => props.state.app.isMinimalEmbed?.value ?? false
+  );
   // A pane fills the whole screen when it's fullscreen, or (on mobile) for any
   // open pane — mobile renders every pane fullscreen. Mirrors the "fills the
   // screen" rule in PanesManager/SeedBibleStateManager. Used to hide the
@@ -791,7 +1114,10 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   // hides most of it. The selection itself is kept, so the toolbar comes back
   // exactly as it was once the pane is closed.
   const isVerseToolbarVisible = useComputed(
-    () => hasVerseSelection.value && !isFullscreenPaneVisible.value
+    () =>
+      hasVerseSelection.value &&
+      !isFullscreenPaneVisible.value &&
+      !props.state.annotations?.isDraftingNewAnnotation.value
   );
   const shouldReplaceDefaultToolbar = useComputed(
     () => isSmallScreen.value && isVerseToolbarVisible.value
@@ -821,6 +1147,20 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   const verseSheetOverflowHeight = useSignal(0);
 
   /**
+   * Height of the sheet that is not the overflow row (handle, reference,
+   * action cards, padding, and the swipe hint while it is showing). 0 until
+   * measured; the fallback chrome stands in so the first paint still fits.
+   */
+  const verseSheetChromeHeight = useSignal(0);
+
+  /**
+   * Pixels the sheet may occupy vertically: the dynamic viewport below the
+   * notch when that can be measured, otherwise the layout viewport. 0 until
+   * the first measure.
+   */
+  const verseSheetViewportCap = useSignal(0);
+
+  /**
    * How much of the overflow row is showing *right now*, in pixels, while a drag
    * is in progress. Null when no drag is active, which hands the height back to
    * the expanded/collapsed state so it can animate to its resting position.
@@ -833,96 +1173,225 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
    * dismisses the selection or springs it back to 0.
    */
   const verseSheetDismissOffset = useSignal(0);
+  /** Runs a verse toolbar action and clears the selection after it succeeds. */
+  const handleVerseAction = async (
+    action: () => void | Promise<void>,
+    preserveSelection = false
+  ): Promise<void> => {
+    try {
+      // The clear must run after a microtask, not synchronously. Clearing the
+      // selection unmounts the mobile verse sheet under the finger, and a
+      // retargeted pointerdown could otherwise land "outside" a pane the action
+      // just opened (e.g. Ask AI's chat panel) and dismiss it.
+      await action();
+
+      if (!preserveSelection) {
+        readingState.value?.clearSelectedVerses();
+      }
+    } catch (error) {
+      console.error("Verse toolbar action failed:", error);
+    }
+  };
 
   /** True while a finger is on the handle, so the settle animations stand down. */
   const isVerseSheetDragging = useComputed(
     () => verseSheetDragReveal.value !== null
   );
 
+  // Which cards the verse toolbar shows. The render and the overflow check
+  // below both read these, so the swipe hint can't disagree with the cards
+  // actually on screen. Highlight and Save are built in rather than registered
+  // tools, which is why they get their own flags.
+  const showHighlightCard = useComputed(
+    () =>
+      !isMinimalEmbed.value &&
+      settings.settings.value.selectionUI.showHighlightColors
+  );
+  const showSaveCard = useComputed(() => !isMinimalEmbed.value);
+  const nonCancelVerseTools = useComputed(() =>
+    verseToolbarTools.value.filter((tool) => tool.id !== "clear-selection")
+  );
+
+  /**
+   * Whether the collapsed sheet is hiding something: action cards past the
+   * first row, or notes on the selection. Measured height is not enough —
+   * the overflow row's padding, and a height left behind after that row
+   * unmounts, both read as "more" when the sheet is already showing everything.
+   */
+  const verseSheetHasHiddenContent = useComputed(() => {
+    if (!isSmallScreen.value) return false;
+    const cardCount =
+      nonCancelVerseTools.value.filter((tool) => tool.visible.value).length +
+      (showHighlightCard.value ? 1 : 0) +
+      (showSaveCard.value ? 1 : 0);
+    const annotationCount =
+      readingState.value?.selectionAnnotations.value.length ?? 0;
+    return cardCount > VERSE_SHEET_COLLAPSED_COUNT || annotationCount > 0;
+  });
+
   /** Whether there is anything to reveal — no overflow row, nothing to drag to. */
   const hasVerseSheetOverflow = useComputed(
-    () => verseSheetOverflowHeight.value > 0
+    () => verseSheetHasHiddenContent.value && verseSheetOverflowHeight.value > 0
   );
+
+  /**
+   * Largest the overflow row is allowed to grow. Past this, the note scrolls
+   * inside the drawer instead of pushing the grab handle off the top.
+   */
+  const verseSheetMaxReveal = useComputed(() => {
+    const viewport =
+      verseSheetViewportCap.value > 0
+        ? verseSheetViewportCap.value
+        : viewportHeight.value;
+    const chrome =
+      verseSheetChromeHeight.value > 0
+        ? verseSheetChromeHeight.value
+        : VERSE_SHEET_FALLBACK_CHROME_PX;
+    return Math.max(0, viewport - chrome - VERSE_SHEET_TOP_GAP_PX);
+  });
+
+  /** Overflow height actually shown when the sheet is fully open. */
+  const verseSheetVisibleOverflowHeight = useComputed(() =>
+    Math.min(verseSheetOverflowHeight.value, verseSheetMaxReveal.value)
+  );
+
+  /**
+   * Height of the drawer's pinned actions. 0 until measured. Used to decide
+   * whether that row can stay pinned without covering the note or clipping itself.
+   */
+  const verseSheetPinnedHeight = useSignal(0);
+
+  /**
+   * The pinned row sticks only when it fits in the open drawer and still leaves
+   * a thumb's worth of the note showing. A bar taller than the drawer (a short
+   * landscape screen, large text, wrapped labels) would clip its own buttons,
+   * and those buttons refuse the scroll gesture — so the row scrolls instead.
+   */
+  const verseSheetPinFits = useComputed(() => {
+    const pinned = verseSheetPinnedHeight.value;
+    if (pinned <= 0) return true;
+    const maxReveal = verseSheetMaxReveal.value;
+    if (pinned > maxReveal + 0.5) return false;
+    const contentBelow = verseSheetOverflowHeight.value - pinned;
+    if (contentBelow <= 1) return true;
+    return maxReveal - pinned >= VERSE_SHEET_PINNED_MIN_NOTE_ROOM_PX;
+  });
 
   /**
    * The overflow row's height as rendered: tracking the finger mid-drag,
    * otherwise the resting height for the current expanded state (which the CSS
-   * transition animates towards).
+   * transition animates towards). Never taller than the viewport cap.
    */
-  const verseSheetRevealHeight = useComputed(() =>
-    verseSheetDragReveal.value !== null
-      ? verseSheetDragReveal.value
-      : isVerseSheetExpanded.value
-        ? verseSheetOverflowHeight.value
-        : 0
+  const verseSheetRevealHeight = useComputed(() => {
+    const visible = verseSheetVisibleOverflowHeight.value;
+    if (verseSheetDragReveal.value !== null) {
+      return Math.min(verseSheetDragReveal.value, visible);
+    }
+    return isVerseSheetExpanded.value ? visible : 0;
+  });
+
+  // A submenu opened from the overflow row is portaled out of that row. Once
+  // the row is fully shut, dismiss it — otherwise reopening the drawer would
+  // bring the menu back, and a closed row's trigger is no longer on screen.
+  useEffect(() => {
+    if (!isSmallScreen.value || verseSheetRevealHeight.value > 0) return;
+    const id = selectedVerseToolId.value;
+    if (!id) return;
+    const anchor = document.querySelector<HTMLElement>(
+      `[data-verse-tool-id="${escapeAttrSelector(id)}"]`
+    );
+    if (anchor?.closest(".sb-verse-toolbar-overflow")) {
+      selectedVerseToolId.value = null;
+    }
+  }, [
+    isSmallScreen.value,
+    verseSheetRevealHeight.value,
+    selectedVerseToolId.value,
+  ]);
+
+  /**
+   * True when the open drawer is shorter than its notes, so the overflow row
+   * scrolls and must not also be a drag surface.
+   */
+  const isVerseSheetOverflowScrollable = useComputed(
+    () =>
+      !isVerseSheetDragging.value &&
+      isVerseSheetExpanded.value &&
+      verseSheetOverflowHeight.value > verseSheetMaxReveal.value + 0.5
   );
 
-  // True when the sidebar drawer is open showing the tabs/bookmarks view
-  // (not the settings view) with the bookmark filter active.
-  const isBookmarksViewOpen = useComputed(
+  const isVerseSheetOverflowUnclipped = useComputed(
+    () => selectedVerseToolId.value !== null && !isVerseSheetDragging.value
+  );
+
+  // True when the sidebar drawer is open showing the tabs/saves view
+  // (not the settings view) with the saves filter active.
+  const isSavesViewOpen = useComputed(
     () =>
       sidebar.isMobileOpen.value &&
       !sidebar.isSettingsOpen.value &&
-      bookmarks.isFilterActive.value
+      saves.isFilterActive.value
   );
 
   // True when the sidebar drawer is open showing the tabs list (not the
-  // settings view and not the bookmark filter view).
+  // settings view and not the saves filter view).
   const isTabsViewOpen = useComputed(
     () =>
       sidebar.isMobileOpen.value &&
       !sidebar.isSettingsOpen.value &&
-      !bookmarks.isFilterActive.value
+      !saves.isFilterActive.value
   );
 
   const isTodayOpen = useComputed(() => props.state.today.isOpen.value);
+  // The Profile screen and the two screens reached from it all count as "You".
+  const isProfileOpen = useComputed(
+    () =>
+      props.state.isProfileOpen.value ||
+      props.state.isEditProfileOpen.value ||
+      props.state.isYourContentOpen.value
+  );
   const activeMobileTab = useComputed<
-    | "today"
-    | "bible"
-    | "search"
-    | "tabs"
-    | "bookmarks"
-    | "chat"
-    | "more"
-    | "none"
+    "today" | "you" | "bible" | "search" | "more" | "none"
   >(() => {
     if (isMoreMenuOpen.value) return "more";
     if (sidebar.isSearchPanelOpen.value) return "search";
-    // The account ("You") control now lives in the reader header, so an open
-    // settings view no longer maps to a bottom-bar tab.
+    if (isProfileOpen.value) return "you";
     if (sidebar.isSettingsOpen.value) return "none";
-    if (isChatFirst && sidebar.isChatPanelOpen.value) {
-      return "chat";
-    }
-    if (isBookmarksViewOpen.value) {
-      // Bookmarks is a top-level tab unless chat-first demoted it into More;
-      // highlight it whenever its view is open either way so the user can tell
-      // the drawer is still the bookmarks list.
-      return isChatFirst ? "more" : "bookmarks";
-    }
+    // Chat and Saves are both reached from More, so More stays lit while
+    // either is showing — otherwise nothing in the bar would tell the user
+    // where the panel covering the reader came from.
+    if (sidebar.isChatPanelOpen.value) return "more";
+    if (isSavesViewOpen.value) return "more";
     if (isTodayOpen.value) return "today";
     // Some other extension pane is covering the reader (opened from More).
     if (isFullscreenPaneVisible.value) return "more";
     if (sidebar.isMobileOpen.value) {
-      // Tabs is a top-level tab only when there's no overflow. When it lives
-      // inside the More menu, keep nothing highlighted — unless chat-first is
-      // forcing More open for Bookmarks, in which case the same rule applies.
-      return showMoreMenu.value ? "none" : "tabs";
+      // The tabs drawer. Tabs lives in the More menu, and unlike the panels
+      // above this one replaces the reader rather than covering it, so no tab
+      // is a truthful "you are here".
+      return "none";
     }
     return "bible";
   });
 
-  const previousChapterTool = useComputed(
-    () => tools.value.find((tool) => tool.id === "previous-chapter") ?? null
-  );
-  const nextChapterTool = useComputed(
-    () => tools.value.find((tool) => tool.id === "next-chapter") ?? null
-  );
-  const openSelectorTool = useComputed(
-    () => tools.value.find((tool) => tool.id === "open-selector") ?? null
-  );
+  const previousChapterTool = useComputed(() => {
+    const tool =
+      tools.value.find((entry) => entry.id === "previous-chapter") ?? null;
+    return tool?.visible.value ? tool : null;
+  });
+  const nextChapterTool = useComputed(() => {
+    const tool =
+      tools.value.find((entry) => entry.id === "next-chapter") ?? null;
+    return tool?.visible.value ? tool : null;
+  });
+  const openSelectorTool = useComputed(() => {
+    const tool =
+      tools.value.find((entry) => entry.id === "open-selector") ?? null;
+    return tool?.visible.value ? tool : null;
+  });
   // The audio-reader extension's play/pause control, surfaced here instead
-  // of the quick toolbar on mobile.
+  // of the quick toolbar on mobile. `app` is forwarded so `showInEmbedded`
+  // can hide the control in a partner-site embed.
   const audioPlayTool = useComputed(
     () =>
       toolsManager
@@ -932,6 +1401,8 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
           annotations: props.state.annotations,
           features: props.state.features,
           surface: "mobile-navigation-bar",
+          app: props.state.app,
+          readingPlans: props.state.readingPlans,
         })
         .find((tool) => tool.id === "ext_audioReader-play") ?? null
   );
@@ -941,6 +1412,18 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   // item prev/next arrows so they don't fight the playlist's own navigation.
   const playingPlaylist = useComputed(
     () => props.state.playlists.playing.value
+  );
+  // Narration started in the tab in view and not yet stopped — playing, or
+  // paused with its place kept. Its progress shows above the chapter pill on
+  // mobile, or along the top of the toolbar on desktop.
+  const audioPlayback = useComputed(() =>
+    readingState.value
+      ? props.state.audioPlayback.controllerFor(readingState.value)
+      : null
+  );
+  // A playing playlist owns the toolbar's transport controls.
+  const desktopPlayback = useComputed(() =>
+    playingPlaylist.value ? null : audioPlayback.value
   );
 
   const floatingAnchor = useComputed(() =>
@@ -984,6 +1467,55 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   // The toolbar uses `transform: translate(-50%, -100%)`, so `top` is the bottom
   // edge — we need the real height so the taller color picker stays on-screen.
   const verseToolbarHeight = useSignal(0);
+
+  // Keep the mobile sheet from growing past the screen. The viewport cap is
+  // the dynamic viewport below the notch; the chrome is everything in the
+  // sheet except the overflow row, remeasured as the hint comes and goes.
+  useLayoutEffect(() => {
+    if (!isSmallScreen.value || !isVerseToolbarVisible.value) return;
+
+    const measureViewport = () => {
+      const probed = readMobileSheetViewportCap();
+      const next = probed > 0 ? probed : viewportHeight.peek();
+      if (next !== verseSheetViewportCap.peek()) {
+        verseSheetViewportCap.value = next;
+      }
+    };
+
+    const measureChrome = () => {
+      const sheet = verseToolbarRef.current;
+      if (!sheet || isHighlightPickerOpen.peek()) return;
+      const overflowEl = sheet.querySelector<HTMLElement>(
+        ".sb-verse-toolbar-overflow"
+      );
+      const chrome = Math.round(
+        sheet.offsetHeight - (overflowEl?.offsetHeight ?? 0)
+      );
+      if (chrome > 0 && chrome !== verseSheetChromeHeight.peek()) {
+        verseSheetChromeHeight.value = chrome;
+      }
+    };
+
+    measureViewport();
+    measureChrome();
+    window.addEventListener("resize", measureViewport);
+
+    const sheet = verseToolbarRef.current;
+    if (!sheet || typeof ResizeObserver === "undefined") {
+      return () => window.removeEventListener("resize", measureViewport);
+    }
+    const observer = new ResizeObserver(measureChrome);
+    observer.observe(sheet);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measureViewport);
+    };
+  }, [
+    isSmallScreen.value,
+    isVerseToolbarVisible.value,
+    isHighlightPickerOpen.value,
+    isVerseSheetExpanded.value,
+  ]);
 
   const floatingX = useComputed(() => {
     const inset = 84 * uiScale.value;
@@ -1117,15 +1649,17 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   /**
    * Dragging the mobile verse sheet's grab handle.
    *
-   * The sheet follows the finger rather than snapping at a threshold: dragging up
-   * grows the overflow row a pixel at a time, dragging back down shrinks it, and
-   * once the overflow row is fully closed — whether the drag started collapsed or
+   * The sheet follows the finger: dragging up grows the overflow row a pixel at
+   * a time (never past the viewport), dragging back down shrinks it, and once
+   * the overflow row is fully closed — whether the drag started collapsed or
    * (after closing it mid-gesture) expanded — continuing to drag down slides the
    * whole sheet toward the bottom of the screen to dismiss it, all in one
    * continuous motion rather than requiring a release and a second drag.
-   * Releasing settles to whichever resting position the gesture ended up nearest,
-   * so a half-finished drag animates the rest of the way instead of being
-   * abandoned.
+   *
+   * Releasing commits open or closed once the finger has travelled
+   * `VERSE_SHEET_SNAP_DISTANCE_PX` toward that end. Using half the content
+   * height instead would make a long note require a drag longer than the
+   * screen. A half-finished drag animates the rest of the way.
    *
    * A press that barely moves is a tap, and toggles.
    */
@@ -1143,9 +1677,76 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   } | null>(null);
 
   /** The overflow row, measured so the reveal has a pixel target to animate to. */
-  const measureVerseSheetOverflow = (element: HTMLElement | null) => {
-    if (!element) return;
-    verseSheetOverflowHeight.value = element.scrollHeight;
+  const stopOverflowMeasure = useRef<(() => void) | null>(null);
+  /** The scrolling overflow box (parent of the measured row), so it can be rewound. */
+  const verseSheetScrollerRef = useRef<HTMLElement | null>(null);
+  // A fresh function each render makes Preact detach and reattach the ref,
+  // which tears down the ResizeObserver and builds another — once per frame
+  // while the handle is dragged.
+  const measureVerseSheetOverflow = useCallback(
+    (element: HTMLElement | null) => {
+      stopOverflowMeasure.current?.();
+      stopOverflowMeasure.current = null;
+      verseSheetScrollerRef.current = element?.parentElement ?? null;
+      // A missing row means there is nothing left to reveal; a stale height
+      // would keep "Swipe up to see more" over an empty sheet. This callback
+      // is stable, so the write can't re-trigger it.
+      if (!element) {
+        if (verseSheetOverflowHeight.peek() !== 0) {
+          verseSheetOverflowHeight.value = 0;
+        }
+        return;
+      }
+      const measure = () => {
+        const next = element.scrollHeight;
+        if (next !== verseSheetOverflowHeight.peek()) {
+          verseSheetOverflowHeight.value = next;
+        }
+        const pinned = element.querySelector<HTMLElement>(
+          ".sb-verse-toolbar-overflow-pinned"
+        );
+        const pinnedHeight = Math.round(pinned?.offsetHeight ?? 0);
+        if (pinnedHeight !== verseSheetPinnedHeight.peek()) {
+          verseSheetPinnedHeight.value = pinnedHeight;
+        }
+      };
+      measure();
+      if (typeof ResizeObserver === "undefined") return;
+      const observer = new ResizeObserver(measure);
+      observer.observe(element);
+      stopOverflowMeasure.current = () => observer.disconnect();
+    },
+    []
+  );
+
+  const resetVerseSheetScroll = () => {
+    const scroller = verseSheetScrollerRef.current;
+    if (!scroller || scroller.scrollTop === 0) return;
+    scroller.scrollTop = 0;
+  };
+
+  /**
+   * Place a note just below the pinned actions. `scrollIntoView` aligns
+   * the note with the top of the scrollport, and the pinned row then covers
+   * the top of it.
+   */
+  const alignVerseSheetToNote = (groupEl: HTMLElement) => {
+    const scroller = verseSheetScrollerRef.current;
+    if (!scroller) return;
+    const pinned = scroller.querySelector<HTMLElement>(
+      ".sb-verse-toolbar-overflow-pinned"
+    );
+    const coveredByPinned =
+      pinned &&
+      !pinned.classList.contains("sb-verse-toolbar-overflow-pinned-inline")
+        ? pinned.offsetHeight
+        : 0;
+    const nextTop =
+      groupEl.getBoundingClientRect().top -
+      scroller.getBoundingClientRect().top +
+      scroller.scrollTop -
+      coveredByPinned;
+    scroller.scrollTop = Math.max(0, nextTop);
   };
 
   const endVerseSheetDrag = (event: PointerEvent): void => {
@@ -1160,16 +1761,20 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     const handle = event.currentTarget as HTMLElement;
     handle.setPointerCapture?.(event.pointerId);
     const expanded = isVerseSheetExpanded.value;
+    // Track the height on screen, not the full note. A note taller than the
+    // viewport would otherwise have to be dragged its whole length before the
+    // sheet moved.
+    const visible = verseSheetVisibleOverflowHeight.value;
     verseSheetDrag.current = {
       pointerId: event.pointerId,
       startY: event.clientY,
       startExpanded: expanded,
-      startReveal: expanded ? verseSheetOverflowHeight.value : 0,
+      startReveal: expanded ? visible : 0,
       maxTravel: 0,
     };
     // Take over the height from the expanded/collapsed state so the first move
     // continues from where the sheet is now rather than jumping.
-    verseSheetDragReveal.value = expanded ? verseSheetOverflowHeight.value : 0;
+    verseSheetDragReveal.value = expanded ? visible : 0;
     // Keep the drag from also scrolling the chapter behind the sheet.
     event.preventDefault();
   };
@@ -1181,9 +1786,10 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     const dy = event.clientY - drag.startY;
     drag.maxTravel = Math.max(drag.maxTravel, Math.abs(dy));
 
-    const overflowHeight = verseSheetOverflowHeight.value;
+    const visible = verseSheetVisibleOverflowHeight.value;
     // Up is negative, so subtracting `dy` grows the reveal as the finger rises.
-    const reveal = Math.min(overflowHeight, Math.max(0, drag.startReveal - dy));
+    // Cap at the on-screen height so a long note can't drag the handle away.
+    const reveal = Math.min(visible, Math.max(0, drag.startReveal - dy));
     verseSheetDragReveal.value = reveal;
 
     // Once the overflow row is fully closed, the rest of the same downward drag
@@ -1192,7 +1798,7 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     // using that (rather than raw `dy`) means the dismiss slide picks up smoothly
     // from 0 instead of jumping by however much drag it took to close the row,
     // and it works the same whether the drag started collapsed (startReveal 0) or
-    // expanded (startReveal the full row height).
+    // expanded (startReveal the on-screen height, not the full note).
     const distancePastClosed = dy - drag.startReveal;
     verseSheetDismissOffset.value =
       reveal === 0 && distancePastClosed > 0 ? distancePastClosed : 0;
@@ -1205,6 +1811,10 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     const dismissOffset = verseSheetDismissOffset.value;
     const reveal = verseSheetDragReveal.value ?? drag.startReveal;
     const overflowHeight = verseSheetOverflowHeight.value;
+    const visible = verseSheetVisibleOverflowHeight.value;
+    // A sheet shorter than the snap distance commits when the finger reaches
+    // the end of it — there is no further to drag.
+    const commitDistance = Math.min(VERSE_SHEET_SNAP_DISTANCE_PX, visible);
     endVerseSheetDrag(event);
 
     if (drag.maxTravel <= VERSE_SHEET_TAP_SLOP) {
@@ -1221,11 +1831,18 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
       return;
     }
 
-    // Settle to whichever end the drag finished nearest. Using the midpoint
-    // rather than a fixed threshold means the sheet always ends up where the
-    // finger left it pointing, in either direction.
-    isVerseSheetExpanded.value =
-      overflowHeight > 0 && reveal >= overflowHeight / 2;
+    if (overflowHeight <= 0 || commitDistance <= 0) {
+      isVerseSheetExpanded.value = false;
+      return;
+    }
+
+    if (drag.startExpanded) {
+      const pulledDown = drag.startReveal - reveal;
+      isVerseSheetExpanded.value = pulledDown < commitDistance;
+      return;
+    }
+
+    isVerseSheetExpanded.value = reveal >= commitDistance;
   };
 
   const handleVerseSheetHandlePointerCancel = (event: PointerEvent) => {
@@ -1240,11 +1857,12 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
    * Elements inside the mobile sheet that must keep their own tap/scroll
    * behavior instead of starting the sheet drag: buttons and inputs (so taps
    * still register as clicks — capturing the pointer on the panel would
-   * otherwise steal their `pointerup`), and the horizontal highlight-color
-   * strip (its own swipe gesture would fight the sheet's vertical one).
+   * otherwise steal their `pointerup`), the horizontal highlight-color
+   * strip (its own swipe gesture would fight the sheet's vertical one), and
+   * the notes once they scroll (a drag there moves the note, not the sheet).
    */
   const VERSE_SHEET_DRAG_IGNORE_SELECTOR =
-    "button, input, a, .sb-verse-toolbar-swatches";
+    "button, input, a, .sb-verse-toolbar-swatches, .sb-verse-toolbar-overflow-scrollable";
 
   /**
    * Entry point for the whole-panel version of the handle drag: any part of
@@ -1277,86 +1895,35 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   };
 
   // Verse toolbar highlight picker state
-  const colorInputRef = useRef<HTMLInputElement | null>(null);
-  const customColorCommitTimeoutRef = useRef<number | null>(null);
+  const customColorAnchorRef = useRef<HTMLButtonElement | null>(null);
+  const customColorPickerOpen = useSignal(false);
   const customHighlightColors = useComputed(
     () => settings.settings.value.customHighlightColors
   );
-  const selectionUI = useComputed(() => settings.settings.value.selectionUI);
 
-  // The most recent color from a still-pending debounce, so a blur that
-  // lands before the debounce fires can apply it immediately instead of
-  // losing it. `null` once there's nothing pending.
-  const customColorPendingRef = useRef<string | null>(null);
-  // Whether any color from the current "Add custom color" session has been
-  // applied yet — distinguishes "the dialog closed after picking a color"
-  // (clear the selection) from "the dialog closed without picking one"
-  // (leave the selection alone; nothing happened).
-  const customColorAppliedRef = useRef(false);
-
-  const applyCustomColor = (color: string, clearSelection: boolean) => {
+  const applyCustomColor = (color: string) => {
     settings.addCustomHighlightColor(color);
     const rs = readingState.value;
-    if (rs) {
-      applyHighlightWithSession(
-        rs,
-        sessionState.value,
-        {
-          colorId: "yellow",
-          customColor: color,
-          customFontColor: getContrastTextColor(color),
-        },
-        !!login.userId.value,
-        clearSelection
-      );
-    }
-    customColorAppliedRef.current = true;
-  };
+    if (!rs) return;
 
-  // Debounce the commit so rapid `input`/`change` events from the native
-  // color picker (fired as the user drags) don't add each intermediate color
-  // to the custom palette — only the settled color is saved. These debounced
-  // commits never clear the selection themselves: the color dialog may still
-  // be open, and clearing here would silently drop any further tweaking
-  // within the same dialog session (#1725). The selection is cleared for real
-  // in `finishCustomColor`, once the input actually loses focus.
-  const commitCustomColor = (color: string) => {
-    if (customColorCommitTimeoutRef.current !== null) {
-      window.clearTimeout(customColorCommitTimeoutRef.current);
+    // Confirming a colour is not navigation. Applying the highlight still
+    // dismisses the selection (so the toolbar closes), but `?verse=` is
+    // bound to that selection — put it back so Confirm doesn't rewrite the
+    // address bar.
+    const verseParam = navigation.currentUrl.peek().searchParams.get("verse");
+    applyHighlightWithSession(
+      rs,
+      sessionState.value,
+      {
+        colorId: "yellow",
+        customColor: color,
+        customFontColor: getContrastTextColor(color),
+      },
+      !!login.userId.value
+    );
+    if (verseParam) {
+      navigation.updateQueryParams({ verse: verseParam }, true);
     }
-    customColorPendingRef.current = color;
-    customColorCommitTimeoutRef.current = window.setTimeout(() => {
-      customColorCommitTimeoutRef.current = null;
-      const pending = customColorPendingRef.current;
-      customColorPendingRef.current = null;
-      if (pending !== null) {
-        applyCustomColor(pending, false);
-      }
-    }, 300);
-  };
-
-  // Runs when the color input loses focus, i.e. the OS color dialog closed —
-  // the reliable "the user is done" signal, since the native `change` event
-  // this input would otherwise fire is what `onChange` gets rewritten to
-  // listen for as `input` (see the `onChange`/`onInput` props below), so it
-  // can't be used to distinguish "still dragging" from "done" on its own.
-  // Flushes a still-debounced pick immediately rather than waiting the
-  // remaining 300ms, and only clears the selection if a color was actually
-  // applied this dialog session (closing without picking one leaves the
-  // selection untouched, same as before).
-  const finishCustomColor = () => {
-    if (customColorCommitTimeoutRef.current !== null) {
-      window.clearTimeout(customColorCommitTimeoutRef.current);
-      customColorCommitTimeoutRef.current = null;
-    }
-    const pending = customColorPendingRef.current;
-    customColorPendingRef.current = null;
-    if (pending !== null) {
-      applyCustomColor(pending, true);
-    } else if (customColorAppliedRef.current) {
-      readingState.value?.clearSelectedVerses();
-    }
-    customColorAppliedRef.current = false;
   };
 
   // Clear removes a saved highlight *and* the session's broadcast copy, so it
@@ -1432,6 +1999,19 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   const selectionAnnotations = useComputed(
     () => readingState.value?.selectionAnnotations.value ?? []
   );
+  // Friends' notes are in the sheet too, so only these get the edit/delete
+  // menu. Decided by which list a note came from, as in Discover's list.
+  const ownSelectionAnnotations = useComputed(() => {
+    const verse = readingState.value?.selectedVerses.value[0];
+    return new Set<Annotation>(
+      verse
+        ? props.state.annotations.getAnnotationsForChapter(
+            verse.bookId,
+            verse.chapterNumber
+          ).value
+        : []
+    );
+  });
 
   // Reset picker and the mobile sheet's expanded state when selection clears.
   // The drag offsets go too: a sheet dismissed by dragging it down would
@@ -1440,10 +2020,49 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     if (!hasVerseSelection.value) {
       isHighlightPickerOpen.value = false;
       isVerseSheetExpanded.value = false;
+      selectedVerseToolId.value = null;
       verseSheetDragReveal.value = null;
       verseSheetDismissOffset.value = 0;
     }
   }, [hasVerseSelection.value]);
+
+  // A scrolled note should not be where the next open — or the next verse —
+  // starts. The drawer's actions live at the top of that scroll. A jump
+  // to a specific note (below) opts that selection out of the rewind: in a
+  // browser the rewind can run after the jump has already placed the note.
+  const verseSheetSelectionKey = useComputed(() => {
+    const verses = readingState.value?.selectedVerses.value ?? [];
+    return verses
+      .map(
+        (verse) =>
+          `${verse.bookId}:${verse.chapterNumber}:${verse.verse.number}`
+      )
+      .join("|");
+  });
+
+  useEffect(() => {
+    if (isVerseSheetExpanded.value) return;
+    resetVerseSheetScroll();
+  }, [isVerseSheetExpanded.value]);
+
+  /**
+   * Selection a verse-marker jump has already placed in view.
+   * Kept as the key, not a flag: a jump that doesn't change the selection
+   * would otherwise stay set and skip the next verse's rewind.
+   */
+  const verseSheetNoteScrollKeyRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    const placedSelection = verseSheetNoteScrollKeyRef.current;
+    verseSheetNoteScrollKeyRef.current = null;
+    if (
+      placedSelection !== null &&
+      placedSelection === verseSheetSelectionKey.value
+    ) {
+      return;
+    }
+    resetVerseSheetScroll();
+  }, [verseSheetSelectionKey.value]);
 
   // Clicking an annotated verse number (BibleReader.tsx) sets this once;
   // expand the sheet and scroll to that verse's annotation group, then clear
@@ -1468,16 +2087,22 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
       if (!group) return;
 
       isVerseSheetExpanded.value = true;
+      verseSheetNoteScrollKeyRef.current = verseSheetSelectionKey.peek();
       const groupKey =
         group.annotations[0]?.id ??
         `${group.startVerseNumber}-${group.endVerseNumber}`;
 
       cancelAnimationFrame(frame);
+      // After layout, so the pinned row's height and the note's position
+      // are the ones the open drawer will actually use.
       frame = requestAnimationFrame(() => {
-        frame = 0;
-        document
-          .getElementById(`sb-verse-toolbar-annotation-group-${groupKey}`)
-          ?.scrollIntoView({ block: "nearest" });
+        frame = requestAnimationFrame(() => {
+          frame = 0;
+          const groupEl = document.getElementById(
+            `sb-verse-toolbar-annotation-group-${groupKey}`
+          );
+          if (groupEl) alignVerseSheetToNote(groupEl);
+        });
       });
     });
 
@@ -1523,10 +2148,14 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
 
       const wrap = toolbarWrapRef.current;
       const toolbar = wrap?.querySelector(".sb-reader-toolbar");
+      const nav = wrap?.querySelector(".sb-reader-floating-nav");
+      if (nav instanceof HTMLElement && !(toolbar instanceof HTMLElement)) {
+        write(nav.offsetHeight);
+        return;
+      }
       if (!(toolbar instanceof HTMLElement)) return;
 
       let insetPx = toolbar.offsetHeight;
-      const nav = wrap?.querySelector(".sb-reader-floating-nav");
       if (nav instanceof HTMLElement) {
         insetPx += nav.offsetHeight;
       } else {
@@ -1594,6 +2223,7 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     isVerseSheetExpanded.value,
     isHighlightPickerOpen.value,
     isSmallScreen.value,
+    isMinimalEmbed.value,
     activeMobileTab.value,
   ]);
 
@@ -1646,10 +2276,15 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
   // tree even though it's visually part of the toolbar. Excluding
   // `.sb-context-menu` (the portaled popup) keeps that click from reading as
   // "outside" and clearing the selection out from under the still-open menu.
+  // A verse-tool submenu opened from the overflow row is portaled the same
+  // way (`.sb-tool-context-menu`), so a tap on one of its options has to be
+  // excluded too — otherwise the selection clears before the option's click
+  // can run.
   // Same story for `.sb-footnote-modal-overlay` — the delete-confirmation
   // modal Delete opens renders as a sibling of the toolbar at the app root
   // (`ModalHost`), so without this, confirming or cancelling that dialog
-  // would also clear the selection out from under it.
+  // would also clear the selection out from under it. The custom colour
+  // picker is the same kind of portal (`.sb-color-picker-layer`).
   useEffect(() => {
     if (!isVerseToolbarVisible.value) return;
 
@@ -1661,9 +2296,16 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
       if (target.closest(verseTapSelector)) return;
       if (target.closest(".sb-verse-toolbar")) return;
       if (target.closest(".sb-pane-side-shell")) return;
+      if (target.closest(".sb-bible-reader-discover-panel")) return;
       if (target.closest(".sb-pane-shell-detached")) return;
       if (target.closest(".sb-context-menu")) return;
+      if (target.closest(".sb-tool-context-menu")) return;
       if (target.closest(".sb-footnote-modal-overlay")) return;
+      // ColorPicker portals to `document.body`, same as the context menu —
+      // a pointerdown on the square, hue slider, or backdrop must not read
+      // as "outside" and clear the selection out from under the picker.
+      if (target.closest(".sb-color-picker-layer, #sb-color-picker-host"))
+        return;
       readingState.value?.clearSelectedVerses();
     };
 
@@ -1733,6 +2375,22 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     props.state.today.open();
   };
 
+  // The "You" tab. Tapping it again while the Profile screen is up closes it,
+  // matching how Search and Tabs toggle.
+  const openProfileScreen = () => {
+    if (props.state.isProfileOpen.value) {
+      props.state.closeProfile();
+      return;
+    }
+    isMoreMenuOpen.value = false;
+    sidebar.closeSearchPanel();
+    sidebar.closeChatPanel();
+    sidebar.closeSettings();
+    sidebar.closeSidebar();
+    panes.closeAll();
+    props.state.openProfile();
+  };
+
   // Opens (or closes) the tabs list in the sidebar drawer. Shared by the Tabs
   // bottom tab and the Tabs entry inside the More menu.
   const openTabsView = () => {
@@ -1746,23 +2404,23 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     sidebar.closeSearchPanel();
     sidebar.closeChatPanel();
     sidebar.closeSettings();
-    // Show the tabs list, not the bookmark filter view.
-    if (bookmarks.isFilterActive.value) {
-      bookmarks.toggleFilter();
+    // Show the tabs list, not the saves filter view.
+    if (saves.isFilterActive.value) {
+      saves.toggleFilter();
     }
-    bookmarks.openedFromToolbar.value = false;
+    saves.openedFromToolbar.value = false;
     // Opened straight from the toolbar (not the book selector), so the tabs
     // header should show a Close (X), not a Back arrow to the selector.
     sidebar.tabsOpenedFromToolbar.value = true;
     sidebar.openSidebar();
   };
 
-  // Opens (or closes) the bookmarks view in the sidebar drawer. Shared by the
-  // Bookmarks bottom tab and the Bookmarks entry inside the More menu.
-  const openBookmarksView = () => {
+  // Opens (or closes) the saves view in the sidebar drawer. Shared by the
+  // Saves bottom tab and the Saves entry inside the More menu.
+  const openSavesView = () => {
     isMoreMenuOpen.value = false;
-    if (isBookmarksViewOpen.value) {
-      bookmarks.closeView();
+    if (isSavesViewOpen.value) {
+      saves.closeView();
       sidebar.closeSidebar();
       return;
     }
@@ -1771,44 +2429,14 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     sidebar.closeChatPanel();
     sidebar.closeSettings();
     sidebar.openSidebar();
-    bookmarks.openedFromToolbar.value = true;
-    if (!bookmarks.isFilterActive.value) {
-      bookmarks.toggleFilter();
+    saves.openedFromToolbar.value = true;
+    if (!saves.isFilterActive.value) {
+      saves.toggleFilter();
     }
   };
 
-  // Opens (or closes) the floating chat panel. Used by the Chat bottom tab when
-  // `?chatFirst=true` promotes it off the More menu.
-  const openChatView = () => {
-    isMoreMenuOpen.value = false;
-    if (sidebar.isChatPanelOpen.value) {
-      sidebar.closeChatPanel();
-      return;
-    }
-    panes.closeAll();
-    sidebar.closeSearchPanel();
-    sidebar.closeSettings();
-    sidebar.closeSidebar();
-    sidebar.openChatPanel();
-  };
-
-  const bookmarksTabIcon = (filled: boolean) => (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill={filled ? "currentColor" : "none"}
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M18 7V21L12 17L6 21V7C6 5.93913 6.42143 4.92172 7.17157 4.17157C7.92172 3.42143 8.93913 3 10 3H14C15.0609 3 16.0783 3.42143 16.8284 4.17157C17.5786 4.92172 18 5.93913 18 7Z"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
+  const savesTabIcon = (filled: boolean) => (
+    <SaveStarIcon isSaved={filled} size={24} />
   );
 
   /**
@@ -1842,6 +2470,50 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
     );
   };
 
+  const renderDesktopAudioControls = (playback: AudioPlaybackController) => {
+    const isAudioPlaying = playback.isPlaying.value;
+    const toggleLabel = isAudioPlaying
+      ? t("pause", { defaultValue: "Pause" })
+      : t("play", { defaultValue: "Play" });
+    const stopLabel = t("stop", { defaultValue: "Stop" });
+    return (
+      <>
+        <div className="sb-reader-toolbar-audio">
+          <AudioScrubber playback={playback} showTimeRemaining />
+        </div>
+        <div className="sb-reader-toolbar-item sb-reader-toolbar-item-arrow">
+          <button
+            type="button"
+            className="sb-reader-toolbar-button sb-reader-toolbar-audio-toggle"
+            aria-label={toggleLabel}
+            onClick={() =>
+              isAudioPlaying ? playback.pause() : playback.play()
+            }
+          >
+            <MaterialIcon>
+              {isAudioPlaying ? "pause" : "play_arrow"}
+            </MaterialIcon>
+            <span className="sr-only">{toggleLabel}</span>
+          </button>
+        </div>
+        {!isAudioPlaying && (
+          <div className="sb-reader-toolbar-item sb-reader-toolbar-item-arrow">
+            <button
+              type="button"
+              className="sb-reader-toolbar-button sb-reader-toolbar-audio-stop"
+              aria-label={stopLabel}
+              onClick={() => playback.stop()}
+            >
+              <StopIcon />
+              <span className="sr-only">{stopLabel}</span>
+            </button>
+          </div>
+        )}
+        <div className="sb-reader-toolbar-divider" aria-hidden="true" />
+      </>
+    );
+  };
+
   const getPlayingNavLabel = (playing: PlayingState) => {
     const currentItem = playing.currentItem.value;
     if (currentItem) {
@@ -1861,7 +2533,9 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
       {!shouldReplaceDefaultToolbar.value && (
         <div
           ref={toolbarWrapRef}
-          className="sb-reader-toolbar-wrap"
+          className={`sb-reader-toolbar-wrap${
+            isMinimalEmbed.value ? " sb-reader-toolbar-wrap-embed" : ""
+          }`}
           dir={readingState.value?.translation.value?.textDirection ?? "auto"}
         >
           {isSmallScreen.value &&
@@ -1884,24 +2558,37 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
               const PrevIcon = prev?.icon;
               const NextIcon = next?.icon;
 
+              const playback = playing ? null : audioPlayback.value;
+              // While playing, progress runs above the chapter pill where it
+              // can be scrubbed; paused, it shrinks to a ring around the play
+              // button so the pill area goes back to plain navigation.
+              const isScrubbing = !!playback?.isPlaying.value;
+
               return (
                 <div
-                  className="sb-reader-floating-nav"
+                  className={`sb-reader-floating-nav${
+                    isScrubbing ? " sb-reader-floating-nav-scrubbing" : ""
+                  }`}
                   role="group"
                   aria-label={t("chapter-navigation", {
                     defaultValue: "Chapter navigation",
                   })}
                 >
                   {!playing && audio && AudioIcon && (
-                    <button
-                      type="button"
-                      disabled={audio.disabled.value}
-                      onClick={() => audio.onSelect()}
-                      className="sb-reader-floating-nav-play"
-                      aria-label={translateTitle(t, audio.title)}
-                    >
-                      <AudioIcon />
-                    </button>
+                    <div className="sb-reader-floating-nav-play-wrap">
+                      <button
+                        type="button"
+                        disabled={audio.disabled.value}
+                        onClick={() => audio.onSelect()}
+                        className="sb-reader-floating-nav-play"
+                        aria-label={translateTitle(t, audio.title)}
+                      >
+                        <AudioIcon />
+                      </button>
+                      {playback && !isScrubbing && (
+                        <AudioProgressRing playback={playback} />
+                      )}
+                    </div>
                   )}
                   {playing && (
                     <button
@@ -1915,245 +2602,207 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                   )}
 
                   {(prev || next || selector || playing) && (
-                    <div className="sb-reader-floating-nav-group">
-                      {playing ? (
-                        <button
-                          type="button"
-                          disabled={!playing.hasPrevious.value}
-                          onClick={() => playing.previous()}
-                          onPointerDown={spawnRipple}
-                          className="sb-reader-floating-nav-arrow"
-                          aria-label={t("previous", {
-                            defaultValue: "Previous",
-                          })}
-                        >
-                          <MaterialIcon>skip_previous</MaterialIcon>
-                        </button>
-                      ) : (
-                        prev &&
-                        PrevIcon && (
+                    <div className="sb-reader-floating-nav-group-wrap">
+                      {playback && isScrubbing && (
+                        <AudioScrubber
+                          playback={playback}
+                          showTimeRemaining
+                          className="sb-reader-floating-nav-scrubber"
+                        />
+                      )}
+                      <div className="sb-reader-floating-nav-group">
+                        {playing ? (
                           <button
                             type="button"
-                            disabled={prev.disabled.value}
-                            onClick={prev.onSelect}
+                            disabled={!playing.hasPrevious.value}
+                            onClick={() => playing.previous()}
                             onPointerDown={spawnRipple}
                             className="sb-reader-floating-nav-arrow"
-                            aria-label={translateTitle(t, prev.title)}
-                            data-tool-id={prev.id}
+                            aria-label={t("previous", {
+                              defaultValue: "Previous",
+                            })}
                           >
-                            <PrevIcon />
+                            <MaterialIcon>skip_previous</MaterialIcon>
                           </button>
-                        )
-                      )}
+                        ) : (
+                          prev &&
+                          PrevIcon && (
+                            <ToolActionElement
+                              href={prev.href.value}
+                              disabled={prev.disabled.value}
+                              onActivate={prev.onSelect}
+                              onPointerDown={spawnRipple}
+                              className="sb-reader-floating-nav-arrow"
+                              ariaLabel={translateTitle(t, prev.title)}
+                              dataToolId={prev.id}
+                            >
+                              <PrevIcon />
+                            </ToolActionElement>
+                          )
+                        )}
 
-                      {playing ? (
-                        <button
-                          type="button"
-                          onClick={() =>
-                            (props.state.playlists.view.value = "play_playlist")
-                          }
-                          onPointerDown={spawnRipple}
-                          className="sb-reader-floating-nav-label"
-                        >
-                          {getPlayingNavLabel(playing)}
-                        </button>
-                      ) : (
-                        selector && (
+                        {playing ? (
                           <button
                             type="button"
-                            {...flingSafeTapHandlers(
-                              selector.onSelect,
-                              spawnRipple
-                            )}
+                            onClick={() =>
+                              (props.state.playlists.view.value =
+                                "play_playlist")
+                            }
+                            onPointerDown={spawnRipple}
                             className="sb-reader-floating-nav-label"
                           >
-                            {getReaderNavLabel()}
+                            {getPlayingNavLabel(playing)}
                           </button>
-                        )
-                      )}
+                        ) : (
+                          selector && (
+                            <button
+                              type="button"
+                              {...flingSafeTapHandlers(
+                                selector.onSelect,
+                                spawnRipple
+                              )}
+                              className="sb-reader-floating-nav-label"
+                            >
+                              {getReaderNavLabel()}
+                            </button>
+                          )
+                        )}
 
-                      {playing ? (
-                        <button
-                          type="button"
-                          disabled={!playing.hasNext.value}
-                          onClick={() => playing.next()}
-                          onPointerDown={spawnRipple}
-                          className="sb-reader-floating-nav-arrow"
-                          aria-label={t("next", { defaultValue: "Next" })}
-                        >
-                          <MaterialIcon>skip_next</MaterialIcon>
-                        </button>
-                      ) : (
-                        next &&
-                        NextIcon && (
+                        {playing ? (
                           <button
                             type="button"
-                            disabled={next.disabled.value}
-                            onClick={next.onSelect}
+                            disabled={!playing.canPressNext.value}
+                            onClick={() => playing.next()}
                             onPointerDown={spawnRipple}
                             className="sb-reader-floating-nav-arrow"
-                            aria-label={translateTitle(t, next.title)}
-                            data-tool-id={next.id}
+                            aria-label={t("next", { defaultValue: "Next" })}
                           >
-                            <NextIcon />
+                            <MaterialIcon>skip_next</MaterialIcon>
                           </button>
-                        )
-                      )}
+                        ) : (
+                          next &&
+                          NextIcon && (
+                            <ToolActionElement
+                              href={next.href.value}
+                              disabled={next.disabled.value}
+                              onActivate={next.onSelect}
+                              onPointerDown={spawnRipple}
+                              className="sb-reader-floating-nav-arrow"
+                              ariaLabel={translateTitle(t, next.title)}
+                              dataToolId={next.id}
+                            >
+                              <NextIcon />
+                            </ToolActionElement>
+                          )
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>
               );
             })()}
 
-          <div
-            className={`sb-reader-toolbar${isSmallScreen.value ? " sb-reader-toolbar-mobile-layout" : " sb-reader-toolbar-labeled"}`}
-          >
-            {isSmallScreen.value ? (
-              <>
-                <MobileBottomTab
-                  iconNode={
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M11.5 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V5C4 4.46957 4.21071 3.96086 4.58579 3.58579C4.96086 3.21071 5.46957 3 6 3H18C18.5304 3 19.0391 3.21071 19.4142 3.58579C19.7893 3.96086 20 4.46957 20 5V13"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M9 18H11"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M15 19L17 21L21 17"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  }
-                  label={t("today", { defaultValue: "Today" })}
-                  active={activeMobileTab.value === "today"}
-                  onClick={() => {
-                    void openTodayScreen();
-                  }}
-                />
-
-                <MobileBottomTab
-                  iconName="search"
-                  label={t("search", { defaultValue: "Search" })}
-                  active={activeMobileTab.value === "search"}
-                  onClick={() => {
-                    isMoreMenuOpen.value = false;
-                    panes.closeAll();
-                    // Dismiss the tabs/bookmarks drawer if it's open.
-                    sidebar.closeSidebar();
-                    if (sidebar.isSearchPanelOpen.value) {
-                      sidebar.closeSearchPanel();
-                    } else {
-                      sidebar.openSearchPanel();
-                    }
-                  }}
-                />
-
-                <MobileBottomTab
-                  iconNode={
-                    <SeedBibleIcon
-                      size={24}
-                      className="sb-reader-toolbar-seed-icon"
-                    />
-                  }
-                  label={t("bible", { defaultValue: "Bible" })}
-                  active={activeMobileTab.value === "bible"}
-                  onClick={() => {
-                    // The Bible text is already showing, so there's nothing to
-                    // dismiss — open the book selector instead of doing nothing.
-                    if (activeMobileTab.value === "bible") {
-                      openSelectorTool.value?.onSelect();
-                      return;
-                    }
-                    isMoreMenuOpen.value = false;
-                    sidebar.closeSearchPanel();
-                    sidebar.closeChatPanel();
-                    sidebar.closeSettings();
-                    sidebar.closeSidebar();
-                    // Close any fullscreen pane (e.g. Today).
-                    panes.closeAll();
-                    selectedToolbarToolId.value = null;
-                  }}
-                />
-
-                {isChatFirst ? (
-                  <div className="sb-reader-toolbar-item sb-reader-toolbar-mobile-tab">
-                    <button
-                      type="button"
-                      onClick={openChatView}
-                      className={`sb-reader-toolbar-button sb-reader-toolbar-mobile-tab-button${
-                        activeMobileTab.value === "chat"
-                          ? " sb-reader-toolbar-mobile-tab-button-active"
-                          : ""
-                      }`}
-                      aria-label={t("chat", { defaultValue: "Chat" })}
-                    >
-                      <span
-                        className="material-symbols-outlined sb-reader-toolbar-mobile-tab-icon"
+          {!isMinimalEmbed.value && (
+            <div
+              className={`sb-reader-toolbar${isSmallScreen.value ? " sb-reader-toolbar-mobile-layout" : " sb-reader-toolbar-labeled"}${
+                !isSmallScreen.value && desktopPlayback.value
+                  ? " sb-reader-toolbar-has-audio"
+                  : ""
+              }`}
+            >
+              {isSmallScreen.value ? (
+                <>
+                  <MobileBottomTab
+                    iconNode={
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true"
                       >
-                        chat_bubble_outline
-                      </span>
-                      <span className="sb-reader-toolbar-mobile-tab-label">
-                        {t("chat", { defaultValue: "Chat" })}
-                      </span>
-                      {unreadChatIndicator.value && (
-                        <span
-                          className="sb-reader-toolbar-unread-indicator"
-                          aria-label={
-                            chats.wasMentioned.value
-                              ? t("unread-mention", {
-                                  defaultValue: "Unread mention",
-                                })
-                              : t("unread-messages", {
-                                  defaultValue: "Unread messages: {{count}}",
-                                  count: unreadChatIndicator.value,
-                                })
-                          }
-                        >
-                          {unreadChatIndicator.value}
-                        </span>
-                      )}
-                      {hasTypingInChats.value && (
-                        <span
-                          className="sb-reader-toolbar-typing-indicator"
-                          aria-label={t("someone-is-typing", {
-                            defaultValue: "Someone is typing...",
-                          })}
+                        <path
+                          d="M11.5 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V5C4 4.46957 4.21071 3.96086 4.58579 3.58579C4.96086 3.21071 5.46957 3 6 3H18C18.5304 3 19.0391 3.21071 19.4142 3.58579C19.7893 3.96086 20 4.46957 20 5V13"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         />
-                      )}
-                    </button>
-                  </div>
-                ) : (
-                  <MobileBottomTab
-                    iconNode={bookmarksTabIcon(
-                      activeMobileTab.value === "bookmarks"
-                    )}
-                    label={t("bookmarks", { defaultValue: "Bookmarks" })}
-                    active={activeMobileTab.value === "bookmarks"}
-                    onClick={openBookmarksView}
+                        <path
+                          d="M9 18H11"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M15 19L17 21L21 17"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    }
+                    label={t("today", { defaultValue: "Today" })}
+                    active={activeMobileTab.value === "today"}
+                    onClick={() => {
+                      void openTodayScreen();
+                    }}
                   />
-                )}
 
-                {showMoreMenu.value ? (
+                  <MobileBottomTab
+                    iconNode={<SelfAvatarVisual state={props.state} />}
+                    label={t("you", { defaultValue: "You" })}
+                    active={activeMobileTab.value === "you"}
+                    onClick={openProfileScreen}
+                  />
+
+                  <MobileBottomTab
+                    iconNode={
+                      <SeedBibleIcon
+                        size={24}
+                        className="sb-reader-toolbar-seed-icon"
+                      />
+                    }
+                    label={t("bible", { defaultValue: "Bible" })}
+                    active={activeMobileTab.value === "bible"}
+                    onClick={() => {
+                      // The Bible text is already showing, so there's nothing to
+                      // dismiss — open the book selector instead of doing nothing.
+                      if (activeMobileTab.value === "bible") {
+                        openSelectorTool.value?.onSelect();
+                        return;
+                      }
+                      isMoreMenuOpen.value = false;
+                      sidebar.closeSearchPanel();
+                      sidebar.closeChatPanel();
+                      sidebar.closeSettings();
+                      sidebar.closeSidebar();
+                      // Close any fullscreen pane (e.g. Today).
+                      panes.closeAll();
+                      selectedToolbarToolId.value = null;
+                    }}
+                  />
+
+                  <MobileBottomTab
+                    iconName="search"
+                    label={t("search", { defaultValue: "Search" })}
+                    active={activeMobileTab.value === "search"}
+                    onClick={() => {
+                      isMoreMenuOpen.value = false;
+                      panes.closeAll();
+                      // Dismiss the tabs/saves drawer if it's open.
+                      sidebar.closeSidebar();
+                      if (sidebar.isSearchPanelOpen.value) {
+                        sidebar.closeSearchPanel();
+                      } else {
+                        sidebar.openSearchPanel();
+                      }
+                    }}
+                  />
+
                   <div className="sb-reader-toolbar-item sb-reader-toolbar-mobile-tab sb-reader-toolbar-more-anchor">
                     <button
                       type="button"
@@ -2161,7 +2810,7 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                       onClick={() => {
                         // Opening the More menu should dismiss whatever else is
                         // covering the reader — the search bar, the chat panel,
-                        // the settings view, or the tabs/bookmarks drawer — the
+                        // the settings view, or the tabs/saves drawer — the
                         // same way the other bottom tabs do. Extension panes are
                         // left alone, since those are opened *from* this menu.
                         if (!isMoreMenuOpen.value) {
@@ -2227,18 +2876,14 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                         chatWasMentioned={chats.wasMentioned.value}
                         hasTypingInChats={hasTypingInChats.value}
                         pinnedItems={[
-                          ...(isChatFirst
-                            ? [
-                                {
-                                  id: "bookmarks",
-                                  label: t("bookmarks", {
-                                    defaultValue: "Bookmarks",
-                                  }),
-                                  iconNode: bookmarksTabIcon(false),
-                                  onClick: openBookmarksView,
-                                },
-                              ]
-                            : []),
+                          {
+                            id: "saves",
+                            label: t("saves", {
+                              defaultValue: "Saves",
+                            }),
+                            iconNode: savesTabIcon(false),
+                            onClick: openSavesView,
+                          },
                           {
                             id: "tabs",
                             label: t("tabs", {
@@ -2254,147 +2899,162 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                       />
                     )}
                   </div>
-                ) : (
-                  <MobileBottomTab
-                    iconNode={<SbTabsIcon />}
-                    label={t("tabs", { defaultValue: "Tabs" })}
-                    active={activeMobileTab.value === "tabs"}
-                    onClick={openTabsView}
-                  />
-                )}
-              </>
-            ) : (
-              tools.value.flatMap((tool) => {
-                const ToolIcon = tool.icon;
-                const menuItems =
-                  tool.getItems?.().filter((item) => item.visible.value) ?? [];
-                const hasMenuItems = menuItems.length > 0;
-                const hideLabel = tool.hideLabel;
-                const label = translateTitle(t, tool.title);
-                if (!tool.visible.value) return [];
-                const itemElement = (
-                  <div
-                    key={tool.id}
-                    className={`sb-reader-toolbar-item${hideLabel ? " sb-reader-toolbar-item-arrow" : ""}`}
-                  >
-                    <button
-                      disabled={tool.disabled.value}
-                      onClick={() => {
-                        if (hasMenuItems) {
-                          selectedToolbarToolId.value =
-                            selectedToolbarToolId.value === tool.id
-                              ? null
-                              : tool.id;
-                          return;
-                        }
-
-                        selectedToolbarToolId.value = null;
-                        tool.onSelect();
-                      }}
-                      data-tool-id={tool.id}
-                      className="sb-reader-toolbar-button"
-                      aria-label={label}
-                    >
-                      <ToolIcon />
-                      {hideLabel ? (
-                        <span className="sr-only">{label}</span>
-                      ) : (
-                        <span className="sb-reader-toolbar-button-label">
-                          {label}
-                        </span>
-                      )}
-                      {tool.id === "open-chat" && unreadChatIndicator.value && (
-                        <span
-                          className="sb-reader-toolbar-unread-indicator"
-                          aria-label={
-                            chats.wasMentioned.value
-                              ? t("unread-mention", {
-                                  defaultValue: "Unread mention",
-                                })
-                              : t("unread-messages", {
-                                  defaultValue: "Unread messages: {{count}}",
-                                  count: unreadChatIndicator.value,
-                                })
-                          }
-                        >
-                          {unreadChatIndicator.value}
-                        </span>
-                      )}
-                      {tool.id === "open-chat" && hasTypingInChats.value && (
-                        <span
-                          className="sb-reader-toolbar-typing-indicator"
-                          aria-label={t("someone-is-typing", {
-                            defaultValue: "Someone is typing...",
-                          })}
-                        />
-                      )}
-                    </button>
-                    {hasMenuItems &&
-                      selectedToolbarToolId.value === tool.id && (
-                        <div
-                          className="sb-tool-context-menu"
-                          role="menu"
-                          onKeyDown={(event) => {
-                            if (event.key === "Escape") {
-                              event.preventDefault();
-                              selectedToolbarToolId.value = null;
+                </>
+              ) : (
+                <>
+                  {desktopPlayback.value &&
+                    renderDesktopAudioControls(desktopPlayback.value)}
+                  {tools.value.flatMap((tool) => {
+                    const ToolIcon = tool.icon;
+                    const menuItems =
+                      tool.getItems?.().filter((item) => item.visible.value) ??
+                      [];
+                    const hasMenuItems = menuItems.length > 0;
+                    const hideLabel = tool.hideLabel;
+                    const label = translateTitle(t, tool.title);
+                    if (!tool.visible.value) return [];
+                    const itemElement = (
+                      <div
+                        key={tool.id}
+                        className={`sb-reader-toolbar-item${hideLabel ? " sb-reader-toolbar-item-arrow" : ""}`}
+                      >
+                        <ToolActionElement
+                          // A tool that opens a menu stays a button: the href
+                          // would advertise a destination the click never goes to.
+                          href={hasMenuItems ? null : tool.href.value}
+                          disabled={tool.disabled.value}
+                          onActivate={() => {
+                            if (hasMenuItems) {
+                              selectedToolbarToolId.value =
+                                selectedToolbarToolId.value === tool.id
+                                  ? null
+                                  : tool.id;
                               return;
                             }
-                            handleVerticalListKeyNav(
-                              event,
-                              event.currentTarget
-                            );
+
+                            selectedToolbarToolId.value = null;
+                            tool.onSelect();
                           }}
+                          dataToolId={tool.id}
+                          className="sb-reader-toolbar-button"
+                          ariaLabel={label}
                         >
-                          {menuItems.map((item) => {
-                            const MenuItemIcon = item.icon;
-                            return (
-                              <button
-                                key={item.id}
-                                disabled={item.disabled.value}
-                                onClick={() => {
-                                  item.onSelect();
-                                  selectedToolbarToolId.value = null;
-                                }}
-                                className="sb-tool-context-menu-item"
-                                role="menuitem"
+                          <ToolIcon />
+                          {hideLabel ? (
+                            <span className="sr-only">{label}</span>
+                          ) : (
+                            <span className="sb-reader-toolbar-button-label">
+                              {label}
+                            </span>
+                          )}
+                          {tool.id === "open-chat" &&
+                            unreadChatIndicator.value && (
+                              <span
+                                className="sb-reader-toolbar-unread-indicator"
+                                aria-label={
+                                  chats.wasMentioned.value
+                                    ? t("unread-mention", {
+                                        defaultValue: "Unread mention",
+                                      })
+                                    : t("unread-messages", {
+                                        defaultValue:
+                                          "Unread messages: {{count}}",
+                                        count: unreadChatIndicator.value,
+                                      })
+                                }
                               >
-                                <MenuItemIcon />
-                                <span>{translateTitle(t, item.title)}</span>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      )}
-                  </div>
-                );
-                if (
-                  tool.id === "previous-chapter" ||
-                  tool.id === "previous-item"
-                ) {
-                  return [
-                    itemElement,
-                    <div
-                      key="divider-after-prev"
-                      className="sb-reader-toolbar-divider"
-                      aria-hidden="true"
-                    />,
-                  ];
-                }
-                if (tool.id === "next-chapter" || tool.id === "next-item") {
-                  return [
-                    <div
-                      key="divider-before-next"
-                      className="sb-reader-toolbar-divider"
-                      aria-hidden="true"
-                    />,
-                    itemElement,
-                  ];
-                }
-                return [itemElement];
-              })
-            )}
-          </div>
+                                {unreadChatIndicator.value}
+                              </span>
+                            )}
+                          {tool.id === "open-chat" &&
+                            hasTypingInChats.value && (
+                              <span
+                                className="sb-reader-toolbar-typing-indicator"
+                                aria-label={t("someone-is-typing", {
+                                  defaultValue: "Someone is typing...",
+                                })}
+                              />
+                            )}
+                        </ToolActionElement>
+                        {hasMenuItems &&
+                          selectedToolbarToolId.value === tool.id && (
+                            <div
+                              className="sb-tool-context-menu"
+                              role="menu"
+                              onKeyDown={(event) => {
+                                if (event.key === "Escape") {
+                                  event.preventDefault();
+                                  selectedToolbarToolId.value = null;
+                                  return;
+                                }
+                                handleVerticalListKeyNav(
+                                  event,
+                                  event.currentTarget
+                                );
+                              }}
+                            >
+                              <div
+                                className="sb-tool-context-menu-scroll"
+                                ref={attachMenuOverflowFade}
+                              >
+                                {menuItems.map((item) => {
+                                  const MenuItemIcon = item.icon;
+                                  return (
+                                    <button
+                                      key={item.id}
+                                      disabled={item.disabled.value}
+                                      onClick={() => {
+                                        item.onSelect();
+                                        selectedToolbarToolId.value = null;
+                                      }}
+                                      className="sb-tool-context-menu-item"
+                                      role="menuitem"
+                                    >
+                                      <MenuItemIcon />
+                                      <span>
+                                        {translateTitle(t, item.title)}
+                                      </span>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                              <div
+                                className="sb-tool-context-menu-fade"
+                                hidden
+                              />
+                            </div>
+                          )}
+                      </div>
+                    );
+                    if (
+                      tool.id === "previous-chapter" ||
+                      tool.id === "previous-item"
+                    ) {
+                      return [
+                        itemElement,
+                        <div
+                          key="divider-after-prev"
+                          className="sb-reader-toolbar-divider"
+                          aria-hidden="true"
+                        />,
+                      ];
+                    }
+                    if (tool.id === "next-chapter" || tool.id === "next-item") {
+                      return [
+                        <div
+                          key="divider-before-next"
+                          className="sb-reader-toolbar-divider"
+                          aria-hidden="true"
+                        />,
+                        itemElement,
+                      ];
+                    }
+                    return [itemElement];
+                  })}
+                </>
+              )}
+            </div>
+          )}
         </div>
       )}
 
@@ -2407,6 +3067,12 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                   // Suppresses the settle animations, so the sheet tracks the
                   // finger exactly instead of easing towards it.
                   isVerseSheetDragging.value ? " sb-verse-sheet-dragging" : ""
+                }${
+                  // Lets the notes scroll. The sheet itself must not keep
+                  // `touch-action: none`, or that would block the scroller.
+                  isVerseSheetOverflowScrollable.value
+                    ? " sb-verse-sheet-scrollable"
+                    : ""
                 }`
               : " sb-verse-toolbar-draggable"
           }`}
@@ -2598,52 +3264,83 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                   </button>
                 ))}
 
-                {customHighlightColors.value.map((hex) => (
-                  <button
-                    key={hex}
-                    type="button"
-                    className="sb-verse-toolbar-color-button"
-                    onClick={() => {
-                      const rs = readingState.value;
-                      if (!rs) return;
-                      applyHighlightWithSession(
-                        rs,
-                        sessionState.value,
-                        {
-                          colorId: "yellow",
-                          customColor: hex,
-                          customFontColor: getContrastTextColor(hex),
-                        },
-                        !!login.userId.value
+                {Array.from(
+                  { length: MAX_CUSTOM_HIGHLIGHT_COLORS },
+                  (_, slot) => {
+                    const hex = customHighlightColors.value[slot];
+                    if (!hex) {
+                      return (
+                        <button
+                          key={`custom-slot-${slot}`}
+                          type="button"
+                          className="sb-verse-toolbar-color-button"
+                          onPointerEnter={preloadColorPicker}
+                          onFocus={preloadColorPicker}
+                          onClick={() => {
+                            customColorPickerOpen.value = true;
+                          }}
+                          aria-label={t("add-custom-color", {
+                            defaultValue: "Add custom color",
+                          })}
+                          title={t("add-color", { defaultValue: "Add color" })}
+                        >
+                          <span className="sb-verse-toolbar-color sb-verse-toolbar-color-slot" />
+                        </button>
                       );
-                    }}
-                    onContextMenu={(event: MouseEvent) => {
-                      event.preventDefault();
-                      settings.removeCustomHighlightColor(hex);
-                    }}
-                    aria-label={`Highlight ${hex}`}
-                    title={`${hex} — right-click to remove`}
-                  >
-                    <span
-                      className="sb-verse-toolbar-color"
-                      style={{ background: hex }}
-                    />
-                  </button>
-                ))}
+                    }
+                    return (
+                      <button
+                        key={hex}
+                        type="button"
+                        className="sb-verse-toolbar-color-button"
+                        onClick={() => {
+                          const rs = readingState.value;
+                          if (!rs) return;
+                          applyHighlightWithSession(
+                            rs,
+                            sessionState.value,
+                            {
+                              colorId: "yellow",
+                              customColor: hex,
+                              customFontColor: getContrastTextColor(hex),
+                            },
+                            !!login.userId.value
+                          );
+                        }}
+                        onContextMenu={(event: MouseEvent) => {
+                          event.preventDefault();
+                          settings.removeCustomHighlightColor(hex);
+                        }}
+                        aria-label={`Highlight ${hex}`}
+                        title={`${hex} — right-click to remove`}
+                      >
+                        <span
+                          className="sb-verse-toolbar-color"
+                          style={{ background: hex }}
+                        />
+                      </button>
+                    );
+                  }
+                )}
 
                 {/* On mobile the "+" lives inside the scroll strip so custom
                     colors and defaults stay one continuous thumb-scroll row. */}
                 {isSmallScreen.value && (
                   <button
+                    ref={customColorAnchorRef}
                     type="button"
                     className="sb-verse-toolbar-plus sb-verse-toolbar-plus-inline"
+                    onPointerEnter={preloadColorPicker}
+                    onFocus={preloadColorPicker}
                     onClick={() => {
-                      colorInputRef.current?.click();
+                      customColorPickerOpen.value = true;
                     }}
                     aria-label={t("add-custom-color", {
                       defaultValue: "Add custom color",
                     })}
                     title={t("add-color", { defaultValue: "Add color" })}
+                    aria-haspopup="dialog"
+                    aria-expanded={customColorPickerOpen.value}
                   >
                     <span className="material-symbols-outlined">add</span>
                   </button>
@@ -2653,15 +3350,20 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
               <div className="sb-verse-toolbar-picker-actions">
                 {!isSmallScreen.value && (
                   <button
+                    ref={customColorAnchorRef}
                     type="button"
                     className="sb-verse-toolbar-plus"
+                    onPointerEnter={preloadColorPicker}
+                    onFocus={preloadColorPicker}
                     onClick={() => {
-                      colorInputRef.current?.click();
+                      customColorPickerOpen.value = true;
                     }}
                     aria-label={t("add-custom-color", {
                       defaultValue: "Add custom color",
                     })}
                     title={t("add-color", { defaultValue: "Add color" })}
+                    aria-haspopup="dialog"
+                    aria-expanded={customColorPickerOpen.value}
                   >
                     <span className="material-symbols-outlined">add</span>
                     <span className="sb-verse-toolbar-action-text">
@@ -2669,19 +3371,18 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                     </span>
                   </button>
                 )}
-                <input
-                  ref={colorInputRef}
-                  type="color"
-                  className="sb-verse-toolbar-color-input"
-                  onChange={(event: Event) => {
-                    const target = event.currentTarget as HTMLInputElement;
-                    commitCustomColor(target.value);
+                <LazyColorPicker
+                  value="#ffeb3a"
+                  showTrigger={false}
+                  open={customColorPickerOpen.value}
+                  onOpenChange={(next) => {
+                    customColorPickerOpen.value = next;
                   }}
-                  onInput={(event: Event) => {
-                    const target = event.currentTarget as HTMLInputElement;
-                    commitCustomColor(target.value);
-                  }}
-                  onBlur={finishCustomColor}
+                  anchorRef={customColorAnchorRef}
+                  ariaLabel={t("add-custom-color", {
+                    defaultValue: "Add custom color",
+                  })}
+                  onChange={applyCustomColor}
                 />
 
                 <button
@@ -2733,7 +3434,8 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
             >
               {(() => {
                 const renderTool = (
-                  tool: (typeof verseToolbarTools.value)[number]
+                  tool: (typeof verseToolbarTools.value)[number],
+                  floatingMenu = false
                 ) => {
                   const ToolIcon = tool.icon;
                   const menuItems =
@@ -2741,8 +3443,44 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                     [];
                   const hasMenuItems = menuItems.length > 0;
                   const label = translateTitle(t, tool.title);
+                  const closeMenu = () => {
+                    selectedVerseToolId.value = null;
+                  };
+                  const menuButtons = menuItems.map((item) => {
+                    const MenuItemIcon = item.icon;
+                    return (
+                      <button
+                        key={item.id}
+                        disabled={item.disabled.value}
+                        onClick={() => {
+                          closeMenu();
+                          void handleVerseAction(
+                            item.onSelect,
+                            tool.preserveSelection
+                          );
+                        }}
+                        className="sb-tool-context-menu-item"
+                        role="menuitem"
+                      >
+                        <MenuItemIcon />
+                        <span>{translateTitle(t, item.title)}</span>
+                      </button>
+                    );
+                  });
+                  const menuOpen =
+                    hasMenuItems && selectedVerseToolId.value === tool.id;
+                  // Only an open drawer has a visible overflow card to anchor
+                  // to. While the row is shut the menu stays unmounted.
+                  const floatingMenuOpen =
+                    menuOpen &&
+                    floatingMenu &&
+                    verseSheetRevealHeight.value > 0;
                   return tool.visible.value ? (
-                    <div key={tool.id} className="sb-verse-toolbar-action-item">
+                    <div
+                      key={tool.id}
+                      className="sb-verse-toolbar-action-item"
+                      data-verse-tool-id={tool.id}
+                    >
                       <button
                         disabled={tool.disabled.value}
                         onClick={() => {
@@ -2755,7 +3493,10 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                           }
 
                           selectedVerseToolId.value = null;
-                          tool.onSelect();
+                          void handleVerseAction(
+                            tool.onSelect,
+                            tool.preserveSelection
+                          );
                         }}
                         className="sb-verse-toolbar-action"
                         aria-label={label}
@@ -2768,50 +3509,44 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                           {label}
                         </span>
                       </button>
-                      {hasMenuItems &&
-                        selectedVerseToolId.value === tool.id && (
+                      {floatingMenuOpen && (
+                        <FloatingVerseToolMenu
+                          anchorId={tool.id}
+                          onClose={closeMenu}
+                        >
+                          {menuButtons}
+                        </FloatingVerseToolMenu>
+                      )}
+                      {menuOpen && !floatingMenu && (
+                        <div
+                          className="sb-tool-context-menu"
+                          role="menu"
+                          onKeyDown={(event) => {
+                            if (event.key === "Escape") {
+                              event.preventDefault();
+                              closeMenu();
+                              return;
+                            }
+                            handleVerticalListKeyNav(
+                              event,
+                              event.currentTarget
+                            );
+                          }}
+                        >
                           <div
-                            className="sb-tool-context-menu"
-                            role="menu"
-                            onKeyDown={(event) => {
-                              if (event.key === "Escape") {
-                                event.preventDefault();
-                                selectedVerseToolId.value = null;
-                                return;
-                              }
-                              handleVerticalListKeyNav(
-                                event,
-                                event.currentTarget
-                              );
-                            }}
+                            className="sb-tool-context-menu-scroll"
+                            ref={attachMenuOverflowFade}
                           >
-                            {menuItems.map((item) => {
-                              const MenuItemIcon = item.icon;
-                              return (
-                                <button
-                                  key={item.id}
-                                  disabled={item.disabled.value}
-                                  onClick={() => {
-                                    item.onSelect();
-                                    selectedVerseToolId.value = null;
-                                  }}
-                                  className="sb-tool-context-menu-item"
-                                  role="menuitem"
-                                >
-                                  <MenuItemIcon />
-                                  <span>{translateTitle(t, item.title)}</span>
-                                </button>
-                              );
-                            })}
+                            {menuButtons}
                           </div>
-                        )}
+                          <div className="sb-tool-context-menu-fade" hidden />
+                        </div>
+                      )}
                     </div>
                   ) : null;
                 };
 
-                const nonCancel = verseToolbarTools.value.filter(
-                  (tool) => tool.id !== "clear-selection"
-                );
+                const nonCancel = nonCancelVerseTools.value;
                 const cancelTools = verseToolbarTools.value.filter(
                   (tool) => tool.id === "clear-selection"
                 );
@@ -2831,21 +3566,21 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                           Math.min(...selectedVerseNumbers),
                           Math.max(...selectedVerseNumbers),
                         ] as [number, number]);
-                const selectionBookmark =
+                const selectionSave =
                   rs && verseTarget !== undefined
-                    ? bookmarks.getBookmarkForLocation(
+                    ? saves.getSaveForLocation(
                         rs.translationId.value,
                         rs.bookId.value,
                         rs.chapterNumber.value,
                         verseTarget
                       )
                     : undefined;
-                const isSelectionBookmarked = selectionBookmark !== undefined;
-                const bookmarkLabel = isSelectionBookmarked
-                  ? t("edit-bookmark", { defaultValue: "Edit bookmark" })
-                  : t("bookmark-verses", { defaultValue: "Bookmark" });
+                const isSelectionSaved = selectionSave !== undefined;
+                const saveLabel = isSelectionSaved
+                  ? t("edit-save", { defaultValue: "Edit save" })
+                  : t("save-verses", { defaultValue: "Save" });
 
-                const highlightCard = selectionUI.value.showHighlightColors ? (
+                const highlightCard = showHighlightCard.value ? (
                   <div key="highlight" className="sb-verse-toolbar-action-item">
                     <button
                       type="button"
@@ -2871,13 +3606,13 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                   </div>
                 ) : null;
 
-                const bookmarkCard = (
-                  <div key="bookmark" className="sb-verse-toolbar-action-item">
+                const saveCard = !showSaveCard.value ? null : (
+                  <div key="save" className="sb-verse-toolbar-action-item">
                     <button
                       type="button"
-                      className={`sb-verse-toolbar-action sb-verse-toolbar-bookmark-trigger${
-                        isSelectionBookmarked
-                          ? " sb-verse-toolbar-bookmark-trigger-active"
+                      className={`sb-verse-toolbar-action sb-verse-toolbar-save-trigger${
+                        isSelectionSaved
+                          ? " sb-verse-toolbar-save-trigger-active"
                           : ""
                       }`}
                       onClick={() => {
@@ -2893,54 +3628,36 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                         ) {
                           return;
                         }
-                        openBookmarkCategoryModal(
-                          props.state,
-                          {
-                            translationId,
-                            bookId,
-                            chapterNumber,
-                            verse: verseTarget,
-                          },
-                          selectionBookmark
-                            ? {
-                                mode: "edit",
-                                bookmarkId: selectionBookmark.id,
-                              }
-                            : undefined
-                        );
+                        openSaveModalForLocation(props.state, {
+                          translationId,
+                          bookId,
+                          chapterNumber,
+                          verse: verseTarget,
+                        });
+                        rs.clearSelectedVerses();
                       }}
-                      aria-label={bookmarkLabel}
-                      aria-pressed={isSelectionBookmarked}
-                      title={bookmarkLabel}
+                      aria-label={saveLabel}
+                      title={saveLabel}
                     >
                       <span className="sb-verse-toolbar-action-icon">
-                        <span
-                          className="material-symbols-outlined"
-                          style={{
-                            fontVariationSettings: isSelectionBookmarked
-                              ? '"FILL" 1'
-                              : '"FILL" 0',
-                          }}
-                        >
-                          bookmark
-                        </span>
+                        <SaveStarIcon isSaved={isSelectionSaved} size={20} />
                       </span>
                       <span className="sb-verse-toolbar-action-label">
-                        {bookmarkLabel}
+                        {saveLabel}
                       </span>
                     </button>
                   </div>
                 );
 
-                // Desktop keeps the single horizontal row (highlight, bookmark,
+                // Desktop keeps the single horizontal row (highlight, save,
                 // the registered tools, then cancel).
                 if (!isSmallScreen.value) {
                   return (
                     <>
                       {highlightCard}
-                      {bookmarkCard}
-                      {nonCancel.map(renderTool)}
-                      {cancelTools.map(renderTool)}
+                      {saveCard}
+                      {nonCancel.map((tool) => renderTool(tool))}
+                      {cancelTools.map((tool) => renderTool(tool))}
                     </>
                   );
                 }
@@ -2949,29 +3666,32 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                 // showing; the rest live in an overflow row that the grab handle
                 // drags open. The X in the corner handles dismissal, so the
                 // Cancel tool is dropped here.
-                const actionCards = [
-                  highlightCard,
-                  bookmarkCard,
-                  ...nonCancel.map(renderTool),
-                ].filter(Boolean);
+                const builtInCards = [highlightCard, saveCard].filter(Boolean);
+                const visibleTools = orderVerseSheetTools(nonCancel).filter(
+                  (tool) => tool.visible.value
+                );
 
                 // One full row of cards, matching the four-per-row grid below.
                 // Keeping the collapsed sheet to a single row is what makes it
-                // short by default.
-                const COLLAPSED_COUNT = 4;
-                // Annotations on the selection also make the sheet openable,
-                // even when there aren't enough tool cards to overflow on
-                // their own — otherwise there'd be nothing to drag/tap open
-                // to see them.
-                const hasOverflow =
-                  actionCards.length > COLLAPSED_COUNT ||
-                  selectionAnnotations.value.length > 0;
-                const primaryCards = hasOverflow
-                  ? actionCards.slice(0, COLLAPSED_COUNT)
-                  : actionCards;
-                const overflowCards = hasOverflow
-                  ? actionCards.slice(COLLAPSED_COUNT)
-                  : [];
+                // short by default. The rest stay pinned above a long note
+                // while it scrolls. Menus for cards inside the clipped overflow
+                // row are portaled; the always-visible row keeps its inline menu.
+                const hasOverflow = verseSheetHasHiddenContent.value;
+                const primaryToolCount = hasOverflow
+                  ? Math.max(
+                      0,
+                      VERSE_SHEET_COLLAPSED_COUNT - builtInCards.length
+                    )
+                  : visibleTools.length;
+                const primaryCards = [
+                  ...builtInCards,
+                  ...visibleTools
+                    .slice(0, primaryToolCount)
+                    .map((tool) => renderTool(tool, false)),
+                ];
+                const pinnedCards = visibleTools
+                  .slice(primaryToolCount)
+                  .map((tool) => renderTool(tool, true));
 
                 return (
                   <>
@@ -2991,16 +3711,41 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                           verseSheetRevealHeight.value === 0
                             ? " sb-verse-toolbar-overflow-closed"
                             : ""
+                        }${
+                          isVerseSheetOverflowUnclipped.value
+                            ? " sb-verse-toolbar-overflow-unclipped"
+                            : ""
+                        }${
+                          isVerseSheetOverflowScrollable.value
+                            ? " sb-verse-toolbar-overflow-scrollable"
+                            : ""
                         }`}
                         style={{
                           height: `${verseSheetRevealHeight.value}px`,
+                          // How far a scrolled-to note must clear the pinned
+                          // actions. Zero when that row scrolls with the note.
+                          "--sb-verse-sheet-pinned-offset": `${
+                            verseSheetPinFits.value
+                              ? verseSheetPinnedHeight.value
+                              : 0
+                          }px`,
                         }}
                       >
                         <div
                           className="sb-verse-toolbar-overflow-row"
                           ref={measureVerseSheetOverflow}
                         >
-                          {overflowCards}
+                          {pinnedCards.length > 0 && (
+                            <div
+                              className={`sb-verse-toolbar-overflow-pinned${
+                                verseSheetPinFits.value
+                                  ? ""
+                                  : " sb-verse-toolbar-overflow-pinned-inline"
+                              }`}
+                            >
+                              {pinnedCards}
+                            </div>
+                          )}
                           {selectionAnnotations.value.length > 0 && (
                             <div className="sb-verse-toolbar-annotations">
                               {groupAnnotationsByVerseRange(
@@ -3014,6 +3759,9 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                                     key={groupKey}
                                     id={`sb-verse-toolbar-annotation-group-${groupKey}`}
                                     group={group}
+                                    ownAnnotations={
+                                      ownSelectionAnnotations.value
+                                    }
                                     tabs={tabs}
                                     login={props.state.login}
                                     annotations={props.state.annotations}
@@ -3048,7 +3796,7 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
               itself carries the accessible toggle. */}
           {isSmallScreen.value &&
             !isHighlightPickerOpen.value &&
-            hasVerseSheetOverflow.value &&
+            verseSheetHasHiddenContent.value &&
             !isVerseSheetExpanded.value && (
               <div
                 className="sb-verse-toolbar-swipe-hint"
@@ -3057,14 +3805,14 @@ export function BibleReaderToolbar(props: BibleReaderToolbarProps) {
                 // *accessible* control, so this stays out of the a11y tree.
                 aria-hidden="true"
                 style={{
-                  // Fades in step with the drag, so the hint gets out of the way
-                  // as the sheet opens rather than blinking off at the end.
-                  opacity: verseSheetOverflowHeight.value
+                  // Fades across the on-screen travel, not the full note, so a
+                  // long annotation still clears the hint once the drawer is open.
+                  opacity: verseSheetVisibleOverflowHeight.value
                     ? 1 -
                       Math.min(
                         1,
                         verseSheetRevealHeight.value /
-                          verseSheetOverflowHeight.value
+                          verseSheetVisibleOverflowHeight.value
                       )
                     : 1,
                 }}

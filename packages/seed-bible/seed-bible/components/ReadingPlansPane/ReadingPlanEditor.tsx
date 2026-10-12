@@ -1,5 +1,5 @@
 import "./ReadingPlanEditor.css";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { MaterialIcon } from "../icons";
 import { useI18n } from "../../i18n/I18nManager";
 import {
@@ -14,26 +14,34 @@ import {
 import type { TranslationBook } from "../../managers/FreeUseBibleAPI";
 import type { PlaylistItemData } from "../../managers/PlaylistManager";
 import type { ModalManager } from "../../managers/ModalManager";
-import { PlaylistItemInput } from "../PlaylistItemInput/PlaylistItemInput";
+import type { CasualOSManager } from "../../managers/OsManager";
+import type { LoginManager } from "../../managers/LoginManager";
 import {
-  canPreviewPlaylistItem,
-  openPlaylistItemPreview,
-} from "../playlistItemPreview";
+  uploadPhotoToGallery,
+  type UserGalleryManager,
+} from "../../managers/UserGalleryManager";
+import { PlaylistItemInput } from "../PlaylistItemInput/PlaylistItemInput";
+import { HeroImageField } from "../HeroImageField/HeroImageField";
+import {
+  PlaylistItemInlinePreview,
+  type ScriptureChapterLoader,
+} from "../PlaylistItemInlinePreview/PlaylistItemInlinePreview";
 import { cadenceOptionLabel } from "./cadenceLabels";
 import { readingLabel } from "./readingLabel";
-import {
-  PLAN_READING_PREVIEW_MODAL_ID,
-  readingItemIcon,
-  readingPreviewText,
-} from "./readingPreview";
+import { readingItemIcon, readingPreviewText } from "./readingPreview";
 
 interface ReadingPlanEditorProps {
   readingPlans: ReadingPlansManager;
   /** Books of the active translation, for the scripture typeahead + labels. */
   books: TranslationBook[];
-  /** Modals host for previewing a text/link reading. Optional — without it the
-   * preview action is simply not offered. */
+  /** Modals host for the cover image picker. */
   modals?: ModalManager;
+  /** Loads chapters for previewing scripture readings inline. Without it a
+   * scripture preview says it couldn't load the passage. */
+  loadChapter?: ScriptureChapterLoader;
+  os?: Pick<CasualOSManager, "recordFile" | "recordData">;
+  login?: Pick<LoginManager, "userId">;
+  gallery?: Pick<UserGalleryManager, "photos" | "savePhoto" | "rememberPhoto">;
   /** Called when the user backs out of (or discards) the plan. */
   onCancel: () => void;
   /** Called after the plan is successfully saved. */
@@ -59,14 +67,25 @@ interface ReadingPlanEditorProps {
  * The plan being edited lives on the manager (`editingReadingPlan`), not in this
  * component — so closing the plans pane to go read doesn't lose it, and the
  * reader's "Add to plan" verse action can add straight into the session shown
- * here. Every change is saved to the user's account as it's made, so leaving
- * mid-edit (or losing the tab) costs nothing.
+ * here. A plan still being created autosaves as a draft, so leaving mid-create
+ * (or losing the tab) costs nothing. Edits to an already-published plan stay
+ * in memory until Save changes, matching how playlist covers work.
  *
  * The component is fluid-width, so it fills the desktop side pane and the
  * mobile fullscreen pane without any breakpoint of its own.
  */
 export function ReadingPlanEditor(props: ReadingPlanEditorProps) {
-  const { readingPlans, books, modals, onCancel, onSaved } = props;
+  const {
+    readingPlans,
+    books,
+    modals,
+    loadChapter,
+    os,
+    login,
+    gallery,
+    onCancel,
+    onSaved,
+  } = props;
   const { t } = useI18n();
 
   const [saving, setSaving] = useState(false);
@@ -79,6 +98,17 @@ export function ReadingPlanEditor(props: ReadingPlanEditorProps) {
   const draft = readingPlans.editingReadingPlan.value;
   const autosaving = readingPlans.editingReadingPlanSaving.value;
   const autosaveFailed = readingPlans.editingReadingPlanSaveError.value;
+
+  useEffect(() => {
+    const url = draft?.plan.heroImageUrl;
+    if (!url || !gallery) {
+      return;
+    }
+    if (gallery.photos.peek().some((photo) => photo.url === url)) {
+      return;
+    }
+    void gallery.rememberPhoto?.(url);
+  }, [draft?.plan.heroImageUrl, gallery]);
 
   if (!draft) {
     return null;
@@ -129,17 +159,19 @@ export function ReadingPlanEditor(props: ReadingPlanEditorProps) {
 
   return (
     <div className="sb-rp-editor">
-      <div className="sb-rp-editor-status" aria-live="polite">
-        {autosaveFailed
-          ? t("reading-plan-draft-save-failed", {
-              defaultValue: "Couldn't save draft",
-            })
-          : autosaving
-            ? t("reading-plan-draft-saving", { defaultValue: "Saving…" })
-            : draft.persisted
-              ? t("reading-plan-draft-saved", { defaultValue: "Draft saved" })
-              : ""}
-      </div>
+      {draft.isNew ? (
+        <div className="sb-rp-editor-status" aria-live="polite">
+          {autosaveFailed
+            ? t("reading-plan-draft-save-failed", {
+                defaultValue: "Couldn't save draft",
+              })
+            : autosaving
+              ? t("reading-plan-draft-saving", { defaultValue: "Saving…" })
+              : draft.persisted
+                ? t("reading-plan-draft-saved", { defaultValue: "Draft saved" })
+                : ""}
+        </div>
+      ) : null}
 
       <div className="sb-rp-editor-body">
         <section className="sb-rp-editor-section">
@@ -184,6 +216,42 @@ export function ReadingPlanEditor(props: ReadingPlanEditorProps) {
               })}
             />
           </label>
+          {modals ? (
+            <div className="sb-rp-field">
+              <span className="sb-rp-field-label">
+                {t("hero-image", { defaultValue: "Cover image" })}
+              </span>
+              <HeroImageField
+                imageUrl={draft.plan.heroImageUrl}
+                modals={modals}
+                gallery={gallery}
+                photos={gallery?.photos}
+                onUpload={async (file) => {
+                  const url = await uploadPhotoToGallery(file, {
+                    gallery,
+                    os,
+                    userId: login?.userId.value,
+                    fallbackUpload: readingPlans.uploadHeroImage,
+                  });
+                  readingPlans.updateEditingReadingPlan({
+                    heroImageUrl: url,
+                  });
+                  return url;
+                }}
+                onSelectPhoto={(url) => {
+                  readingPlans.updateEditingReadingPlan({
+                    heroImageUrl: url,
+                  });
+                  void gallery?.rememberPhoto(url);
+                }}
+                onRemove={() =>
+                  readingPlans.updateEditingReadingPlan({
+                    heroImageUrl: null,
+                  })
+                }
+              />
+            </div>
+          ) : null}
         </section>
 
         <section className="sb-rp-editor-section">
@@ -194,7 +262,7 @@ export function ReadingPlanEditor(props: ReadingPlanEditorProps) {
           </h3>
           <SessionsSection
             books={books}
-            modals={modals}
+            loadChapter={loadChapter}
             draft={draft}
             onSelectSession={(index) =>
               readingPlans.selectEditingPlanSession(index)
@@ -247,8 +315,9 @@ export function ReadingPlanEditor(props: ReadingPlanEditorProps) {
         {blockingNote && <p className="sb-rp-footer-note">{blockingNote}</p>}
         <div className="sb-rp-editor-actions">
           {/* Discarding only ever throws away a plan that is still being
-              created. Backing out of an edit to a published plan leaves it
-              alone, so that case gets a plain "Done" instead. */}
+              created. Backing out of an edit to a published plan drops
+              unsaved changes (cover image included) and leaves the published
+              plan as it was. */}
           {draft.isNew ? (
             <button
               type="button"
@@ -367,7 +436,7 @@ function CadencesSection(props: CadencesSectionProps) {
 
 interface SessionsSectionProps {
   books: TranslationBook[];
-  modals?: ModalManager;
+  loadChapter?: ScriptureChapterLoader;
   draft: ReadingPlanDraft;
   onSelectSession: (index: number) => void;
   onAddSession: () => void;
@@ -385,7 +454,7 @@ interface SessionsSectionProps {
 function SessionsSection(props: SessionsSectionProps) {
   const {
     books,
-    modals,
+    loadChapter,
     draft,
     onSelectSession,
     onAddSession,
@@ -394,6 +463,10 @@ function SessionsSection(props: SessionsSectionProps) {
     onRemoveReading,
   } = props;
   const { t } = useI18n();
+  // Only one reading is expanded at a time, across all sessions.
+  const [expandedReadingId, setExpandedReadingId] = useState<string | null>(
+    null
+  );
 
   // Resolve a book's display name from the active translation's book list.
   const resolveBookName = (bookId: string): string => {
@@ -466,57 +539,49 @@ function SessionsSection(props: SessionsSectionProps) {
                       untitledReading
                     );
                     const preview = readingPreviewText(reading.item, t);
-                    // A text or link reading is the button — tapping it opens
-                    // the same preview the reader will see. Scripture has
-                    // nothing to preview, so it stays plain text.
-                    const canPreview =
-                      modals && canPreviewPlaylistItem(reading.item);
-
-                    // Leading type icon, then the label with its one-line summary.
-                    const body = (
-                      <>
-                        <span className="sb-rp-reading-icon" aria-hidden="true">
-                          <MaterialIcon>
-                            {readingItemIcon(reading.item)}
-                          </MaterialIcon>
-                        </span>
-                        <span className="sb-rp-reading-text">
-                          <span className="sb-rp-reading-label" dir="auto">
-                            {label}
-                          </span>
-                          {preview ? (
-                            <span className="sb-rp-reading-preview" dir="auto">
-                              {preview}
-                            </span>
-                          ) : null}
-                        </span>
-                      </>
-                    );
+                    const expanded = expandedReadingId === reading.id;
+                    const previewId = `sb-rp-reading-preview-${reading.id}`;
 
                     return (
                       <li key={reading.id} className="sb-rp-reading-item">
-                        {canPreview ? (
-                          <button
-                            type="button"
-                            className="sb-rp-reading-open"
-                            onClick={() =>
-                              openPlaylistItemPreview(
-                                modals,
-                                reading.item,
-                                PLAN_READING_PREVIEW_MODAL_ID,
-                                t
-                              )
-                            }
-                            aria-label={t("reading-plan-preview-reading", {
-                              defaultValue: "Preview {{reading}}",
-                              reading: label,
-                            })}
+                        <button
+                          type="button"
+                          className="sb-rp-reading-open"
+                          aria-expanded={expanded}
+                          aria-controls={expanded ? previewId : undefined}
+                          onClick={() =>
+                            setExpandedReadingId(expanded ? null : reading.id)
+                          }
+                          aria-label={t("reading-plan-preview-reading", {
+                            defaultValue: "Preview {{reading}}",
+                            reading: label,
+                          })}
+                        >
+                          <span
+                            className="sb-rp-reading-icon"
+                            aria-hidden="true"
                           >
-                            {body}
-                          </button>
-                        ) : (
-                          <span className="sb-rp-reading-body">{body}</span>
-                        )}
+                            <MaterialIcon>
+                              {readingItemIcon(reading.item)}
+                            </MaterialIcon>
+                          </span>
+                          <span className="sb-rp-reading-text">
+                            <span className="sb-rp-reading-label" dir="auto">
+                              {label}
+                            </span>
+                            {preview ? (
+                              <span
+                                className="sb-rp-reading-preview"
+                                dir="auto"
+                              >
+                                {preview}
+                              </span>
+                            ) : null}
+                          </span>
+                          <MaterialIcon className="sb-rp-reading-chevron">
+                            {expanded ? "expand_less" : "expand_more"}
+                          </MaterialIcon>
+                        </button>
                         <button
                           type="button"
                           className="sb-rp-icon-button sb-rp-reading-remove"
@@ -527,6 +592,13 @@ function SessionsSection(props: SessionsSectionProps) {
                         >
                           <MaterialIcon>close</MaterialIcon>
                         </button>
+                        {expanded ? (
+                          <PlaylistItemInlinePreview
+                            id={previewId}
+                            item={reading.item}
+                            loadChapter={loadChapter}
+                          />
+                        ) : null}
                       </li>
                     );
                   })}

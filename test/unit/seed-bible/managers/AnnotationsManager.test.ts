@@ -1,25 +1,35 @@
 import {
+  annotationCollection,
   annotationVerseNumbers,
   annotationListHasOtherAuthors,
   createAnnotationsManager,
   formatAnnotationVerseNumbers,
   groupAnnotationsByVerseRange,
   type Annotation,
+  type AnnotationsManager,
 } from "@packages/seed-bible/seed-bible/managers/AnnotationsManager";
 import {
-  createInMemoryAnnotationStore,
+  createInMemoryRecordStore,
   LOCAL_OWNER,
   syncedRow,
-  type OfflineAnnotationStore,
-} from "@packages/seed-bible/seed-bible/managers/OfflineAnnotationStore";
+  type OfflineRecordStore,
+} from "@packages/seed-bible/seed-bible/managers/OfflineRecordStore";
 import { createDiscoverManager } from "@packages/seed-bible/seed-bible/managers/DiscoverManager";
-import type { LoginManager } from "@packages/seed-bible/seed-bible/managers/LoginManager";
+import {
+  createLoginManager,
+  type LoginManager,
+} from "@packages/seed-bible/seed-bible/managers/LoginManager";
 import { CasualOSManager } from "@packages/seed-bible/seed-bible/managers/OsManager";
 import type {
   ReaderTab,
   TabsManager,
 } from "@packages/seed-bible/seed-bible/managers/TabsManager";
-import { signal } from "@preact/signals";
+import { computed, effect, signal } from "@preact/signals";
+import { stubPageVisibility } from "../testUtils/pageVisibility";
+import {
+  createFriendReadLimiter,
+  FRIEND_READ_TIMEOUT_MS,
+} from "@packages/seed-bible/seed-bible/managers/friendContentFreshness";
 import type { Mock, Mocked } from "vitest";
 
 function createCommentAnnotation(
@@ -50,12 +60,17 @@ function createMockTab(
     }>;
   } = {}
 ): ReaderTab {
+  const selectedVerses = signal(overrides.selectedVerses ?? []);
+
   return {
     id: overrides.id ?? "tab-1",
     readingState: {
       bookId: signal(overrides.bookId === undefined ? "GEN" : overrides.bookId),
       chapterNumber: signal(overrides.chapterNumber ?? 1),
-      selectedVerses: signal(overrides.selectedVerses ?? []),
+      selectedVerses,
+      clearSelectedVerses: () => {
+        selectedVerses.value = [];
+      },
     },
   } as unknown as ReaderTab;
 }
@@ -114,6 +129,7 @@ describe("AnnotationsManager", () => {
       logout: vi.fn().mockResolvedValue(undefined),
       updateProfile: vi.fn().mockResolvedValue(undefined),
       getUserProfile: vi.fn().mockResolvedValue({ name: "" }),
+      getPublicProfile: vi.fn().mockResolvedValue(null),
       uploadProfilePicture: vi.fn().mockResolvedValue(undefined),
       userInfo: signal({ id: "user-1", email: "test@example.com" }),
       cancelLogin: vi.fn().mockResolvedValue(undefined),
@@ -313,6 +329,66 @@ describe("AnnotationsManager", () => {
 
     expect(annotations).toHaveLength(1);
     expect(annotations[0]?.id).toBe("valid");
+  });
+
+  describe("listAllAnnotations()", () => {
+    it("collects annotations from across the whole record", async () => {
+      const listAllData = vi.spyOn(os, "listAllData").mockResolvedValue({
+        success: true,
+        items: [
+          {
+            address: "ann-1",
+            data: createCommentAnnotation({ id: "ann-1", bookId: "GEN" }),
+          },
+          {
+            address: "ann-2",
+            data: createCommentAnnotation({
+              id: "ann-2",
+              bookId: "JHN",
+              chapterNumber: 3,
+            }),
+          },
+        ],
+      });
+      const manager = createManager();
+
+      const annotations = await manager.listAllAnnotations();
+
+      // One sweep of the record, not one request per chapter.
+      expect(listAllData).toHaveBeenCalledTimes(1);
+      expect(listAllData).toHaveBeenCalledWith("user-1");
+      expect(annotations.map((a) => a.id)).toEqual(["ann-1", "ann-2"]);
+    });
+
+    // The same record holds highlights, bookmarks and playlists. Only the
+    // items that parse as an annotation may come back.
+    it("steps over records that are not annotations", async () => {
+      vi.spyOn(os, "listAllData").mockResolvedValue({
+        success: true,
+        items: [
+          {
+            address: "highlights:BSB/GEN/1",
+            data: { highlights: [{ colorId: "color-1", verse: 1 }] },
+          },
+          { address: "bookmarks", data: { bookmarks: [] } },
+          { address: "ann-1", data: createCommentAnnotation({ id: "ann-1" }) },
+        ],
+      });
+      const manager = createManager();
+
+      const annotations = await manager.listAllAnnotations();
+
+      expect(annotations.map((a) => a.id)).toEqual(["ann-1"]);
+    });
+
+    it("returns nothing when signed out", async () => {
+      login.userId.value = null;
+      const listAllData = vi.spyOn(os, "listAllData");
+      const manager = createManager();
+
+      expect(await manager.listAllAnnotations()).toEqual([]);
+      expect(listAllData).not.toHaveBeenCalled();
+    });
   });
 
   it("operations throw when login cannot resolve a user record", async () => {
@@ -586,6 +662,584 @@ describe("AnnotationsManager", () => {
     });
   });
 
+  describe("keeping a friend's notes fresh", () => {
+    const START = new Date("2026-10-01T10:00:00Z").getTime();
+    let friendNotes: ReturnType<typeof createCommentAnnotation>[];
+    let stopWatching: (() => void) | null;
+    let page: ReturnType<typeof stubPageVisibility>;
+
+    const friendReads = () =>
+      listDataByMarkerMock.mock.calls.filter(
+        ([recordName, , lastAddress]) =>
+          recordName === "friend-user" && lastAddress === undefined
+      ).length;
+    /** Shows the friend's GEN 1 notes, as a render would. */
+    const watch = (manager: ReturnType<typeof createManager>) => {
+      const view = manager.getUserAnnotationsForChapter(
+        "friend-user",
+        "GEN",
+        1
+      );
+      stopWatching = effect(() => void view.value);
+      return view;
+    };
+    const ids = (view: { value: { id: string }[] }) =>
+      view.value.map((a) => a.id);
+    const flush = () => new Promise((resolve) => setTimeout(resolve, 0));
+
+    beforeEach(() => {
+      vi.useFakeTimers({ toFake: ["Date"] });
+      vi.setSystemTime(START);
+      page = stubPageVisibility();
+      friendNotes = [createCommentAnnotation({ id: "friend-note" })];
+      stopWatching = null;
+      listDataByMarkerMock.mockImplementation(
+        async (recordName: string, _marker: string, lastAddress?: string) =>
+          recordName === "friend-user" && !lastAddress
+            ? {
+                success: true,
+                items: friendNotes.map((data) => ({ address: data.id, data })),
+              }
+            : { success: true, items: [] }
+      );
+    });
+
+    afterEach(() => {
+      stopWatching?.();
+      page.restore();
+      vi.useRealTimers();
+    });
+
+    it("reads them again when you come back to the app more than 30 seconds later", async () => {
+      const view = watch(createManager());
+      await vi.waitFor(() => expect(ids(view)).toEqual(["friend-note"]));
+
+      friendNotes.push(createCommentAnnotation({ id: "new-friend-note" }));
+      vi.setSystemTime(START + 31_000);
+      page.leaveAndReturn();
+
+      await vi.waitFor(() =>
+        expect(ids(view)).toEqual(["friend-note", "new-friend-note"])
+      );
+      expect(friendReads()).toBe(2);
+    });
+
+    it("also reads them again when the window regains focus", async () => {
+      const view = watch(createManager());
+      await vi.waitFor(() => expect(ids(view)).toEqual(["friend-note"]));
+
+      friendNotes.push(createCommentAnnotation({ id: "new-friend-note" }));
+      vi.setSystemTime(START + 31_000);
+      window.dispatchEvent(new Event("focus"));
+
+      await vi.waitFor(() =>
+        expect(ids(view)).toEqual(["friend-note", "new-friend-note"])
+      );
+    });
+
+    it("doesn't read them when the page is hidden", async () => {
+      const view = watch(createManager());
+      await vi.waitFor(() => expect(ids(view)).toEqual(["friend-note"]));
+
+      vi.setSystemTime(START + 31_000);
+      page.set("hidden");
+      await flush();
+
+      expect(friendReads()).toBe(1);
+    });
+
+    it("doesn't read them again within 30 seconds of the last read", async () => {
+      const view = watch(createManager());
+      await vi.waitFor(() => expect(ids(view)).toEqual(["friend-note"]));
+
+      vi.setSystemTime(START + 10_000);
+      page.leaveAndReturn();
+      await flush();
+
+      expect(friendReads()).toBe(1);
+    });
+
+    it("doesn't read them when you come back while they're off screen", async () => {
+      const view = watch(createManager());
+      await vi.waitFor(() => expect(ids(view)).toEqual(["friend-note"]));
+      stopWatching!();
+      stopWatching = null;
+
+      vi.setSystemTime(START + 31_000);
+      page.leaveAndReturn();
+      await flush();
+
+      expect(friendReads()).toBe(1);
+    });
+
+    it("reads them again when they come back on screen more than 30 seconds later", async () => {
+      const manager = createManager();
+      const view = watch(manager);
+      await vi.waitFor(() => expect(ids(view)).toEqual(["friend-note"]));
+      stopWatching!();
+
+      friendNotes.push(createCommentAnnotation({ id: "new-friend-note" }));
+      vi.setSystemTime(START + 31_000);
+      watch(manager);
+
+      await vi.waitFor(() =>
+        expect(ids(view)).toEqual(["friend-note", "new-friend-note"])
+      );
+    });
+
+    it("keeps showing the notes it has when a re-read fails", async () => {
+      const view = watch(createManager());
+      await vi.waitFor(() => expect(ids(view)).toEqual(["friend-note"]));
+
+      listDataByMarkerMock.mockResolvedValue({
+        success: false,
+        errorCode: "server_error",
+        errorMessage: "Down.",
+      });
+      vi.setSystemTime(START + 31_000);
+      page.leaveAndReturn();
+      await vi.waitFor(() => expect(friendReads()).toBe(2));
+      await flush();
+
+      expect(ids(view)).toEqual(["friend-note"]);
+    });
+  });
+
+  describe("reading a friend's chapter", () => {
+    /** Lists `items` as one page, then an empty one past its last address. */
+    const listOnePage = (items: { address: string; data: unknown }[]) =>
+      listDataByMarkerMock.mockImplementation(
+        async (_record: string, _marker: string, lastAddress?: string) => ({
+          success: true,
+          items: lastAddress ? [] : items,
+          totalCount: items.length,
+        })
+      );
+
+    const listingsFor = (record: string) =>
+      listDataByMarkerMock.mock.calls.filter(([r]) => r === record);
+    const friendListings = () => listingsFor("friend-user");
+
+    it("skips a chapter that leaves the screen while waiting its turn, and reads it once it's back", async () => {
+      let finishFriendA!: () => void;
+      const friendAReading = new Promise<void>((resolve) => {
+        finishFriendA = resolve;
+      });
+      listDataByMarkerMock.mockImplementation(
+        async (record: string, _marker: string, lastAddress?: string) => {
+          if (record === "friend-a" && !lastAddress) {
+            await friendAReading;
+          }
+          const id = `${record}-note`;
+          return {
+            success: true,
+            items: lastAddress
+              ? []
+              : [{ address: id, data: createCommentAnnotation({ id }) }],
+            totalCount: 1,
+          };
+        }
+      );
+      const consoleError = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        { friendReads: createFriendReadLimiter(1) }
+      );
+      const ids = (view: { value: Annotation[] }) =>
+        view.value.map((a) => a.id);
+      const friendA = manager.getUserAnnotationsForChapter(
+        "friend-a",
+        "GEN",
+        1
+      );
+      const friendB = manager.getUserAnnotationsForChapter(
+        "friend-b",
+        "GEN",
+        1
+      );
+      const stopShowingA = effect(() => void friendA.value);
+      let stopShowingB = effect(() => void friendB.value);
+
+      try {
+        await vi.waitFor(() => expect(listingsFor("friend-a")).toHaveLength(1));
+        // Friend B's chapter is swiped past while it waits for friend A's.
+        stopShowingB();
+        finishFriendA();
+
+        await vi.waitFor(() => expect(ids(friendA)).toEqual(["friend-a-note"]));
+        expect(listingsFor("friend-b")).toHaveLength(0);
+        expect(consoleError).not.toHaveBeenCalled();
+
+        stopShowingB = effect(() => void friendB.value);
+        await vi.waitFor(() => expect(ids(friendB)).toEqual(["friend-b-note"]));
+      } finally {
+        stopShowingA();
+        stopShowingB();
+        consoleError.mockRestore();
+      }
+    });
+
+    it("reads a friend's notes again as their own when you sign in as them", async () => {
+      let friendsNoteId = "before";
+      listDataByMarkerMock.mockImplementation(
+        async (record: string, _marker: string, lastAddress?: string) => ({
+          success: true,
+          items:
+            record === "friend-user" && !lastAddress
+              ? [
+                  {
+                    address: friendsNoteId,
+                    data: createCommentAnnotation({ id: friendsNoteId }),
+                  },
+                ]
+              : [],
+          totalCount: record === "friend-user" ? 1 : 0,
+        })
+      );
+      const manager = createManager();
+      const asFriend = manager.getUserAnnotationsForChapter(
+        "friend-user",
+        "GEN",
+        1
+      );
+      await vi.waitFor(() =>
+        expect(asFriend.value.map((a) => a.id)).toEqual(["before"])
+      );
+      friendsNoteId = "after";
+
+      // The same device, now signed in as that friend.
+      login.userId.value = "friend-user";
+      const asThemselves = manager.getAnnotationsForChapter("GEN", 1);
+
+      await vi.waitFor(() =>
+        expect(asThemselves.value.map((a) => a.id)).toEqual(["after"])
+      );
+    });
+
+    // A failed read leaves the entry marked failed, which nothing retries
+    // for the signed-in user's own notes once the entry is theirs.
+    it("reads a friend's notes as their own when you sign in as them, even after reading them as a friend failed", async () => {
+      const consoleError = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+      listDataByMarkerMock.mockImplementation(
+        async (record: string, _marker: string, lastAddress?: string) => ({
+          success: true,
+          items:
+            record === "friend-user" && !lastAddress
+              ? [
+                  {
+                    address: "their-note",
+                    data: createCommentAnnotation({ id: "their-note" }),
+                  },
+                ]
+              : [],
+          totalCount: record === "friend-user" ? 1 : 0,
+        })
+      );
+      listDataByMarkerMock.mockRejectedValueOnce(new Error("offline"));
+      const manager = createManager();
+      manager.getUserAnnotationsForChapter("friend-user", "GEN", 1);
+      await vi.waitFor(() => expect(consoleError).toHaveBeenCalled());
+
+      // The same device, now signed in as that friend.
+      login.userId.value = "friend-user";
+      const asThemselves = manager.getAnnotationsForChapter("GEN", 1);
+
+      await vi.waitFor(() =>
+        expect(asThemselves.value.map((a) => a.id)).toEqual(["their-note"])
+      );
+      consoleError.mockRestore();
+    });
+
+    it("reads every page of a friend's notes when the whole read takes longer than the timeout", async () => {
+      // Each page takes three quarters of the timeout, so the whole read
+      // takes longer than it while every page still makes progress.
+      const slowPage = () =>
+        new Promise((resolve) =>
+          setTimeout(resolve, (FRIEND_READ_TIMEOUT_MS * 3) / 4)
+        );
+      listDataByMarkerMock.mockImplementation(
+        async (record: string, _marker: string, lastAddress?: string) => {
+          await slowPage();
+          const id = lastAddress ? "second" : "first";
+          return {
+            success: true,
+            items:
+              record === "friend-user"
+                ? [{ address: id, data: createCommentAnnotation({ id }) }]
+                : [],
+            totalCount: record === "friend-user" ? 2 : 0,
+          };
+        }
+      );
+      const manager = createManager();
+      vi.useFakeTimers();
+      try {
+        const view = manager.getUserAnnotationsForChapter(
+          "friend-user",
+          "GEN",
+          1
+        );
+
+        await vi.advanceTimersByTimeAsync(FRIEND_READ_TIMEOUT_MS * 2);
+
+        expect(view.value.map((a) => a.id).sort()).toEqual(["first", "second"]);
+      } finally {
+        vi.useRealTimers();
+      }
+    });
+
+    it("asks once when the first page holds the whole listing", async () => {
+      listOnePage([
+        { address: "a1", data: createCommentAnnotation({ id: "a1" }) },
+      ]);
+      const manager = createManager();
+
+      const view = manager.getUserAnnotationsForChapter(
+        "friend-user",
+        "GEN",
+        1
+      );
+
+      await vi.waitFor(() =>
+        expect(view.value.map((a) => a.id)).toEqual(["a1"])
+      );
+      expect(friendListings()).toHaveLength(1);
+    });
+
+    it("counts a record it can't read toward the total, so it still stops", async () => {
+      listOnePage([
+        { address: "a1", data: createCommentAnnotation({ id: "a1" }) },
+        { address: "a2", data: { not: "a note" } },
+      ]);
+      const manager = createManager();
+
+      const view = manager.getUserAnnotationsForChapter(
+        "friend-user",
+        "GEN",
+        1
+      );
+
+      await vi.waitFor(() =>
+        expect(view.value.map((a) => a.id)).toEqual(["a1"])
+      );
+      expect(friendListings()).toHaveLength(1);
+    });
+  });
+
+  describe("visibleAnnotationsForChapter", () => {
+    beforeEach(() => {
+      listDataByMarkerMock.mockImplementation(
+        async (recordName: string, _marker: string, lastAddress?: string) => {
+          if (lastAddress) {
+            return { success: true, items: [] };
+          }
+          const id = { "user-1": "my-note", "friend-user": "friend-note" }[
+            recordName
+          ];
+          return {
+            success: true,
+            items: id
+              ? [{ address: id, data: createCommentAnnotation({ id }) }]
+              : [],
+          };
+        }
+      );
+    });
+
+    const visibleIds = (manager: AnnotationsManager) =>
+      computed(() =>
+        manager.visibleAnnotationsForChapter("GEN", 1).map((a) => a.id)
+      );
+
+    it("includes each friend's notes alongside your own", async () => {
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        {
+          friendIds: signal(["friend-user"]),
+        }
+      );
+
+      const ids = visibleIds(manager);
+
+      await vi.waitFor(() =>
+        expect([...ids.value].sort()).toEqual(["friend-note", "my-note"])
+      );
+    });
+
+    it("follows the friends list as it changes", async () => {
+      const friendIds = signal<string[]>([]);
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        {
+          friendIds,
+        }
+      );
+      const ids = visibleIds(manager);
+      await vi.waitFor(() => expect(ids.value).toEqual(["my-note"]));
+
+      friendIds.value = ["friend-user"];
+      await vi.waitFor(() =>
+        expect([...ids.value].sort()).toEqual(["friend-note", "my-note"])
+      );
+
+      friendIds.value = [];
+      expect(ids.value).toEqual(["my-note"]);
+    });
+
+    it("is only your own notes when no friends list is given", async () => {
+      const ids = visibleIds(createManager());
+
+      await vi.waitFor(() => expect(ids.value).toEqual(["my-note"]));
+      expect(listDataByMarkerMock).not.toHaveBeenCalledWith(
+        "friend-user",
+        expect.anything(),
+        expect.anything()
+      );
+    });
+  });
+
+  describe("getUserAnnotationsForChapter", () => {
+    const mockPerUserAnnotations = () => {
+      listDataByMarkerMock.mockImplementation(
+        async (recordName: string, _marker: string, lastAddress?: string) => {
+          // Pagination terminates on the second call (`lastAddress` set) —
+          // real behavior when there's exactly one page of results.
+          if (lastAddress) {
+            return { success: true, items: [] };
+          }
+          if (recordName === "user-1") {
+            return {
+              success: true,
+              items: [
+                {
+                  address: "a1",
+                  data: createCommentAnnotation({ id: "user-1-note" }),
+                },
+              ],
+            };
+          }
+          if (recordName === "friend-user") {
+            return {
+              success: true,
+              items: [
+                {
+                  address: "a2",
+                  data: createCommentAnnotation({ id: "friend-note" }),
+                },
+              ],
+            };
+          }
+          return { success: true, items: [] };
+        }
+      );
+    };
+
+    it("reads annotations from the named account's record", async () => {
+      mockPerUserAnnotations();
+      const manager = createManager();
+
+      const view = manager.getUserAnnotationsForChapter(
+        "friend-user",
+        "GEN",
+        1
+      );
+
+      await vi.waitFor(() => {
+        expect(view.value.map((a) => a.id)).toEqual(["friend-note"]);
+      });
+
+      expect(listDataByMarkerMock).toHaveBeenCalledWith(
+        "friend-user",
+        "publicRead:annotations/GEN/1",
+        undefined
+      );
+    });
+
+    it("stays pinned to that account when the signed-in account changes", async () => {
+      mockPerUserAnnotations();
+      const manager = createManager();
+
+      const view = manager.getUserAnnotationsForChapter(
+        "friend-user",
+        "GEN",
+        1
+      );
+      await vi.waitFor(() => {
+        expect(view.value.map((a) => a.id)).toEqual(["friend-note"]);
+      });
+
+      login.userId.value = "user-2";
+
+      // Unlike `getAnnotationsForChapter`, this view does not follow the
+      // signed-in account — it still shows the friend's annotations.
+      expect(view.value.map((a) => a.id)).toEqual(["friend-note"]);
+    });
+
+    it("keeps a friend's cached annotations across a sign-in", async () => {
+      mockPerUserAnnotations();
+      const manager = createManager();
+
+      manager.getUserAnnotationsForChapter("friend-user", "GEN", 1);
+      await vi.waitFor(() => {
+        expect(listDataByMarkerMock).toHaveBeenCalledWith(
+          "friend-user",
+          "publicRead:annotations/GEN/1",
+          undefined
+        );
+      });
+      const callsAfterFirstLoad = listDataByMarkerMock.mock.calls.length;
+
+      // The account-switch sweep must not evict explicitly-requested entries,
+      // or every sign-in would force a re-read of every friend.
+      login.userId.value = "user-2";
+
+      manager.getUserAnnotationsForChapter("friend-user", "GEN", 1);
+      expect(listDataByMarkerMock.mock.calls.length).toBe(callsAfterFirstLoad);
+    });
+
+    it("returns the same signal for repeated calls", () => {
+      mockPerUserAnnotations();
+      const manager = createManager();
+
+      expect(
+        manager.getUserAnnotationsForChapter("friend-user", "GEN", 1)
+      ).toBe(manager.getUserAnnotationsForChapter("friend-user", "GEN", 1));
+    });
+
+    it("keeps different accounts' annotations separate for the same chapter", async () => {
+      mockPerUserAnnotations();
+      const manager = createManager();
+
+      const mine = manager.getUserAnnotationsForChapter("user-1", "GEN", 1);
+      const theirs = manager.getUserAnnotationsForChapter(
+        "friend-user",
+        "GEN",
+        1
+      );
+
+      await vi.waitFor(() => {
+        expect(mine.value.map((a) => a.id)).toEqual(["user-1-note"]);
+        expect(theirs.value.map((a) => a.id)).toEqual(["friend-note"]);
+      });
+    });
+  });
+
   describe("createNewAnnotation", () => {
     it("no-ops and warns when signed out and login is declined", async () => {
       login.userId.value = null;
@@ -781,6 +1435,53 @@ describe("AnnotationsManager", () => {
       expect(manager.editingAnnotation.value?.endVerseNumber).toBe(6);
     });
 
+    it("moves a new draft to the chapter its tab navigates to", async () => {
+      tab = createMockTab({
+        bookId: "JHN",
+        chapterNumber: 4,
+        selectedVerses: [
+          { bookId: "JHN", chapterNumber: 4, verse: { number: 7 } },
+        ],
+      });
+      tabs = createMockTabsManager(tab);
+      const manager = createManager();
+
+      await manager.createNewAnnotation();
+      expect(manager.editingAnnotation.value?.verseNumbers).toEqual([7]);
+
+      tab.readingState.chapterNumber.value = 5;
+      tab.readingState.selectedVerses.value = [];
+
+      expect(manager.editingAnnotation.value?.bookId).toBe("JHN");
+      expect(manager.editingAnnotation.value?.chapterNumber).toBe(5);
+      expect(manager.editingAnnotation.value?.verseNumbers).toBeNull();
+
+      tab.readingState.selectedVerses.value = [
+        { bookId: "JHN", chapterNumber: 5, verse: { number: 2 } },
+      ] as never;
+
+      expect(manager.editingAnnotation.value?.verseNumbers).toEqual([2]);
+
+      tab.readingState.bookId.value = "ACT";
+      tab.readingState.chapterNumber.value = 1;
+
+      expect(manager.editingAnnotation.value?.bookId).toBe("ACT");
+      expect(manager.editingAnnotation.value?.chapterNumber).toBe(1);
+      expect(manager.editingAnnotation.value?.verseNumbers).toBeNull();
+    });
+
+    it("keeps a new draft on its last chapter while its tab has no chapter loaded", async () => {
+      tab = createMockTab({ bookId: "JHN", chapterNumber: 4 });
+      tabs = createMockTabsManager(tab);
+      const manager = createManager();
+
+      await manager.createNewAnnotation();
+      tab.readingState.bookId.value = null;
+
+      expect(manager.editingAnnotation.value?.bookId).toBe("JHN");
+      expect(manager.editingAnnotation.value?.chapterNumber).toBe(4);
+    });
+
     it("stops syncing once the new draft is saved", async () => {
       tab = createMockTab({
         bookId: "GEN",
@@ -863,6 +1564,24 @@ describe("AnnotationsManager", () => {
       expect(manager.editingAnnotation.value?.verseNumber).toBe(3);
       expect(manager.editingAnnotation.value?.endVerseNumber).toBe(5);
     });
+
+    it("keeps an existing annotation on its own chapter when the reader navigates away", () => {
+      tab = createMockTab({ bookId: "GEN", chapterNumber: 1 });
+      tabs = createMockTabsManager(tab);
+      const manager = createManager();
+      const annotation = createCommentAnnotation({
+        id: "existing",
+        bookId: "GEN",
+        chapterNumber: 1,
+        verseNumber: 3,
+      });
+
+      manager.editAnnotation(annotation);
+      tab.readingState.chapterNumber.value = 2;
+
+      expect(manager.editingAnnotation.value?.chapterNumber).toBe(1);
+      expect(manager.editingAnnotation.value?.verseNumber).toBe(3);
+    });
   });
 
   describe("saveEditingAnnotation", () => {
@@ -888,6 +1607,103 @@ describe("AnnotationsManager", () => {
       ).toEqual(["a1"]);
     });
 
+    it("closes the discover pane on mobile after a new note started from the reader is saved", async () => {
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        { isMobile: signal(true) }
+      );
+      expect(discover.view.value).toBeNull();
+
+      await manager.createNewAnnotation();
+      expect(discover.view.value).toBe("create_annotation");
+
+      await manager.saveEditingAnnotation();
+
+      expect(recordDataMock).toHaveBeenCalledTimes(1);
+      expect(manager.editingAnnotation.value).toBeNull();
+      expect(discover.view.value).toBeNull();
+    });
+
+    it("returns to the discover list on mobile when a new note was started from that list", async () => {
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        { isMobile: signal(true) }
+      );
+      discover.view.value = "discover";
+
+      await manager.createNewAnnotation();
+      expect(discover.view.value).toBe("create_annotation");
+
+      await manager.saveEditingAnnotation();
+
+      expect(recordDataMock).toHaveBeenCalledTimes(1);
+      expect(discover.view.value).toBe("discover");
+    });
+
+    it("returns to the discover list on mobile when a note opened from that list is saved", async () => {
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        { isMobile: signal(true) }
+      );
+      discover.view.value = "discover";
+      manager.editAnnotation(createCommentAnnotation({ id: "a1" }));
+      expect(discover.view.value).toBe("create_annotation");
+
+      await manager.saveEditingAnnotation();
+
+      expect(recordDataMock).toHaveBeenCalledTimes(1);
+      expect(manager.editingAnnotation.value).toBeNull();
+      expect(discover.view.value).toBe("discover");
+    });
+
+    it("closes the discover pane on mobile when an existing note opened from the reader is saved", async () => {
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        { isMobile: signal(true) }
+      );
+      expect(discover.view.value).toBeNull();
+      manager.editAnnotation(createCommentAnnotation({ id: "a1" }));
+      expect(discover.view.value).toBe("create_annotation");
+
+      await manager.saveEditingAnnotation();
+
+      expect(recordDataMock).toHaveBeenCalledTimes(1);
+      expect(discover.view.value).toBeNull();
+    });
+
+    it("still returns to discover after a save when the layout is not mobile", async () => {
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        { isMobile: signal(false) }
+      );
+      manager.editAnnotation(createCommentAnnotation({ id: "a1" }));
+
+      await manager.saveEditingAnnotation();
+
+      expect(recordDataMock).toHaveBeenCalledTimes(1);
+      expect(discover.view.value).toBe("discover");
+    });
+
     it("leaves the draft intact and rethrows when saving fails", async () => {
       recordDataMock.mockResolvedValueOnce({
         success: false,
@@ -900,11 +1716,97 @@ describe("AnnotationsManager", () => {
 
       expect(manager.editingAnnotation.value?.id).toBe("a1");
     });
+    it("preserves the selection and keeps the editor open when saving a new annotation fails", async () => {
+      tab = createMockTab({
+        bookId: "GEN",
+        chapterNumber: 1,
+        selectedVerses: [
+          { bookId: "GEN", chapterNumber: 1, verse: { number: 5 } },
+        ],
+      });
+      tabs = createMockTabsManager(tab);
+
+      const manager = createManager();
+      await manager.createNewAnnotation();
+
+      expect(manager.isDraftingNewAnnotation.value).toBe(true);
+      expect(tab.readingState.selectedVerses.value).toHaveLength(1);
+
+      recordDataMock.mockRejectedValueOnce(new Error("Save failed"));
+
+      await expect(manager.saveEditingAnnotation()).rejects.toThrow(
+        "Save failed"
+      );
+
+      expect(tab.readingState.selectedVerses.value).toHaveLength(1);
+      expect(manager.isDraftingNewAnnotation.value).toBe(true);
+      expect(manager.editingAnnotation.value).not.toBeNull();
+      expect(discover.view.value).toBe("create_annotation");
+    });
+
+    it("does not clear the verse selection when saving an existing annotation", async () => {
+      tab = createMockTab({
+        bookId: "GEN",
+        chapterNumber: 1,
+        selectedVerses: [
+          { bookId: "GEN", chapterNumber: 1, verse: { number: 5 } },
+        ],
+      });
+      tabs = createMockTabsManager(tab);
+
+      const manager = createManager();
+      const annotation = createCommentAnnotation({ id: "existing" });
+
+      manager.editAnnotation(annotation);
+
+      await manager.saveEditingAnnotation();
+
+      expect(recordDataMock).toHaveBeenCalledTimes(1);
+      expect(tab.readingState.selectedVerses.value).toHaveLength(1);
+      expect(tab.readingState.selectedVerses.value[0]?.verse.number).toBe(5);
+      expect(manager.editingAnnotation.value).toBeNull();
+    });
   });
 
   describe("cancelEditingAnnotation", () => {
     it("discards the draft and returns to discover", () => {
       const manager = createManager();
+      manager.editAnnotation(createCommentAnnotation());
+
+      manager.cancelEditingAnnotation();
+
+      expect(manager.editingAnnotation.value).toBeNull();
+      expect(discover.view.value).toBe("discover");
+    });
+
+    it("closes the discover pane on mobile when a new note started from the reader is cancelled", async () => {
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        { isMobile: signal(true) }
+      );
+      await manager.createNewAnnotation();
+      expect(discover.view.value).toBe("create_annotation");
+
+      manager.cancelEditingAnnotation();
+
+      expect(manager.editingAnnotation.value).toBeNull();
+      expect(discover.view.value).toBeNull();
+    });
+
+    it("returns to the discover list on mobile when cancelling a note opened from that list", () => {
+      const manager = createAnnotationsManager(
+        os,
+        login,
+        tabs,
+        discover,
+        undefined,
+        { isMobile: signal(true) }
+      );
+      discover.view.value = "discover";
       manager.editAnnotation(createCommentAnnotation());
 
       manager.cancelEditingAnnotation();
@@ -956,10 +1858,10 @@ describe("AnnotationsManager", () => {
   // above all exercise the no-store fallback that talks straight to the server.
   // These inject the in-memory store to cover the offline paths.
   describe("with a local store", () => {
-    let store: OfflineAnnotationStore;
+    let store: OfflineRecordStore<Annotation>;
 
     beforeEach(() => {
-      store = createInMemoryAnnotationStore();
+      store = createInMemoryRecordStore<Annotation>();
     });
 
     function createOfflineManager() {
@@ -988,9 +1890,33 @@ describe("AnnotationsManager", () => {
       return new Promise((resolve) => setTimeout(resolve, 0));
     }
 
+    /** Polls until `check` passes, so no test has to guess at a duration. */
+    async function waitForCondition(
+      check: () => boolean,
+      timeoutMs = 1000
+    ): Promise<void> {
+      const start = Date.now();
+      while (!check()) {
+        if (Date.now() - start > timeoutMs) {
+          throw new Error("waitForCondition timed out");
+        }
+        await new Promise((resolve) => setTimeout(resolve, 5));
+      }
+    }
+
     /** Puts the manager in the state of having no connection. */
     function goOffline() {
       window.dispatchEvent(new Event("offline"));
+    }
+
+    /** A row that looks exactly like what the server holds for `annotation`. */
+    function annotationSyncedRow(owner: string, annotation: Annotation) {
+      return syncedRow(
+        owner,
+        annotation.id,
+        annotationCollection(annotation.bookId, annotation.chapterNumber),
+        annotation
+      );
     }
 
     /**
@@ -1057,16 +1983,16 @@ describe("AnnotationsManager", () => {
       });
 
       expect(await store.listPending("user-1")).toHaveLength(1);
-      expect(
-        (await store.get("user-1", "offline-1"))?.annotation?.data.html
-      ).toBe("<p>third</p>");
+      expect((await store.get("user-1", "offline-1"))?.payload?.data.html).toBe(
+        "<p>third</p>"
+      );
     });
 
     it("records a tombstone when deleting a note the server knows about", async () => {
       const manager = createOfflineManager();
       // Pretend the server already has it, so there is something to delete.
       await store.put(
-        syncedRow("user-1", createCommentAnnotation({ id: "known" }))
+        annotationSyncedRow("user-1", createCommentAnnotation({ id: "known" }))
       );
       goOffline();
 
@@ -1081,7 +2007,7 @@ describe("AnnotationsManager", () => {
     it("hides a note deleted offline from the chapter listing", async () => {
       const manager = createOfflineManager();
       await store.put(
-        syncedRow("user-1", createCommentAnnotation({ id: "known" }))
+        annotationSyncedRow("user-1", createCommentAnnotation({ id: "known" }))
       );
       goOffline();
 
@@ -1148,6 +2074,46 @@ describe("AnnotationsManager", () => {
       expect(manager.editingAnnotation.value).not.toBeNull();
     });
 
+    it("starts a signed-out draft when the user dismisses the real sign-in prompt", async () => {
+      // Deliberately driven through a real `LoginManager` rather than the mock
+      // this file uses elsewhere. The bug being guarded here lived in the
+      // boundary between the two: `cancelLogin()` rejected the pending
+      // `login()` promise, so the dismissal threw out of `createNewAnnotation`
+      // before it could open the editor, and the user was simply stuck with
+      // nothing on screen and nothing explaining why. A mocked `login()`
+      // resolving `null` cannot catch that — it agrees with the caller while
+      // disagreeing with the manager, which is why the original bug shipped.
+      const realLogin = createLoginManager({ os });
+      const manager = createAnnotationsManager(
+        os,
+        realLogin,
+        tabs,
+        discover,
+        undefined,
+        { store }
+      );
+      offlineManagers.push(manager);
+
+      // Not awaited yet: `createNewAnnotation` is parked on the prompt until it
+      // is answered, which is the state a dismissal has to be delivered into.
+      const drafting = manager.createNewAnnotation();
+      await waitForCondition(() => realLogin.isLoginOpen.value);
+
+      await realLogin.cancelLogin();
+      await drafting;
+
+      const draft = manager.editingAnnotation.value;
+      expect(draft).not.toBeNull();
+      expect(discover.view.value).toBe("create_annotation");
+
+      // And the note the editor was opened for is genuinely kept, under the
+      // signed-out bucket, without reaching for a record that doesn't exist.
+      await manager.saveEditingAnnotation();
+
+      expect(await store.get(LOCAL_OWNER, draft!.id)).not.toBeNull();
+      expect(recordDataMock).not.toHaveBeenCalled();
+    });
+
     it("shows signed-out drafts in the chapter listing", async () => {
       login.userId.value = null;
       const manager = createOfflineManager();
@@ -1189,6 +2155,88 @@ describe("AnnotationsManager", () => {
       );
     });
 
+    it("reads a friend's chapter again when the connection returns only if it's on screen", async () => {
+      listDataByMarkerMock.mockRejectedValue(new Error("offline"));
+      const consoleError = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+      const manager = createOfflineManager();
+      goOffline();
+      const shown = manager.getUserAnnotationsForChapter("friend-a", "GEN", 1);
+      const leftBehind = manager.getUserAnnotationsForChapter(
+        "friend-b",
+        "GEN",
+        2
+      );
+      const stopShowing = effect(() => void shown.value);
+      let stopShowingLeftBehind = effect(() => void leftBehind.value);
+      const listingsFor = (record: string) =>
+        listDataByMarkerMock.mock.calls.filter(([r]) => r === record).length;
+
+      try {
+        await waitForCondition(
+          () => listingsFor("friend-a") === 1 && listingsFor("friend-b") === 1
+        );
+        await settle();
+        // Friend B's chapter was visited offline, then left.
+        stopShowingLeftBehind();
+        listDataByMarkerMock.mockImplementation(
+          async (record: string, _marker: string, lastAddress?: string) => {
+            const id = `${record}-note`;
+            return {
+              success: true,
+              items: lastAddress
+                ? []
+                : [{ address: id, data: createCommentAnnotation({ id }) }],
+              totalCount: 1,
+            };
+          }
+        );
+
+        window.dispatchEvent(new Event("online"));
+
+        await vi.waitFor(() =>
+          expect(shown.value.map((a) => a.id)).toEqual(["friend-a-note"])
+        );
+        await settle();
+        expect(listingsFor("friend-b")).toBe(1);
+
+        stopShowingLeftBehind = effect(() => void leftBehind.value);
+        await vi.waitFor(() =>
+          expect(leftBehind.value.map((a) => a.id)).toEqual(["friend-b-note"])
+        );
+      } finally {
+        stopShowing();
+        stopShowingLeftBehind();
+        consoleError.mockRestore();
+      }
+    });
+
+    it("doesn't show a friend a note their device hasn't sent yet, after switching accounts", async () => {
+      // Signed in as the friend, who saves a note offline on this device.
+      login.userId.value = "friend-user";
+      serverList([createCommentAnnotation({ id: "on-server" })]);
+      const manager = createOfflineManager();
+      goOffline();
+      await manager.saveAnnotation(createCommentAnnotation({ id: "unsent" }));
+      // Asked for afresh on every check, as `visibleChapterAnnotations` does
+      // on every render: that call is what starts the re-read after the
+      // switch. A view held from before the switch and only watched isn't
+      // read again, so memoizing that call would reopen this leak.
+      const theirNotes = () =>
+        manager.getUserAnnotationsForChapter("friend-user", "GEN", 1);
+      await waitForCondition(() =>
+        theirNotes().value.some((a) => a.id === "unsent")
+      );
+
+      // Someone else signs in on the same device and views them as a friend.
+      login.userId.value = "user-1";
+
+      await vi.waitFor(() =>
+        expect(theirNotes().value.map((a) => a.id)).toEqual(["on-server"])
+      );
+    });
+
     it("keeps an unsent edit when the server list is refreshed", async () => {
       const manager = createOfflineManager();
       const mine = createCommentAnnotation({
@@ -1216,7 +2264,7 @@ describe("AnnotationsManager", () => {
     it("drops a note the server no longer has when refreshing", async () => {
       const manager = createOfflineManager();
       await store.put(
-        syncedRow("user-1", createCommentAnnotation({ id: "gone" }))
+        annotationSyncedRow("user-1", createCommentAnnotation({ id: "gone" }))
       );
       serverList([]);
 
@@ -1267,7 +2315,7 @@ describe("AnnotationsManager", () => {
     it("removes a deleted note from the account it started as", async () => {
       const manager = createOfflineManager();
       const annotation = createCommentAnnotation({ id: "known" });
-      await store.put(syncedRow("user-1", annotation));
+      await store.put(annotationSyncedRow("user-1", annotation));
       goOffline();
 
       const deletePromise = manager.deleteAnnotationAndRefresh(annotation);
@@ -1291,6 +2339,44 @@ describe("AnnotationsManager", () => {
       await manager.sync.refreshPendingCount();
 
       expect(manager.sync.pendingCount.value).toBe(2);
+    });
+
+    describe("when the local database can no longer be opened", () => {
+      // What an older tab is left with after a newer one upgrades the database:
+      // its connection is closed and every reopen at the old version rejects.
+      function useUnusableStore() {
+        const closed = () => Promise.reject(new Error("database closed"));
+        store = {
+          ...createInMemoryRecordStore<Annotation>(),
+          get: closed,
+          put: closed,
+          delete: closed,
+        };
+      }
+
+      it("saveAnnotation() writes to the server instead of failing", async () => {
+        const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+        useUnusableStore();
+        const manager = createOfflineManager();
+
+        const saved = await manager.saveAnnotation(createCommentAnnotation());
+
+        expect(recordDataMock).toHaveBeenCalledWith("user-1", "ann-1", saved, {
+          marker: "publicRead:annotations/GEN/1",
+        });
+        warn.mockRestore();
+      });
+
+      it("deleteAnnotation() erases on the server instead of failing", async () => {
+        const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+        useUnusableStore();
+        const manager = createOfflineManager();
+
+        await manager.deleteAnnotation("ann-5");
+
+        expect(eraseDataMock).toHaveBeenCalledWith("user-1", "ann-5");
+        warn.mockRestore();
+      });
     });
   });
 });

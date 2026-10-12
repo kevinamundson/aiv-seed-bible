@@ -6,6 +6,10 @@ import {
   createTestSeedBibleState,
   waitFor,
 } from "../testUtils/createTestSeedBibleState";
+import { act } from "preact/test-utils";
+import { formatV1SessionKey } from "@casual-simulation/aux-common";
+import type { SharedDocument } from "@casual-simulation/aux-common/documents/SharedDocument";
+import { fakeSharedPermissions, ME } from "../testUtils/fakeSharedPermissions";
 
 describe("todayWillAutoOpenForUrl", () => {
   describe("with no explicit ?today param", () => {
@@ -21,6 +25,16 @@ describe("todayWillAutoOpenForUrl", () => {
           new URL("http://localhost:3000/en/BSB/genesis/1"),
           "/"
         )
+      ).toBe(false);
+    });
+
+    // A static page carries no reading position, so it used to read as
+    // "nowhere in particular" and Today opened over it. Today's pane is
+    // fullscreen, so it displaced the About pane and sent the reader back to
+    // the selected tab's chapter.
+    it("stays closed on a static page such as /en/about", () => {
+      expect(
+        todayWillAutoOpenForUrl(new URL("http://localhost:3000/en/about"), "/")
       ).toBe(false);
     });
 
@@ -44,6 +58,15 @@ describe("todayWillAutoOpenForUrl", () => {
       ).toBe(true);
     });
 
+    it("opens on ?today=open even over a static page", () => {
+      expect(
+        todayWillAutoOpenForUrl(
+          new URL("http://localhost:3000/en/about?today=open"),
+          "/"
+        )
+      ).toBe(true);
+    });
+
     it("stays closed on ?today=closed even on a bare URL", () => {
       expect(
         todayWillAutoOpenForUrl(
@@ -57,6 +80,35 @@ describe("todayWillAutoOpenForUrl", () => {
       expect(
         todayWillAutoOpenForUrl(
           new URL("http://localhost:3000/?today=maybe"),
+          "/"
+        )
+      ).toBe(false);
+    });
+  });
+
+  describe("when the page is a compact embed", () => {
+    it("stays closed on a bare URL with ?embed=true", () => {
+      expect(
+        todayWillAutoOpenForUrl(
+          new URL("http://localhost:3000/?embed=true"),
+          "/"
+        )
+      ).toBe(false);
+    });
+
+    it("stays closed on ?embed=minimal even without a reading path", () => {
+      expect(
+        todayWillAutoOpenForUrl(
+          new URL("http://localhost:3000/?embed=minimal"),
+          "/"
+        )
+      ).toBe(false);
+    });
+
+    it("stays closed even when ?today=open is also set", () => {
+      expect(
+        todayWillAutoOpenForUrl(
+          new URL("http://localhost:3000/?embed=true&today=open"),
           "/"
         )
       ).toBe(false);
@@ -132,6 +184,30 @@ describe("Today pane wiring", () => {
     expect(paneIsOpen(state)).toBe(false);
   });
 
+  // The fix's core invariant: `isOpen` must stay `false` -- matching what SSR
+  // always renders -- until `hydrateAutoOpen` runs, even on a boot URL that
+  // will end up auto-opening Today. `skipHydrateAutoOpen` holds the fixture
+  // in that pre-hydrate window so this can be asserted directly, rather than
+  // only observing the already-corrected value every other test sees. Fails
+  // on the old construction-time seeding, which computed the real value
+  // immediately with no pre-hydrate window to observe.
+  it("seeds isOpen closed regardless of the URL, until hydrateAutoOpen runs", async () => {
+    window.history.replaceState(null, "", "/");
+
+    const state = await createTestSeedBibleState({
+      todayOpen: "fromUrl",
+      skipHydrateAutoOpen: true,
+    });
+
+    expect(state.today.isOpen.value).toBe(false);
+    expect(paneIsOpen(state)).toBe(false);
+
+    state.today.hydrateAutoOpen();
+
+    expect(state.today.isOpen.value).toBe(true);
+    await waitFor(() => paneIsOpen(state));
+  });
+
   // Reopening must reuse the same component thunk: a fresh one would remount
   // the whole Today tree and throw away its loaded reading history.
   it("keeps a stable component identity across reopens", async () => {
@@ -152,5 +228,120 @@ describe("Today pane wiring", () => {
     )?.component;
 
     expect(second).toBe(first);
+  });
+
+  it("does not open Today when the page is a compact embed", async () => {
+    const state = await createTestSeedBibleState({ embed: true });
+
+    state.today.open();
+
+    expect(state.today.isOpen.value).toBe(false);
+    expect(paneIsOpen(state)).toBe(false);
+  });
+
+  it("does not auto-open Today on a bare embed URL", async () => {
+    window.history.replaceState(null, "", "/?embed=true");
+
+    const state = await createTestSeedBibleState({
+      todayOpen: "fromUrl",
+      embed: true,
+    });
+
+    expect(state.today.isOpen.value).toBe(false);
+    expect(paneIsOpen(state)).toBe(false);
+  });
+});
+
+describe("Today's Community section", () => {
+  const FRIEND = "f00df00d-0000-4000-8000-00000000f00d";
+  // People the friends lists know about who aren't friends yet.
+  const ASKED_ME = "a5cedace-0000-4000-8000-00000000a5ce";
+  const ASKED_BY_ME = "b0b0b0b0-0000-4000-8000-00000000b0b0";
+
+  /** A reading history document holding one finished chapter. */
+  const historyDocument = (
+    reading: { bookId: string; chapter: number },
+    atSeconds: number
+  ) => {
+    const event = {
+      userId: "",
+      ...reading,
+      start: atSeconds - 60,
+      end: atSeconds,
+    };
+    const events = [{ get: (key: string) => event[key as keyof typeof event] }];
+    return {
+      getArray: () => ({
+        type: { length: events.length, get: (i: number) => events[i] },
+      }),
+    } as unknown as SharedDocument;
+  };
+
+  it("includes friends' reading alongside the user's own, but not people with a request still waiting", async () => {
+    const state = await createTestSeedBibleState();
+    const nowSeconds = Math.floor(Date.now() / 1000);
+    const readings: Record<string, { bookId: string; chapter: number }> = {
+      [ME]: { bookId: "JHN", chapter: 3 },
+      [FRIEND]: { bookId: "PSA", chapter: 23 },
+      [ASKED_ME]: { bookId: "GEN", chapter: 1 },
+      [ASKED_BY_ME]: { bookId: "EXO", chapter: 20 },
+    };
+    const server = fakeSharedPermissions(state.os, () =>
+      state.login.userId.peek()
+    );
+    server.friendsWith(FRIEND);
+    server.requestFrom(ASKED_ME);
+    server.requestTo(ASKED_BY_ME);
+    vi.spyOn(state.os, "getSharedDocument").mockImplementation((async (
+      recordName: string
+    ) =>
+      historyDocument(
+        readings[recordName] ?? { bookId: "none", chapter: 0 },
+        nowSeconds
+      )) as never);
+    // Signing in loads saves and settings too; nobody has any here.
+    vi.spyOn(state.os, "getData").mockResolvedValue({
+      success: false,
+      errorCode: "data_not_found",
+      errorMessage: "Data not found",
+    } as never);
+
+    await act(async () => {
+      state.os.sessionKey.value = formatV1SessionKey(
+        ME,
+        "session-1",
+        "secret-1",
+        Date.now() + 1000 * 60 * 60
+      );
+    });
+    try {
+      // Waits for the requests too: leaving them out only means something
+      // once the app knows about them.
+      await waitFor(
+        () =>
+          state.friends.friendIds.value.includes(FRIEND) &&
+          state.friends.incomingRequests.value.some(
+            (r) => r.userId === ASKED_ME
+          ) &&
+          state.friends.outgoingRequests.value.some(
+            (r) => r.userId === ASKED_BY_ME
+          )
+      );
+
+      const reading = await state.today.getCommunityReading({
+        from: nowSeconds - 3600,
+        to: nowSeconds + 3600,
+      });
+
+      expect(reading).toEqual({
+        JHN: { 3: [ME] },
+        PSA: { 23: [FRIEND] },
+      });
+    } finally {
+      // Left signed in, the persisted key would sign the next test's state in.
+      state.os.sessionKey.value = null;
+      localStorage.removeItem("sessionKey");
+      vi.restoreAllMocks();
+    }
   });
 });

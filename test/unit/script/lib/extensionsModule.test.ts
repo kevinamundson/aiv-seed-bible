@@ -28,6 +28,10 @@ const bonfire: DiscoveredExtension = {
   meta: {
     id: "ext_Bonfire",
     dependencies: ["ext_Apologist"],
+    settings: {
+      apiKey: { type: "string" },
+      maxEmbers: { type: "number", default: 3 },
+    },
     translations: {
       en: { title: "Bonfire", description: "Gather round" },
       // No Spanish, and a language no other extension has.
@@ -55,10 +59,14 @@ describe("trimMeta", () => {
         en: { title: "Bonfire", description: "Gather round" },
       },
       dependencies: ["ext_Apologist"],
+      settings: {
+        apiKey: { type: "string" },
+        maxEmbers: { type: "number", default: 3 },
+      },
     });
   });
 
-  it("omits dependencies and autoinstall when absent rather than emitting undefined", () => {
+  it("omits dependencies, autoinstall and settings when absent rather than emitting undefined", () => {
     const trimmed = trimMeta({ id: "ext_X", translations: {} });
     expect(Object.keys(trimmed).sort()).toEqual(["id", "translations"]);
   });
@@ -142,6 +150,11 @@ describe("generateEntryModuleSource", () => {
     expect(source).toContain('"dependencies":["ext_Apologist"]');
   });
 
+  it("inlines an extension's settings definitions, since they're structural rather than per-locale text", () => {
+    expect(source).toContain('"apiKey":{"type":"string"}');
+    expect(source).toContain('"maxEmbers":{"type":"number","default":3}');
+  });
+
   it("exposes one lazy loader per language except the inlined English", () => {
     for (const lang of ["de", "es", "gn"]) {
       expect(source).toContain(
@@ -161,6 +174,45 @@ describe("generateEntryModuleSource", () => {
 
   it("names the set", () => {
     expect(source).toContain('id: "seed-bible"');
+  });
+});
+
+describe("generateEntryModuleSource for the SSR build", () => {
+  const source = generateEntryModuleSource(extensions, "seed-bible", {
+    serverBuild: true,
+  });
+
+  it("imports no extension code, translations or list strings", () => {
+    expect(source).not.toContain("import(");
+  });
+
+  it("still inlines the metas the extension list is built from", () => {
+    expect(source).toContain('"id":"ext_Apologist"');
+    expect(source).toContain('"dependencies":["ext_Apologist"]');
+    expect(source).toContain("AI for seekers");
+  });
+
+  it("rejects with a clear error if an extension is loaded anyway", async () => {
+    const module = (await import(
+      `data:text/javascript,${encodeURIComponent(source)}`
+    )) as {
+      default: {
+        extensions: {
+          import: () => Promise<unknown>;
+          loadFullTranslations: () => Promise<unknown>;
+        }[];
+        loadListTranslations: Record<string, unknown>;
+      };
+    };
+    const [first] = module.default.extensions;
+
+    await expect(first!.import()).rejects.toThrow(
+      "ext_Apologist is not available in the SSR bundle"
+    );
+    await expect(first!.loadFullTranslations()).rejects.toThrow(
+      "ext_Apologist's translations are not available in the SSR bundle"
+    );
+    expect(module.default.loadListTranslations).toEqual({});
   });
 });
 

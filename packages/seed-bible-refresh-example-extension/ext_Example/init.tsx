@@ -19,7 +19,7 @@ export default function initExampleExtension() {
     init: function* (context: SeedBibleState) {
       console.log("Example extension initialized with context:", context);
 
-      context.discover.registerDiscoverProvider({
+      yield context.discover.registerDiscoverProvider({
         id: "example-discover-provider",
         description: "An example discover provider that returns dummy results.",
         title: "Example Discover Provider",
@@ -80,7 +80,109 @@ export default function initExampleExtension() {
             component: () => {
               // You can use the useI18n hook in your tool component to get translated strings
               const { t } = useI18n("example-extension");
-              return <div style={{ padding: 20 }}>{t("my-example-tool")}</div>;
+              // Settings declared in extension.json are read with getValue, which
+              // already falls back to the Customization's default and then the
+              // setting's own default. Reading them while rendering re-renders
+              // this pane as soon as the viewer changes them in Settings.
+              const greeting = context.extensionSettings.getValue(
+                "example-extension",
+                "greeting"
+              );
+              const greetingSize = context.extensionSettings.getValue(
+                "example-extension",
+                "greetingSize"
+              );
+              // `subtitle` declares no default, so it stays undefined until
+              // the viewer (or a Customization) sets one.
+              const subtitle = context.extensionSettings.getValue(
+                "example-extension",
+                "subtitle"
+              );
+              const showBanner =
+                context.extensionSettings.getValue(
+                  "example-extension",
+                  "showBanner"
+                ) === true;
+              // `repeatCount` is a whole number from 1 to 10. A stored value
+              // outside that range is ignored, so this is always 1–10 or the
+              // default once the definition is in place.
+              const repeatCount = context.extensionSettings.getValue(
+                "example-extension",
+                "repeatCount"
+              );
+              const tone = context.extensionSettings.getValue(
+                "example-extension",
+                "tone"
+              );
+              return (
+                <div
+                  style={{
+                    padding: 20,
+                    color: "var(--sb-font-color, #333)",
+                  }}
+                >
+                  {showBanner && (
+                    <div
+                      style={{
+                        marginBottom: 12,
+                        padding: "8px 12px",
+                        borderRadius: 8,
+                        background: "var(--sb-primary-color, #e07b4c)",
+                        color: "var(--sb-primary-font-color, #fff)",
+                      }}
+                    >
+                      {t("example-banner")}
+                    </div>
+                  )}
+                  {typeof greeting === "string" && greeting && (
+                    <p
+                      style={{
+                        fontSize:
+                          typeof greetingSize === "number"
+                            ? `${greetingSize}rem`
+                            : undefined,
+                        fontWeight: tone === "bold" ? 700 : undefined,
+                        fontStyle: tone === "plain" ? "normal" : "italic",
+                      }}
+                    >
+                      {typeof repeatCount === "number"
+                        ? greeting.repeat(repeatCount)
+                        : greeting}
+                    </p>
+                  )}
+                  {typeof subtitle === "string" && subtitle && (
+                    <p style={{ opacity: 0.75 }}>{subtitle}</p>
+                  )}
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      // Sensitive settings can't be read. Instead the request
+                      // goes through the viewer's proxy for httpbin.org, which
+                      // adds the API key and client ID on the server. If the
+                      // viewer chose another host in Settings, the same path
+                      // is sent there instead.
+                      try {
+                        const response =
+                          await context.extensionSettings.fetchWithSensitiveValues(
+                            "example-extension",
+                            {
+                              url: "https://httpbin.org/post",
+                              method: "POST",
+                              body: { hello: "world" },
+                            }
+                          );
+                        context.app?.toast(
+                          `Example service: ${response.status}`
+                        );
+                      } catch (error) {
+                        context.app?.toast(String(error));
+                      }
+                    }}
+                  >
+                    {t("send-sensitive-request")}
+                  </button>
+                </div>
+              );
             },
           });
         },
@@ -107,7 +209,7 @@ export default function initExampleExtension() {
             },
             onSelect: () => {
               console.log("Item 1 clicked with context:", context);
-              context.toast("Item 1 clicked!");
+              context.app?.toast("Item 1 clicked!");
             },
           },
           {
@@ -120,7 +222,7 @@ export default function initExampleExtension() {
             },
             onSelect: () => {
               console.log("Item 2 clicked with context:", context);
-              context.toast("Item 2 clicked!");
+              context.app?.toast("Item 2 clicked!");
             },
           },
         ],

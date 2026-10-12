@@ -177,6 +177,17 @@ export interface IdentifiedLocalChatContext extends LocalChatContext {
    * The label for the context, which can be used to display a description of the context to the user.
    */
   label: TranslatableTitle;
+
+  /**
+   * An optional action shown alongside this context's row in the "Active AI
+   * context" menu (e.g. a settings gear) — lets a context-contributing
+   * extension also offer a way to configure itself, with no core knowledge
+   * of that extension.
+   */
+  settingsAction?: {
+    label: TranslatableTitle;
+    onClick: () => void;
+  };
 }
 
 export interface ChatContext {
@@ -356,6 +367,23 @@ const sharedAIChatParticipantArraySchema = z.array(
   sharedAIChatParticipantSchema
 );
 
+/**
+ * A translation the agent is asking this viewer to confirm. It lives on the
+ * session in memory only, so a shared chat does not show the banner to anyone
+ * else, and switching changes only this viewer's reader.
+ */
+export interface TranslationSuggestion {
+  id: string;
+  /** "Louis Segond (LSG)", or the short name when that is already the name. */
+  label: string;
+  shortName: string;
+  /**
+   * What the reader asked for when this suggestion is only the closest match
+   * (for example "NIV"). Null when the suggestion is the translation they named.
+   */
+  unavailable: string | null;
+}
+
 export interface ChatSession {
   /**
    * The ID of the chat.
@@ -389,6 +417,20 @@ export interface ChatSession {
   /** Sends a message and notifies the other participants. */
   sendMessage: (message: ChatMessageOptions) => Promise<void>;
 
+  /**
+   * Inserts a message without asking an AI participant to reply.
+   *
+   * A confirmed or dismissed translation suggestion is recorded this way.
+   * Going through {@link sendMessage} would start another turn.
+   */
+  appendMessage: (message: ChatMessageOptions, authors?: string[]) => void;
+
+  /**
+   * The translation banner for this chat, or null when there is nothing to
+   * confirm. Not part of the message log.
+   */
+  translationSuggestion: Signal<TranslationSuggestion | null>;
+
   /** Updates whether the local participant is currently typing. */
   setTypingStatus: (isTyping: boolean) => void;
   /** Active participants only. */
@@ -421,6 +463,13 @@ export interface ChatSession {
    * a context added to the manager is automatically available here.
    */
   context: ReadonlySignal<LocalChatContext>;
+
+  /**
+   * Unsent text in this chat's compose field. Lives on the session so it
+   * survives ChatView unmounting (clicking a verse closes the floating panel)
+   * and a later Ask AI can append a quote instead of replacing what was typed.
+   */
+  unsentDraft: Signal<string>;
 }
 
 export interface SharedChatSession extends ChatSession {
@@ -482,6 +531,14 @@ export interface ChatsManager {
    * @param id The id of the context to remove.
    */
   removeContext: (id: string) => void;
+
+  /**
+   * Text waiting to be inserted into the chat compose field. ChatView consumes
+   * a non-empty value once (merges it into the draft if the field already has
+   * content, then clears this signal) so callers like the verse toolbar's Ask
+   * AI tool can prefill a question without owning the compose UI.
+   */
+  composerDraft: Signal<string>;
 }
 
 const DEFAULT_LOCAL_PARTICIPANT_ID = "local-user";
@@ -1669,6 +1726,13 @@ function createSharedChatSession(
     }
   };
 
+  const appendMessage = (
+    message: ChatMessageOptions,
+    authors: string[] = []
+  ) => {
+    chats.push(createChatMessage(message, authors, []));
+  };
+
   const parsedMessages = computed<ParsedChatTextMessage[]>(() => {
     // Test doubles and partial session mocks may omit reading state; fall back
     // to English-only resolution via getBookId when books are unavailable.
@@ -1699,6 +1763,8 @@ function createSharedChatSession(
     wasMentioned,
     markAsRead,
     sendMessage,
+    appendMessage,
+    translationSuggestion: signal<TranslationSuggestion | null>(null),
     setTypingStatus: (isTyping: boolean) => {
       localIsTyping.value = isTyping;
     },
@@ -1751,6 +1817,7 @@ function createSharedChatSession(
         participantIdAliases.value
       ),
     context: chatContext,
+    unsentDraft: signal(""),
     isShared: true,
     session,
   };
@@ -2111,6 +2178,14 @@ function createLocalChatSession(
     }
   };
 
+  const appendMessage = (
+    message: ChatMessageOptions,
+    authors: string[] = []
+  ) => {
+    const nextMessage = createChatMessage(message, authors, []);
+    messages.value = [...messages.value, nextMessage];
+  };
+
   const getMessageAuthors = (message: ChatMessage) =>
     resolveMessageAuthors(
       totalParticipants.value,
@@ -2165,6 +2240,8 @@ function createLocalChatSession(
     wasMentioned,
     markAsRead,
     sendMessage,
+    appendMessage,
+    translationSuggestion: signal<TranslationSuggestion | null>(null),
     setTypingStatus: (isTyping: boolean) => {
       localIsTyping.value = isTyping;
     },
@@ -2208,6 +2285,7 @@ function createLocalChatSession(
     },
     getMessageAuthors,
     context: chatContext,
+    unsentDraft: signal(""),
   };
 }
 
@@ -2254,6 +2332,7 @@ export function createChatsManager(
       .peek()
       .filter((c) => c.id !== id);
   };
+  const composerDraft = signal("");
   const selectedChatId = signal<string | null>(null);
   const selectedChat = computed(
     () => chats.value.find((chat) => chat.id === selectedChatId.value) ?? null
@@ -2340,5 +2419,6 @@ export function createChatsManager(
     setContext,
     addContext,
     removeContext,
+    composerDraft,
   };
 }

@@ -1,5 +1,18 @@
-import type { SeedBibleState } from "@packages/seed-bible/seed-bible/managers/SeedBibleStateManager";
-import { MOBILE_BREAKPOINT } from "@packages/seed-bible/seed-bible/managers/SeedBibleStateManager";
+import {
+  ABOUT_PANE_ID,
+  MOBILE_BREAKPOINT,
+  type SeedBibleState,
+} from "@packages/seed-bible/seed-bible/managers/SeedBibleStateManager";
+import { TODAY_PANE_ID } from "@packages/seed-bible/seed-bible/managers/TodayManager";
+import { PROFILE_PANE_ID } from "@packages/seed-bible/seed-bible/components/ProfilePane/ProfilePane";
+import { PLAYLIST_HISTORY_PANE_ID } from "@packages/seed-bible/seed-bible/components/PlaylistHistoryPane/PlaylistHistoryPane";
+import {
+  PlaylistPlayHistorySchema,
+  PlaylistSchema,
+} from "@packages/seed-bible/seed-bible/managers/PlaylistManager";
+import { formatV1SessionKey } from "@casual-simulation/aux-common";
+import { h, render } from "preact";
+import { act } from "preact/test-utils";
 import { DEFAULT_APP_CONFIG } from "@packages/seed-bible/seed-bible/app/appConfig";
 import type {
   Translation,
@@ -8,6 +21,8 @@ import type {
 import {
   createTestSeedBibleState,
   type CreateTestSeedBibleStateOptions,
+  // The local `waitFor` below can't run under fake timers; this one advances them.
+  waitFor as waitForUnderFakeTimers,
   waitForInitialLoad,
 } from "../testUtils/createTestSeedBibleState";
 import {
@@ -120,6 +135,15 @@ function createLanguageSwitchResponses(options?: {
 }
 
 const mockSaveReadingHistory = vi.fn();
+const mockSaveReadingSpan = vi.fn();
+
+/**
+ * The reader credits reading time as spans of `[from, to]` seconds. Most tests
+ * here are about when a span is written, not what is in it.
+ */
+function anySpanFor(bookId: string, chapter: number) {
+  return [bookId, chapter, expect.any(Number), expect.any(Number)] as const;
+}
 const mockHighlightsManager = {
   getChapterHighlights: vi.fn().mockReturnValue(signal({ highlights: [] })),
   saveChapterHighlights: vi.fn(),
@@ -128,12 +152,27 @@ const mockSessionsManager = {
   createSession: vi.fn(),
   joinSession: vi.fn(),
 };
+// `InvitationsManager` opens a real shared-document WebSocket connection when
+// a session is published (`publishSession`, called from
+// `createSharedSession()`) — that's fine in the browser, but there's no
+// network egress to the records server in this test environment, so the real
+// implementation is mocked out here exactly like the other managers below
+// that would otherwise touch real state/network during `createSeedBibleState`.
+const mockInvitationsManager = {
+  availableSessions: signal([]),
+  publishSession: vi.fn().mockResolvedValue(undefined),
+  unpublishSession: vi.fn().mockResolvedValue(undefined),
+  joinAvailableSession: vi.fn().mockResolvedValue(undefined),
+  dismissAvailableSession: vi.fn(),
+  dispose: vi.fn(),
+};
 
 vi.mock(
   "@packages/seed-bible/seed-bible/managers/ReadingHistoryManager",
   () => ({
     createReadingHistoryManager: () => ({
       saveReadingHistory: mockSaveReadingHistory,
+      saveReadingSpan: mockSaveReadingSpan,
       getReadingEvents: vi.fn().mockResolvedValue([]),
     }),
   })
@@ -152,6 +191,10 @@ vi.mock(
     createSessionsManager: () => mockSessionsManager,
   })
 );
+
+vi.mock("@packages/seed-bible/seed-bible/managers/InvitationsManager", () => ({
+  createInvitationsManager: () => mockInvitationsManager,
+}));
 
 vi.mock(
   "@packages/seed-bible/seed-bible/i18n/I18nManager",
@@ -179,6 +222,11 @@ beforeEach(() => {
   mockHighlightsManager.saveChapterHighlights.mockReset();
   mockSessionsManager.createSession.mockReset();
   mockSessionsManager.joinSession.mockReset();
+  mockInvitationsManager.publishSession.mockClear();
+  mockInvitationsManager.unpublishSession.mockClear();
+  mockInvitationsManager.joinAvailableSession.mockClear();
+  mockInvitationsManager.dismissAvailableSession.mockClear();
+  mockInvitationsManager.dispose.mockClear();
 });
 
 afterEach(() => {
@@ -210,10 +258,15 @@ function createMockSharedSession(id: string) {
       bookId: signal<string | null>(null),
       chapterNumber: signal<number | null>(null),
       chapterData: signal(null),
+      // TabsManager stamps this onto the history entry so Back/Forward can
+      // return the reader to where they were.
+      scrollPosition: signal(0),
       selectedVerses: signal([]),
       translationBooks: signal(null),
       selectTranslationAndChapter: vi.fn().mockResolvedValue(undefined),
       getUrlQueryParams: vi.fn().mockReturnValue({}),
+      getUrlPathOverride: vi.fn().mockReturnValue(null),
+      requestUrlUpdate: vi.fn(),
       // TabsManager subscribes to reading-state navigation events to drive the
       // URL; the mock just returns a no-op unsubscribe.
       onNavigate: vi.fn().mockReturnValue(() => undefined),
@@ -452,6 +505,10 @@ describe("createSeedBibleState", () => {
     const result = await state.app.createSharedSession();
 
     expect(mockSessionsManager.createSession).toHaveBeenCalledTimes(1);
+    // Auto-publishes to the shared-sessions registry so friends can see it
+    // — through the mock, not the real `InvitationsManager`, which would
+    // otherwise open a real WebSocket connection.
+    expect(mockInvitationsManager.publishSession).toHaveBeenCalledWith(session);
     expect(result).toBe(session);
     expect(state.tabs.tabs.value).toHaveLength(previousTabCount + 1);
     expect(state.tabs.tabs.value[previousTabCount]?.readingState).toBe(
@@ -491,6 +548,8 @@ describe("createSeedBibleState", () => {
     (globalThis as any).posthog = {
       capture: mockPosthogCapture,
       onFeatureFlags: vi.fn(),
+      register_for_session: vi.fn(),
+      unregister_for_session: vi.fn(),
     };
 
     try {
@@ -551,6 +610,8 @@ describe("createSeedBibleState", () => {
     (globalThis as any).posthog = {
       capture: mockPosthogCapture,
       onFeatureFlags: vi.fn(),
+      register_for_session: vi.fn(),
+      unregister_for_session: vi.fn(),
     };
 
     try {
@@ -623,6 +684,11 @@ describe("createSeedBibleState", () => {
       connectionId: "guest-connection",
       isSelf: true,
     };
+    const otherGuestConnectedUser = {
+      userId: "guest-user-2",
+      connectionId: "guest-connection-2",
+      isSelf: false,
+    };
 
     function createMockHostedSession(id: string) {
       const session = createMockSharedSession(id);
@@ -659,17 +725,23 @@ describe("createSeedBibleState", () => {
         (tab) => tab.sharedSession === session
       )!.id;
 
+      // A real drop clears every entry, our own included — see
+      // `rebuildRemoteClientsSubscription` in SessionsManager.
       session.isSynced.value = false;
-      session.connectedUsers.value = [selfConnectedUser];
+      session.connectedUsers.value = [];
+
+      expect(state.app.currentToast.value?.message).toBe(
+        "You lost connection to the session"
+      );
+      expect(originalDispose).not.toHaveBeenCalled();
 
       vi.advanceTimersByTime(20_000);
 
       expect(state.tabs.tabs.value.some((tab) => tab.id === tabId)).toBe(true);
       expect(originalDispose).not.toHaveBeenCalled();
-      expect(state.app.currentToast.value).toBeNull();
     });
 
-    it("shows a reconnecting toast and closes the tab after the grace period once synced and the host is still gone", async () => {
+    it("shows a host-disconnected toast and closes the tab after the grace period once synced and the host is still gone", async () => {
       const state = await createStateWithTwoTabs();
       const { session, originalDispose } = await joinAsHostedSession(
         state,
@@ -682,7 +754,7 @@ describe("createSeedBibleState", () => {
       session.connectedUsers.value = [selfConnectedUser];
 
       expect(state.app.currentToast.value?.message).toBe(
-        "Reconnecting to the session…"
+        "The host disconnected from the session"
       );
       expect(originalDispose).not.toHaveBeenCalled();
 
@@ -712,7 +784,7 @@ describe("createSeedBibleState", () => {
 
       session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
       expect(state.app.currentToast.value?.message).toBe(
-        "Reconnected to the session"
+        "The host reconnected to the session"
       );
 
       vi.advanceTimersByTime(20_000);
@@ -765,7 +837,7 @@ describe("createSeedBibleState", () => {
       // and arms the timer.
       vi.advanceTimersByTime(1);
       expect(state.app.currentToast.value?.message).toBe(
-        "Reconnecting to the session…"
+        "The host disconnected from the session"
       );
 
       vi.advanceTimersByTime(30_000);
@@ -798,6 +870,250 @@ describe("createSeedBibleState", () => {
       expect(originalDispose).not.toHaveBeenCalled();
       expect(state.tabs.tabs.value.some((tab) => tab.id === tabId)).toBe(true);
       expect(state.app.currentToast.value).toBeNull();
+    });
+
+    it("shows a host-disconnected toast when only the host leaves and other guests remain", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session, originalDispose } = await joinAsHostedSession(
+        state,
+        "session-host-only"
+      );
+
+      session.connectedUsers.value = [
+        selfConnectedUser,
+        hostConnectedUser,
+        otherGuestConnectedUser,
+      ];
+      session.connectedUsers.value = [
+        selfConnectedUser,
+        otherGuestConnectedUser,
+      ];
+
+      expect(state.app.currentToast.value?.message).toBe(
+        "The host disconnected from the session"
+      );
+      expect(originalDispose).not.toHaveBeenCalled();
+    });
+
+    it("blames the host, not our own connection, when the other guest leaves first and the host follows", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session, originalDispose } = await joinAsHostedSession(
+        state,
+        "session-all-others-gone"
+      );
+
+      session.connectedUsers.value = [
+        selfConnectedUser,
+        hostConnectedUser,
+        otherGuestConnectedUser,
+      ];
+
+      // The other guest goes first — nothing to announce, the host is here.
+      session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+      expect(state.app.currentToast.value).toBeNull();
+
+      // Then the host goes, leaving us alone. We can still see ourselves, so
+      // our own connection is demonstrably fine and the host is who left.
+      session.connectedUsers.value = [selfConnectedUser];
+
+      expect(state.app.currentToast.value?.message).toBe(
+        "The host disconnected from the session"
+      );
+      expect(originalDispose).not.toHaveBeenCalled();
+    });
+
+    it("shows a you-rejoined toast when other users reappear after our own connection dropped", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session, originalDispose } = await joinAsHostedSession(
+        state,
+        "session-we-reconnected"
+      );
+      const tabId = state.tabs.tabs.value.find(
+        (tab) => tab.sharedSession === session
+      )!.id;
+
+      session.connectedUsers.value = [
+        selfConnectedUser,
+        hostConnectedUser,
+        otherGuestConnectedUser,
+      ];
+
+      // A real drop takes the whole list with it, our own entry included.
+      session.isSynced.value = false;
+      session.connectedUsers.value = [];
+      expect(state.app.currentToast.value?.message).toBe(
+        "You lost connection to the session"
+      );
+
+      session.isSynced.value = true;
+      session.connectedUsers.value = [
+        selfConnectedUser,
+        hostConnectedUser,
+        otherGuestConnectedUser,
+      ];
+      expect(state.app.currentToast.value?.message).toBe(
+        "You rejoined the session"
+      );
+
+      vi.advanceTimersByTime(30_000);
+
+      expect(originalDispose).not.toHaveBeenCalled();
+      expect(state.tabs.tabs.value.some((tab) => tab.id === tabId)).toBe(true);
+    });
+
+    it("shows you-lost-connection then you-rejoined toasts when this client's own sync drops and recovers", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session, originalDispose } = await joinAsHostedSession(
+        state,
+        "session-sync-drop"
+      );
+
+      session.isSynced.value = false;
+      session.connectedUsers.value = [];
+      expect(state.app.currentToast.value?.message).toBe(
+        "You lost connection to the session"
+      );
+      expect(originalDispose).not.toHaveBeenCalled();
+
+      session.isSynced.value = true;
+      session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+      expect(state.app.currentToast.value?.message).toBe(
+        "You rejoined the session"
+      );
+    });
+
+    it("does not show a you-disconnected toast on a remaining host device when another of the host's devices leaves", async () => {
+      const state = await createStateWithTwoTabs();
+      const session = createMockHostedSession("session-host-other-device");
+      const originalDispose = session.dispose;
+      mockSessionsManager.joinSession.mockResolvedValue(session);
+      await state.app.joinSharedSession("session-host-other-device");
+
+      const hostSelfConnectedUser = {
+        userId: HOST_ID,
+        connectionId: "host-connection-this-device",
+        isSelf: true,
+      };
+      const hostOtherDeviceConnectedUser = {
+        userId: HOST_ID,
+        connectionId: "host-connection-other-device",
+        isSelf: false,
+      };
+      session.connectedUsers.value = [
+        hostSelfConnectedUser,
+        hostOtherDeviceConnectedUser,
+      ];
+
+      session.isSynced.value = false;
+      session.connectedUsers.value = [hostSelfConnectedUser];
+
+      expect(state.app.currentToast.value).toBeNull();
+      expect(originalDispose).not.toHaveBeenCalled();
+
+      session.isSynced.value = true;
+      expect(state.app.currentToast.value).toBeNull();
+    });
+
+    it("shows you-rejoined instead of host-reconnected when the host reappears right after our own connection recovers", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session, originalDispose } = await joinAsHostedSession(
+        state,
+        "session-airplane-rejoin"
+      );
+
+      session.isSynced.value = false;
+      session.connectedUsers.value = [];
+      expect(state.app.currentToast.value?.message).toBe(
+        "You lost connection to the session"
+      );
+
+      // Coming back rebuilds presence from scratch, so we reappear first and
+      // the host lands a beat later.
+      session.isSynced.value = true;
+      session.connectedUsers.value = [selfConnectedUser];
+      expect(state.app.currentToast.value?.message).toBe(
+        "You rejoined the session"
+      );
+
+      session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+      expect(state.app.currentToast.value?.message).toBe(
+        "You rejoined the session"
+      );
+      expect(originalDispose).not.toHaveBeenCalled();
+    });
+
+    it("still shows the you-rejoined toast when the connection recovers during the post-resume window", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session } = await joinAsHostedSession(
+        state,
+        "session-resume-rejoin"
+      );
+
+      // We drop while the app is in the foreground, so we are told about it.
+      session.isSynced.value = false;
+      session.connectedUsers.value = [];
+      expect(state.app.currentToast.value?.message).toBe(
+        "You lost connection to the session"
+      );
+
+      // The phone is locked and unlocked, which opens the resume window that
+      // suppresses presence toasts.
+      document.dispatchEvent(new Event("visibilitychange"));
+
+      // The connection comes back inside that window. Having already been
+      // told we dropped, we must be told we are back.
+      session.isSynced.value = true;
+      session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+
+      expect(state.app.currentToast.value?.message).toBe(
+        "You rejoined the session"
+      );
+    });
+
+    it("stays silent on recovery when the drop itself was never announced", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session } = await joinAsHostedSession(
+        state,
+        "session-resume-silent"
+      );
+
+      // Drop detected inside the resume window — no toast is shown.
+      document.dispatchEvent(new Event("visibilitychange"));
+      session.isSynced.value = false;
+      session.connectedUsers.value = [];
+      expect(state.app.currentToast.value).toBeNull();
+
+      // The window closes and the connection recovers. Nothing was ever
+      // announced, so there is nothing to take back.
+      vi.advanceTimersByTime(5000);
+      session.isSynced.value = true;
+      session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+
+      expect(state.app.currentToast.value).toBeNull();
+    });
+
+    it("still shows a host-disconnected toast if the host is still gone after our reconnect presence settles", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session, originalDispose } = await joinAsHostedSession(
+        state,
+        "session-rejoin-host-still-gone"
+      );
+
+      session.isSynced.value = false;
+      session.connectedUsers.value = [];
+      session.isSynced.value = true;
+      session.connectedUsers.value = [selfConnectedUser];
+
+      expect(state.app.currentToast.value?.message).toBe(
+        "You rejoined the session"
+      );
+
+      vi.advanceTimersByTime(2000);
+
+      expect(state.app.currentToast.value?.message).toBe(
+        "The host disconnected from the session"
+      );
+      expect(originalDispose).not.toHaveBeenCalled();
     });
   });
 
@@ -865,6 +1181,38 @@ describe("createSeedBibleState", () => {
     expect(state.panes.selectedPaneId.value).toBe(pane.id);
     expect(state.tabs.selectedTabId.value).toBe(previousSelectedTabId);
     expect(state.selector.isOpen.value).toBe(false);
+  });
+
+  it("selecting a side pane on desktop leaves the Settings sidebar open, so the Customization Center's list stays visible behind its editor pane", async () => {
+    const state = await createState();
+    state.sidebar.openSettings();
+    const pane = state.panes.openPane({
+      placement: "side",
+      title: "Test Pane",
+      component: () => null,
+    });
+
+    state.app.selectPane(pane.id);
+
+    expect(state.sidebar.isSettingsOpen.value).toBe(true);
+  });
+
+  it("selecting a pane on mobile closes the sidebar drawer, since every pane renders fullscreen there", async () => {
+    const state = await createState();
+    (state.app.viewportWidth as unknown as { value: number }).value =
+      MOBILE_BREAKPOINT;
+    state.sidebar.openSidebar();
+    state.sidebar.openSettings();
+    const pane = state.panes.openPane({
+      placement: "side",
+      title: "Test Pane",
+      component: () => null,
+    });
+
+    state.app.selectPane(pane.id);
+
+    expect(state.sidebar.isMobileOpen.value).toBe(false);
+    expect(state.sidebar.isSettingsOpen.value).toBe(false);
   });
 
   it("closes a fullscreen pane when navigating to a new chapter", async () => {
@@ -1048,13 +1396,27 @@ describe("createSeedBibleState", () => {
   });
 
   describe("reading history autosave", () => {
+    let visibilityState: DocumentVisibilityState = "visible";
+
     beforeEach(() => {
       vi.useFakeTimers();
+      visibilityState = "visible";
+      // jsdom's own `visibilityState` is read-only, so stand in for it.
+      Object.defineProperty(document, "visibilityState", {
+        configurable: true,
+        get: () => visibilityState,
+      });
     });
 
     afterEach(() => {
       vi.useRealTimers();
+      Reflect.deleteProperty(document, "visibilityState");
     });
+
+    function setVisibility(next: DocumentVisibilityState) {
+      visibilityState = next;
+      document.dispatchEvent(new Event("visibilitychange"));
+    }
 
     function setSelectedTabChapter(
       state: SeedBibleState,
@@ -1082,18 +1444,18 @@ describe("createSeedBibleState", () => {
     it("does not save history when no tab is selected", async () => {
       const state = await createState();
       setSelectedTabChapter(state, "genesis", 1);
-      mockSaveReadingHistory.mockClear();
+      mockSaveReadingSpan.mockClear();
 
       state.tabs.selectedTabId.value = "missing-tab";
 
       vi.advanceTimersByTime(6000);
-      expect(mockSaveReadingHistory).not.toHaveBeenCalled();
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
     });
 
     it("does not save history when chapter data is not available", async () => {
       const state = await createState();
       setSelectedTabChapter(state, "genesis", 1);
-      mockSaveReadingHistory.mockClear();
+      mockSaveReadingSpan.mockClear();
 
       const selected =
         state.tabs.tabs.value.find(
@@ -1103,33 +1465,60 @@ describe("createSeedBibleState", () => {
       selected!.readingState.chapterData.value = null;
 
       vi.advanceTimersByTime(6000);
-      expect(mockSaveReadingHistory).not.toHaveBeenCalled();
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
     });
 
     it("saves first history event after 5 seconds of viewing", async () => {
       const state = await createState();
       setSelectedTabChapter(state, "genesis", 1);
-      mockSaveReadingHistory.mockClear();
+      mockSaveReadingSpan.mockClear();
 
       vi.advanceTimersByTime(4999);
-      expect(mockSaveReadingHistory).not.toHaveBeenCalled();
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
 
       vi.advanceTimersByTime(1);
-      expect(mockSaveReadingHistory).toHaveBeenCalledTimes(1);
-      expect(mockSaveReadingHistory).toHaveBeenLastCalledWith("genesis", 1);
+      expect(mockSaveReadingSpan).toHaveBeenCalledTimes(1);
+      expect(mockSaveReadingSpan).toHaveBeenLastCalledWith(
+        ...anySpanFor("genesis", 1)
+      );
+
+      // The span covers the five seconds that just elapsed, rather than
+      // marking a single instant or reaching back further than it watched.
+      const [, , from, to] = mockSaveReadingSpan.mock.calls[0]!;
+      expect(to - from).toBe(5);
     });
 
     it("saves history once for each additional 5 seconds of viewing", async () => {
       const state = await createState();
       setSelectedTabChapter(state, "genesis", 1);
-      mockSaveReadingHistory.mockClear();
+      mockSaveReadingSpan.mockClear();
 
       vi.advanceTimersByTime(15000);
 
-      expect(mockSaveReadingHistory).toHaveBeenCalledTimes(3);
-      expect(mockSaveReadingHistory).toHaveBeenNthCalledWith(1, "genesis", 1);
-      expect(mockSaveReadingHistory).toHaveBeenNthCalledWith(2, "genesis", 1);
-      expect(mockSaveReadingHistory).toHaveBeenNthCalledWith(3, "genesis", 1);
+      expect(mockSaveReadingSpan).toHaveBeenCalledTimes(3);
+      expect(mockSaveReadingSpan).toHaveBeenNthCalledWith(
+        1,
+        ...anySpanFor("genesis", 1)
+      );
+      expect(mockSaveReadingSpan).toHaveBeenNthCalledWith(
+        2,
+        ...anySpanFor("genesis", 1)
+      );
+      expect(mockSaveReadingSpan).toHaveBeenNthCalledWith(
+        3,
+        ...anySpanFor("genesis", 1)
+      );
+
+      // Each tick credits its own five seconds and they run end to end, so a
+      // sitting is neither double-counted nor left with holes in it.
+      const spans = mockSaveReadingSpan.mock.calls.map(
+        ([, , from, to]) => [from, to] as [number, number]
+      );
+      for (const [from, to] of spans) {
+        expect(to - from).toBe(5);
+      }
+      expect(spans[1]![0]).toBe(spans[0]![1]);
+      expect(spans[2]![0]).toBe(spans[1]![1]);
     });
 
     it("resets autosave interval when selected tab changes", async () => {
@@ -1140,34 +1529,159 @@ describe("createSeedBibleState", () => {
 
       state.tabs.selectedTabId.value = "tab-2";
       setSelectedTabChapter(state, "exodus", 2);
-      mockSaveReadingHistory.mockClear();
+      mockSaveReadingSpan.mockClear();
 
       vi.advanceTimersByTime(3000);
       state.tabs.selectedTabId.value = "tab-1";
       setSelectedTabChapter(state, "genesis", 1);
 
       vi.advanceTimersByTime(2000);
-      expect(mockSaveReadingHistory).not.toHaveBeenCalled();
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
 
       vi.advanceTimersByTime(3000);
-      expect(mockSaveReadingHistory).toHaveBeenCalledTimes(1);
-      expect(mockSaveReadingHistory).toHaveBeenLastCalledWith("genesis", 1);
+      expect(mockSaveReadingSpan).toHaveBeenCalledTimes(1);
+      expect(mockSaveReadingSpan).toHaveBeenLastCalledWith(
+        ...anySpanFor("genesis", 1)
+      );
     });
 
     it("resets autosave interval when chapter data changes", async () => {
       const state = await createState();
       setSelectedTabChapter(state, "genesis", 1);
-      mockSaveReadingHistory.mockClear();
+      mockSaveReadingSpan.mockClear();
 
       vi.advanceTimersByTime(3000);
       setSelectedTabChapter(state, "genesis", 2);
 
       vi.advanceTimersByTime(2000);
-      expect(mockSaveReadingHistory).not.toHaveBeenCalled();
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
 
       vi.advanceTimersByTime(3000);
-      expect(mockSaveReadingHistory).toHaveBeenCalledTimes(1);
-      expect(mockSaveReadingHistory).toHaveBeenLastCalledWith("genesis", 2);
+      expect(mockSaveReadingSpan).toHaveBeenCalledTimes(1);
+      expect(mockSaveReadingSpan).toHaveBeenLastCalledWith(
+        ...anySpanFor("genesis", 2)
+      );
+    });
+
+    it("stops crediting reading time while the app is in the background", async () => {
+      const state = await createState();
+      setSelectedTabChapter(state, "genesis", 1);
+      vi.advanceTimersByTime(15000);
+
+      setVisibility("hidden");
+      mockSaveReadingSpan.mockClear();
+
+      vi.advanceTimersByTime(60000);
+
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
+    });
+
+    it("credits what came after a background gap, not the gap itself", async () => {
+      const state = await createState();
+      setSelectedTabChapter(state, "genesis", 1);
+      vi.advanceTimersByTime(15000);
+
+      // The phone is locked, sits in a pocket for twenty minutes, and comes
+      // back to the same chapter still on screen.
+      setVisibility("hidden");
+      vi.setSystemTime(Date.now() + 20 * 60 * 1000);
+      mockSaveReadingSpan.mockClear();
+      setVisibility("visible");
+      const resumedAtSeconds = Math.floor(Date.now() / 1000);
+
+      vi.advanceTimersByTime(15000);
+
+      expect(mockSaveReadingSpan).toHaveBeenCalled();
+      for (const [, , from, to] of mockSaveReadingSpan.mock.calls) {
+        expect(from).toBeGreaterThanOrEqual(resumedAtSeconds);
+        expect(to - from).toBeLessThanOrEqual(10);
+      }
+    });
+
+    it("gives a new visitor on Welcome no credit for the chapter loaded behind it", async () => {
+      // The real boot path: a bare URL auto-opens Today over Welcome, and the
+      // reader still loads its default chapter (Genesis 1) underneath.
+      jsdom.reconfigure({ url: "https://example.com?useFreeBibleAPI=true" });
+      mockSaveReadingSpan.mockClear();
+      const state = await createStateWithOptions({ todayOpen: "fromUrl" });
+      const readingState = state.tabs.tabs.value[0]!.readingState;
+      await waitForUnderFakeTimers(
+        () => readingState.chapterData.value !== null
+      );
+
+      expect(readingState.chapterData.value!.book.id).toBe("GEN");
+      expect(readingState.chapterData.value!.chapter.number).toBe(1);
+      expect(state.today.isOpen.value).toBe(true);
+      expect(state.today.readingHistory.value.status).toBe("empty");
+
+      vi.advanceTimersByTime(60000);
+
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
+    });
+
+    it("does not credit the chapter behind Today while Today covers it", async () => {
+      const state = await createStateWithOptions({ todayOpen: true });
+      expect(state.today.isOpen.value).toBe(true);
+      setSelectedTabChapter(state, "genesis", 1);
+      mockSaveReadingSpan.mockClear();
+
+      vi.advanceTimersByTime(60000);
+
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
+    });
+
+    it("starts crediting once Today closes, from the moment it closes", async () => {
+      const state = await createStateWithOptions({ todayOpen: true });
+      setSelectedTabChapter(state, "genesis", 1);
+      vi.advanceTimersByTime(20000);
+      mockSaveReadingSpan.mockClear();
+
+      state.today.close();
+      await Promise.resolve();
+      const closedAtSeconds = Math.floor(Date.now() / 1000);
+
+      vi.advanceTimersByTime(5000);
+
+      expect(mockSaveReadingSpan).toHaveBeenCalledTimes(1);
+      expect(mockSaveReadingSpan).toHaveBeenLastCalledWith(
+        ...anySpanFor("genesis", 1)
+      );
+      const [, , from, to] = mockSaveReadingSpan.mock.calls[0]!;
+      expect(from).toBeGreaterThanOrEqual(closedAtSeconds);
+      expect(to - from).toBe(5);
+    });
+
+    it("stops crediting when Today opens over the chapter being read", async () => {
+      const state = await createState();
+      setSelectedTabChapter(state, "genesis", 1);
+      vi.advanceTimersByTime(15000);
+      expect(mockSaveReadingSpan).toHaveBeenCalled();
+
+      state.today.open();
+      await Promise.resolve();
+      expect(state.today.isOpen.value).toBe(true);
+      mockSaveReadingSpan.mockClear();
+
+      vi.advanceTimersByTime(60000);
+
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
+    });
+
+    it("credits at most one tick when the app freezes without reporting itself hidden", async () => {
+      const state = await createState();
+      setSelectedTabChapter(state, "genesis", 1);
+      vi.advanceTimersByTime(15000);
+      mockSaveReadingSpan.mockClear();
+
+      // Not every platform fires `visibilitychange` before freezing a page, so
+      // the next tick can arrive with twenty minutes of sleep behind it.
+      vi.setSystemTime(Date.now() + 20 * 60 * 1000);
+      vi.advanceTimersByTime(5000);
+
+      expect(mockSaveReadingSpan).toHaveBeenCalled();
+      for (const [, , from, to] of mockSaveReadingSpan.mock.calls) {
+        expect(to - from).toBeLessThanOrEqual(10);
+      }
     });
   });
 
@@ -1180,6 +1694,8 @@ describe("createSeedBibleState", () => {
       (globalThis as any).posthog = {
         capture: mockPosthogCapture,
         onFeatureFlags: vi.fn(),
+        register_for_session: vi.fn(),
+        unregister_for_session: vi.fn(),
       };
     });
 
@@ -1619,6 +2135,350 @@ describe("createSeedBibleState", () => {
       expect(state.app.title.value).toBe(
         `${RTLE_CHAR}Genesis 1 - AAB | الكتاب المقدس للبذور`
       );
+    });
+
+    it("uses the active customization's name in place of the app name", async () => {
+      const state = await createState();
+      setSelectedTabChapter(state, "genesis", "Genesis", 7, "ESV");
+      expect(state.app.title.value).toBe("Genesis 7 - ESV | Seed Bible");
+
+      state.customizations.editingCustomization.value = {
+        id: "customization_test",
+        name: "Grandma's Bible",
+        variants: [
+          {
+            id: "variant_test",
+            name: "Default",
+            baseTheme: "light",
+            themes: {},
+            highlightColors: {},
+            createdAt: 0,
+            updatedAt: 0,
+          },
+        ],
+        defaultVariantId: "variant_test",
+        logoUrl: null,
+        createdAt: 0,
+        updatedAt: 0,
+        extensionSettings: {},
+        extensionSettingDefaults: {},
+        extensionSensitiveProxies: {},
+      };
+
+      expect(state.app.title.value).toBe("Genesis 7 - ESV | Grandma's Bible");
+
+      state.customizations.editingCustomization.value = null;
+
+      expect(state.app.title.value).toBe("Genesis 7 - ESV | Seed Bible");
+    });
+  });
+
+  describe("siteName tag", () => {
+    it("defaults to the app name", async () => {
+      const state = await createState();
+
+      expect(state.app.siteName.value).toBe("Seed Bible");
+    });
+
+    it("uses the active customization's name in place of the app name", async () => {
+      const state = await createState();
+
+      state.customizations.editingCustomization.value = {
+        id: "customization_test",
+        name: "Grandma's Bible",
+        variants: [
+          {
+            id: "variant_test",
+            name: "Default",
+            baseTheme: "light",
+            themes: {},
+            highlightColors: {},
+            createdAt: 0,
+            updatedAt: 0,
+          },
+        ],
+        defaultVariantId: "variant_test",
+        logoUrl: null,
+        createdAt: 0,
+        updatedAt: 0,
+        extensionSettings: {},
+        extensionSettingDefaults: {},
+        extensionSensitiveProxies: {},
+      };
+
+      expect(state.app.siteName.value).toBe("Grandma's Bible");
+    });
+  });
+
+  describe("customizationLogoUrl", () => {
+    it("is null with no active customization", async () => {
+      const state = await createState();
+
+      expect(state.app.customizationLogoUrl.value).toBeNull();
+    });
+
+    it("is null when the active customization has no uploaded logo", async () => {
+      const state = await createState();
+
+      state.customizations.editingCustomization.value = {
+        id: "customization_test",
+        name: "Grandma's Bible",
+        variants: [
+          {
+            id: "variant_test",
+            name: "Default",
+            baseTheme: "light",
+            themes: {},
+            highlightColors: {},
+            createdAt: 0,
+            updatedAt: 0,
+          },
+        ],
+        defaultVariantId: "variant_test",
+        logoUrl: null,
+        createdAt: 0,
+        updatedAt: 0,
+        extensionSettings: {},
+        extensionSettingDefaults: {},
+        extensionSensitiveProxies: {},
+      };
+
+      expect(state.app.customizationLogoUrl.value).toBeNull();
+    });
+
+    it("is the active customization's logo when one is uploaded", async () => {
+      const state = await createState();
+
+      state.customizations.editingCustomization.value = {
+        id: "customization_test",
+        name: "Grandma's Bible",
+        variants: [
+          {
+            id: "variant_test",
+            name: "Default",
+            baseTheme: "light",
+            themes: {},
+            highlightColors: {},
+            createdAt: 0,
+            updatedAt: 0,
+          },
+        ],
+        defaultVariantId: "variant_test",
+        logoUrl: "https://example.com/logo.png",
+        createdAt: 0,
+        updatedAt: 0,
+        extensionSettings: {},
+        extensionSettingDefaults: {},
+        extensionSensitiveProxies: {},
+      };
+
+      expect(state.app.customizationLogoUrl.value).toBe(
+        "https://example.com/logo.png"
+      );
+
+      state.customizations.editingCustomization.value = null;
+
+      expect(state.app.customizationLogoUrl.value).toBeNull();
+    });
+  });
+
+  describe("customization highlight-color overrides", () => {
+    it("layers the active customization variant's highlight overrides onto the rendered theme, leaving untouched ids alone", async () => {
+      const state = await createState();
+
+      state.customizations.editingCustomization.value = {
+        id: "customization_test",
+        name: "Grandma's Bible",
+        variants: [
+          {
+            id: "variant_test",
+            name: "Default",
+            baseTheme: "light",
+            themes: {},
+            highlightColors: { yellow: { color: "#123456" } },
+            createdAt: 0,
+            updatedAt: 0,
+          },
+        ],
+        defaultVariantId: "variant_test",
+        logoUrl: null,
+        createdAt: 0,
+        updatedAt: 0,
+        extensionSettings: {},
+        extensionSettingDefaults: {},
+        extensionSensitiveProxies: {},
+      };
+
+      expect(state.theme.themeCssVariables.value).toContain(
+        "--sb-highlight-yellow-color: #123456;"
+      );
+      // An id the customization's variant doesn't override still shows the
+      // base theme's own value — the merge is per-id, not a wholesale
+      // replace of every highlight color.
+      expect(state.theme.themeCssVariables.value).toContain(
+        "--sb-highlight-green-color: #a5d6a7;"
+      );
+
+      state.customizations.editingCustomization.value = null;
+
+      expect(state.theme.themeCssVariables.value).not.toContain(
+        "--sb-highlight-yellow-color: #123456;"
+      );
+    });
+  });
+
+  describe("about page", () => {
+    it("recognizes the /{lang}/about URL and branches every meta signal", async () => {
+      jsdom.reconfigure({
+        url: "https://example.com/en/about?useFreeBibleAPI=true",
+      });
+      const state = await createState();
+
+      expect(state.app.isAboutPage.value).toBe(true);
+      expect(state.app.title.value).toBe("About Seed Bible | Seed Bible");
+      expect(state.app.description.value).toBe(
+        "Seed Bible is a free Bible app built for reading Scripture together with your family, friends, and community — free forever, no ads or paywalls."
+      );
+      expect(state.app.socialTitle.value).toBe("About Seed Bible");
+      expect(state.app.canonicalUrl.value).toBe("/en/about");
+    });
+
+    it("does not treat an ordinary reading URL as the About page", async () => {
+      const state = await createState();
+
+      expect(state.app.isAboutPage.value).toBe(false);
+      setSelectedTabChapter(state, "genesis", "Genesis", 1, "ESV");
+      expect(state.app.title.value).toBe("Genesis 1 - ESV | Seed Bible");
+    });
+
+    it("registers a real fullscreen pane while on /en/about", async () => {
+      jsdom.reconfigure({
+        url: "https://example.com/en/about?useFreeBibleAPI=true",
+      });
+      const state = await createState();
+
+      const pane = state.panes.panes.value.find(
+        (candidate) => candidate.id === ABOUT_PANE_ID
+      );
+      expect(pane).toBeDefined();
+      expect(pane?.placement).toBe("fullscreen");
+    });
+
+    // Regression: opening "/en/about" as a returning visitor. Everything the
+    // app restores just after mount — the saved tabs, their slot layout, the
+    // saved translation, Today's auto-open — has to leave the static page
+    // alone. Previously the stored tab won and Today opened on top of it.
+    it("stays on the About page for a returning visitor with saved tabs", async () => {
+      window.localStorage.clear();
+      window.localStorage.setItem(
+        "sb-tabs-state",
+        JSON.stringify({
+          version: 1,
+          tabs: [
+            {
+              id: "tab-1",
+              translationId: "AAB",
+              bookId: "GEN",
+              chapterNumber: 1,
+            },
+            {
+              id: "tab-2",
+              translationId: "NIV",
+              bookId: "MAT",
+              chapterNumber: 1,
+            },
+          ],
+          selectedTabId: "tab-2",
+          layout: "split-2v",
+          slotTabIds: ["tab-1", "tab-2"],
+          selectedSlotIndex: 1,
+        })
+      );
+      jsdom.reconfigure({
+        url: "https://example.com/en/about?useFreeBibleAPI=true",
+      });
+
+      // `todayOpen: "fromUrl"` because this is precisely about what the real
+      // app does with this URL; the helper otherwise pins `?today=closed`.
+      const state = await createTestSeedBibleState({ todayOpen: "fromUrl" });
+
+      // Let anything the restores queued run, rather than only asserting on
+      // the synchronous outcome. Zero-delay turns, not a fixed wait.
+      for (let i = 0; i < 5; i++) {
+        await new Promise((resolve) => setTimeout(resolve, 0));
+      }
+
+      expect(new URL(window.location.href).pathname).toBe("/en/about");
+      expect(state.app.isAboutPage.value).toBe(true);
+      expect(
+        state.panes.panes.value.some((pane) => pane.id === ABOUT_PANE_ID)
+      ).toBe(true);
+      expect(state.today.isOpen.value).toBe(false);
+
+      window.localStorage.clear();
+    });
+
+    it("selecting a different tab closes the About pane and leaves the page, per the same rule as any fullscreen pane", async () => {
+      window.localStorage.clear();
+      window.history.replaceState(null, "", "/en/about");
+      window.localStorage.setItem(
+        "sb-tabs-state",
+        JSON.stringify({
+          version: 1,
+          tabs: [
+            {
+              id: "tab-1",
+              translationId: "AAB",
+              bookId: "GEN",
+              chapterNumber: 1,
+            },
+            {
+              id: "tab-2",
+              translationId: "NIV",
+              bookId: "MAT",
+              chapterNumber: 1,
+            },
+          ],
+          selectedTabId: "tab-1",
+          layout: "split-2v",
+          slotTabIds: ["tab-1", "tab-2"],
+          selectedSlotIndex: 0,
+        })
+      );
+      const state = await createState();
+
+      expect(
+        state.panes.panes.value.some((pane) => pane.id === ABOUT_PANE_ID)
+      ).toBe(true);
+
+      state.app.selectTab("tab-2");
+
+      await waitFor(() => state.app.isAboutPage.value === false);
+      expect(
+        state.panes.panes.value.some((pane) => pane.id === ABOUT_PANE_ID)
+      ).toBe(false);
+      expect(new URL(window.location.href).pathname).toBe("/en/NIV/matthew/1");
+
+      window.localStorage.clear();
+    });
+
+    it("closing the About pane's own close button leaves the page for the selected tab", async () => {
+      jsdom.reconfigure({
+        url: "https://example.com/en/about?useFreeBibleAPI=true",
+      });
+      const state = await createState();
+
+      expect(
+        state.panes.panes.value.some((pane) => pane.id === ABOUT_PANE_ID)
+      ).toBe(true);
+
+      state.panes.closePane(ABOUT_PANE_ID, "user");
+
+      await waitFor(() => state.app.isAboutPage.value === false);
+      expect(
+        state.panes.panes.value.some((pane) => pane.id === ABOUT_PANE_ID)
+      ).toBe(false);
+      expect(new URL(window.location.href).pathname).toBe("/en/AAB/genesis/1");
     });
   });
 
@@ -2131,5 +2991,434 @@ describe("createSeedBibleState", () => {
         parts: ["Ver Génesis 1:1"],
       });
     });
+  });
+});
+
+/**
+ * Today is a fullscreen pane, and `PanesManager` gives fullscreen panes the
+ * whole reader area: opening one closes every other pane, while a *side* pane
+ * only replaces the existing side pane and leaves the rest alone. That second
+ * rule is what let Reading plans and Discover open underneath Today, where
+ * nothing could see them.
+ */
+describe("opening another screen while Today is up", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    jsdom.reconfigure({ url: "https://example.com" });
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  const paneIds = (state: SeedBibleState) =>
+    state.panes.panes.value.map((pane) => pane.id);
+
+  const openToday = async (state: SeedBibleState) => {
+    state.today.open();
+    await Promise.resolve();
+    expect(paneIds(state)).toContain(TODAY_PANE_ID);
+    expect(state.today.isOpen.value).toBe(true);
+  };
+
+  it("closes Today when a fullscreen pane opens over it", async () => {
+    // A generic pane rather than Profile: this is about Today stepping aside,
+    // and Profile carries its own `?profile=` URL binding whose imperative
+    // setter behaves differently under jsdom than at boot.
+    const state = await createState();
+    await openToday(state);
+
+    state.panes.openPane({
+      id: "test-fullscreen-pane",
+      placement: "fullscreen",
+      title: () => null,
+      component: () => null,
+    });
+    await Promise.resolve();
+
+    expect(paneIds(state)).toEqual(["test-fullscreen-pane"]);
+    expect(state.today.isOpen.value).toBe(false);
+  });
+
+  it("closes Today when a side pane opens, rather than hiding behind it", async () => {
+    const state = await createState();
+    await openToday(state);
+
+    state.panes.openPane({
+      id: "test-side-pane",
+      placement: "side",
+      title: () => null,
+      component: () => null,
+    });
+    await Promise.resolve();
+
+    expect(paneIds(state)).toEqual(["test-side-pane"]);
+    expect(state.today.isOpen.value).toBe(false);
+  });
+
+  it("keeps the Profile screen up when it is opened over Today", async () => {
+    const state = await createState();
+    await openToday(state);
+
+    state.openProfile();
+    await Promise.resolve();
+
+    expect(state.isProfileOpen.value).toBe(true);
+    expect(state.today.isOpen.value).toBe(false);
+    expect(paneIds(state)).toEqual([PROFILE_PANE_ID]);
+  });
+
+  it("opens playlist history as its own screen", async () => {
+    const state = await createState();
+
+    state.openPlaylistHistory();
+    await Promise.resolve();
+
+    expect(state.isPlaylistHistoryOpen.value).toBe(true);
+    expect(paneIds(state)).toEqual([PLAYLIST_HISTORY_PANE_ID]);
+  });
+
+  it("opens playlist history from a ?playlist-history=open link", async () => {
+    jsdom.reconfigure({
+      url: "https://example.com/?playlist-history=open",
+    });
+    const state = await createState();
+
+    expect(state.isPlaylistHistoryOpen.value).toBe(true);
+    expect(paneIds(state)).toEqual([PLAYLIST_HISTORY_PANE_ID]);
+  });
+
+  it("clears playlist history when its pane is closed", async () => {
+    const state = await createState();
+    state.openPlaylistHistory();
+    await Promise.resolve();
+
+    state.panes.closePane(PLAYLIST_HISTORY_PANE_ID);
+    await Promise.resolve();
+
+    expect(state.isPlaylistHistoryOpen.value).toBe(false);
+    expect(paneIds(state)).not.toContain(PLAYLIST_HISTORY_PANE_ID);
+  });
+
+  it("returns to Profile from the playlist history back button", async () => {
+    const state = await createState();
+    state.openProfile();
+    await Promise.resolve();
+    state.openPlaylistHistory();
+    await Promise.resolve();
+    expect(state.isProfileOpen.value).toBe(false);
+    expect(state.isPlaylistHistoryOpen.value).toBe(true);
+
+    const pane = state.panes.panes.value.find(
+      (item) => item.id === PLAYLIST_HISTORY_PANE_ID
+    );
+    const container = document.createElement("div");
+    document.body.appendChild(container);
+    try {
+      const Provider = await realI18nProvider();
+      act(() => {
+        render(
+          h(Provider, {
+            i18n: state.i18n,
+            children: pane?.leading?.() ?? null,
+          }),
+          container
+        );
+      });
+      const back = container.querySelector(
+        ".sb-profile-pane-back"
+      ) as HTMLButtonElement;
+      expect(back).not.toBeNull();
+      act(() => {
+        back.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      });
+    } finally {
+      render(null, container);
+      container.remove();
+    }
+
+    expect(state.isPlaylistHistoryOpen.value).toBe(false);
+    expect(state.isProfileOpen.value).toBe(true);
+    expect(paneIds(state)).toEqual([PROFILE_PANE_ID]);
+  });
+});
+
+const PLAYLIST_USER_ID = "user-1";
+
+/**
+ * This file stubs `I18nProvider` so it renders children with no context.
+ * Profile and the history back button call `useI18n`, so they need the real
+ * provider from the unmocked module.
+ */
+async function realI18nProvider() {
+  const actual = await vi.importActual<
+    typeof import("@packages/seed-bible/seed-bible/i18n/I18nManager")
+  >("@packages/seed-bible/seed-bible/i18n/I18nManager");
+  return actual.I18nProvider;
+}
+
+function profileHistoryEntry() {
+  return PlaylistPlayHistorySchema.parse({
+    id: "playlist_history_1",
+    recordName: PLAYLIST_USER_ID,
+    userId: PLAYLIST_USER_ID,
+    playlistId: "playlist-1",
+    playlistRecordName: PLAYLIST_USER_ID,
+    playlistTitle: "Morning",
+    playlistDescription: null,
+    previousHistoryId: null,
+    totalSteps: 1,
+    currentStep: 0,
+    lastItem: { type: "html", html: "<p>hi</p>" },
+    startedAtMs: 1,
+    endedAtMs: null,
+    durationMs: 0,
+    createdAtMs: 1,
+    updatedAtMs: 1,
+  });
+}
+
+function htmlPlaylist() {
+  return PlaylistSchema.parse({
+    id: "playlist-1",
+    recordName: PLAYLIST_USER_ID,
+    authorUserId: PLAYLIST_USER_ID,
+    title: "Morning",
+    description: null,
+    items: [{ type: "html", html: "<p>hi</p>" }],
+    createdAtMs: 1,
+    updatedAtMs: 1,
+  });
+}
+
+describe("continuing a playlist from Profile", () => {
+  let container: HTMLDivElement;
+  let active: SeedBibleState | null = null;
+
+  beforeEach(() => {
+    localStorage.clear();
+    jsdom.reconfigure({ url: "https://example.com" });
+    container = document.createElement("div");
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    if (active) {
+      active.os.sessionKey.value = null;
+      active = null;
+    }
+    render(null, container);
+    container.remove();
+    localStorage.removeItem("sessionKey");
+    vi.restoreAllMocks();
+  });
+
+  async function signedInProfile(state: SeedBibleState) {
+    vi.spyOn(state.os, "listAllDataByMarker").mockResolvedValue({
+      success: true,
+      items: [],
+    } as never);
+    vi.spyOn(state.os, "listDataByMarker").mockResolvedValue({
+      success: true,
+      items: [],
+    } as never);
+    vi.spyOn(state.os, "recordData").mockResolvedValue({
+      success: true,
+    } as never);
+    vi.spyOn(state.os, "eraseData").mockResolvedValue({
+      success: true,
+    } as never);
+    state.os.sessionKey.value = formatV1SessionKey(
+      PLAYLIST_USER_ID,
+      "session-1",
+      "secret-1",
+      Date.now() + 60 * 60 * 1000
+    );
+    await waitFor(() => state.login.userId.value === PLAYLIST_USER_ID);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    state.playlists.userPlaylistHistory.value = [profileHistoryEntry()];
+    state.openProfile();
+    await Promise.resolve();
+    const pane = state.panes.panes.value.find(
+      (item) => item.id === PROFILE_PANE_ID
+    );
+    const Provider = await realI18nProvider();
+    act(() => {
+      render(
+        h(Provider, {
+          i18n: state.i18n,
+          children: pane?.component() ?? null,
+        }),
+        container
+      );
+    });
+  }
+
+  function continueButton() {
+    return container.querySelector(
+      ".sb-profile-playlist-continue"
+    ) as HTMLButtonElement;
+  }
+
+  it("leaves Profile open and toasts when the playlist cannot be loaded", async () => {
+    const state = await createState();
+    active = state;
+    vi.spyOn(state.os, "getData").mockResolvedValue({
+      success: false,
+      errorCode: "not_found",
+      errorMessage: "not found",
+    });
+    await signedInProfile(state);
+
+    await act(async () => {
+      continueButton().dispatchEvent(
+        new MouseEvent("click", { bubbles: true })
+      );
+    });
+    await waitFor(
+      () =>
+        state.app.currentToast.value?.message ===
+        "Couldn't open that playlist. It may have been deleted."
+    );
+
+    expect(state.isProfileOpen.value).toBe(true);
+  });
+
+  it("closes Profile only after the playlist has loaded", async () => {
+    const state = await createState();
+    active = state;
+    let finishLoad: (() => void) | null = null;
+    vi.spyOn(state.os, "getData").mockImplementation(
+      async (_recordName: string, address: string) => {
+        if (address !== "playlist-1") {
+          return {
+            success: false,
+            errorCode: "data_not_found" as const,
+            errorMessage: "Data not found",
+          };
+        }
+        return new Promise((resolve) => {
+          finishLoad = () => {
+            resolve({
+              success: true,
+              data: htmlPlaylist(),
+            } as never);
+          };
+        });
+      }
+    );
+    await signedInProfile(state);
+
+    act(() => {
+      continueButton().dispatchEvent(
+        new MouseEvent("click", { bubbles: true })
+      );
+    });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(state.isProfileOpen.value).toBe(true);
+
+    await act(async () => {
+      finishLoad?.();
+    });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(state.isProfileOpen.value).toBe(false);
+  });
+});
+
+describe("translation suggestions", () => {
+  const partialOnly: Translation = {
+    id: "partial_only",
+    name: "Only Partial",
+    englishName: "Only Partial",
+    website: "https://example.com",
+    licenseUrl: "https://example.com/license",
+    shortName: "PART",
+    language: "zzz",
+    textDirection: "ltr",
+    availableFormats: ["json"],
+    listOfBooksApiLink: "/api/partial_only/books.json",
+    numberOfBooks: 1,
+    totalNumberOfChapters: 1,
+    totalNumberOfVerses: 1,
+  };
+
+  function toolNamed(state: SeedBibleState, name: string) {
+    const tool = state.chats.context.value.tools?.find(
+      (entry) => entry.name === name
+    );
+    if (!tool) {
+      throw new Error(`${name} was not registered`);
+    }
+    return tool;
+  }
+
+  it("searches the full catalog when a chapter load has only merged one translation", async () => {
+    const state = await createStateWithOptions({
+      responses: createLanguageSwitchResponses(),
+    });
+    state.bibleData.catalogLoaded.value = false;
+    state.bibleData.availableTranslations.value = [partialOnly];
+
+    const result = (await toolNamed(state, "searchTranslations").function({
+      query: "AAB",
+    })) as { translations: { id: string }[] };
+
+    expect(result.translations.map((hit) => hit.id)).toContain("AAB");
+    expect(result.translations.map((hit) => hit.id)).not.toContain(
+      "partial_only"
+    );
+  });
+
+  it("reports an error when no chat can show the banner", async () => {
+    const state = await createStateWithOptions({
+      responses: createLanguageSwitchResponses(),
+    });
+    const other = state.chats.createLocalSession();
+    state.chats.selectChat(other.id);
+
+    await expect(
+      toolNamed(state, "suggestTranslation").function(
+        { id: "AAB" },
+        { chatId: "missing-chat" }
+      )
+    ).resolves.toBe("error: No chat is open.");
+    expect(other.translationSuggestion.value).toBeNull();
+  });
+
+  it("shows the banner on the calling chat even when another chat is selected", async () => {
+    const state = await createStateWithOptions({
+      responses: createLanguageSwitchResponses(),
+    });
+    state.chats.registerProvider({
+      id: "ai-first",
+      name: "First",
+      supportsSharedChats: false,
+      generateResponse: async () => null,
+    });
+    state.chats.registerProvider({
+      id: "ai-second",
+      name: "Second",
+      supportsSharedChats: false,
+      generateResponse: async () => null,
+    });
+    const chatA = state.chats.createLocalSession();
+    const chatB = state.chats.createLocalSession();
+    chatA.addParticipant("ai-first");
+    chatA.addParticipant("ai-second");
+    state.chats.selectChat(chatB.id);
+
+    await toolNamed(state, "suggestTranslation").function(
+      { id: "AAB", unavailable: "NIV" },
+      { chatId: chatA.id, providerId: "ai-second" }
+    );
+
+    expect(chatA.translationSuggestion.value).toMatchObject({
+      id: "AAB",
+      shortName: "AAB",
+      unavailable: "NIV",
+    });
+    expect(chatA.messages.value).toEqual([]);
+    expect(chatB.translationSuggestion.value).toBeNull();
   });
 });

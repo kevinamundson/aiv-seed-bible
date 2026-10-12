@@ -127,6 +127,7 @@
   position: relative;
   width: 3.3125rem;
   height: 3.3125rem;
+  flex-shrink: 0;
   border-radius: 0.625rem;
   background: var(--sb-tab-background);
   color: var(--sb-tab-font-color);
@@ -208,6 +209,15 @@
   background: var(--sb-selected-tab-background);
   color: var(--sb-selected-tab-font-color);
   border: var(--sb-selected-tab-border);
+}
+
+.sb-collapsed-tab-audio-icon {
+  font-size: 0.875rem;
+  color: var(--sb-primary-color);
+}
+
+.sb-collapsed-tab-tile-selected .sb-collapsed-tab-audio-icon {
+  color: currentColor;
 }
 
 .sb-collapsed-tab-title {

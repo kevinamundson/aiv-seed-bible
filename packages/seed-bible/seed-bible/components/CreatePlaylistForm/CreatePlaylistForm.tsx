@@ -1,9 +1,16 @@
 import "./CreatePlaylistForm.css";
-import { useRef, useState } from "preact/hooks";
+import "../ProfilePictureModal/ProfilePictureModal.css";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { useI18n } from "../../i18n/I18nManager";
 import type { TabsManager } from "../../managers/TabsManager";
 import type { PlaylistManager } from "../../managers/PlaylistManager";
 import type { ModalManager } from "../../managers/ModalManager";
+import type { CasualOSManager } from "../../managers/OsManager";
+import type { LoginManager } from "../../managers/LoginManager";
+import {
+  uploadPhotoToGallery,
+  type UserGalleryManager,
+} from "../../managers/UserGalleryManager";
 import { MaterialIcon } from "../icons";
 import {
   DiscoverSection,
@@ -16,14 +23,26 @@ import {
 import { playlistItemLabel } from "../playlistItemLabel";
 import { playlistItemIcon } from "../playlistItemIcon";
 import { useDragReorder } from "../useDragReorder";
+import { HeroImageField } from "../HeroImageField/HeroImageField";
+import {
+  PlaylistItemInlinePreview,
+  type ScriptureChapterLoader,
+} from "../PlaylistItemInlinePreview/PlaylistItemInlinePreview";
+import type { BibleDataManager } from "../../managers/BibleDataManager";
 
 interface CreatePlaylistFormProps {
   playlists: PlaylistManager;
   tabs: TabsManager;
   modals: ModalManager;
+  /** Loads chapter text for the inline scripture previews. */
+  bibleData?: Pick<BibleDataManager, "getTranslationBookChapter">;
+  os?: Pick<CasualOSManager, "recordFile" | "recordData">;
+  login?: Pick<LoginManager, "userId">;
+  gallery?: Pick<UserGalleryManager, "photos" | "savePhoto" | "rememberPhoto">;
 }
 
 const UNSAVED_ITEM_CONFIRM_MODAL_ID = "playlist-unsaved-item-confirm";
+const UNSAVED_CHANGES_CONFIRM_MODAL_ID = "playlist-unsaved-changes-confirm";
 
 /**
  * Confirmation body shown when Save is clicked while the "Add item" section
@@ -100,18 +119,109 @@ function openUnsavedItemConfirm(
   });
 }
 
+function UnsavedChangesConfirmModalContent(props: {
+  onConfirm: () => void;
+  onGoBack: () => void;
+  onSaveAndExit: () => void;
+}) {
+  const { onConfirm, onGoBack, onSaveAndExit } = props;
+  const { t } = useI18n();
+
+  return (
+    <div className="sb-confirm-delete">
+      <p className="sb-confirm-delete-message">
+        {t("unsaved-changes-message", {
+          defaultValue: "You have unsaved changes. What would you like to do?",
+        })}
+      </p>
+      <div className="sb-confirm-delete-actions sb-unsaved-changes-actions">
+        <button
+          type="button"
+          className="sb-photo-modal-button"
+          onClick={onConfirm}
+        >
+          {t("confirm", { defaultValue: "Confirm" })}
+        </button>
+        <button
+          type="button"
+          className="sb-photo-modal-button"
+          onClick={onGoBack}
+        >
+          {t("go-back", { defaultValue: "Go back" })}
+        </button>
+        <button
+          type="button"
+          className="sb-photo-modal-button sb-photo-modal-button-primary"
+          onClick={onSaveAndExit}
+        >
+          {t("save-and-exit", { defaultValue: "Save & exit" })}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Leaves the playlist editor. If the name, description, cover, items, or an
+ * in-progress add-item draft changed, asks first instead of discarding.
+ */
+export function requestCancelPlaylistEditor(
+  playlists: PlaylistManager,
+  modals: ModalManager,
+  extraDirty = false
+): void {
+  if (!playlists.isEditingPlaylistDirty() && !extraDirty) {
+    playlists.cancelEditingPlaylist();
+    return;
+  }
+  modals.openModal({
+    id: UNSAVED_CHANGES_CONFIRM_MODAL_ID,
+    title: {
+      key: "unsaved-changes",
+      defaultValue: "Unsaved changes",
+    },
+    content: () => (
+      <UnsavedChangesConfirmModalContent
+        onConfirm={() => {
+          modals.closeModal(UNSAVED_CHANGES_CONFIRM_MODAL_ID);
+          playlists.cancelEditingPlaylist();
+        }}
+        onGoBack={() => modals.closeModal(UNSAVED_CHANGES_CONFIRM_MODAL_ID)}
+        onSaveAndExit={() => {
+          modals.closeModal(UNSAVED_CHANGES_CONFIRM_MODAL_ID);
+          void playlists.saveEditingPlaylist();
+        }}
+      />
+    ),
+  });
+}
+
 /** Create-playlist screen shown inside the discover pane. */
 export function CreatePlaylistForm(props: CreatePlaylistFormProps) {
-  const { playlists, tabs, modals } = props;
+  const { playlists, tabs, modals, bibleData, os, login, gallery } = props;
   const { t } = useI18n();
   const [saving, setSaving] = useState(false);
   // Index of the item currently open for editing in the input section below, or
   // null when the section is adding a new item.
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const inputRef = useRef<PlaylistItemInputHandle>(null);
+  // Index of the item whose preview is expanded beneath it, if any. Only one
+  // is open at a time.
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   // The playlist being edited is owned by the manager; edits update the signal.
   const editing = playlists.editingPlaylist.value;
+
+  useEffect(() => {
+    const url = editing?.heroImageUrl;
+    if (!url || !gallery) {
+      return;
+    }
+    if (gallery.photos.peek().some((photo) => photo.url === url)) {
+      return;
+    }
+    void gallery.rememberPhoto?.(url);
+  }, [editing?.heroImageUrl, gallery]);
 
   // The item currently open for editing, resolved from the selected index. Null
   // when adding a new item or when the index no longer points at an item.
@@ -128,10 +238,27 @@ export function CreatePlaylistForm(props: CreatePlaylistFormProps) {
     return book?.name ?? book?.commonName ?? bookId;
   };
 
+  // Scripture without a pinned translation previews in the one being read.
+  const loadChapter: ScriptureChapterLoader | undefined = bibleData
+    ? async (translationId, bookId, chapter) => {
+        const translation =
+          translationId ?? selectedTab?.readingState.translationId.peek();
+        if (!translation) {
+          throw new Error("No translation to preview scripture in.");
+        }
+        return bibleData.getTranslationBookChapter(
+          translation,
+          bookId,
+          chapter
+        );
+      }
+    : undefined;
+
   const { getRowClassName, getHandleProps } = useDragReorder({
     itemCount: editing?.items.length ?? 0,
     onReorder: (from, to) => {
       playlists.reorderEditingPlaylistItem(from, to);
+      setExpandedIndex(null);
       // Keep the edit target pointed at the same logical item, mirroring the
       // arithmetic `reorderQueue` already applies to `currentIndex`.
       setEditingIndex((current) => {
@@ -182,6 +309,32 @@ export function CreatePlaylistForm(props: CreatePlaylistFormProps) {
 
   return (
     <div className="sb-discover-pane">
+      <DiscoverSection title={t("hero-image", { defaultValue: "Cover image" })}>
+        <HeroImageField
+          imageUrl={editing?.heroImageUrl}
+          modals={modals}
+          gallery={gallery}
+          photos={gallery?.photos}
+          onUpload={async (file) => {
+            const url = await uploadPhotoToGallery(file, {
+              gallery,
+              os,
+              userId: login?.userId.value,
+              fallbackUpload: playlists.uploadHeroImage,
+            });
+            playlists.updateEditingPlaylistMetadata({ heroImageUrl: url });
+            return url;
+          }}
+          onSelectPhoto={(url) => {
+            playlists.updateEditingPlaylistMetadata({ heroImageUrl: url });
+            void gallery?.rememberPhoto(url);
+          }}
+          onRemove={() =>
+            playlists.updateEditingPlaylistMetadata({ heroImageUrl: null })
+          }
+        />
+      </DiscoverSection>
+
       <DiscoverSection
         title={t("description", { defaultValue: "Description" })}
       >
@@ -214,7 +367,7 @@ export function CreatePlaylistForm(props: CreatePlaylistFormProps) {
               <li
                 key={index}
                 className={
-                  "sb-discover-item sb-discover-item--row" +
+                  "sb-discover-item sb-discover-item--row sb-playlist-editor-item" +
                   (index === editingIndex ? " sb-discover-item--editing" : "") +
                   getRowClassName(index)
                 }
@@ -236,7 +389,13 @@ export function CreatePlaylistForm(props: CreatePlaylistFormProps) {
                     defaultValue: "Edit item",
                   })}
                   aria-current={index === editingIndex}
-                  onClick={() => setEditingIndex(index)}
+                  aria-expanded={index === expandedIndex}
+                  onClick={() => {
+                    setEditingIndex(index);
+                    setExpandedIndex((current) =>
+                      current === index ? null : index
+                    );
+                  }}
                 >
                   <MaterialIcon className="sb-discover-item-icon">
                     {playlistItemIcon(item)}
@@ -253,6 +412,7 @@ export function CreatePlaylistForm(props: CreatePlaylistFormProps) {
                   })}
                   onClick={() => {
                     playlists.removeEditingPlaylistItem(index);
+                    setExpandedIndex(null);
                     // Keep the edit target pointed at the same item, or drop out
                     // of editing when the edited item itself was removed.
                     setEditingIndex((current) => {
@@ -264,6 +424,12 @@ export function CreatePlaylistForm(props: CreatePlaylistFormProps) {
                 >
                   <MaterialIcon>delete</MaterialIcon>
                 </button>
+                {index === expandedIndex ? (
+                  <PlaylistItemInlinePreview
+                    item={item}
+                    loadChapter={loadChapter}
+                  />
+                ) : null}
               </li>
             ))}
           </ul>
@@ -296,7 +462,13 @@ export function CreatePlaylistForm(props: CreatePlaylistFormProps) {
         <button
           type="button"
           className="sb-reading-plans-back"
-          onClick={() => playlists.cancelEditingPlaylist()}
+          onClick={() =>
+            requestCancelPlaylistEditor(
+              playlists,
+              modals,
+              inputRef.current?.isDirty() ?? false
+            )
+          }
         >
           {t("cancel", { defaultValue: "Cancel" })}
         </button>
