@@ -1264,7 +1264,7 @@ describe("BibleReaderToolbar — verse tool actions", () => {
     document.body.appendChild(container);
 
     state = await createTestSeedBibleState({
-      responses: createPrivateEndpointResponses(),
+      responses: createFreeEndpointResponses(),
     });
 
     await act(async () => {
@@ -4609,7 +4609,7 @@ describe("BibleReaderToolbar chapter navigation links", () => {
 
   it("renders the chapter controls as real links", async () => {
     const state = await createTestSeedBibleState({
-      responses: createPrivateEndpointResponses(),
+      responses: createFreeEndpointResponses(),
     });
 
     await act(async () => {
@@ -4661,11 +4661,11 @@ describe("BibleReaderToolbar chapter navigation links", () => {
     // the data manager — and so the catalog cache — is built per state, so
     // nothing it fetched can warm the one under test.
     await createTestSeedBibleState({
-      responses: createPrivateEndpointResponses(),
+      responses: createFreeEndpointResponses(),
     });
 
-    const responses = createPrivateEndpointResponses();
-    const booksUrl = makeUrl("/api/AAB/books.json", PRIVATE_API_ENDPOINT);
+    const responses = createFreeEndpointResponses();
+    const booksUrl = makeUrl("/api/AAB/books.json", FREE_API_ENDPOINT);
     const previousFetch = globalThis.fetch;
 
     let state: SeedBibleState | null = null;
@@ -4774,7 +4774,7 @@ describe("BibleReaderToolbar — compact embed", () => {
   }) {
     window.innerWidth = options.width;
     const state = await createTestSeedBibleState({
-      responses: createPrivateEndpointResponses(),
+      responses: createFreeEndpointResponses(),
       embed: options.embed,
     });
 

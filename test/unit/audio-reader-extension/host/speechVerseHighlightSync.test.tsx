@@ -18,7 +18,8 @@ import {
   type FakeSpeechSynthesis,
 } from "../../seed-bible/testUtils/fakeSpeechSynthesis";
 
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+// AIV fork: the app defaults to the public Free Use Bible API, so mocks key on it.
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 
 /**
  * `makeChapter` already produces a chapter with no audio links — the very case

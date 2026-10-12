@@ -17,7 +17,8 @@ import {
   translations,
 } from "../../seed-bible/managers/testUtils/mockBibleApiData";
 
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+// AIV fork: the app defaults to the public Free Use Bible API, so mocks key on it.
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 const CHAPTER_1_AUDIO_URL = "https://audio.example/GEN/1.mp3";
 const CHAPTER_2_AUDIO_URL = "https://audio.example/GEN/2.mp3";
 const TIMINGS_LINK = "/api/AAB/GEN/1.gilbert.audioTimings.json";

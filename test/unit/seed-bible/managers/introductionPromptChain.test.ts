@@ -21,7 +21,8 @@ import {
  * install offer does not resolve.
  */
 
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+// AIV fork: the app defaults to the public Free Use Bible API, so mocks key on it.
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 const TUTORIAL_SEEN_KEY = "sb-tutorial-seen";
 const INSTALL_DISMISSED_KEY = "sb-install-dismissed";
 const PROMPT_SHOWN_KEY = "sb-offline-prompt-shown";

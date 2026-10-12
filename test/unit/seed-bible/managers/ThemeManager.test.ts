@@ -419,7 +419,8 @@ describe("ThemeManager storage (via SettingsManager)", () => {
     const tag = document.querySelector(
       'meta[name="theme-color"]'
     ) as HTMLMetaElement | null;
-    expect(tag?.content).toBe("#f8fafc");
+    // AIV fork: the Light preset uses the AIV parchment background.
+    expect(tag?.content).toBe("#F3EEE6");
 
     theme.setTheme("dark");
 

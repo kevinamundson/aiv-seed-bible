@@ -21,7 +21,8 @@ import {
 
 const MOBILE_VIEWPORT_WIDTH = 400;
 const DESKTOP_VIEWPORT_WIDTH = 1280;
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+// AIV fork: the app defaults to the public Free Use Bible API, so mocks key on it.
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 
 function createResponses() {
   return {

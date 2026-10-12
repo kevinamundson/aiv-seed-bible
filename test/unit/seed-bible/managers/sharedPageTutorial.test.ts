@@ -23,7 +23,8 @@ import { act } from "preact/test-utils";
 import type { CreateTestSeedBibleStateOptions } from "../testUtils/createTestSeedBibleState";
 
 /** The app defaults to the private API endpoint, so responses key on it. */
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+// AIV fork: the app defaults to the public Free Use Bible API, so mocks key on it.
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 
 function responses() {
   return {

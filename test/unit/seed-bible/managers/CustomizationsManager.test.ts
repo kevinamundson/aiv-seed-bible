@@ -492,13 +492,20 @@ describe("CustomizationsManager", () => {
     // here (rather than that every pair passes) proves the detection
     // itself works correctly against real theme data, without coupling
     // this suite to a design decision outside this feature's scope.
+    // AIV fork: the AIV Light preset (white on #840000) clears AA, so prove
+    // detection against upstream's original pair (white on the branded orange)
+    // and check that the AIV pair passes.
     const { theme } = createManager();
     const light = theme.themes.value.find((t) => t.id === "light")!;
-    const ratio = getContrastRatio(
-      light.variables.primaryFontColor,
-      light.variables.primaryColor
+    expect(getContrastRatio("#fff", "#e07b4c")).toBeLessThan(
+      MIN_READABLE_CONTRAST_RATIO
     );
-    expect(ratio).toBeLessThan(MIN_READABLE_CONTRAST_RATIO);
+    expect(
+      getContrastRatio(
+        light.variables.primaryFontColor,
+        light.variables.primaryColor
+      )
+    ).toBeGreaterThanOrEqual(MIN_READABLE_CONTRAST_RATIO);
   });
 
   it("buildBibleThemeFromCustomizationTheme() returns the base preset unchanged when the variant has no overrides", async () => {

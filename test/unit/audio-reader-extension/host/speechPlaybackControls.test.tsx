@@ -19,7 +19,8 @@ import {
   translations,
 } from "../../seed-bible/managers/testUtils/mockBibleApiData";
 
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+// AIV fork: the app defaults to the public Free Use Bible API, so mocks key on it.
+const PRIVATE_API_ENDPOINT = "https://bible.helloao.org";
 
 /**
  * Five short verses and no recording, so Listen reads it aloud. Verse 3 starts
