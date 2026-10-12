@@ -7,6 +7,7 @@ import type {
   ChatMessage,
   ChatSession,
   ParsedChatTextMessage,
+  TranslationSuggestion,
   UserChatParticipant,
 } from "@packages/seed-bible/seed-bible/managers/ChatsManager";
 import type { SeedBibleState } from "@packages/seed-bible/seed-bible/managers/SeedBibleStateManager";
@@ -78,6 +79,8 @@ function createMockChatSession(
     wasMentioned: signal(false),
     markAsRead: vi.fn(),
     sendMessage: vi.fn().mockResolvedValue(undefined),
+    appendMessage: vi.fn(),
+    translationSuggestion: signal<TranslationSuggestion | null>(null),
     setTypingStatus: vi.fn(),
     participants: signal([]),
     totalParticipants: signal([]),
@@ -88,15 +91,19 @@ function createMockChatSession(
     removeParticipant: vi.fn(),
     getMessageAuthors: vi.fn().mockReturnValue([]),
     context: signal({}),
+    unsentDraft: signal(""),
     ...overrides,
   };
 }
 
-function createMockState(): SeedBibleState {
+function createMockState(options: { isMobile?: boolean } = {}): SeedBibleState {
   return {
     app: {
       openVerseReference: vi.fn().mockResolvedValue(undefined),
-      isMobile: signal(false),
+      isMobile: signal(options.isMobile ?? false),
+    },
+    chats: {
+      composerDraft: signal(""),
     },
   } as unknown as SeedBibleState;
 }
@@ -108,6 +115,30 @@ function typeIntoInput(input: HTMLTextAreaElement, text: string) {
     input.selectionEnd = text.length;
     input.dispatchEvent(new InputEvent("input", { bubbles: true }));
   });
+}
+
+function mockTextareaScrollHeightByLineCount(lineHeightPx = 21) {
+  const descriptor = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    "scrollHeight"
+  );
+  Object.defineProperty(HTMLElement.prototype, "scrollHeight", {
+    configurable: true,
+    get() {
+      if (this instanceof HTMLTextAreaElement) {
+        const lines = Math.max(1, this.value.split("\n").length);
+        return lines * lineHeightPx;
+      }
+      return descriptor?.get?.call(this) ?? 0;
+    },
+  });
+  return () => {
+    if (descriptor) {
+      Object.defineProperty(HTMLElement.prototype, "scrollHeight", descriptor);
+    } else {
+      delete (HTMLElement.prototype as { scrollHeight?: number }).scrollHeight;
+    }
+  };
 }
 
 function pressKey(
@@ -481,12 +512,7 @@ describe("ChatView", () => {
 
   it("shows a mobile type-hint caret whenever the empty input is blurred", () => {
     const chat = createMockChatSession();
-    const state = {
-      app: {
-        openVerseReference: vi.fn().mockResolvedValue(undefined),
-        isMobile: signal(true),
-      },
-    } as unknown as SeedBibleState;
+    const state = createMockState({ isMobile: true });
 
     act(() => {
       render(<ChatView chat={chat} state={state} />, container);
@@ -550,6 +576,9 @@ describe("ChatView", () => {
       app: {
         openVerseReference: vi.fn().mockResolvedValue(undefined),
         isMobile: signal(true),
+      },
+      chats: {
+        composerDraft: signal(""),
       },
     } as unknown as SeedBibleState;
 
@@ -831,6 +860,9 @@ describe("ChatView", () => {
       sidebar: {
         closeChatPanel,
       },
+      chats: {
+        composerDraft: signal(""),
+      },
     } as unknown as SeedBibleState;
 
     act(() => {
@@ -872,6 +904,9 @@ describe("ChatView", () => {
       },
       sidebar: {
         closeChatPanel,
+      },
+      chats: {
+        composerDraft: signal(""),
       },
     } as unknown as SeedBibleState;
 
@@ -984,6 +1019,9 @@ describe("ChatView", () => {
         openVerseReference: vi.fn().mockResolvedValue(undefined),
         isMobile: signal(true),
       },
+      chats: {
+        composerDraft: signal(""),
+      },
     } as unknown as SeedBibleState;
 
     act(() => {
@@ -1002,6 +1040,18 @@ describe("ChatView", () => {
 
     expect(sendMessage).not.toHaveBeenCalled();
     expect(input.value).toBe("Hello");
+  });
+
+  it("marks the send icon so right-to-left layouts mirror it", () => {
+    const chat = createMockChatSession();
+    const state = createMockState();
+
+    act(() => {
+      render(<ChatView chat={chat} state={state} />, container);
+    });
+
+    const icon = container.querySelector(".sb-chat-view-send .rtl-mirror");
+    expect(icon?.textContent?.trim()).toBe("send");
   });
 
   it("does not call sendMessage when the draft is empty", async () => {
@@ -1571,5 +1621,655 @@ describe("ChatView", () => {
 
     expect(container.querySelector(".sb-chat-view-empty")).toBeNull();
     expect(container.querySelector(".sb-chat-view-event")).not.toBeNull();
+  });
+
+  it("prefills the compose field from composerDraft, places the caret at the end, and consumes the signal", async () => {
+    const prefill = "For God so loved the world. (John 3:16 NIV)\n\n";
+    const composerDraft = signal(prefill);
+    const chat = createMockChatSession();
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+      },
+      chats: { composerDraft },
+    } as unknown as SeedBibleState;
+
+    await act(async () => {
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const input = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    expect(input.value).toBe(prefill);
+    expect(composerDraft.value).toBe("");
+    expect(input.selectionStart).toBe(prefill.length);
+    expect(input.selectionEnd).toBe(prefill.length);
+    expect(document.activeElement).toBe(input);
+  });
+
+  it("grows the compose field to fit a prefilled verse instead of staying one line tall", async () => {
+    const prefill =
+      "In the beginning God created the heavens and the earth. (Genesis 1:1 NIV)\n\nNow the earth was formless and empty. (Genesis 1:2 NIV)\n\n";
+    const composerDraft = signal(prefill);
+    const chat = createMockChatSession();
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+      },
+      chats: { composerDraft },
+    } as unknown as SeedBibleState;
+    const restoreScrollHeight = mockTextareaScrollHeightByLineCount();
+
+    try {
+      await act(async () => {
+        render(<ChatView chat={chat} state={state} />, container);
+        await Promise.resolve();
+      });
+
+      const input = container.querySelector<HTMLTextAreaElement>(
+        ".sb-chat-view-input"
+      )!;
+      const height = parseFloat(input.style.height);
+      expect(height).toBeGreaterThan(21);
+    } finally {
+      restoreScrollHeight();
+    }
+  });
+
+  it("does not change the empty compose field, and restores it after sending a prefilled Ask AI message", async () => {
+    const sendMessage = vi.fn().mockResolvedValue(undefined);
+    const composerDraft = signal("");
+    const chat = createMockChatSession({ sendMessage });
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+      },
+      chats: { composerDraft },
+    } as unknown as SeedBibleState;
+    const restoreScrollHeight = mockTextareaScrollHeightByLineCount();
+
+    try {
+      await act(async () => {
+        render(<ChatView chat={chat} state={state} />, container);
+        await Promise.resolve();
+      });
+
+      const input = container.querySelector<HTMLTextAreaElement>(
+        ".sb-chat-view-input"
+      )!;
+      const sendButton =
+        container.querySelector<HTMLButtonElement>(".sb-chat-view-send")!;
+
+      // Existing empty-chat flow: one-line field, send stays disabled.
+      expect(input.value).toBe("");
+      expect(input.rows).toBe(1);
+      expect(input.style.height).toBe("");
+      expect(sendButton.disabled).toBe(true);
+
+      const prefill =
+        "In the beginning God created the heavens and the earth. (Genesis 1:1 NIV)\n\n";
+      await act(async () => {
+        composerDraft.value = prefill;
+        await Promise.resolve();
+      });
+
+      expect(input.value).toBe(prefill);
+      expect(parseFloat(input.style.height)).toBeGreaterThan(21);
+      expect(sendButton.disabled).toBe(false);
+
+      typeIntoInput(input, `${prefill}What does this mean?`);
+      expect(input.value).toBe(`${prefill}What does this mean?`);
+
+      await act(async () => {
+        submitForm(container);
+        await Promise.resolve();
+      });
+
+      expect(sendMessage).toHaveBeenCalledWith({
+        type: "text",
+        text: "In the beginning God created the heavens and the earth. (Genesis 1:1 NIV)\n\nWhat does this mean?",
+      });
+      expect(input.value).toBe("");
+      expect(input.style.height).toBe("");
+      expect(sendButton.disabled).toBe(true);
+    } finally {
+      restoreScrollHeight();
+    }
+  });
+
+  it("still lets a user type and send without Ask AI, without leaving the field stuck tall", async () => {
+    const sendMessage = vi.fn().mockResolvedValue(undefined);
+    const chat = createMockChatSession({ sendMessage });
+    const state = createMockState();
+    const restoreScrollHeight = mockTextareaScrollHeightByLineCount();
+
+    try {
+      await act(async () => {
+        render(<ChatView chat={chat} state={state} />, container);
+        await Promise.resolve();
+      });
+
+      const input = container.querySelector<HTMLTextAreaElement>(
+        ".sb-chat-view-input"
+      )!;
+      expect(input.style.height).toBe("");
+
+      typeIntoInput(input, "Hello");
+      await act(async () => {
+        submitForm(container);
+        await Promise.resolve();
+      });
+
+      expect(sendMessage).toHaveBeenCalledWith({ type: "text", text: "Hello" });
+      expect(input.value).toBe("");
+      expect(input.style.height).toBe("");
+    } finally {
+      restoreScrollHeight();
+    }
+  });
+
+  it("does not steal focus on mobile when applying a composerDraft prefill", async () => {
+    const prefill = "In the beginning. (Genesis 1:1 NIV)\n\n";
+    const composerDraft = signal(prefill);
+    const chat = createMockChatSession();
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(true),
+      },
+      chats: { composerDraft },
+    } as unknown as SeedBibleState;
+
+    await act(async () => {
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const input = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    expect(input.value).toBe(prefill);
+    expect(document.activeElement).not.toBe(input);
+    expect(
+      container
+        .querySelector(".sb-chat-view-input-wrap")
+        ?.classList.contains("sb-chat-view-input-wrap--hint")
+    ).toBe(false);
+  });
+
+  it("applies a composerDraft that arrives after ChatView is already mounted", async () => {
+    const composerDraft = signal("");
+    const chat = createMockChatSession();
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+      },
+      chats: { composerDraft },
+    } as unknown as SeedBibleState;
+
+    await act(async () => {
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const input = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    expect(input.value).toBe("");
+
+    const prefill = "The LORD is my shepherd. (Psalms 23:1 NIV)\n\n";
+    await act(async () => {
+      composerDraft.value = prefill;
+      await Promise.resolve();
+    });
+
+    expect(input.value).toBe(prefill);
+    expect(composerDraft.value).toBe("");
+    expect(input.selectionStart).toBe(prefill.length);
+  });
+
+  it("ignores an empty composerDraft so typed text is not wiped", async () => {
+    const composerDraft = signal("");
+    const chat = createMockChatSession();
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+      },
+      chats: { composerDraft },
+    } as unknown as SeedBibleState;
+
+    await act(async () => {
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const input = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    typeIntoInput(input, "My question");
+
+    await act(async () => {
+      composerDraft.value = "";
+      await Promise.resolve();
+    });
+
+    expect(input.value).toBe("My question");
+  });
+
+  it("merges a later composerDraft with typed text instead of replacing it", async () => {
+    const firstPrefill = "For God so loved the world. (John 3:16 NIV)\n\n";
+    const composerDraft = signal(firstPrefill);
+    const chat = createMockChatSession();
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+      },
+      chats: { composerDraft },
+    } as unknown as SeedBibleState;
+
+    await act(async () => {
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const input = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    expect(input.value).toBe(firstPrefill);
+
+    const typedQuestion = "how does this connect to";
+    typeIntoInput(input, `${firstPrefill}${typedQuestion}`);
+
+    const secondPrefill = "The LORD is my shepherd. (Psalms 23:1 NIV)\n\n";
+    await act(async () => {
+      composerDraft.value = secondPrefill;
+      await Promise.resolve();
+    });
+
+    expect(input.value).toContain(typedQuestion);
+    expect(input.value).toBe(
+      `${firstPrefill}${typedQuestion}\n\n${secondPrefill}`
+    );
+    expect(composerDraft.value).toBe("");
+  });
+
+  it("keeps typed text after ChatView unmounts and remounts", async () => {
+    const chat = createMockChatSession();
+    const state = createMockState();
+
+    await act(async () => {
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const input = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    typeIntoInput(input, "how does this connect to");
+
+    await act(async () => {
+      render(null, container);
+    });
+
+    expect(chat.unsentDraft.value).toBe("how does this connect to");
+
+    await act(async () => {
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const remountedInput = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    expect(remountedInput.value).toBe("how does this connect to");
+  });
+
+  it("appends Ask AI verse text after typed text when the chat was closed", async () => {
+    const composerDraft = signal("");
+    const chat = createMockChatSession();
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+      },
+      chats: { composerDraft },
+    } as unknown as SeedBibleState;
+
+    await act(async () => {
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const input = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    const typedQuestion = "how does this connect to";
+    typeIntoInput(input, typedQuestion);
+
+    await act(async () => {
+      render(null, container);
+    });
+
+    const versePrefill =
+      'God called the firmament "sky." (Genesis 1:8 AAB)\n\n';
+    await act(async () => {
+      composerDraft.value = versePrefill;
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const remountedInput = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    expect(remountedInput.value).toContain(typedQuestion);
+    expect(remountedInput.value).toBe(`${typedQuestion}\n\n${versePrefill}`);
+    expect(composerDraft.value).toBe("");
+  });
+
+  it("sends a prefilled verse plus the user's question on submit", async () => {
+    const sendMessage = vi.fn().mockResolvedValue(undefined);
+    const prefill = "Jesus wept. (John 11:35 NIV)\n\n";
+    const composerDraft = signal(prefill);
+    const chat = createMockChatSession({ sendMessage });
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+      },
+      chats: { composerDraft },
+    } as unknown as SeedBibleState;
+
+    await act(async () => {
+      render(<ChatView chat={chat} state={state} />, container);
+      await Promise.resolve();
+    });
+
+    const input = container.querySelector<HTMLTextAreaElement>(
+      ".sb-chat-view-input"
+    )!;
+    typeIntoInput(input, `${prefill}What does this mean?`);
+
+    await act(async () => {
+      submitForm(container);
+      await Promise.resolve();
+    });
+
+    expect(sendMessage).toHaveBeenCalledWith({
+      type: "text",
+      text: "Jesus wept. (John 11:35 NIV)\n\nWhat does this mean?",
+    });
+    expect(input.value).toBe("");
+  });
+
+  it("still renders when chats.composerDraft is missing from the mock", () => {
+    const chat = createMockChatSession();
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+      },
+    } as unknown as SeedBibleState;
+
+    expect(() => {
+      act(() => {
+        render(<ChatView chat={chat} state={state} />, container);
+      });
+    }).not.toThrow();
+
+    expect(
+      container.querySelector<HTMLTextAreaElement>(".sb-chat-view-input")?.value
+    ).toBe("");
+  });
+
+  function renderSuggestionBanner(
+    books: { id: string }[],
+    options: {
+      hasTab?: boolean;
+      booksError?: boolean;
+      selectError?: boolean;
+      unavailable?: string | null;
+    } = {}
+  ) {
+    const translationId = signal("eng_bsb");
+    const selectTranslationAndChapter = vi.fn(async () => {
+      if (options.selectError) {
+        throw new Error("offline");
+      }
+      translationId.value = "fra_lsg";
+    });
+    const selectTranslation = vi.fn(async () => {
+      translationId.value = "fra_lsg";
+    });
+    const appendMessage = vi.fn();
+    const suggestion = signal<TranslationSuggestion | null>({
+      id: "fra_lsg",
+      label: "Louis Segond (LSG)",
+      shortName: "LSG",
+      unavailable: options.unavailable ?? null,
+    });
+    const chat = createMockChatSession({
+      appendMessage,
+      translationSuggestion: suggestion,
+      participants: signal([createMockParticipant({ id: "me", isSelf: true })]),
+    });
+    const readingState = {
+      translationId,
+      bookId: signal("JHN"),
+      chapterNumber: signal(3),
+      selectTranslation,
+      selectTranslationAndChapter,
+    };
+    const state = {
+      app: {
+        openVerseReference: vi.fn().mockResolvedValue(undefined),
+        isMobile: signal(false),
+        selectedTab: signal(options.hasTab === false ? null : { readingState }),
+      },
+      bibleData: {
+        getTranslationBooks: options.booksError
+          ? vi.fn().mockRejectedValue(new Error("offline"))
+          : vi.fn().mockResolvedValue({ books }),
+      },
+      chats: {
+        composerDraft: signal(""),
+      },
+    } as unknown as SeedBibleState;
+
+    act(() => {
+      render(<ChatView chat={chat} state={state} />, container);
+    });
+
+    return {
+      selectTranslation,
+      selectTranslationAndChapter,
+      appendMessage,
+      suggestion,
+      chat,
+    };
+  }
+
+  function clickBannerButton(label: string) {
+    const button = [
+      ...container.querySelectorAll<HTMLButtonElement>(
+        ".sb-chat-view-translation-banner button"
+      ),
+    ].find((entry) => entry.textContent === label);
+    if (!button) {
+      throw new Error(`No banner button labeled ${label}`);
+    }
+    button.click();
+  }
+
+  it("shows one switch question above the chat", () => {
+    renderSuggestionBanner([{ id: "JHN" }]);
+
+    expect(
+      container.querySelector(".sb-chat-view-translation-banner-text")
+        ?.textContent
+    ).toBe("Switch to Louis Segond (LSG)?");
+    const buttons = [
+      ...container.querySelectorAll<HTMLButtonElement>(
+        ".sb-chat-view-translation-banner button"
+      ),
+    ].map((button) => button.textContent);
+    expect(buttons).toEqual(["Switch", "Dismiss"]);
+    expect(container.querySelector(".sb-chat-view-choices")).toBeNull();
+  });
+
+  it("says when the request is only a closest match", () => {
+    renderSuggestionBanner([{ id: "JHN" }], { unavailable: "NIV" });
+
+    expect(
+      container.querySelector(".sb-chat-view-translation-banner-text")
+        ?.textContent
+    ).toBe("NIV isn't available. Closest match: LSG.");
+  });
+
+  it("asks to switch when the missing name is only a brace", () => {
+    renderSuggestionBanner([{ id: "JHN" }], { unavailable: "}" });
+
+    expect(
+      container.querySelector(".sb-chat-view-translation-banner-text")
+        ?.textContent
+    ).toBe("Switch to Louis Segond (LSG)?");
+  });
+
+  it("switches the open tab and records that in the chat", async () => {
+    const {
+      selectTranslationAndChapter,
+      selectTranslation,
+      appendMessage,
+      suggestion,
+    } = renderSuggestionBanner([{ id: "JHN" }]);
+
+    await act(async () => {
+      clickBannerButton("Switch");
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(selectTranslationAndChapter).toHaveBeenCalledWith(
+      "fra_lsg",
+      "JHN",
+      3
+    );
+    expect(selectTranslation).not.toHaveBeenCalled();
+    expect(suggestion.value).toBeNull();
+    expect(appendMessage).toHaveBeenCalledWith(
+      { type: "text", text: "User switched to LSG" },
+      ["me"]
+    );
+    expect(
+      container.querySelector(".sb-chat-view-translation-banner")
+    ).toBeNull();
+  });
+
+  it("opens the translation's first book when the current chapter is not in it", async () => {
+    const { selectTranslation, selectTranslationAndChapter, appendMessage } =
+      renderSuggestionBanner([{ id: "MAT" }]);
+
+    await act(async () => {
+      clickBannerButton("Switch");
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(selectTranslation).toHaveBeenCalledWith("fra_lsg");
+    expect(selectTranslationAndChapter).not.toHaveBeenCalled();
+    expect(appendMessage).toHaveBeenCalledWith(
+      { type: "text", text: "User switched to LSG" },
+      ["me"]
+    );
+  });
+
+  it("leaves the banner up and does not record a switch when there is no open tab", async () => {
+    const {
+      selectTranslation,
+      selectTranslationAndChapter,
+      appendMessage,
+      suggestion,
+    } = renderSuggestionBanner([{ id: "JHN" }], { hasTab: false });
+
+    await act(async () => {
+      clickBannerButton("Switch");
+    });
+
+    expect(selectTranslation).not.toHaveBeenCalled();
+    expect(selectTranslationAndChapter).not.toHaveBeenCalled();
+    expect(appendMessage).not.toHaveBeenCalled();
+    expect(suggestion.value?.id).toBe("fra_lsg");
+    expect(container.querySelector(".sb-chat-view-error")?.textContent).toBe(
+      "Couldn't switch translation."
+    );
+  });
+
+  it("shows an error when switching the translation fails", async () => {
+    const { appendMessage, suggestion } = renderSuggestionBanner(
+      [{ id: "JHN" }],
+      { booksError: true }
+    );
+
+    await act(async () => {
+      clickBannerButton("Switch");
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(container.querySelector(".sb-chat-view-error")?.textContent).toBe(
+      "Couldn't switch translation."
+    );
+    expect(appendMessage).not.toHaveBeenCalled();
+    expect(suggestion.value?.id).toBe("fra_lsg");
+  });
+
+  it("shows an error when the reader throws while switching", async () => {
+    const { appendMessage } = renderSuggestionBanner([{ id: "JHN" }], {
+      selectError: true,
+    });
+
+    await act(async () => {
+      clickBannerButton("Switch");
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(container.querySelector(".sb-chat-view-error")?.textContent).toBe(
+      "Couldn't switch translation."
+    );
+    expect(appendMessage).not.toHaveBeenCalled();
+  });
+
+  it("dismisses the banner without changing the reader and records that", async () => {
+    const {
+      selectTranslation,
+      selectTranslationAndChapter,
+      appendMessage,
+      suggestion,
+    } = renderSuggestionBanner([{ id: "JHN" }]);
+
+    await act(async () => {
+      clickBannerButton("Dismiss");
+    });
+
+    expect(selectTranslation).not.toHaveBeenCalled();
+    expect(selectTranslationAndChapter).not.toHaveBeenCalled();
+    expect(suggestion.value).toBeNull();
+    expect(appendMessage).toHaveBeenCalledWith(
+      { type: "text", text: "User dismissed the suggestion" },
+      ["me"]
+    );
+    expect(
+      container.querySelector(".sb-chat-view-translation-banner")
+    ).toBeNull();
   });
 });

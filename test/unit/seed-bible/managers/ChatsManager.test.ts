@@ -393,6 +393,27 @@ describe("createChatsManager", () => {
     expect(firstChat).not.toBe(secondChat);
   });
 
+  it("exposes an empty composerDraft for prefilling the compose field", () => {
+    const { loginManager } = createLoginManagerMock();
+    const chats = createChatsManager(loginManager, mockI18nManager);
+
+    expect(chats.composerDraft.value).toBe("");
+    chats.composerDraft.value = "In the beginning. (Genesis 1:1 NIV)\n\n";
+    expect(chats.composerDraft.value).toBe(
+      "In the beginning. (Genesis 1:1 NIV)\n\n"
+    );
+  });
+
+  it("createLocalSession() exposes an empty unsentDraft for the compose field", () => {
+    const { loginManager } = createLoginManagerMock();
+    const chats = createChatsManager(loginManager, mockI18nManager);
+    const session = chats.createLocalSession();
+
+    expect(session.unsentDraft.value).toBe("");
+    session.unsentDraft.value = "how does this connect to";
+    expect(session.unsentDraft.value).toBe("how does this connect to");
+  });
+
   it("createLocalSession() exposes lastMessageRead and markAsRead()", async () => {
     const { loginManager, userId, profile } = createLoginManagerMock();
     userId.value = "user-1";
@@ -1430,6 +1451,82 @@ describe("createChatsManager", () => {
         type: "text",
       } as any)
     ).rejects.toThrow();
+  });
+
+  it("appendMessage() records a suggestion outcome without asking the AI to reply", () => {
+    const { loginManager, userId, profile } = createLoginManagerMock();
+    userId.value = "user-1";
+    profile.value = { name: "Alice" };
+
+    const chats = createChatsManager(loginManager, mockI18nManager);
+    const session = chats.createLocalSession();
+    const generateResponse = vi.fn().mockResolvedValue({
+      type: "text",
+      text: "should not run",
+    });
+    chats.registerProvider({
+      id: "provider-1",
+      name: "Helper AI",
+      supportsSharedChats: true,
+      generateResponse,
+    });
+    session.addParticipant("provider-1");
+
+    session.appendMessage(
+      {
+        type: "text",
+        text: "User switched to LSG",
+      },
+      [session.participants.value.find((participant) => participant.isSelf)!.id]
+    );
+
+    expect(session.messages.value).toHaveLength(1);
+    expect(session.messages.value[0]).toMatchObject({
+      timeMs: 1_717_000_000_000,
+      targets: [],
+      type: "text",
+      text: "User switched to LSG",
+    });
+    expect(generateResponse).not.toHaveBeenCalled();
+  });
+
+  it("shared chats drop message types they do not know", () => {
+    const { session: sharedSession } = createSharedSessionMock({
+      initialChats: [
+        {
+          id: "text-1",
+          authors: ["user-1"],
+          timeMs: 1,
+          targets: [],
+          type: "text",
+          text: "User switched to LSG",
+        },
+        {
+          id: "choices-1",
+          authors: ["provider-1"],
+          timeMs: 2,
+          targets: [],
+          type: "choices",
+          choiceType: "translation",
+          choices: [{ id: "fra_lsg", label: "LSG" }],
+        },
+        {
+          id: "unknown-1",
+          authors: [],
+          timeMs: 3,
+          targets: [],
+          type: "passage_card",
+          text: "older clients never render this",
+        },
+      ],
+    });
+    const { loginManager } = createLoginManagerMock();
+    const chats = createChatsManager(loginManager, mockI18nManager);
+    const chat = chats.createSharedSession(sharedSession);
+
+    expect(chat.messages.value.map((message) => message.id)).toEqual([
+      "text-1",
+    ]);
   });
 
   it("registerProvider() adds AI provider participants to availableParticipants", () => {
@@ -4162,6 +4259,51 @@ describe("createChatsManager", () => {
             ref: { book: "GEN", chapter: 1, verse: 1, endVerse: 5 },
           },
         ],
+      });
+    });
+
+    it("parses European period and compact period verse references", async () => {
+      const { loginManager, userId } = createLoginManagerMock();
+      userId.value = "user-1";
+      const chats = createChatsManager(loginManager, mockI18nManager);
+      const session = chats.createLocalSession();
+
+      await session.sendMessage({
+        type: "text",
+        text: "Compare Gen 1.1 and Gen.1.1",
+      });
+
+      expect(session.parsedMessages.value[0]).toMatchObject({
+        parts: [
+          "Compare ",
+          {
+            type: "verse_reference",
+            text: "Gen 1.1",
+            ref: { book: "GEN", chapter: 1, verse: 1 },
+          },
+          " and ",
+          {
+            type: "verse_reference",
+            text: "Gen.1.1",
+            ref: { book: "GEN", chapter: 1, verse: 1 },
+          },
+        ],
+      });
+    });
+
+    it("does not treat a book name used as a list header as a verse reference", async () => {
+      const { loginManager, userId } = createLoginManagerMock();
+      userId.value = "user-1";
+      const chats = createChatsManager(loginManager, mockI18nManager);
+      const session = chats.createLocalSession();
+
+      await session.sendMessage({
+        type: "text",
+        text: "Mark: 3 things stood out",
+      });
+
+      expect(session.parsedMessages.value[0]).toMatchObject({
+        parts: ["Mark: 3 things stood out"],
       });
     });
 

@@ -213,6 +213,113 @@ describe("createPanes", () => {
     });
   });
 
+  describe("openPane with exclusive", () => {
+    it("closes every other pane, fullscreen included, when an exclusive side pane opens", () => {
+      const panes = createPanes();
+
+      panes.openPane({
+        placement: "fullscreen",
+        title: "Fullscreen",
+        component: componentReturning("Fullscreen"),
+      });
+      panes.openPane({
+        placement: "floating",
+        title: "Floating",
+        component: componentReturning("Floating"),
+      });
+      const exclusive = panes.openPane({
+        placement: "side",
+        title: "Exclusive",
+        component: componentReturning("Exclusive"),
+        exclusive: true,
+      });
+
+      expect(panes.panes.value.map((pane) => pane.id)).toEqual([exclusive.id]);
+      expect(panes.selectedPaneId.value).toBe(exclusive.id);
+      expect(exclusive.placement).toBe("side");
+    });
+
+    it("closes other panes when an existing pane is reused by id with exclusive", () => {
+      const panes = createPanes();
+
+      panes.openPane({
+        id: "editor",
+        placement: "side",
+        title: "Editor",
+        component: componentReturning("Editor"),
+      });
+      // Resized so the check below shows the pane was reused, not recreated
+      // at the default width.
+      panes.resizePane("editor", 100, 0, 1);
+      panes.openPane({
+        placement: "floating",
+        title: "Floating",
+        component: componentReturning("Floating"),
+      });
+
+      const reused = panes.openPane({
+        id: "editor",
+        placement: "side",
+        title: "Editor Updated",
+        component: componentReturning("Editor Updated"),
+        exclusive: true,
+      });
+
+      expect(panes.panes.value.map((pane) => pane.id)).toEqual(["editor"]);
+      expect(reused.title).toBe("Editor Updated");
+      expect(reused.width).toBe(580);
+    });
+
+    it("tells each closed pane it was displaced", () => {
+      const panes = createPanes();
+      const onFullscreenClose = vi.fn();
+      const onFloatingClose = vi.fn();
+
+      panes.openPane({
+        placement: "fullscreen",
+        title: "Fullscreen",
+        component: componentReturning("Fullscreen"),
+        onClose: onFullscreenClose,
+      });
+      panes.openPane({
+        placement: "floating",
+        title: "Floating",
+        component: componentReturning("Floating"),
+        onClose: onFloatingClose,
+      });
+      panes.openPane({
+        placement: "side",
+        title: "Exclusive",
+        component: componentReturning("Exclusive"),
+        exclusive: true,
+      });
+
+      expect(onFullscreenClose).toHaveBeenCalledExactlyOnceWith("displaced");
+      expect(onFloatingClose).toHaveBeenCalledExactlyOnceWith("displaced");
+    });
+
+    it("applies only to the open it was passed to, not to later opens", () => {
+      const panes = createPanes();
+
+      const exclusive = panes.openPane({
+        placement: "side",
+        title: "Exclusive",
+        component: componentReturning("Exclusive"),
+        exclusive: true,
+      });
+      const floating = panes.openPane({
+        placement: "floating",
+        title: "Floating",
+        component: componentReturning("Floating"),
+      });
+
+      expect(panes.panes.value.map((pane) => pane.id)).toEqual([
+        exclusive.id,
+        floating.id,
+      ]);
+    });
+  });
+
   describe("openPane on a mobile viewport", () => {
     it("closes other panes when any pane is opened, since panes display fullscreen", () => {
       const isMobile = signal(true);
@@ -610,6 +717,75 @@ describe("createPanes", () => {
     });
   });
 
+  // `confirmClose` is only ever consulted by the pane-header close (X)
+  // button's own click handler (in PaneLayout.tsx, not exercised by this
+  // manager-level suite) — `closePane` itself never reads it, so a
+  // programmatic close always bypasses it. These tests cover what this
+  // manager is actually responsible for: storing the guard on the `Pane`
+  // object exactly as given, through both the create and id-reuse paths.
+  describe("confirmClose", () => {
+    it("stores the confirmClose guard on a newly created pane", () => {
+      const panes = createPanes();
+      const confirmClose = vi.fn(() => true);
+
+      const pane = panes.openPane({
+        placement: "floating",
+        title: "Notes",
+        component: componentReturning("Notes"),
+        confirmClose,
+      });
+
+      expect(pane.confirmClose).toBe(confirmClose);
+      expect(panes.panes.value[0]?.confirmClose).toBe(confirmClose);
+    });
+
+    it("updates the confirmClose guard when reusing an existing pane id", () => {
+      const panes = createPanes();
+      const firstGuard = vi.fn(() => true);
+      const secondGuard = vi.fn(() => false);
+
+      panes.openPane({
+        id: "stable-id",
+        placement: "side",
+        title: "First",
+        component: componentReturning("First"),
+        confirmClose: firstGuard,
+      });
+      const updated = panes.openPane({
+        id: "stable-id",
+        placement: "side",
+        title: "Second",
+        component: componentReturning("Second"),
+        confirmClose: secondGuard,
+      });
+
+      expect(updated.confirmClose).toBe(secondGuard);
+      expect(panes.panes.value[0]?.confirmClose).toBe(secondGuard);
+    });
+
+    it("leaves confirmClose undefined for a pane that doesn't declare one, and closePane itself never calls it", () => {
+      const panes = createPanes();
+      const confirmClose = vi.fn(() => false);
+      const pane = panes.openPane({
+        placement: "floating",
+        title: "Notes",
+        component: componentReturning("Notes"),
+      });
+      panes.openPane({
+        placement: "floating",
+        title: "Guarded",
+        component: componentReturning("Guarded"),
+        confirmClose,
+      });
+
+      expect(pane.confirmClose).toBeUndefined();
+      // closePane is a direct, unconditional removal — the guard is a
+      // concern for whatever calls it (the pane header), not this manager.
+      panes.closePane(pane.id);
+      expect(confirmClose).not.toHaveBeenCalled();
+    });
+  });
+
   // Commands read pane state via peek(), so invoking one inside an effect must
   // not subscribe that effect to `panes`/`selectedPaneId`. Otherwise mutating
   // pane state (e.g. closing a pane) re-runs the effect, which re-opens the
@@ -803,6 +979,58 @@ describe("createPanes", () => {
       const unchanged = panes.panes.value.find((p) => p.id === pane.id);
       expect(unchanged?.x).toBe(originalX);
       expect(unchanged?.y).toBe(originalY);
+    });
+  });
+
+  describe("initial size", () => {
+    it("uses the width and height the caller asked for", () => {
+      const panes = createPanes();
+
+      const pane = panes.openPane({
+        placement: "floating",
+        title: "Atlas",
+        component: componentReturning("Atlas"),
+        size: { width: 760, height: 620 },
+      });
+
+      expect(pane.width).toBe(760);
+      expect(pane.height).toBe(620);
+    });
+
+    it("falls back to the defaults when no size is given", () => {
+      const panes = createPanes();
+
+      const pane = panes.openPane({
+        placement: "floating",
+        title: "Notes",
+        component: componentReturning("Notes"),
+      });
+
+      expect(pane.width).toBe(480);
+      expect(pane.height).toBe(320);
+    });
+
+    it("keeps the user's resized size when a pane is reopened by id", () => {
+      const panes = createPanes();
+      panes.openPane({
+        id: "atlas",
+        placement: "floating",
+        title: "Atlas",
+        component: componentReturning("Atlas"),
+        size: { width: 760, height: 620 },
+      });
+      panes.resizePane("atlas", 100, 100, 1);
+
+      const reopened = panes.openPane({
+        id: "atlas",
+        placement: "floating",
+        title: "Atlas again",
+        component: componentReturning("Atlas again"),
+        size: { width: 760, height: 620 },
+      });
+
+      expect(reopened.width).toBe(860);
+      expect(reopened.height).toBe(720);
     });
   });
 

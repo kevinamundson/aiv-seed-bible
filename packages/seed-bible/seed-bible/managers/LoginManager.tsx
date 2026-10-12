@@ -127,6 +127,11 @@ export interface LoginManager {
 
   /**
    * Attempts to login the user.
+   *
+   * Resolves with the signed-in user, or `null` when no account was obtained —
+   * including when the user dismisses the prompt. Dismissal is deliberately not
+   * a rejection: callers offer sign-in as a convenience and carry on without an
+   * account, so throwing would abandon whatever the user was actually doing.
    */
   login: () => Promise<UserInfo | null>;
 
@@ -148,6 +153,15 @@ export interface LoginManager {
   getUserProfile: (userId: string) => Promise<UserProfile>;
 
   /**
+   * Reads someone else's public profile. Unlike {@link getUserProfile}, this
+   * never adopts or clears this device's local config, which only makes sense
+   * for the signed-in user's own account.
+   * @returns The profile (blank when the account never saved one), or null
+   * when no account has this ID.
+   */
+  getPublicProfile: (userId: string) => Promise<UserProfile | null>;
+
+  /**
    * Prompts the user to upload a profile picture, stores it as a public file
    * record, and saves the resulting URL to the user's profile.
    * Resolves without changes if no file is selected or the user is not authenticated.
@@ -156,6 +170,8 @@ export interface LoginManager {
 
   /**
    * Cancels an in-progress login attempt, if one exists. This is useful to abort a login flow if the user navigates away or closes the login modal before completing authentication.
+   *
+   * Any pending {@link login} call resolves with `null`.
    */
   cancelLogin: () => Promise<void>;
 
@@ -465,7 +481,6 @@ export function createLoginManager({
 
   let loginPromise: Promise<UserInfo | null> | null = null;
   let resolveLoginPromise: ((value: UserInfo | null) => void) | null = null;
-  let rejectLoginPromise: ((err: Error) => void) | null = null;
   let currentLoginPromise: Promise<UserInfo | null> | null = null;
 
   // const userId = os.userId;
@@ -605,6 +620,30 @@ export function createLoginManager({
     return parsed.data;
   };
 
+  const getPublicProfile = async (
+    userId: string
+  ): Promise<UserProfile | null> => {
+    const data = await os.getData(userId, "profile");
+    if (!data.success) {
+      // An account's record is only created when its owner first signs in,
+      // so no record means no one has used this ID: usually a mistyped one.
+      if (data.errorCode === "record_not_found") {
+        return null;
+      }
+      if (data.errorCode === "data_not_found") {
+        return { name: "" };
+      }
+      throw new Error(
+        `[LoginManager] Failed to load profile (${data.errorCode}): ${data.errorMessage}`
+      );
+    }
+    const parsed = userProfileSchema.safeParse(data.data);
+    if (!parsed.success) {
+      throw new Error("[LoginManager] Stored profile failed validation");
+    }
+    return parsed.data;
+  };
+
   const updateUserProfile = async (
     userId: string,
     profile: UserProfile
@@ -652,11 +691,16 @@ export function createLoginManager({
 
   async function cancelLogin() {
     isLoginOpen.value = false;
-    if (loginPromise && rejectLoginPromise) {
-      rejectLoginPromise(new Error("Login cancelled"));
+    if (loginPromise && resolveLoginPromise) {
+      // Resolves null rather than rejecting. Dismissing the prompt is an
+      // answer ("carry on without an account"), not a failure, and every
+      // caller is written to read that answer from the resolved value. A
+      // rejection instead threw out of the caller mid-way, which is what
+      // stopped a dismissed prompt from leaving a signed-out user able to
+      // write a note (#1591).
+      resolveLoginPromise(null);
       loginPromise = null;
       resolveLoginPromise = null;
-      rejectLoginPromise = null;
     }
   }
 
@@ -726,7 +770,6 @@ export function createLoginManager({
       if (resolveLoginPromise) {
         resolveLoginPromise(userInfo.value);
         resolveLoginPromise = null;
-        rejectLoginPromise = null;
         loginPromise = null;
       }
 
@@ -739,9 +782,8 @@ export function createLoginManager({
   async function loginCore(): Promise<UserInfo | null> {
     if (!sessionKey.value) {
       if (!loginPromise) {
-        loginPromise = new Promise((resolve, reject) => {
+        loginPromise = new Promise((resolve) => {
           resolveLoginPromise = resolve;
-          rejectLoginPromise = reject;
         });
       }
 
@@ -1056,6 +1098,7 @@ export function createLoginManager({
     logout,
     updateProfile,
     getUserProfile,
+    getPublicProfile,
     uploadProfilePicture,
 
     cancelLogin,

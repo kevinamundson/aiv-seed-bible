@@ -94,401 +94,401 @@ type BlbManifest = {
 
 const EMBEDDED_MANIFEST_BOOKS: ManifestBook[] = [
   {
-    "usfm": "GEN",
-    "nameAsReceived": "Genesis",
-    "chapters": 50,
-    "verses": 1533
+    usfm: "GEN",
+    nameAsReceived: "Genesis",
+    chapters: 50,
+    verses: 1533,
   },
   {
-    "usfm": "EXO",
-    "nameAsReceived": "Exodus",
-    "chapters": 40,
-    "verses": 1213
+    usfm: "EXO",
+    nameAsReceived: "Exodus",
+    chapters: 40,
+    verses: 1213,
   },
   {
-    "usfm": "LEV",
-    "nameAsReceived": "Leviticus",
-    "chapters": 27,
-    "verses": 859
+    usfm: "LEV",
+    nameAsReceived: "Leviticus",
+    chapters: 27,
+    verses: 859,
   },
   {
-    "usfm": "NUM",
-    "nameAsReceived": "Numbers",
-    "chapters": 36,
-    "verses": 1288
+    usfm: "NUM",
+    nameAsReceived: "Numbers",
+    chapters: 36,
+    verses: 1288,
   },
   {
-    "usfm": "DEU",
-    "nameAsReceived": "Deuteronomy",
-    "chapters": 34,
-    "verses": 959
+    usfm: "DEU",
+    nameAsReceived: "Deuteronomy",
+    chapters: 34,
+    verses: 959,
   },
   {
-    "usfm": "JOS",
-    "nameAsReceived": "Joshua",
-    "chapters": 24,
-    "verses": 658
+    usfm: "JOS",
+    nameAsReceived: "Joshua",
+    chapters: 24,
+    verses: 658,
   },
   {
-    "usfm": "JDG",
-    "nameAsReceived": "Judges",
-    "chapters": 21,
-    "verses": 618
+    usfm: "JDG",
+    nameAsReceived: "Judges",
+    chapters: 21,
+    verses: 618,
   },
   {
-    "usfm": "RUT",
-    "nameAsReceived": "Ruth",
-    "chapters": 4,
-    "verses": 85
+    usfm: "RUT",
+    nameAsReceived: "Ruth",
+    chapters: 4,
+    verses: 85,
   },
   {
-    "usfm": "1SA",
-    "nameAsReceived": "1 Samuel",
-    "chapters": 31,
-    "verses": 810
+    usfm: "1SA",
+    nameAsReceived: "1 Samuel",
+    chapters: 31,
+    verses: 810,
   },
   {
-    "usfm": "2SA",
-    "nameAsReceived": "2 Samuel",
-    "chapters": 24,
-    "verses": 695
+    usfm: "2SA",
+    nameAsReceived: "2 Samuel",
+    chapters: 24,
+    verses: 695,
   },
   {
-    "usfm": "1KI",
-    "nameAsReceived": "1 Kings",
-    "chapters": 22,
-    "verses": 816
+    usfm: "1KI",
+    nameAsReceived: "1 Kings",
+    chapters: 22,
+    verses: 816,
   },
   {
-    "usfm": "2KI",
-    "nameAsReceived": "2 Kings",
-    "chapters": 25,
-    "verses": 719
+    usfm: "2KI",
+    nameAsReceived: "2 Kings",
+    chapters: 25,
+    verses: 719,
   },
   {
-    "usfm": "1CH",
-    "nameAsReceived": "1 Chronicles",
-    "chapters": 29,
-    "verses": 942
+    usfm: "1CH",
+    nameAsReceived: "1 Chronicles",
+    chapters: 29,
+    verses: 942,
   },
   {
-    "usfm": "2CH",
-    "nameAsReceived": "2 Chronicles",
-    "chapters": 36,
-    "verses": 822
+    usfm: "2CH",
+    nameAsReceived: "2 Chronicles",
+    chapters: 36,
+    verses: 822,
   },
   {
-    "usfm": "EZR",
-    "nameAsReceived": "Ezra",
-    "chapters": 10,
-    "verses": 280
+    usfm: "EZR",
+    nameAsReceived: "Ezra",
+    chapters: 10,
+    verses: 280,
   },
   {
-    "usfm": "NEH",
-    "nameAsReceived": "Nehemiah",
-    "chapters": 13,
-    "verses": 406
+    usfm: "NEH",
+    nameAsReceived: "Nehemiah",
+    chapters: 13,
+    verses: 406,
   },
   {
-    "usfm": "EST",
-    "nameAsReceived": "Esther",
-    "chapters": 10,
-    "verses": 167
+    usfm: "EST",
+    nameAsReceived: "Esther",
+    chapters: 10,
+    verses: 167,
   },
   {
-    "usfm": "JOB",
-    "nameAsReceived": "Job",
-    "chapters": 42,
-    "verses": 1070
+    usfm: "JOB",
+    nameAsReceived: "Job",
+    chapters: 42,
+    verses: 1070,
   },
   {
-    "usfm": "PSA",
-    "nameAsReceived": "Psalm",
-    "chapters": 150,
-    "verses": 2460
+    usfm: "PSA",
+    nameAsReceived: "Psalm",
+    chapters: 150,
+    verses: 2460,
   },
   {
-    "usfm": "PRO",
-    "nameAsReceived": "Proverbs",
-    "chapters": 31,
-    "verses": 915
+    usfm: "PRO",
+    nameAsReceived: "Proverbs",
+    chapters: 31,
+    verses: 915,
   },
   {
-    "usfm": "ECC",
-    "nameAsReceived": "Ecclesiastes",
-    "chapters": 12,
-    "verses": 222
+    usfm: "ECC",
+    nameAsReceived: "Ecclesiastes",
+    chapters: 12,
+    verses: 222,
   },
   {
-    "usfm": "SNG",
-    "nameAsReceived": "Song of Solomon",
-    "chapters": 8,
-    "verses": 117
+    usfm: "SNG",
+    nameAsReceived: "Song of Solomon",
+    chapters: 8,
+    verses: 117,
   },
   {
-    "usfm": "ISA",
-    "nameAsReceived": "Isaiah",
-    "chapters": 66,
-    "verses": 1292
+    usfm: "ISA",
+    nameAsReceived: "Isaiah",
+    chapters: 66,
+    verses: 1292,
   },
   {
-    "usfm": "JER",
-    "nameAsReceived": "Jeremiah",
-    "chapters": 52,
-    "verses": 1364
+    usfm: "JER",
+    nameAsReceived: "Jeremiah",
+    chapters: 52,
+    verses: 1364,
   },
   {
-    "usfm": "LAM",
-    "nameAsReceived": "Lamentations",
-    "chapters": 5,
-    "verses": 154
+    usfm: "LAM",
+    nameAsReceived: "Lamentations",
+    chapters: 5,
+    verses: 154,
   },
   {
-    "usfm": "EZK",
-    "nameAsReceived": "Ezekiel",
-    "chapters": 48,
-    "verses": 1273
+    usfm: "EZK",
+    nameAsReceived: "Ezekiel",
+    chapters: 48,
+    verses: 1273,
   },
   {
-    "usfm": "DAN",
-    "nameAsReceived": "Daniel",
-    "chapters": 12,
-    "verses": 357
+    usfm: "DAN",
+    nameAsReceived: "Daniel",
+    chapters: 12,
+    verses: 357,
   },
   {
-    "usfm": "HOS",
-    "nameAsReceived": "Hosea",
-    "chapters": 14,
-    "verses": 197
+    usfm: "HOS",
+    nameAsReceived: "Hosea",
+    chapters: 14,
+    verses: 197,
   },
   {
-    "usfm": "JOL",
-    "nameAsReceived": "Joel",
-    "chapters": 3,
-    "verses": 73
+    usfm: "JOL",
+    nameAsReceived: "Joel",
+    chapters: 3,
+    verses: 73,
   },
   {
-    "usfm": "AMO",
-    "nameAsReceived": "Amos",
-    "chapters": 9,
-    "verses": 146
+    usfm: "AMO",
+    nameAsReceived: "Amos",
+    chapters: 9,
+    verses: 146,
   },
   {
-    "usfm": "OBA",
-    "nameAsReceived": "Obadiah",
-    "chapters": 1,
-    "verses": 21
+    usfm: "OBA",
+    nameAsReceived: "Obadiah",
+    chapters: 1,
+    verses: 21,
   },
   {
-    "usfm": "JON",
-    "nameAsReceived": "Jonah",
-    "chapters": 4,
-    "verses": 48
+    usfm: "JON",
+    nameAsReceived: "Jonah",
+    chapters: 4,
+    verses: 48,
   },
   {
-    "usfm": "MIC",
-    "nameAsReceived": "Micah",
-    "chapters": 7,
-    "verses": 105
+    usfm: "MIC",
+    nameAsReceived: "Micah",
+    chapters: 7,
+    verses: 105,
   },
   {
-    "usfm": "NAM",
-    "nameAsReceived": "Nahum",
-    "chapters": 3,
-    "verses": 47
+    usfm: "NAM",
+    nameAsReceived: "Nahum",
+    chapters: 3,
+    verses: 47,
   },
   {
-    "usfm": "HAB",
-    "nameAsReceived": "Habakkuk",
-    "chapters": 3,
-    "verses": 56
+    usfm: "HAB",
+    nameAsReceived: "Habakkuk",
+    chapters: 3,
+    verses: 56,
   },
   {
-    "usfm": "ZEP",
-    "nameAsReceived": "Zephaniah",
-    "chapters": 3,
-    "verses": 53
+    usfm: "ZEP",
+    nameAsReceived: "Zephaniah",
+    chapters: 3,
+    verses: 53,
   },
   {
-    "usfm": "HAG",
-    "nameAsReceived": "Haggai",
-    "chapters": 2,
-    "verses": 38
+    usfm: "HAG",
+    nameAsReceived: "Haggai",
+    chapters: 2,
+    verses: 38,
   },
   {
-    "usfm": "ZEC",
-    "nameAsReceived": "Zechariah",
-    "chapters": 14,
-    "verses": 210
+    usfm: "ZEC",
+    nameAsReceived: "Zechariah",
+    chapters: 14,
+    verses: 210,
   },
   {
-    "usfm": "MAL",
-    "nameAsReceived": "Malachi",
-    "chapters": 4,
-    "verses": 55
+    usfm: "MAL",
+    nameAsReceived: "Malachi",
+    chapters: 4,
+    verses: 55,
   },
   {
-    "usfm": "MAT",
-    "nameAsReceived": "Matthew",
-    "chapters": 28,
-    "verses": 1068
+    usfm: "MAT",
+    nameAsReceived: "Matthew",
+    chapters: 28,
+    verses: 1068,
   },
   {
-    "usfm": "MRK",
-    "nameAsReceived": "Mark",
-    "chapters": 16,
-    "verses": 673
+    usfm: "MRK",
+    nameAsReceived: "Mark",
+    chapters: 16,
+    verses: 673,
   },
   {
-    "usfm": "LUK",
-    "nameAsReceived": "Luke",
-    "chapters": 24,
-    "verses": 1149
+    usfm: "LUK",
+    nameAsReceived: "Luke",
+    chapters: 24,
+    verses: 1149,
   },
   {
-    "usfm": "JHN",
-    "nameAsReceived": "John",
-    "chapters": 21,
-    "verses": 878
+    usfm: "JHN",
+    nameAsReceived: "John",
+    chapters: 21,
+    verses: 878,
   },
   {
-    "usfm": "ACT",
-    "nameAsReceived": "Acts",
-    "chapters": 28,
-    "verses": 1003
+    usfm: "ACT",
+    nameAsReceived: "Acts",
+    chapters: 28,
+    verses: 1003,
   },
   {
-    "usfm": "ROM",
-    "nameAsReceived": "Romans",
-    "chapters": 16,
-    "verses": 432
+    usfm: "ROM",
+    nameAsReceived: "Romans",
+    chapters: 16,
+    verses: 432,
   },
   {
-    "usfm": "1CO",
-    "nameAsReceived": "1 Corinthians",
-    "chapters": 16,
-    "verses": 437
+    usfm: "1CO",
+    nameAsReceived: "1 Corinthians",
+    chapters: 16,
+    verses: 437,
   },
   {
-    "usfm": "2CO",
-    "nameAsReceived": "2 Corinthians",
-    "chapters": 13,
-    "verses": 257
+    usfm: "2CO",
+    nameAsReceived: "2 Corinthians",
+    chapters: 13,
+    verses: 257,
   },
   {
-    "usfm": "GAL",
-    "nameAsReceived": "Galatians",
-    "chapters": 6,
-    "verses": 149
+    usfm: "GAL",
+    nameAsReceived: "Galatians",
+    chapters: 6,
+    verses: 149,
   },
   {
-    "usfm": "EPH",
-    "nameAsReceived": "Ephesians",
-    "chapters": 6,
-    "verses": 155
+    usfm: "EPH",
+    nameAsReceived: "Ephesians",
+    chapters: 6,
+    verses: 155,
   },
   {
-    "usfm": "PHP",
-    "nameAsReceived": "Philippians",
-    "chapters": 4,
-    "verses": 104
+    usfm: "PHP",
+    nameAsReceived: "Philippians",
+    chapters: 4,
+    verses: 104,
   },
   {
-    "usfm": "COL",
-    "nameAsReceived": "Colossians",
-    "chapters": 4,
-    "verses": 95
+    usfm: "COL",
+    nameAsReceived: "Colossians",
+    chapters: 4,
+    verses: 95,
   },
   {
-    "usfm": "1TH",
-    "nameAsReceived": "1 Thessalonians",
-    "chapters": 5,
-    "verses": 89
+    usfm: "1TH",
+    nameAsReceived: "1 Thessalonians",
+    chapters: 5,
+    verses: 89,
   },
   {
-    "usfm": "2TH",
-    "nameAsReceived": "2 Thessalonians",
-    "chapters": 3,
-    "verses": 47
+    usfm: "2TH",
+    nameAsReceived: "2 Thessalonians",
+    chapters: 3,
+    verses: 47,
   },
   {
-    "usfm": "1TI",
-    "nameAsReceived": "1 Timothy",
-    "chapters": 6,
-    "verses": 113
+    usfm: "1TI",
+    nameAsReceived: "1 Timothy",
+    chapters: 6,
+    verses: 113,
   },
   {
-    "usfm": "2TI",
-    "nameAsReceived": "2 Timothy",
-    "chapters": 4,
-    "verses": 83
+    usfm: "2TI",
+    nameAsReceived: "2 Timothy",
+    chapters: 4,
+    verses: 83,
   },
   {
-    "usfm": "TIT",
-    "nameAsReceived": "Titus",
-    "chapters": 3,
-    "verses": 46
+    usfm: "TIT",
+    nameAsReceived: "Titus",
+    chapters: 3,
+    verses: 46,
   },
   {
-    "usfm": "PHM",
-    "nameAsReceived": "Philemon",
-    "chapters": 1,
-    "verses": 25
+    usfm: "PHM",
+    nameAsReceived: "Philemon",
+    chapters: 1,
+    verses: 25,
   },
   {
-    "usfm": "HEB",
-    "nameAsReceived": "Hebrews",
-    "chapters": 13,
-    "verses": 303
+    usfm: "HEB",
+    nameAsReceived: "Hebrews",
+    chapters: 13,
+    verses: 303,
   },
   {
-    "usfm": "JAS",
-    "nameAsReceived": "James",
-    "chapters": 5,
-    "verses": 108
+    usfm: "JAS",
+    nameAsReceived: "James",
+    chapters: 5,
+    verses: 108,
   },
   {
-    "usfm": "1PE",
-    "nameAsReceived": "1 Peter",
-    "chapters": 5,
-    "verses": 105
+    usfm: "1PE",
+    nameAsReceived: "1 Peter",
+    chapters: 5,
+    verses: 105,
   },
   {
-    "usfm": "2PE",
-    "nameAsReceived": "2 Peter",
-    "chapters": 3,
-    "verses": 61
+    usfm: "2PE",
+    nameAsReceived: "2 Peter",
+    chapters: 3,
+    verses: 61,
   },
   {
-    "usfm": "1JN",
-    "nameAsReceived": "1 John",
-    "chapters": 5,
-    "verses": 105
+    usfm: "1JN",
+    nameAsReceived: "1 John",
+    chapters: 5,
+    verses: 105,
   },
   {
-    "usfm": "2JN",
-    "nameAsReceived": "2 John",
-    "chapters": 1,
-    "verses": 13
+    usfm: "2JN",
+    nameAsReceived: "2 John",
+    chapters: 1,
+    verses: 13,
   },
   {
-    "usfm": "3JN",
-    "nameAsReceived": "3 John",
-    "chapters": 1,
-    "verses": 14
+    usfm: "3JN",
+    nameAsReceived: "3 John",
+    chapters: 1,
+    verses: 14,
   },
   {
-    "usfm": "JUD",
-    "nameAsReceived": "Jude",
-    "chapters": 1,
-    "verses": 25
+    usfm: "JUD",
+    nameAsReceived: "Jude",
+    chapters: 1,
+    verses: 25,
   },
   {
-    "usfm": "REV",
-    "nameAsReceived": "Revelation",
-    "chapters": 22,
-    "verses": 404
-  }
+    usfm: "REV",
+    nameAsReceived: "Revelation",
+    chapters: 22,
+    verses: 404,
+  },
 ];
 
 const EMBEDDED_MANIFEST: BlbManifest = {
@@ -528,9 +528,7 @@ export function getBlbDraftTranslationMeta(
   manifest?: BlbManifest | null
 ): Translation {
   const totalVerses =
-    manifest?.stats?.verses ??
-    manifest?.counts?.verses ??
-    31084;
+    manifest?.stats?.verses ?? manifest?.counts?.verses ?? 31084;
   return {
     id: BLB_DRAFT_ID,
     name: BLB_DRAFT_NAME,
@@ -549,7 +547,7 @@ export function getBlbDraftTranslationMeta(
     totalNumberOfChapters: 1189,
     totalNumberOfVerses: totalVerses,
     // Extended fields consumed by the picker badge (optional on catalog rows).
-    ...( {
+    ...({
       draft: true,
       draftBadge: BLB_DRAFT_BADGE,
     } as Partial<Translation>),
@@ -648,10 +646,13 @@ function parseAttrs(raw: string): Record<string, string> {
 }
 
 function parseXml(xml: string): XmlEl {
-  const cleaned = xml.replace(/<\?[\s\S]*?\?>/g, "").replace(/<!--[\s\S]*?-->/g, "");
+  const cleaned = xml
+    .replace(/<\?[\s\S]*?\?>/g, "")
+    .replace(/<!--[\s\S]*?-->/g, "");
   const root: XmlEl = { tag: "#root", attrs: {}, children: [] };
   const stack: XmlEl[] = [root];
-  const tokenRe = /([^<]+)|<\/([:\w.-]+)\s*>|<([:\w.-]+)([^>]*?)\s*\/>|<([:\w.-]+)([^>]*?)\s*>/g;
+  const tokenRe =
+    /([^<]+)|<\/([:\w.-]+)\s*>|<([:\w.-]+)([^>]*?)\s*\/>|<([:\w.-]+)([^>]*?)\s*>/g;
   let token: RegExpExecArray | null;
   while ((token = tokenRe.exec(cleaned))) {
     if (token[1] !== undefined) {
@@ -784,7 +785,13 @@ export function convertBlbDraftChapterFromUsx(
       continue;
     }
     const style = node.attrs.style || "";
-    if (style === "s" || style === "s1" || style === "s2" || style === "ms" || style === "mr") {
+    if (
+      style === "s" ||
+      style === "s1" ||
+      style === "s2" ||
+      style === "ms" ||
+      style === "mr"
+    ) {
       flushVerse();
       const heading = collectPlain(node).trim();
       if (heading) {
@@ -863,8 +870,13 @@ export function convertBlbDraftChapterFromUsx(
       ? {
           previousChapterApiLink: `/api/${BLB_DRAFT_ID}/${book}/${chapterNum - 1}.json`,
           previousChapterAudioLinks: null,
+          previousChapterAudioTimings: null,
         }
-      : { previousChapterApiLink: null, previousChapterAudioLinks: null };
+      : {
+          previousChapterApiLink: null,
+          previousChapterAudioLinks: null,
+          previousChapterAudioTimings: null,
+        };
 
   let nextChapterApiLink: string | null = null;
   let nextBookId: string | null = null;
@@ -883,8 +895,11 @@ export function convertBlbDraftChapterFromUsx(
     book: bookInfo,
     thisChapterLink: `/api/${BLB_DRAFT_ID}/${book}/${chapterNum}.json`,
     thisChapterAudioLinks: {},
+    // BLB-Draft has no audio; empty/null timings satisfy the upstream shape.
+    thisChapterAudioTimings: {},
     nextChapterApiLink,
     nextChapterAudioLinks: nextChapterApiLink ? {} : null,
+    nextChapterAudioTimings: nextChapterApiLink ? {} : null,
     ...prev,
     numberOfVerses,
     chapter: {
@@ -898,9 +913,8 @@ export function convertBlbDraftChapterFromUsx(
 export async function getBlbDraftBooks(): Promise<TranslationBooks> {
   const manifest = await loadBlbDraftManifest();
   const translation = getBlbDraftTranslationMeta(manifest);
-  const books: TranslationBook[] = (manifest.books.length
-    ? manifest.books
-    : []
+  const books: TranslationBook[] = (
+    manifest.books.length ? manifest.books : []
   ).map((b, index) => ({
     id: b.usfm,
     name: b.nameAsReceived,

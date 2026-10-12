@@ -3,6 +3,11 @@ import { Main } from "../app/main";
 import { render } from "preact";
 import { readInjectedConfig } from "../app/appConfig";
 import { readInjectedApiResponseSnapshot } from "../app/apiResponseSeed";
+import { readInjectedCustomizationSeed } from "../app/customizationSeed";
+import {
+  readInjectedPlaylistPageSeed,
+  readInjectedReadingPlanPageSeed,
+} from "../app/sharedPageSeeds";
 import { createSeedBibleState } from "../managers/SeedBibleStateManager";
 import { decideHydration, type HydrationDecision } from "../app/hydrationGate";
 import { hydrateWithFallback } from "../app/hydrateWithFallback";
@@ -19,6 +24,15 @@ const config = readInjectedConfig();
 // the page already contains.
 const apiResponseSnapshot = readInjectedApiResponseSnapshot();
 
+// The `?customization=...` load the server already completed, if any —
+// seeding the client's own CustomizationsManager with it means the manager
+// creation below doesn't re-fetch a record the page already reflects.
+const initialCustomizationSeed = readInjectedCustomizationSeed();
+
+// Same, for the playlist or reading plan a shared link opens on.
+const initialPlaylistPageSeed = readInjectedPlaylistPageSeed();
+const initialReadingPlanPageSeed = readInjectedReadingPlanPageSeed();
+
 const container = document.getElementById("app") ?? document.body;
 
 console.log("Starting APP");
@@ -28,7 +42,13 @@ console.log("Starting APP");
 // paint. This keeps the initial paint on the correct-language, correct-
 // content SSR markup instead of flashing a fallback that a moment later
 // gets replaced.
-const state = createSeedBibleState({ config, apiResponseSnapshot });
+const state = createSeedBibleState({
+  config,
+  apiResponseSnapshot,
+  initialCustomizationSeed,
+  initialPlaylistPageSeed,
+  initialReadingPlanPageSeed,
+});
 
 /**
  * Every initial tab's chapter fetch is already in flight by the time
@@ -42,9 +62,12 @@ const state = createSeedBibleState({ config, apiResponseSnapshot });
  * the reader subtree waiting on its own Suspense fallback.
  */
 function waitForThisPagesChapterLoads() {
-  return waitForInitialChapterLoads(
-    state.tabs.tabs.value.map((tab) => tab.readingState.chapterDataPromise)
-  );
+  return waitForInitialChapterLoads([
+    ...state.tabs.tabs.value.map((tab) => tab.readingState.chapterDataPromise),
+    // A reload mid-playlist moves the reader to its step's chapter after the
+    // playlist loads; the server rendered that chapter, so wait for it too.
+    state.playlists.initialPlaybackPromise,
+  ]);
 }
 
 void Promise.all([state.i18n.ready, waitForThisPagesChapterLoads()]).then(

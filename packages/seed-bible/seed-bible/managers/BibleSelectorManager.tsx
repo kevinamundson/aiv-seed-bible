@@ -27,8 +27,9 @@ import type {
 import { createSidebar } from "../managers/SidebarManager";
 import type { NavigationManager } from "../managers/NavigationManager";
 import type { I18nManager } from "../i18n/I18nManager";
-import { type BookmarksManager } from "../managers/BookmarksManager";
+import { type SavesManager } from "../managers/SavesManager";
 import {
+  batch,
   computed,
   effect,
   signal,
@@ -168,6 +169,8 @@ export interface BibleSelectorState {
   selectedTestament: Signal<number>;
   apocryphaAvailable: Signal<boolean>;
   selectingTranslation: Signal<boolean>;
+  downloadedOnly: Signal<boolean>;
+  openDownloadedTranslations: (slot?: TabSlot) => Promise<void>;
   lastBookClicked: Signal<number>;
   bookData: Signal<TranslationBook | null>;
   chT: Signal<number>;
@@ -188,6 +191,7 @@ export interface BibleSelectorState {
   allowedTranslationLimit: Signal<number>;
   apiTranslations: ReadonlySignal<TranslationLanguageGroup[]>;
   showAllLanguages: Signal<TranslationViewMode>;
+  listViewMode: ReadonlySignal<TranslationViewMode>;
   /**
    * Applies the visitor's stored translation-list view mode. Seeds to the
    * default to match SSR; call once from a post-mount effect (via
@@ -216,7 +220,7 @@ export interface BibleSelectorState {
   matchingTranslationGroupCount: ReadonlySignal<number>;
   handleTranslationAddition: () => void;
   openTabs: () => void;
-  bookmarks: BookmarksManager;
+  saves: SavesManager;
   showApocryphaInfo: Signal<boolean>;
 }
 
@@ -265,7 +269,7 @@ export function createBibleSelectorState(
   tabsLayoutManager: TabsLayoutManager,
   settings: SettingsManager,
   sidebar: SidebarManager,
-  bookmarks: BookmarksManager,
+  saves: SavesManager,
   navigation: NavigationManager,
   login: LoginManager,
   i18n: I18nManager
@@ -574,6 +578,25 @@ export function createBibleSelectorState(
 
   const selectingTranslation = signal<boolean>(false);
 
+  const downloadedOnly = signal<boolean>(false);
+
+  effect(() => {
+    if (!selectingTranslation.value || !isOpen.value) {
+      downloadedOnly.value = false;
+    }
+  });
+
+  const openDownloadedTranslations = async (nextSlot?: TabSlot) => {
+    await setOpen(true, nextSlot);
+    if (!isOpen.value) {
+      return;
+    }
+    batch(() => {
+      selectingTranslation.value = true;
+      downloadedOnly.value = true;
+    });
+  };
+
   // ─── SideBarBooks State ───────────────────────────────────────────────────────
   // NOTE: These signals are logically local to the single SideBarBooks instance
   // that exists at any given time.  If multiple instances were ever mounted
@@ -869,11 +892,29 @@ export function createBibleSelectorState(
     }
   });
 
+  const downloadedApiTranslations = computed(() => {
+    const downloaded = dataManager.offline.downloaded.value;
+    return apiTranslations.value
+      .map((group) => ({
+        ...group,
+        translations: group.translations.filter((translation) =>
+          downloaded.has(translation.id)
+        ),
+      }))
+      .filter((group) => group.translations.length > 0);
+  });
+
+  const listViewMode = computed<TranslationViewMode>(() =>
+    downloadedOnly.value ? "all" : showAllLanguages.value
+  );
+
   const pagedApiTranslations = computed(() =>
     filterTranslationGroups({
-      groups: apiTranslations.value,
+      groups: downloadedOnly.value
+        ? downloadedApiTranslations.value
+        : apiTranslations.value,
       query: languageQuery.value,
-      viewMode: showAllLanguages.value,
+      viewMode: listViewMode.value,
       limit: allowedTranslationLimit.value,
       selectedTranslation: selectedTranslation.value,
       popularLanguages: defaultTranslations.value,
@@ -931,6 +972,8 @@ export function createBibleSelectorState(
     selectedTestament,
     apocryphaAvailable,
     selectingTranslation,
+    downloadedOnly,
+    openDownloadedTranslations,
     lastBookClicked,
     bookData,
     chT,
@@ -948,6 +991,7 @@ export function createBibleSelectorState(
     allowedTranslationLimit,
     apiTranslations,
     showAllLanguages,
+    listViewMode,
     hydrateStoredViewMode,
     showTranslationSettings,
     showTranslationInfo,
@@ -957,7 +1001,7 @@ export function createBibleSelectorState(
     matchingTranslationGroupCount,
     handleTranslationAddition,
     openTabs,
-    bookmarks,
+    saves,
     showApocryphaInfo,
   };
 }
