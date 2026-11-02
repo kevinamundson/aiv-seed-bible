@@ -803,7 +803,7 @@ describe("CustomizationsManager", () => {
     expect(buildCustomFontValue(";;;")).toBe("");
   });
 
-  it('getFontPresetsForField() prepends a field-specific "Default" entry using the Light theme\'s own value, ahead of the 6 named presets', () => {
+  it('getFontPresetsForField() prepends a field-specific "Default" entry using the Light theme\'s own value, ahead of the 7 named presets', () => {
     const chapterHeadingPresets = getFontPresetsForField(
       "chapterHeadingFontFamily"
     );
@@ -818,6 +818,7 @@ describe("CustomizationsManager", () => {
       { name: "Open Sans", value: "Open Sans, sans-serif" },
       { name: "Playfair Display", value: "Playfair Display, serif" },
       { name: "Cormorant Garamond", value: "Cormorant Garamond, serif" },
+      { name: "Vollkorn", value: "Vollkorn, serif" },
     ]);
 
     // Different fields have different Light-theme defaults.
@@ -828,6 +829,10 @@ describe("CustomizationsManager", () => {
     expect(getFontPresetsForField("bookTitleFontFamily")[0]).toEqual({
       name: "Default",
       value: "Newsreader, serif",
+    });
+    expect(getFontPresetsForField("verseFontFamily")[0]).toEqual({
+      name: "Default",
+      value: "Vollkorn, serif",
     });
   });
 

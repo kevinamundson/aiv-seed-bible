@@ -611,7 +611,7 @@ export const LIGHT_THEME: BibleTheme = {
     chapterHeadingFontColor: "#333",
     chapterHeadingFontStyle: "normal",
 
-    verseFontFamily: "Plus Jakarta Sans, sans-serif",
+    verseFontFamily: "Vollkorn, serif",
     verseFontColor: "#333",
     verseCursor: "pointer",
 
@@ -806,7 +806,7 @@ export const DARK_THEME: BibleTheme = {
     chapterHeadingFontColor: "#e6e6e6",
     chapterHeadingFontStyle: "normal",
 
-    verseFontFamily: "Plus Jakarta Sans, sans-serif",
+    verseFontFamily: "Vollkorn, serif",
     verseFontColor: "#e6e6e6",
     verseCursor: "pointer",
 
