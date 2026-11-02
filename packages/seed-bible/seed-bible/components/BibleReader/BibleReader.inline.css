@@ -674,6 +674,14 @@
   color: var(--sb-hebrew-subtitle-font-color);
 }
 
+/* USFM `d` after a chapter's last verse (Psalm postscripts, HAB 3:19). */
+.sb-subtitle.sb-subtitle-postscript {
+  margin-top: 0.75em;
+  font-size: 0.9em;
+  text-align: end;
+  opacity: 0.85;
+}
+
 .sb-verse {
   /* color: var(--text-verse-color); */
   color: var(--sb-verse-font-color);

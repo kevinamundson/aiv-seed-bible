@@ -154,6 +154,38 @@ describe("convertAivChapterFromUsx()", () => {
     ).toBe(true);
   });
 
+  it("handles pass-4 markers: chapter-end d postscript, d holding a verse, cls colophon", () => {
+    const usx = `<?xml version="1.0" encoding="UTF-8"?><usx version="3.1"><book code="HAB" style="id">eng_aiv</book>
+<chapter number="3" style="c" sid="HAB 3"/>
+<para style="s1">Habakkuk’s Prayer</para>
+<para style="d"><verse number="1" style="v" sid="HAB 3:1"/>A prayer of Habakkuk the prophet. <verse eid="HAB 3:1"/></para>
+<para style="cls"><verse number="2" style="v" sid="HAB 3:2"/>These are the generations, </para>
+<para style="p" vid="HAB 3:2">in the day. <verse eid="HAB 3:2"/></para>
+<para style="d">For the one directing. </para>
+<chapter eid="HAB 3"/></usx>`;
+    const m: AivManifest = {
+      ...MANIFEST,
+      books: [
+        { usfm: "HAB", name: "Habakkuk", chapters: 3, verses: 56, sha256: "h" },
+      ],
+    };
+    const content = convertAivChapterFromUsx(usx, "HAB", 3, m).chapter.content;
+    expect(content.map((c) => c.type)).toEqual([
+      "heading",
+      "verse",
+      "verse",
+      "hebrew_subtitle",
+    ]);
+    const vs = verses(content);
+    expect(vs.map((v) => v.number)).toEqual([1, 2]);
+    expect(plain(vs[0]!)).toContain("A prayer of Habakkuk");
+    expect(plain(vs[1]!)).toBe("These are the generations, in the day. ");
+    expect(content[3]).toEqual({
+      type: "hebrew_subtitle",
+      content: ["For the one directing. "],
+    });
+  });
+
   it("links adjacent chapters with eng_aiv API links", () => {
     const gen1 = convertAivChapterFromUsx(GEN_USX, "GEN", 1, MANIFEST);
     const gen2 = convertAivChapterFromUsx(GEN_USX, "GEN", 2, MANIFEST);

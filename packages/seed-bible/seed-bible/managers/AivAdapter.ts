@@ -21,7 +21,9 @@
  * Marker map:
  *   para@s/s1/s2/ms/mr/qa → heading
  *   para@r               → heading with style "r" (parallel passage refs)
- *   para@d               → hebrew_subtitle (Psalm superscriptions)
+ *   para@d               → hebrew_subtitle (Psalm superscriptions and chapter-end
+ *                          postscripts); a `d` holding a verse (HAB 3:1) is that verse
+ *   para@cls             → verse text (colophons, e.g. GEN 2:4, PSA 72:20)
  *   para@h/toc1-3/mt1/rem/ide → ignored (book-level, before chapter 1)
  *   char@add → FormattedText { text, add: true } (italic)
  *   char@wj  → FormattedText { text, wordsOfJesus: true }
@@ -484,8 +486,18 @@ export function convertAivChapterFromUsx(
       }
       continue;
     }
-    if (style === "d") {
-      // Psalm superscription: its own block, never part of a verse.
+    const dHoldsVerse =
+      style === "d" &&
+      node.children.some(
+        (c) =>
+          typeof c !== "string" &&
+          c.tag === "verse" &&
+          c.attrs.sid !== undefined
+      );
+    if (style === "d" && !dHoldsVerse) {
+      // Psalm superscription or chapter-end postscript: its own block, never
+      // part of a verse. A `d` that carries a verse (HAB 3:1) is read as
+      // that verse below so the verse is not lost.
       flushVerse();
       const parts: VersePart[] = [];
       for (const child of node.children) {

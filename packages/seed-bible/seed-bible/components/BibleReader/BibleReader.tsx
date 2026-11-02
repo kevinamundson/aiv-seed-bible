@@ -1231,7 +1231,14 @@ function renderChapterContent(
 
     if (entry.type === "hebrew_subtitle" && Array.isArray(entry.content)) {
       nodes.push(
-        <p key={`subtitle-${i}`} className="sb-subtitle">
+        <p
+          key={`subtitle-${i}`}
+          className={
+            entries.slice(i + 1).some(isVerseEntry)
+              ? "sb-subtitle"
+              : "sb-subtitle sb-subtitle-postscript"
+          }
+        >
           {entry.content.map((part, index) =>
             renderInlineContent(
               part,
