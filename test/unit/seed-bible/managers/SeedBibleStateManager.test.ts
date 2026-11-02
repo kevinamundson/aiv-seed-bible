@@ -6,6 +6,7 @@ import {
 import { TODAY_PANE_ID } from "@packages/seed-bible/seed-bible/managers/TodayManager";
 import { PROFILE_PANE_ID } from "@packages/seed-bible/seed-bible/components/ProfilePane/ProfilePane";
 import { PLAYLIST_HISTORY_PANE_ID } from "@packages/seed-bible/seed-bible/components/PlaylistHistoryPane/PlaylistHistoryPane";
+import { EXTENSIONS_PANE_ID } from "@packages/seed-bible/seed-bible/components/ExtensionsPage/ExtensionsPage";
 import {
   PlaylistPlayHistorySchema,
   PlaylistSchema,
@@ -248,6 +249,28 @@ async function waitFor(
 
 async function createState() {
   return createTestSeedBibleState();
+}
+
+const MIN_TOAST_MS = 1500;
+const FULL_TOAST_MS = 3500;
+const TAPPABLE_TOAST_MS = 6000;
+
+/**
+ * Every toast message that stays on screen for some time, in the order it was
+ * shown. A toast replaced in the same instant it appeared is never painted, so
+ * it is left out. Needs fake timers, so that "same instant" means "no timer
+ * advanced in between".
+ */
+function recordShownToasts(state: SeedBibleState) {
+  const shown: string[] = [];
+  let lastShownAt: number | null = null;
+  state.app.currentToast.subscribe((toast) => {
+    const now = Date.now();
+    if (lastShownAt === now) shown.pop();
+    lastShownAt = toast ? now : null;
+    if (toast) shown.push(toast.message);
+  });
+  return shown;
 }
 
 function createMockSharedSession(id: string) {
@@ -591,7 +614,10 @@ describe("createSeedBibleState", () => {
 
     const result = await state.app.joinSharedSession("group-abc");
 
-    expect(mockSessionsManager.joinSession).toHaveBeenCalledWith("group-abc");
+    expect(mockSessionsManager.joinSession).toHaveBeenCalledWith(
+      "group-abc",
+      undefined
+    );
     expect(result).toBe(session);
     expect(state.tabs.tabs.value).toHaveLength(previousTabCount + 1);
     expect(state.tabs.tabs.value[previousTabCount]?.readingState).toBe(
@@ -650,12 +676,200 @@ describe("createSeedBibleState", () => {
         () => mockSessionsManager.joinSession.mock.calls.length === 1
       );
 
+      // A link that names no chapter leaves the session wherever it is.
       expect(mockSessionsManager.joinSession).toHaveBeenCalledWith(
-        "url-session-123"
+        "url-session-123",
+        undefined
       );
       expect(state.tabs.tabs.value).toHaveLength(2);
       expect(state.tabs.tabs.value[1]?.sharedSession).toBe(session);
       expect(state.tabs.selectedTabId.value).toBe("tab-2");
+    } finally {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  });
+
+  // Regression (#2020): a link carrying both a session and a chapter used to
+  // open the chapter in a plain tab and the session, at its own position, in a
+  // second one.
+  it("opens a session link's chapter in the session tab alone", async () => {
+    const session = createMockSharedSession("url-session-456");
+    // Held open until the app has loaded, as the real join (a network sync) is.
+    let finishJoin!: (joined: typeof session) => void;
+    mockSessionsManager.joinSession.mockReturnValue(
+      new Promise((resolve) => {
+        finishJoin = resolve;
+      })
+    );
+
+    window.history.replaceState(
+      null,
+      "",
+      "?sessionId=url-session-456&book=EXO&chapter=2&useFreeBibleAPI=true"
+    );
+    try {
+      const state = await createStateWithOptions({});
+      finishJoin(session);
+
+      await waitFor(() =>
+        state.tabs.tabs.value.some((tab) => tab.sharedSession === session)
+      );
+
+      expect(state.tabs.tabs.value).toHaveLength(1);
+      expect(mockSessionsManager.joinSession).toHaveBeenCalledWith(
+        "url-session-456",
+        expect.objectContaining({
+          initialBookId: "EXO",
+          initialChapterNumber: 2,
+        })
+      );
+      expect(state.tabs.tabs.value[0]?.sharedSession).toBe(session);
+      expect(state.tabs.selectedTabId.value).toBe(state.tabs.tabs.value[0]?.id);
+
+      // A tab opened afterwards must not reuse the session tab's id.
+      const nextTab = state.tabs.addTab();
+      expect(nextTab.id).not.toBe(state.tabs.tabs.value[0]?.id);
+    } finally {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  });
+
+  it("leaves a returning visitor's saved tabs where they were when a session link names a chapter", async () => {
+    window.localStorage.setItem(
+      "sb-tabs-state",
+      JSON.stringify({
+        version: 1,
+        tabs: [
+          {
+            id: "tab-1",
+            translationId: "NIV",
+            bookId: "MAT",
+            chapterNumber: 1,
+          },
+        ],
+        selectedTabId: "tab-1",
+        layout: "single",
+        slotTabIds: ["tab-1"],
+        selectedSlotIndex: 0,
+      })
+    );
+    const session = createMockSharedSession("url-session-789");
+    mockSessionsManager.joinSession.mockResolvedValue(session);
+
+    window.history.replaceState(
+      null,
+      "",
+      "?sessionId=url-session-789&book=EXO&chapter=2&useFreeBibleAPI=true"
+    );
+    try {
+      const state = await createStateWithOptions({});
+
+      await waitFor(() =>
+        state.tabs.tabs.value.some((tab) => tab.sharedSession === session)
+      );
+
+      const savedTabs = state.tabs.tabs.value.filter(
+        (tab) => !tab.sharedSession
+      );
+      expect(
+        savedTabs.map((tab) => [
+          tab.readingState.translationId.value,
+          tab.readingState.bookId.value,
+          tab.readingState.chapterNumber.value,
+        ])
+      ).toEqual([["NIV", "MAT", 1]]);
+      expect(state.tabs.selectedTabId.value).toBe(
+        state.tabs.tabs.value.find((tab) => tab.sharedSession === session)?.id
+      );
+    } finally {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  });
+
+  it("opens a session link's chapter in a normal tab when a returning visitor can't join the session", async () => {
+    window.localStorage.setItem(
+      "sb-tabs-state",
+      JSON.stringify({
+        version: 1,
+        tabs: [
+          {
+            id: "tab-1",
+            translationId: "NIV",
+            bookId: "MAT",
+            chapterNumber: 1,
+          },
+        ],
+        selectedTabId: "tab-1",
+        layout: "single",
+        slotTabIds: ["tab-1"],
+        selectedSlotIndex: 0,
+      })
+    );
+    mockSessionsManager.joinSession.mockRejectedValue(
+      new Error("sync timed out")
+    );
+    vi.spyOn(console, "error").mockImplementation(() => {});
+
+    window.history.replaceState(
+      null,
+      "",
+      "?sessionId=url-session-down&book=EXO&chapter=2&useFreeBibleAPI=true"
+    );
+    try {
+      const state = await createStateWithOptions({});
+
+      await waitFor(
+        () =>
+          state.app.currentToast.value?.message ===
+          "Couldn't join the shared session"
+      );
+
+      const selected = state.tabs.tabs.value.find(
+        (tab) => tab.id === state.tabs.selectedTabId.value
+      );
+      expect(selected?.sharedSession).toBeNull();
+      expect(selected?.readingState.bookId.value).toBe("EXO");
+      expect(selected?.readingState.chapterNumber.value).toBe(2);
+      expect(
+        state.tabs.tabs.value.map((tab) => [
+          tab.readingState.bookId.value,
+          tab.readingState.chapterNumber.value,
+        ])
+      ).toEqual([
+        ["MAT", 1],
+        ["EXO", 2],
+      ]);
+    } finally {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  });
+
+  it("keeps a first-time visitor on a session link's chapter, in one tab, when the join fails", async () => {
+    mockSessionsManager.joinSession.mockRejectedValue(
+      new Error("sync timed out")
+    );
+    vi.spyOn(console, "error").mockImplementation(() => {});
+
+    window.history.replaceState(
+      null,
+      "",
+      "?sessionId=url-session-down&book=EXO&chapter=2&useFreeBibleAPI=true"
+    );
+    try {
+      const state = await createStateWithOptions({});
+
+      await waitFor(
+        () =>
+          state.app.currentToast.value?.message ===
+          "Couldn't join the shared session"
+      );
+
+      expect(state.tabs.tabs.value).toHaveLength(1);
+      const [tab] = state.tabs.tabs.value;
+      expect(tab?.sharedSession).toBeNull();
+      expect(tab?.readingState.bookId.value).toBe("EXO");
+      expect(tab?.readingState.chapterNumber.value).toBe(2);
+      expect(state.tabs.selectedTabId.value).toBe(tab?.id);
     } finally {
       window.history.replaceState(null, "", window.location.pathname);
     }
@@ -937,13 +1151,11 @@ describe("createSeedBibleState", () => {
         hostConnectedUser,
         otherGuestConnectedUser,
       ];
+      const shown = recordShownToasts(state);
 
       // A real drop takes the whole list with it, our own entry included.
       session.isSynced.value = false;
       session.connectedUsers.value = [];
-      expect(state.app.currentToast.value?.message).toBe(
-        "You lost connection to the session"
-      );
 
       session.isSynced.value = true;
       session.connectedUsers.value = [
@@ -951,12 +1163,23 @@ describe("createSeedBibleState", () => {
         hostConnectedUser,
         otherGuestConnectedUser,
       ];
+
+      // The drop and the recovery land in the same instant, so the drop toast
+      // must still get its turn on screen before the rejoin one.
+      expect(state.app.currentToast.value?.message).toBe(
+        "You lost connection to the session"
+      );
+      vi.advanceTimersByTime(MIN_TOAST_MS);
       expect(state.app.currentToast.value?.message).toBe(
         "You rejoined the session"
       );
 
       vi.advanceTimersByTime(30_000);
 
+      expect(shown).toEqual([
+        "You lost connection to the session",
+        "You rejoined the session",
+      ]);
       expect(originalDispose).not.toHaveBeenCalled();
       expect(state.tabs.tabs.value.some((tab) => tab.id === tabId)).toBe(true);
     });
@@ -967,6 +1190,7 @@ describe("createSeedBibleState", () => {
         state,
         "session-sync-drop"
       );
+      const shown = recordShownToasts(state);
 
       session.isSynced.value = false;
       session.connectedUsers.value = [];
@@ -977,9 +1201,12 @@ describe("createSeedBibleState", () => {
 
       session.isSynced.value = true;
       session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
-      expect(state.app.currentToast.value?.message).toBe(
-        "You rejoined the session"
-      );
+      vi.advanceTimersByTime(MIN_TOAST_MS);
+
+      expect(shown).toEqual([
+        "You lost connection to the session",
+        "You rejoined the session",
+      ]);
     });
 
     it("does not show a you-disconnected toast on a remaining host device when another of the host's devices leaves", async () => {
@@ -1020,25 +1247,62 @@ describe("createSeedBibleState", () => {
         state,
         "session-airplane-rejoin"
       );
+      const shown = recordShownToasts(state);
 
       session.isSynced.value = false;
       session.connectedUsers.value = [];
-      expect(state.app.currentToast.value?.message).toBe(
-        "You lost connection to the session"
-      );
 
       // Coming back rebuilds presence from scratch, so we reappear first and
       // the host lands a beat later.
       session.isSynced.value = true;
       session.connectedUsers.value = [selfConnectedUser];
+      session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+
+      vi.advanceTimersByTime(MIN_TOAST_MS + FULL_TOAST_MS);
+
+      expect(shown).toEqual([
+        "You lost connection to the session",
+        "You rejoined the session",
+      ]);
+      expect(originalDispose).not.toHaveBeenCalled();
+    });
+
+    it("shows lost, rejoined and host-disconnected in turn when the host flickers in and out while presence is rebuilt", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session, originalDispose } = await joinAsHostedSession(
+        state,
+        "session-rejoin-host-flicker"
+      );
+      const shown = recordShownToasts(state);
+
+      session.isSynced.value = false;
+      session.connectedUsers.value = [];
+
+      // The rebuilt list briefly includes the host, then drops them, all
+      // before a single timer runs.
+      session.isSynced.value = true;
+      session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+      session.connectedUsers.value = [selfConnectedUser];
+
+      expect(state.app.currentToast.value?.message).toBe(
+        "You lost connection to the session"
+      );
+      vi.advanceTimersByTime(MIN_TOAST_MS);
       expect(state.app.currentToast.value?.message).toBe(
         "You rejoined the session"
+      );
+      vi.advanceTimersByTime(MIN_TOAST_MS);
+      expect(state.app.currentToast.value?.message).toBe(
+        "The host disconnected from the session"
       );
 
-      session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
-      expect(state.app.currentToast.value?.message).toBe(
-        "You rejoined the session"
-      );
+      vi.advanceTimersByTime(FULL_TOAST_MS);
+
+      expect(shown).toEqual([
+        "You lost connection to the session",
+        "You rejoined the session",
+        "The host disconnected from the session",
+      ]);
       expect(originalDispose).not.toHaveBeenCalled();
     });
 
@@ -1048,6 +1312,7 @@ describe("createSeedBibleState", () => {
         state,
         "session-resume-rejoin"
       );
+      const shown = recordShownToasts(state);
 
       // We drop while the app is in the foreground, so we are told about it.
       session.isSynced.value = false;
@@ -1064,10 +1329,12 @@ describe("createSeedBibleState", () => {
       // told we dropped, we must be told we are back.
       session.isSynced.value = true;
       session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+      vi.advanceTimersByTime(MIN_TOAST_MS);
 
-      expect(state.app.currentToast.value?.message).toBe(
-        "You rejoined the session"
-      );
+      expect(shown).toEqual([
+        "You lost connection to the session",
+        "You rejoined the session",
+      ]);
     });
 
     it("stays silent on recovery when the drop itself was never announced", async () => {
@@ -1098,21 +1365,115 @@ describe("createSeedBibleState", () => {
         state,
         "session-rejoin-host-still-gone"
       );
+      const shown = recordShownToasts(state);
 
       session.isSynced.value = false;
       session.connectedUsers.value = [];
       session.isSynced.value = true;
       session.connectedUsers.value = [selfConnectedUser];
 
+      vi.advanceTimersByTime(5000);
+
+      expect(shown).toEqual([
+        "You lost connection to the session",
+        "You rejoined the session",
+        "The host disconnected from the session",
+      ]);
+      expect(originalDispose).not.toHaveBeenCalled();
+    });
+
+    it("shows only the latest connection state after our connection flaps repeatedly", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session } = await joinAsHostedSession(
+        state,
+        "session-self-flapping"
+      );
+      const shown = recordShownToasts(state);
+
+      for (let i = 0; i < 5; i++) {
+        session.isSynced.value = false;
+        session.connectedUsers.value = [];
+        vi.advanceTimersByTime(100);
+        session.isSynced.value = true;
+        session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+        vi.advanceTimersByTime(100);
+      }
+
+      // The first toast keeps its minimum time; the rest of the burst
+      // collapses into the single latest state behind it.
+      vi.advanceTimersByTime(MIN_TOAST_MS - 1000);
       expect(state.app.currentToast.value?.message).toBe(
         "You rejoined the session"
       );
 
-      vi.advanceTimersByTime(2000);
+      vi.advanceTimersByTime(FULL_TOAST_MS);
+      expect(state.app.currentToast.value).toBeNull();
+      expect(shown).toEqual([
+        "You lost connection to the session",
+        "You rejoined the session",
+      ]);
+    });
 
-      expect(state.app.currentToast.value?.message).toBe(
-        "The host disconnected from the session"
+    it("shows a single you-lost-connection toast when the connection drops again while it is still on screen", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session } = await joinAsHostedSession(
+        state,
+        "session-drop-rejoin-drop"
       );
+      const shown = recordShownToasts(state);
+
+      session.isSynced.value = false;
+      session.connectedUsers.value = [];
+      vi.advanceTimersByTime(100);
+      session.isSynced.value = true;
+      session.connectedUsers.value = [selfConnectedUser, hostConnectedUser];
+      vi.advanceTimersByTime(100);
+      session.isSynced.value = false;
+      session.connectedUsers.value = [];
+
+      vi.advanceTimersByTime(FULL_TOAST_MS - 200 - 1);
+      expect(state.app.currentToast.value?.message).toBe(
+        "You lost connection to the session"
+      );
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value).toBeNull();
+      expect(shown).toEqual(["You lost connection to the session"]);
+    });
+
+    it("shows only the latest host state after the host flaps repeatedly", async () => {
+      const state = await createStateWithTwoTabs();
+      const { session, originalDispose } = await joinAsHostedSession(
+        state,
+        "session-host-flapping"
+      );
+      const shown = recordShownToasts(state);
+
+      for (let i = 0; i < 5; i++) {
+        session.connectedUsers.value = [
+          selfConnectedUser,
+          otherGuestConnectedUser,
+        ];
+        vi.advanceTimersByTime(100);
+        session.connectedUsers.value = [
+          selfConnectedUser,
+          hostConnectedUser,
+          otherGuestConnectedUser,
+        ];
+        vi.advanceTimersByTime(100);
+      }
+
+      vi.advanceTimersByTime(MIN_TOAST_MS - 1000);
+      expect(state.app.currentToast.value?.message).toBe(
+        "The host reconnected to the session"
+      );
+
+      vi.advanceTimersByTime(FULL_TOAST_MS);
+      expect(state.app.currentToast.value).toBeNull();
+      expect(shown).toEqual([
+        "The host disconnected from the session",
+        "The host reconnected to the session",
+      ]);
       expect(originalDispose).not.toHaveBeenCalled();
     });
   });
@@ -1183,7 +1544,7 @@ describe("createSeedBibleState", () => {
     expect(state.selector.isOpen.value).toBe(false);
   });
 
-  it("selecting a side pane on desktop leaves the Settings sidebar open, so the Customization Center's list stays visible behind its editor pane", async () => {
+  it("selecting a side pane on desktop leaves the Settings sidebar open", async () => {
     const state = await createState();
     state.sidebar.openSettings();
     const pane = state.panes.openPane({
@@ -1488,6 +1849,17 @@ describe("createSeedBibleState", () => {
       expect(to - from).toBe(5);
     });
 
+    it("stops saving history once the state is disposed", async () => {
+      const state = await createState();
+      setSelectedTabChapter(state, "genesis", 1);
+      mockSaveReadingSpan.mockClear();
+
+      state.dispose();
+
+      vi.advanceTimersByTime(15000);
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
+    });
+
     it("saves history once for each additional 5 seconds of viewing", async () => {
       const state = await createState();
       setSelectedTabChapter(state, "genesis", 1);
@@ -1613,6 +1985,16 @@ describe("createSeedBibleState", () => {
       expect(readingState.chapterData.value!.chapter.number).toBe(1);
       expect(state.today.isOpen.value).toBe(true);
       expect(state.today.readingHistory.value.status).toBe("empty");
+
+      vi.advanceTimersByTime(60000);
+
+      expect(mockSaveReadingSpan).not.toHaveBeenCalled();
+    });
+
+    it("does not credit reading time in a minimal embed", async () => {
+      const state = await createStateWithOptions({ embed: "minimal" });
+      setSelectedTabChapter(state, "genesis", 1);
+      mockSaveReadingSpan.mockClear();
 
       vi.advanceTimersByTime(60000);
 
@@ -1965,13 +2347,273 @@ describe("createSeedBibleState", () => {
       // bare reason string would be `===` the previous value, so the effect would
       // never re-run and the message would be silently swallowed.
       const state = await createState();
+      vi.useFakeTimers();
+      const shown = recordShownToasts(state);
 
       state.login.sessionEnded.value = { reason: "signed_out", id: 1 };
-      const firstToastId = state.app.currentToast.value?.id;
+      vi.advanceTimersByTime(FULL_TOAST_MS);
+      expect(state.app.currentToast.value).toBeNull();
 
+      // Signing out again takes signing back in first, so the second event
+      // never lands while the first toast is still up.
       state.login.sessionEnded.value = { reason: "signed_out", id: 2 };
 
+      expect(shown).toEqual([
+        "You've been signed out. Please sign in again.",
+        "You've been signed out. Please sign in again.",
+      ]);
+    });
+
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+  });
+
+  describe("toast queue", () => {
+    beforeEach(() => {
+      vi.useFakeTimers();
+    });
+
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it("shows a lone toast for the full duration", async () => {
+      const state = await createState();
+
+      state.app.toast("Solo");
+      vi.advanceTimersByTime(FULL_TOAST_MS - 1);
+      expect(state.app.currentToast.value?.message).toBe("Solo");
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value).toBeNull();
+    });
+
+    it("shows toasts fired in the same tick one after another instead of replacing the first", async () => {
+      const state = await createState();
+
+      state.app.toast("A");
+      state.app.toast("B");
+      expect(state.app.currentToast.value?.message).toBe("A");
+
+      vi.advanceTimersByTime(MIN_TOAST_MS - 1);
+      expect(state.app.currentToast.value?.message).toBe("A");
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value?.message).toBe("B");
+
+      vi.advanceTimersByTime(FULL_TOAST_MS - 1);
+      expect(state.app.currentToast.value?.message).toBe("B");
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value).toBeNull();
+    });
+
+    it("keeps the current toast until its minimum time when the next one arrives early", async () => {
+      const state = await createState();
+
+      state.app.toast("A");
+      vi.advanceTimersByTime(1000);
+      state.app.toast("B");
+
+      vi.advanceTimersByTime(MIN_TOAST_MS - 1000 - 1);
+      expect(state.app.currentToast.value?.message).toBe("A");
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value?.message).toBe("B");
+    });
+
+    it("dismisses the current toast as soon as the next one arrives once its minimum time has passed", async () => {
+      const state = await createState();
+
+      state.app.toast("A");
+      vi.advanceTimersByTime(2000);
+      state.app.toast("B");
+      vi.advanceTimersByTime(0);
+
+      expect(state.app.currentToast.value?.message).toBe("B");
+    });
+
+    it("shows a burst in order, each for the minimum time except the last", async () => {
+      const state = await createState();
+      const shown = recordShownToasts(state);
+
+      for (let i = 1; i <= 5; i++) state.app.toast(`Toast ${i}`);
+
+      vi.advanceTimersByTime(4 * MIN_TOAST_MS);
+      expect(state.app.currentToast.value?.message).toBe("Toast 5");
+
+      vi.advanceTimersByTime(FULL_TOAST_MS);
+      expect(state.app.currentToast.value).toBeNull();
+      expect(shown).toEqual([
+        "Toast 1",
+        "Toast 2",
+        "Toast 3",
+        "Toast 4",
+        "Toast 5",
+      ]);
+    });
+
+    it("shows a repeated message as two separate toasts", async () => {
+      const state = await createState();
+
+      state.app.toast("Igual");
+      state.app.toast("Igual");
+      const firstToastId = state.app.currentToast.value?.id;
+
+      vi.advanceTimersByTime(MIN_TOAST_MS);
+
+      expect(state.app.currentToast.value?.message).toBe("Igual");
       expect(state.app.currentToast.value?.id).not.toBe(firstToastId);
+    });
+
+    it("drops a waiting toast when a newer one with the same key arrives", async () => {
+      const state = await createState();
+      const shown = recordShownToasts(state);
+
+      state.app.toast("Other");
+      state.app.toast("Offline", { key: "connection" });
+      state.app.toast("Online", { key: "connection" });
+
+      vi.advanceTimersByTime(MIN_TOAST_MS);
+      expect(state.app.currentToast.value?.message).toBe("Online");
+
+      vi.advanceTimersByTime(FULL_TOAST_MS);
+      expect(state.app.currentToast.value).toBeNull();
+      expect(shown).toEqual(["Other", "Online"]);
+    });
+
+    it("never drops the toast on screen, even when a newer one shares its key", async () => {
+      const state = await createState();
+
+      state.app.toast("Offline", { key: "connection" });
+      state.app.toast("Online", { key: "connection" });
+
+      vi.advanceTimersByTime(MIN_TOAST_MS - 1);
+      expect(state.app.currentToast.value?.message).toBe("Offline");
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value?.message).toBe("Online");
+    });
+
+    it("moves the superseding toast to the end of the queue", async () => {
+      const state = await createState();
+      const shown = recordShownToasts(state);
+
+      state.app.toast("Other");
+      state.app.toast("Offline", { key: "connection" });
+      state.app.toast("Unrelated");
+      state.app.toast("Online", { key: "connection" });
+
+      vi.advanceTimersByTime(2 * MIN_TOAST_MS + FULL_TOAST_MS);
+
+      expect(state.app.currentToast.value).toBeNull();
+      expect(shown).toEqual(["Other", "Unrelated", "Online"]);
+    });
+
+    it("does not queue a keyed toast that repeats the one already on screen", async () => {
+      const state = await createState();
+      const shown = recordShownToasts(state);
+
+      state.app.toast("Offline", { key: "connection" });
+      state.app.toast("Online", { key: "connection" });
+      state.app.toast("Offline", { key: "connection" });
+
+      vi.advanceTimersByTime(FULL_TOAST_MS - 1);
+      expect(state.app.currentToast.value?.message).toBe("Offline");
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value).toBeNull();
+      expect(shown).toEqual(["Offline"]);
+    });
+
+    it("still queues a repeat of the toast on screen when its key differs", async () => {
+      const state = await createState();
+      const shown = recordShownToasts(state);
+
+      state.app.toast("Igual", { key: "first" });
+      state.app.toast("Igual", { key: "second" });
+
+      vi.advanceTimersByTime(MIN_TOAST_MS + FULL_TOAST_MS);
+
+      expect(state.app.currentToast.value).toBeNull();
+      expect(shown).toEqual(["Igual", "Igual"]);
+    });
+
+    it("keeps every waiting toast without a key or with a different key", async () => {
+      const state = await createState();
+      const shown = recordShownToasts(state);
+
+      state.app.toast("Other");
+      state.app.toast("Igual");
+      state.app.toast("Igual");
+      state.app.toast("Offline", { key: "connection" });
+      state.app.toast("Host left", { key: "host" });
+
+      vi.advanceTimersByTime(4 * MIN_TOAST_MS + FULL_TOAST_MS);
+
+      expect(state.app.currentToast.value).toBeNull();
+      expect(shown).toEqual([
+        "Other",
+        "Igual",
+        "Igual",
+        "Offline",
+        "Host left",
+      ]);
+    });
+
+    it("keeps a tappable toast up for its full time even with others waiting", async () => {
+      const state = await createState();
+
+      state.app.toast("Link copied", { onClick: vi.fn() });
+      state.app.toast("Next");
+
+      vi.advanceTimersByTime(TAPPABLE_TOAST_MS - 1);
+      expect(state.app.currentToast.value?.message).toBe("Link copied");
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value?.message).toBe("Next");
+    });
+
+    it("cuts a plain toast short for a tappable one waiting behind it", async () => {
+      const state = await createState();
+
+      state.app.toast("Plain");
+      state.app.toast("Link copied", { onClick: vi.fn() });
+
+      vi.advanceTimersByTime(MIN_TOAST_MS);
+      expect(state.app.currentToast.value?.message).toBe("Link copied");
+
+      vi.advanceTimersByTime(TAPPABLE_TOAST_MS - 1);
+      expect(state.app.currentToast.value?.message).toBe("Link copied");
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value).toBeNull();
+    });
+
+    it("tapping a toast runs its action, dismisses it and shows the next one", async () => {
+      const state = await createState();
+      const onClick = vi.fn();
+
+      state.app.toast("Link copied", {
+        hint: "Tap to show a QR code",
+        onClick,
+      });
+      state.app.toast("Next");
+      expect(state.app.currentToast.value?.hint).toBe("Tap to show a QR code");
+
+      vi.advanceTimersByTime(1000);
+      state.app.currentToast.value?.onClick?.();
+      vi.advanceTimersByTime(0);
+
+      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(state.app.currentToast.value?.message).toBe("Next");
+
+      vi.advanceTimersByTime(FULL_TOAST_MS - 1);
+      expect(state.app.currentToast.value?.message).toBe("Next");
+
+      vi.advanceTimersByTime(1);
+      expect(state.app.currentToast.value).toBeNull();
     });
   });
 
@@ -2739,6 +3381,16 @@ describe("createSeedBibleState", () => {
         panelsBackOn.app.effectiveSlots.value.map((slot) => slot.tab?.id)
       ).toEqual(readStoredTabs().slotTabIds);
     });
+
+    it("does not write stored tabs from a minimal embed", async () => {
+      const state = await createStateWithOptions({ embed: "minimal" });
+      const readingState = state.tabs.tabs.value[0]!.readingState;
+
+      await readingState.selectChapter("EXO", 2);
+      await waitForInitialLoad(readingState, 1000);
+
+      expect(localStorage.getItem("sb-tabs-state")).toBeNull();
+    });
   });
 
   describe("UI language Bible translation switch", () => {
@@ -3140,6 +3792,126 @@ describe("opening another screen while Today is up", () => {
     expect(state.isPlaylistHistoryOpen.value).toBe(false);
     expect(state.isProfileOpen.value).toBe(true);
     expect(paneIds(state)).toEqual([PROFILE_PANE_ID]);
+  });
+});
+
+describe("the full-screen Extensions page", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    jsdom.reconfigure({ url: "https://example.com" });
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  const paneIds = (state: SeedBibleState) =>
+    state.panes.panes.value.map((pane) => pane.id);
+  const query = () => new URL(window.location.href).searchParams;
+
+  /** Renders the pane's back button, returning it (or null when there's none). */
+  const renderBackButton = async (
+    state: SeedBibleState,
+    container: HTMLElement
+  ) => {
+    const pane = state.panes.panes.value.find(
+      (item) => item.id === EXTENSIONS_PANE_ID
+    );
+    const Provider = await realI18nProvider();
+    const Leading = pane?.leading;
+    act(() => {
+      render(
+        h(Provider, {
+          i18n: state.i18n,
+          children: Leading ? h(Leading, {}) : null,
+        }),
+        container
+      );
+    });
+    return container.querySelector(
+      ".sb-extensions-page-back"
+    ) as HTMLButtonElement | null;
+  };
+
+  it("stays up when it's opened over Today", async () => {
+    const state = await createState();
+    state.today.open();
+    await Promise.resolve();
+
+    state.openExtensions();
+    await Promise.resolve();
+
+    expect(state.isExtensionsOpen.value).toBe(true);
+    expect(state.today.isOpen.value).toBe(false);
+    expect(paneIds(state)).toEqual([EXTENSIONS_PANE_ID]);
+    expect(query().get("extensions")).toBe("open");
+  });
+
+  it("puts the open extension's page in the URL", async () => {
+    const state = await createState();
+
+    state.openExtensions("demo-extension");
+    await Promise.resolve();
+
+    expect(state.extensionsPageEntryId.value).toBe("demo-extension");
+    expect(query().get("extensions")).toBe("open");
+    expect(query().get("extension")).toBe("demo-extension");
+  });
+
+  it("opens at an extension's page from a link", async () => {
+    jsdom.reconfigure({
+      url: "https://example.com/?extensions=open&extension=demo-extension",
+    });
+    const state = await createState();
+
+    expect(state.isExtensionsOpen.value).toBe(true);
+    expect(state.extensionsPageEntryId.value).toBe("demo-extension");
+    expect(paneIds(state)).toEqual([EXTENSIONS_PANE_ID]);
+  });
+
+  it("forgets the page when its pane is closed", async () => {
+    const state = await createState();
+    state.openExtensions("demo-extension");
+    await Promise.resolve();
+
+    state.panes.closePane(EXTENSIONS_PANE_ID);
+    await Promise.resolve();
+
+    expect(state.isExtensionsOpen.value).toBe(false);
+    expect(state.extensionsPageEntryId.value).toBeNull();
+    expect(query().get("extensions")).toBeNull();
+    expect(query().get("extension")).toBeNull();
+
+    // Reopened, it lists them all rather than going back to that page.
+    state.openExtensions();
+    await Promise.resolve();
+    expect(state.extensionsPageEntryId.value).toBeNull();
+  });
+
+  it("goes back from an extension's page to the list", async () => {
+    const state = await createState();
+    const container = document.createElement("div");
+    document.body.appendChild(container);
+    try {
+      state.openExtensions();
+      await Promise.resolve();
+      expect(await renderBackButton(state, container)).toBeNull();
+
+      state.openExtensions("demo-extension");
+      await Promise.resolve();
+      const back = await renderBackButton(state, container);
+      expect(back).not.toBeNull();
+      act(() => {
+        back!.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      });
+    } finally {
+      render(null, container);
+      container.remove();
+    }
+
+    expect(state.isExtensionsOpen.value).toBe(true);
+    expect(state.extensionsPageEntryId.value).toBeNull();
+    expect(query().get("extension")).toBeNull();
   });
 });
 
