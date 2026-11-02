@@ -674,4 +674,30 @@ describe("custom highlight colors", () => {
       "#222222",
     ]);
   });
+
+  it("defaults verse text to Vollkorn at weight 400 on a fresh profile", () => {
+    const login = makeFakeLogin(null);
+    const settings = createSettings(CasualOSManager(), login, navWith());
+
+    const verse = settings.settings.value.textConfig.verse;
+    expect(verse.font).toBe("'Vollkorn', serif");
+    expect(verse.weight).toBe("400");
+    expect(verse.bold).toBe(false);
+  });
+
+  it("keeps a user's saved verse weight instead of the 400 default", () => {
+    const os = CasualOSManager();
+    const nav = navWith();
+
+    const login1 = createLoginManager({ os });
+    login1.hydrateLocalConfig();
+    const settings1 = createSettings(os, login1, nav);
+    settings1.updateTextSection("verse", { weight: "300" });
+
+    const login2 = createLoginManager({ os });
+    login2.hydrateLocalConfig();
+    const settings2 = createSettings(os, login2, nav);
+
+    expect(settings2.settings.value.textConfig.verse.weight).toBe("300");
+  });
 });
