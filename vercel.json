@@ -4,6 +4,18 @@
   "installCommand": "corepack enable && corepack prepare pnpm@11.7.0 --activate && pnpm install --frozen-lockfile",
   "buildCommand": "pnpm build:client",
   "outputDirectory": "standalone/dist/client",
+  "redirects": [
+    {
+      "source": "/:lang/BLB-Draft",
+      "destination": "/:lang/eng_aiv",
+      "permanent": false
+    },
+    {
+      "source": "/:lang/BLB-Draft/:path*",
+      "destination": "/:lang/eng_aiv/:path*",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!assets/|sw\\.js$|registerSW\\.js$|manifest\\.webmanifest$|workbox-).*)",

@@ -13,10 +13,10 @@ import {
   type VerseRef,
 } from "../managers/BibleDataManager";
 import {
-  BLB_DRAFT_ID,
-  canonicalizeBlbDraftTranslationId,
-  isBlbDraftTranslationId,
-} from "../managers/BlbDraftAdapter";
+  AIV_ID,
+  canonicalizeAivTranslationId,
+  isAivTranslationId,
+} from "../managers/AivAdapter";
 import {
   batch,
   computed,
@@ -153,6 +153,8 @@ export interface VerseDecoration {
    * Whether to preserve the decoration when the chapter changes.
    */
   preserveOnChapterChange?: boolean;
+  /** Keeps the decoration off a shared session. See `VerseDecorationInput`. */
+  localOnly?: boolean;
 }
 
 export interface VerseDecorationInput {
@@ -192,6 +194,14 @@ export interface VerseDecorationInput {
    * Setting this to true will keep the decoration until it is explicitly removed.
    */
   preserveOnChapterChange?: boolean;
+
+  /**
+   * Keeps the decoration on this device: a shared session doesn't publish it
+   * to the other participants. For decorations every participant already
+   * makes for themselves, such as a playing playlist's highlight, where each
+   * person's should follow only their own view.
+   */
+  localOnly?: boolean;
 
   /**
    * The ID of the translation that this decoration should be limited to.
@@ -1308,7 +1318,10 @@ export function previousPosition(
 }
 
 /**
- * Highlights `ref`'s verse range in `tab`, diminishing after 3s.
+ * Highlights `ref`'s verse range in `tab`, diminishing after 3s by default.
+ * `options.removeAfterMs` changes how long it lasts; null keeps it until the
+ * caller removes it with `removeDecoration`. `options.localOnly` keeps it off
+ * a shared session (see `VerseDecorationInput.localOnly`).
  *
  * `toEndOfChapter` fragments (from `expandCrossChapterItem`) don't know the
  * chapter's actual verse count until it's loaded; resolve it here, guarding
@@ -1323,7 +1336,8 @@ export function previousPosition(
 export function emphasizeVerses(
   readingState: BibleReadingState,
   ref: VerseRef,
-  verseNumbers?: number[]
+  verseNumbers?: number[],
+  options: { removeAfterMs?: number | null; localOnly?: boolean } = {}
 ): string | null {
   if (!ref.verse) {
     return null;
@@ -1336,7 +1350,10 @@ export function emphasizeVerses(
   return readingState.decorateVerses(ref.book, ref.chapter, verses, {
     className: "sb-verse-decoration-diminish",
     containerClassName: "sb-chapter-decoration-diminish",
-    removeAfterMs: 3000,
+    ...(options.removeAfterMs !== null
+      ? { removeAfterMs: options.removeAfterMs ?? 3000 }
+      : {}),
+    ...(options.localOnly ? { localOnly: true } : {}),
   });
 }
 
@@ -2069,16 +2086,19 @@ export function createBibleReadingState(
   };
 
   const resolveTranslationInput = async (input: string): Promise<string> => {
-    // Never treat the synthetic blb-draft:// endpoint as a HelloAO host —
-    // fetching available_translations from it fails and leaves Chapter unavailable.
-    if (isBlbDraftTranslationId(input)) {
-      return BLB_DRAFT_ID;
+    // Never treat the synthetic AIV (or legacy blb-draft://) endpoint as a
+    // HelloAO host — fetching available_translations from it fails and leaves
+    // Chapter unavailable. Legacy BLB-Draft ids resolve to eng_aiv.
+    if (isAivTranslationId(input)) {
+      return AIV_ID;
     }
     const parsedInput = parseTranslationInput(input);
-    if (parsedInput.endpoint && parsedInput.endpoint.startsWith("blb-draft:")) {
-      return canonicalizeBlbDraftTranslationId(
-        parsedInput.translationId ?? input
-      );
+    if (
+      parsedInput.endpoint &&
+      (parsedInput.endpoint.startsWith("blb-draft:") ||
+        parsedInput.endpoint.startsWith("aiv:"))
+    ) {
+      return canonicalizeAivTranslationId(parsedInput.translationId ?? input);
     }
     if (!parsedInput.endpoint) {
       return parsedInput.translationId ?? input;

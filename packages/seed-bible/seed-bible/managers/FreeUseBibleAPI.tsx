@@ -332,6 +332,12 @@ export interface ChapterHeading {
    * If multiple strings are included in the array, they should be concatenated with a space.
    */
   content: string[];
+  /**
+   * Optional USFM paragraph style for headings that are not section titles.
+   * `"r"` marks a parallel-passage reference line (e.g. "(2 Samuel 15:13–29)"),
+   * rendered smaller than a section heading. Absent for normal `s`/`s1` headings.
+   */
+  style?: "r";
 }
 
 /**

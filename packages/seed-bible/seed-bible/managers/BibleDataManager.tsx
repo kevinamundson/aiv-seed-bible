@@ -10,14 +10,18 @@ import {
   type TranslationBooks,
 } from "../managers/FreeUseBibleAPI";
 import {
-  BLB_DRAFT_ID,
-  canonicalizeBlbDraftTranslationId,
-  getBlbDraftBooks,
-  getBlbDraftChapter,
-  injectBlbDraftTranslation,
-  isBlbDraftTranslationId,
-  loadBlbDraftManifest,
-} from "../managers/BlbDraftAdapter";
+  AIV_ENDPOINT,
+  AIV_ID,
+  canonicalizeAivTranslationId,
+  getAivBooks,
+  getAivChapter,
+  injectAivTranslation,
+  isAivTranslationId,
+  isLegacyBlbDraftId,
+  loadAivManifest,
+  loadAivMetadata,
+  parseAivChapterLink,
+} from "../managers/AivAdapter";
 import {
   createOfflineTranslationsManager,
   type OfflineTranslationsManager,
@@ -38,6 +42,19 @@ import {
  * many HTTP requests within a single long-running server process, since
  * `localStorage` (the client's cross-page-load cache) doesn't exist there.
  */
+
+/** Copy of an endpoint map without discontinued BLB-Draft entries. */
+function withoutLegacyBlbDraftEndpoints(
+  endpoints: ReadonlyMap<string, string>
+): Map<string, string> {
+  const next = new Map<string, string>();
+  for (const [id, endpoint] of endpoints) {
+    if (isLegacyBlbDraftId(id) || endpoint.startsWith("blb-draft:")) continue;
+    next.set(id, endpoint);
+  }
+  return next;
+}
+
 export interface TranslationsCache {
   get(endpoint: string): Promise<Translation[]> | undefined;
   set(endpoint: string, promise: Promise<Translation[]>): void;
@@ -1065,7 +1082,8 @@ export function createBibleDataManager(
     }
 
     const result = await resultPromise;
-    // Kevin keyed: inject BLB-Draft even though it is not in the HelloAO catalog.
+    // AIV (eng_aiv) is not in the HelloAO catalog; it is served live from
+    // aivbible.kevinamundson.me, so inject its picker row here.
     // Under Vitest, skip injection so unit tests keep HelloAO-catalog-only fixtures
     // (branding.defaultTranslationId is already omitted when import.meta.env.VITEST).
     if (import.meta.env.VITEST) {
@@ -1073,15 +1091,22 @@ export function createBibleDataManager(
       catalogLoaded.value = true;
       return result;
     }
-    const manifest = await loadBlbDraftManifest().catch(() => null);
-    const withBlb = injectBlbDraftTranslation(result, manifest);
-    mergeTranslations(normalizedEndpoint, withBlb);
-    // Keep BLB-Draft off the HelloAO endpoint so chapter fetches use the USX adapter.
-    const nextEndpoints = new Map(translationEndpoints.value);
-    nextEndpoints.set(BLB_DRAFT_ID, "blb-draft://local");
+    // Name/license come from aivbible's metadata.json; if aivbible is down the
+    // picker row falls back to constants and the chapter load shows the error.
+    const [manifest, metadata] = await Promise.all([
+      loadAivManifest().catch(() => null),
+      loadAivMetadata().catch(() => null),
+    ]);
+    const withAiv = injectAivTranslation(result, metadata, manifest);
+    mergeTranslations(normalizedEndpoint, withAiv);
+    // Keep AIV off the HelloAO endpoint so chapter fetches use the live adapter.
+    const nextEndpoints = withoutLegacyBlbDraftEndpoints(
+      translationEndpoints.value
+    );
+    nextEndpoints.set(AIV_ID, AIV_ENDPOINT);
     translationEndpoints.value = nextEndpoints;
     catalogLoaded.value = true;
-    return withBlb;
+    return withAiv;
   };
 
   // Created here (rather than by the caller) so it can share this manager's
@@ -1103,7 +1128,7 @@ export function createBibleDataManager(
     translationId: string,
     options?: ApiRequestOptions
   ): Promise<TranslationBooks> => {
-    translationId = canonicalizeBlbDraftTranslationId(translationId);
+    translationId = canonicalizeAivTranslationId(translationId);
     const existing = translationBooks.value.get(translationId);
     if (existing) {
       return existing;
@@ -1120,9 +1145,9 @@ export function createBibleDataManager(
       mergeTranslations(endpoint, [books.translation], options);
     };
 
-    if (isBlbDraftTranslationId(translationId)) {
-      const books = await getBlbDraftBooks();
-      cacheBooks("blb-draft://local", books);
+    if (isAivTranslationId(translationId)) {
+      const books = await getAivBooks();
+      cacheBooks(AIV_ENDPOINT, books);
       return books;
     }
 
@@ -1161,9 +1186,10 @@ export function createBibleDataManager(
     chapter: number | string,
     options?: ApiRequestOptions
   ): Promise<TranslationBookChapter> => {
-    translationId = canonicalizeBlbDraftTranslationId(translationId);
-    if (isBlbDraftTranslationId(translationId)) {
-      return await getBlbDraftChapter(book, chapter);
+    translationId = canonicalizeAivTranslationId(translationId);
+    if (isAivTranslationId(translationId)) {
+      // Always live from aivbible (revalidated); no offline/stale fallback.
+      return await getAivChapter(book, chapter);
     }
 
     const chapterNumber = Number(chapter);
@@ -1207,18 +1233,11 @@ export function createBibleDataManager(
     chapter: TranslationBookChapter,
     options?: ApiRequestOptions
   ) => {
-    if (isBlbDraftTranslationId(chapter.translation.id)) {
-      if (!chapter.nextChapterApiLink) {
-        return null;
-      }
-      // Parse /api/BLB-Draft/{BOOK}/{N}.json
-      const match = chapter.nextChapterApiLink.match(
-        /\/api\/BLB-Draft\/([^/]+)\/(\d+)\.json/
-      );
-      if (!match) {
-        return null;
-      }
-      return await getBlbDraftChapter(match[1]!, Number(match[2]));
+    if (isAivTranslationId(chapter.translation.id)) {
+      const target = chapter.nextChapterApiLink
+        ? parseAivChapterLink(chapter.nextChapterApiLink)
+        : null;
+      return target ? await getAivChapter(target.book, target.chapter) : null;
     }
 
     const downloaded = offline.supported
@@ -1241,17 +1260,11 @@ export function createBibleDataManager(
     chapter: TranslationBookChapter,
     options?: ApiRequestOptions
   ) => {
-    if (isBlbDraftTranslationId(chapter.translation.id)) {
-      if (!chapter.previousChapterApiLink) {
-        return null;
-      }
-      const match = chapter.previousChapterApiLink.match(
-        /\/api\/BLB-Draft\/([^/]+)\/(\d+)\.json/
-      );
-      if (!match) {
-        return null;
-      }
-      return await getBlbDraftChapter(match[1]!, Number(match[2]));
+    if (isAivTranslationId(chapter.translation.id)) {
+      const target = chapter.previousChapterApiLink
+        ? parseAivChapterLink(chapter.previousChapterApiLink)
+        : null;
+      return target ? await getAivChapter(target.book, target.chapter) : null;
     }
 
     const downloaded = offline.supported
@@ -1285,11 +1298,11 @@ export function createBibleDataManager(
   };
 
   const buildTranslationId = (translationId: string) => {
-    // Local USX adapter must stay a plain id in the path. Encoding it as
-    // `blb-draft://local/api/BLB-Draft/books.json` made post-nav reloads miss
-    // the BLB adapter and paint "Chapter unavailable".
-    if (isBlbDraftTranslationId(translationId)) {
-      return BLB_DRAFT_ID;
+    // The live AIV adapter must stay a plain id in the path (`/en/eng_aiv/...`).
+    // Encoding its synthetic endpoint into the URL made post-nav reloads miss
+    // the adapter and paint "Chapter unavailable".
+    if (isAivTranslationId(translationId)) {
+      return AIV_ID;
     }
     const endpoint = getTranslationEndpointInfo(translationId);
     if (endpoint.isDefault) {
@@ -1347,7 +1360,7 @@ export function createBibleDataManager(
         const parsed = JSON.parse(stored) as Translation[];
         availableTranslations.value = import.meta.env.VITEST
           ? parsed
-          : injectBlbDraftTranslation(parsed);
+          : injectAivTranslation(parsed);
         // Only ever written after a genuine full-catalog fetch (see the
         // persistence effect above), so restoring it means the catalog is
         // already known, not just this session's active translation.
@@ -1360,8 +1373,10 @@ export function createBibleDataManager(
     try {
       const stored = safeLocalStorage.getItem("endpoints");
       if (stored) {
-        translationEndpoints.value = new Map(
-          JSON.parse(stored) as [string, string][]
+        // Drop the discontinued BLB-Draft (`blb-draft://local`) entries a
+        // returning visitor may still have cached.
+        translationEndpoints.value = withoutLegacyBlbDraftEndpoints(
+          new Map(JSON.parse(stored) as [string, string][])
         );
       }
     } catch {

@@ -8,6 +8,18 @@ import {
   type CreateTestSeedBibleStateOptions,
 } from "../testUtils/createTestSeedBibleState";
 import { TestHost } from "./TestHost";
+import {
+  aabBooks,
+  createResponse,
+  makeChapter,
+  makeUrl,
+  translations,
+} from "../managers/testUtils/mockBibleApiData";
+
+// The AIV fork defaults to the public Free Use Bible API endpoint (see
+// getDefaultAPIEndpoint in FreeUseBibleAPI.tsx), so book data has to be mocked
+// there for a tab to resolve its book name.
+const API_ENDPOINT = "https://bible.helloao.org";
 
 describe("Sidebar collapsed layout", () => {
   let container: HTMLDivElement;
@@ -69,6 +81,36 @@ describe("Sidebar collapsed layout", () => {
     expect(collapsedTile?.textContent).toContain("1");
     expect(container.querySelector(".sb-sidebar-search-shell")).toBeNull();
     expect(container.querySelector(".sb-sidebar-tabs-header")).toBeNull();
+  });
+
+  it("names the full book on a collapsed tile's hover title and label", async () => {
+    const state = await createState({
+      responses: {
+        [makeUrl("/api/available_translations.json", API_ENDPOINT)]:
+          createResponse(translations),
+        [makeUrl("/api/AAB/books.json", API_ENDPOINT)]:
+          createResponse(aabBooks),
+        [makeUrl("/api/AAB/GEN/1.json", API_ENDPOINT)]: createResponse(
+          makeChapter(aabBooks, "GEN", 1)
+        ),
+      },
+    });
+    state.sidebar.isSidebarCollapsed.value = true;
+    state.sidebar.isMobileOpen.value = false;
+
+    act(() => {
+      render(
+        <TestHost state={state}>
+          <Sidebar state={state} />
+        </TestHost>,
+        container
+      );
+    });
+
+    const collapsedTile = container.querySelector(".sb-collapsed-tab-tile");
+    expect(collapsedTile?.textContent).toContain("GEN 1");
+    expect(collapsedTile?.getAttribute("title")).toBe("Genesis 1");
+    expect(collapsedTile?.getAttribute("aria-label")).toBe("Genesis 1");
   });
 
   it("hides session options when sidebar is collapsed", async () => {
@@ -488,7 +530,7 @@ describe("Sidebar self avatar", () => {
       ".sb-sidebar-self-avatar .sb-tab-user-icon-has-image"
     ) as HTMLElement | null;
     expect(image).not.toBeNull();
-    expect(image?.style.backgroundImage).toContain(
+    expect(image?.querySelector("img")?.getAttribute("src")).toBe(
       "https://example.com/ada.png"
     );
     expect(
@@ -532,7 +574,7 @@ describe("Sidebar self avatar", () => {
     const image = container.querySelector(
       ".sb-sidebar-self-avatar .sb-tab-user-icon-has-image"
     ) as HTMLElement | null;
-    expect(image?.style.backgroundImage).toContain(
+    expect(image?.querySelector("img")?.getAttribute("src")).toBe(
       "https://example.com/ada.png"
     );
     expect(

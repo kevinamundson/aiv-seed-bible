@@ -313,6 +313,8 @@ export function chapterVerseHeadings(
   let pending: string | null = null;
   for (const item of chapter.chapter.content) {
     if (item.type === "heading") {
+      // Parallel-passage reference lines (`r`) are not section titles.
+      if (item.style === "r") continue;
       pending = item.content
         .filter((part) => typeof part === "string")
         .join(" ");

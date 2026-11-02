@@ -17,7 +17,12 @@ import {
   ContextMenuWithButton,
 } from "../../components/ContextMenu/ContextMenu";
 import type { SeedBibleState } from "../../managers/SeedBibleStateManager";
-import { MaterialIcon, SettingsIcon, StarIcon } from "../../components/icons";
+import {
+  MaterialIcon,
+  SettingsIcon,
+  StarIcon,
+  TodayIcon,
+} from "../../components/icons";
 import { SettingsPage } from "../../components/SettingsPage/SettingsPage";
 import { ShareModal } from "../ShareModal/shareModal";
 import { getShareUrl, openShareModal } from "../../managers/BibleToolsManager";
@@ -51,6 +56,13 @@ import {
   ParticipantFriendButton,
   rowsWithFriendButton,
 } from "../FriendsPane/ParticipantFriendButton";
+import { openReaderLocation } from "./openReaderLocation";
+import {
+  BookmarkGlyph,
+  BookmarkStackIcon,
+  BookmarksPanel,
+  bookmarkButtonLabel,
+} from "../Bookmarks/Bookmarks";
 
 interface SidebarProps {
   state: SeedBibleState;
@@ -374,6 +386,75 @@ function SessionSettingsModalContent(props: {
                 );
               })}
             </div>
+          </div>
+
+          <div className="sb-session-settings-section">
+            <div className="sb-session-settings-label">
+              {t("session-settings-verse-effects", {
+                defaultValue: "Verse selection effects",
+              })}
+            </div>
+
+            <div
+              className="sb-session-settings-duration-options"
+              role="group"
+              aria-label={t("session-settings-verse-effects", {
+                defaultValue: "Verse selection effects",
+              })}
+            >
+              {(
+                [
+                  { value: "hosts-only" },
+                  { value: "everyone" },
+                  { value: "none" },
+                ] as const
+              ).map((option) => {
+                const selected =
+                  options.verseSelectionEffectVisibility === option.value;
+
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    className={`sb-session-settings-duration-option${
+                      selected
+                        ? " sb-session-settings-duration-option-selected"
+                        : ""
+                    }`}
+                    aria-pressed={selected}
+                    onClick={() => {
+                      session.updateOptions({
+                        verseSelectionEffectVisibility: option.value,
+                      });
+                    }}
+                  >
+                    {t(
+                      {
+                        "hosts-only":
+                          "session-settings-verse-effects-hosts-only",
+                        everyone: "session-settings-verse-effects-everyone",
+                        none: "session-settings-verse-effects-none",
+                      }[option.value]
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            <p className="sb-session-settings-description">
+              {options.verseSelectionEffectVisibility === "hosts-only"
+                ? t("session-settings-verse-effects-desc-hosts", {
+                    defaultValue: "Show effects when a host selects a verse.",
+                  })
+                : options.verseSelectionEffectVisibility === "everyone"
+                  ? t("session-settings-verse-effects-desc-everyone", {
+                      defaultValue: "Show effects when anyone selects a verse.",
+                    })
+                  : t("session-settings-verse-effects-desc-none", {
+                      defaultValue:
+                        "Verse selection effects are turned off for everyone.",
+                    })}
+            </p>
           </div>
         </div>
 
@@ -725,6 +806,8 @@ function openShareSheetForCurrentTab(state: SeedBibleState) {
       app: state.app,
       toast: state.app.toast,
       sharedSession: tab.sharedSession,
+      embedThemes: state.theme.themes,
+      customizationLocator: state.customizations.activeCustomizationLocator,
     },
     getShareUrl(tab.readingState)
   );
@@ -1116,8 +1199,17 @@ function TabRow(props: TabRowProps) {
     throw tab.readingState.chapterDataPromise;
   }
 
-  const { app, saves } = state;
+  const { app, saves, bookmarks } = state;
   const { t } = useI18n();
+
+  // One small ribbon in the color of the most recently moved bookmark here;
+  // several colors at this size would be unreadable.
+  const bookmarksHere = bookmarks.getBookmarksForLocation(
+    tab.readingState.translationId.value,
+    tab.readingState.bookId.value,
+    tab.readingState.chapterNumber.value
+  );
+  const frontBookmark = bookmarksHere[0];
 
   const shortSubTitle = tab.readingState.shortSubTitle.value;
   const title = tab.readingState.title.value;
@@ -1161,6 +1253,16 @@ function TabRow(props: TabRowProps) {
             •
           </span>
           <span className="sb-tab-main-translation">{shortSubTitle}</span>
+          {frontBookmark && (
+            <span
+              className="sb-tab-bookmark-marker"
+              role="img"
+              aria-label={bookmarkButtonLabel(t, bookmarksHere)}
+              title={bookmarkButtonLabel(t, bookmarksHere)}
+            >
+              <BookmarkGlyph colorId={frontBookmark.colorId} size={12} />
+            </span>
+          )}
           {isPlayingAudio && (
             <MaterialIcon
               className="sb-tab-audio-icon"
@@ -1735,7 +1837,7 @@ interface SavesSectionProps {
  */
 function SavesSection(props: SavesSectionProps) {
   const { state, closeLayoutMenu } = props;
-  const { app, saves, tabs: tabsManager, bibleData } = state;
+  const { saves, bibleData } = state;
   const { t } = useI18n();
 
   const categories = saves.categories.value;
@@ -1772,55 +1874,14 @@ function SavesSection(props: SavesSectionProps) {
     chapterNumber: number,
     verse?: number | [number, number]
   ) => {
-    // Everything below changes some piece of state that mirrors to the URL:
-    // the reading position of the tab the save opens, and — on mobile —
-    // the dismissal of the sidebar it was tapped in. Batched, they cost one
-    // history entry for the save; unbatched, the position write lands on
-    // the entry that opened the sidebar and the dismissal adds a second entry
-    // for the same destination, which leaves the back button looking dead.
-    state.navigation.batchWrites(() => {
-      closeContextMenus();
-      closeLayoutMenu();
-      const scrollVerse = Array.isArray(verse) ? verse[0] : verse;
-      const existing = tabsManager.tabs.value.find(
-        (tab) =>
-          tab.readingState.translationId.value === translationId &&
-          tab.readingState.bookId.value === bookId &&
-          tab.readingState.chapterNumber.value === chapterNumber
-      );
-      if (existing) {
-        app.selectTab(existing.id);
-        if (scrollVerse !== undefined) {
-          void existing.readingState.selectTranslationAndChapter(
-            translationId,
-            bookId,
-            chapterNumber,
-            { scrollToVerse: scrollVerse }
-          );
-        }
-        return;
+    openReaderLocation(
+      state,
+      { translationId, bookId, chapterNumber, verse },
+      () => {
+        closeContextMenus();
+        closeLayoutMenu();
       }
-      // Pass the save's location as the new tab's initial reading state so
-      // `loadInitialData()` lands directly on it. Calling `addTab()` and then
-      // `selectTranslationAndChapter()` would race the default GEN 1 load and
-      // sometimes lose, leaving the user on Genesis 1 instead of the save.
-      const newTab = tabsManager.addTab(undefined, {
-        initialTranslationId: translationId,
-        initialBookId: bookId,
-        initialChapterNumber: chapterNumber,
-      });
-      if (scrollVerse !== undefined) {
-        // Queue the scroll-to-verse against the freshly created tab so when
-        // initial chapter data lands the reader scrolls to the saved verse.
-        newTab.readingState.scrollToVerse.value = scrollVerse;
-      }
-      // `addTab()` only marks the tab selected inside TabsManager — it doesn't
-      // place it in a layout slot or dismiss the sidebar. Without this the mobile
-      // saves screen stays on top of the reader, and the save's location
-      // is written over the history entry that opened the sidebar instead of
-      // getting an entry of its own.
-      app.selectTab(newTab.id);
-    });
+    );
   };
 
   const formatVerseRef = (
@@ -2057,14 +2118,22 @@ function SavesSection(props: SavesSectionProps) {
 
 export function Tabs(props: TabsProps) {
   const { state, closeLayoutMenu, effectivelyCollapsed } = props;
-  const { app, tabs: tabsManager, saves } = state;
+  const { app, tabs: tabsManager, saves, bookmarks } = state;
   // Slot-only tabs back an "open in new panel" clone and are intentionally
   // hidden from the tab strip.
   const tabs = tabsManager.tabs.value.filter((tab) => !tab.slotOnly);
   const selectedTabId = tabsManager.selectedTabId.value;
   const panelsEnabled = app.panelsEnabled.value;
   const isSavesFilterActive = saves.isFilterActive.value;
+  const isBookmarksPanelOpen = bookmarks.isPanelOpen.value;
   const { t } = useI18n();
+
+  const bookmarksToggleLabel = isBookmarksPanelOpen
+    ? t("hide-bookmarks", { defaultValue: "Hide bookmarks" })
+    : t("show-bookmarks", { defaultValue: "Show bookmarks" });
+  // The toggle draws the same stack as the reader's button, but for all of
+  // the user's bookmarks: most recently moved in front, at most three shown.
+  const allBookmarks = bookmarks.bookmarks.value;
 
   if (effectivelyCollapsed) {
     return (
@@ -2072,17 +2141,18 @@ export function Tabs(props: TabsProps) {
         {tabs.map((tab) => {
           const isSelected = tab.id === selectedTabId;
           const shortTitle = tab.readingState.shortTitle.value;
+          const fullTitle = tab.readingState.title.value || shortTitle;
           const session = tab.sharedSession;
           const sessionUsers = session?.connectedUsers.value ?? [];
           const isPlayingAudio = isTabPlayingAudio(state, tab);
           const label =
             session && sessionUsers.length > 0
               ? t("collapsed-tab-shared-label", {
-                  title: shortTitle,
+                  title: fullTitle,
                   count: sessionUsers.length,
                   defaultValue: "{{title}} — shared session, {{count}} present",
                 })
-              : shortTitle;
+              : fullTitle;
 
           return (
             <button
@@ -2094,7 +2164,7 @@ export function Tabs(props: TabsProps) {
               }}
               className={`sb-collapsed-tab-tile${
                 isSelected ? " sb-collapsed-tab-tile-selected" : ""
-              }${session ? " sb-collapsed-tab-tile-shared" : ""}`}
+              }`}
               aria-label={
                 isPlayingAudio
                   ? t("collapsed-tab-playing-label", {
@@ -2103,13 +2173,8 @@ export function Tabs(props: TabsProps) {
                     })
                   : label
               }
-              title={shortTitle}
+              title={fullTitle}
             >
-              {session && (
-                <span className="sb-collapsed-tab-tag">
-                  {t("shared", { defaultValue: "Shared" })}
-                </span>
-              )}
               <span className="sb-collapsed-tab-title">{shortTitle}</span>
               {isPlayingAudio && (
                 <MaterialIcon
@@ -2166,6 +2231,45 @@ export function Tabs(props: TabsProps) {
         >
           <span className="material-symbols-outlined">add</span>
         </button>
+      </div>
+    );
+  }
+
+  // Mobile counterpart of the saves screen below, for the bookmarks panel.
+  if (app.isMobile.value && isBookmarksPanelOpen) {
+    const closeLabel = bookmarks.openedFromToolbar.value
+      ? t("close", { defaultValue: "Close" })
+      : t("back", { defaultValue: "Back" });
+    return (
+      <div className="sb-saves-mobile-screen sb-bookmarks-mobile-screen">
+        <div className="sb-saves-mobile-header">
+          <button
+            type="button"
+            className="sb-saves-mobile-header-button sb-saves-mobile-header-close"
+            onClick={() => {
+              // From the More menu, Close dismisses the drawer; from the Tabs
+              // header, Back returns to the Tabs list.
+              if (bookmarks.openedFromToolbar.value) {
+                bookmarks.closePanel();
+                state.sidebar.closeSidebar();
+              } else {
+                bookmarks.closePanel();
+              }
+            }}
+            aria-label={closeLabel}
+            title={closeLabel}
+          >
+            <span className="material-symbols-outlined">
+              {bookmarks.openedFromToolbar.value ? "close" : "arrow_back"}
+            </span>
+          </button>
+          <h2 className="sb-saves-mobile-title">
+            {t("bookmarks", { defaultValue: "Bookmarks" })}
+          </h2>
+        </div>
+        <div className="sb-saves-mobile-body">
+          <BookmarksPanel state={state} closeLayoutMenu={closeLayoutMenu} />
+        </div>
       </div>
     );
   }
@@ -2261,38 +2365,30 @@ export function Tabs(props: TabsProps) {
                   state.today.open();
                 }}
               >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M11.5 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V5C4 4.46957 4.21071 3.96086 4.58579 3.58579C4.96086 3.21071 5.46957 3 6 3H18C18.5304 3 19.0391 3.21071 19.4142 3.58579C19.7893 3.96086 20 4.46957 20 5V13"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M9 18H11"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M15 19L17 21L21 17"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
+                <TodayIcon />
               </button>
 
+              <button
+                type="button"
+                className={`sb-sidebar-tabs-header-icon-button sb-sidebar-tabs-header-bookmarks-button${
+                  isBookmarksPanelOpen
+                    ? " sb-sidebar-tabs-header-bookmarks-button-active"
+                    : ""
+                }`}
+                aria-label={t("bookmarks", { defaultValue: "Bookmarks" })}
+                aria-pressed={isBookmarksPanelOpen}
+                title={bookmarksToggleLabel}
+                onClick={() => {
+                  bookmarks.openedFromToolbar.value = false;
+                  bookmarks.togglePanel();
+                }}
+              >
+                <BookmarkStackIcon
+                  bookmarks={allBookmarks}
+                  size={24}
+                  color={isBookmarksPanelOpen ? "currentColor" : undefined}
+                />
+              </button>
               <button
                 type="button"
                 className={`sb-sidebar-tabs-header-icon-button sb-sidebar-tabs-header-saves-button${
@@ -2370,6 +2466,20 @@ export function Tabs(props: TabsProps) {
             </h3>
             <button
               type="button"
+              className="sb-sidebar-tabs-header-icon-button sb-sidebar-tabs-header-bookmarks-button"
+              aria-label={t("bookmarks", { defaultValue: "Bookmarks" })}
+              aria-pressed={isBookmarksPanelOpen}
+              title={bookmarksToggleLabel}
+              onClick={() => {
+                // Opened from the Tabs header, so it gets a Back arrow.
+                bookmarks.openedFromToolbar.value = false;
+                bookmarks.togglePanel();
+              }}
+            >
+              <BookmarkStackIcon bookmarks={allBookmarks} size={24} />
+            </button>
+            <button
+              type="button"
               className={`sb-sidebar-tabs-header-icon-button sb-sidebar-tabs-header-saves-button${
                 isSavesFilterActive
                   ? " sb-sidebar-tabs-header-saves-button-active"
@@ -2413,6 +2523,12 @@ export function Tabs(props: TabsProps) {
       <SidebarSearch state={state} closeLayoutMenu={closeLayoutMenu} />
 
       <div className="sb-sidebar-tab-list">
+        {isBookmarksPanelOpen && (
+          <>
+            <BookmarksPanel state={state} closeLayoutMenu={closeLayoutMenu} />
+            <div className="sb-sidebar-tabs-divider" role="separator" />
+          </>
+        )}
         {isSavesFilterActive && (
           <>
             <SavesSection state={state} closeLayoutMenu={closeLayoutMenu} />
@@ -2653,16 +2769,7 @@ export function Sidebar(props: SidebarProps) {
   // an overlay (see Tabs.css). When it does, we render a scrim behind it so
   // that (a) input to the reader below is blocked while the overlay is up and
   // (b) clicking anywhere outside the sidebar collapses it back to the rail.
-  //
-  // Neither is wanted while the Customization Center is open: previewing a
-  // customization means clicking around and selecting verses in the reader
-  // with the editor still open, so the scrim itself is skipped there rather
-  // than just no-op'ing its onClick — a still-present scrim would keep
-  // blocking those clicks from ever reaching the reader.
-  const isOverlay =
-    app.isCompactDesktop.value &&
-    !effectivelyCollapsed &&
-    !sidebar.isCustomizationViewOpen.value;
+  const isOverlay = app.isCompactDesktop.value && !effectivelyCollapsed;
 
   // The guided tour opens the pane-layout menu while its step is active so the
   // layout options are visible behind the coachmark.

@@ -11,6 +11,8 @@ import type { Save } from "@packages/seed-bible/seed-bible/managers/SavesManager
 import type { Playlist } from "@packages/seed-bible/seed-bible/managers/PlaylistManager";
 import type { ContentLoadStatus } from "@packages/seed-bible/seed-bible/managers/YourContentManager";
 import type { GalleryPhoto } from "@packages/seed-bible/seed-bible/managers/UserGalleryManager";
+import type { SeedBibleCustomization } from "@packages/seed-bible/seed-bible/managers/CustomizationsManager";
+import { LIGHT_THEME } from "@packages/seed-bible/seed-bible/managers/ThemeManager";
 import {
   createReadingPlan,
   createReadingPlanProgress,
@@ -153,6 +155,7 @@ interface StateOptions {
   saves?: Save[];
   playlists?: Playlist[];
   photos?: GalleryPhoto[];
+  customizations?: SeedBibleCustomization[];
   /** `null` for a signed-out reader. */
   userId?: string | null;
   unhighlightError?: Error;
@@ -207,6 +210,7 @@ function createState(options: StateOptions = {}) {
   const query = signal("");
   const filter = signal("all");
   const syncPhotos = vi.fn(async () => {});
+  const loadCustomizations = vi.fn(async () => {});
 
   const state = {
     yourContent: {
@@ -230,6 +234,14 @@ function createState(options: StateOptions = {}) {
       userId: signal(options.userId === undefined ? "user-1" : options.userId),
     },
     gallery: { photos: signal(options.photos ?? []), syncPhotos },
+    customizations: {
+      customizations: signal(options.customizations ?? []),
+      load: loadCustomizations,
+      resolveEditingVariantTheme: () => LIGHT_THEME,
+      getShareLink: (c: SeedBibleCustomization) =>
+        `https://example.com/?customization=${c.id}`,
+    },
+    bibleData: { availableTranslations: signal([]) },
     saves: {
       saves: signal(options.saves ?? []),
       categories: signal([{ name: "My Saves" }]),
@@ -290,7 +302,22 @@ function createState(options: StateOptions = {}) {
     query,
     filter,
     syncPhotos,
+    loadCustomizations,
   };
+}
+
+function customization(id: string, name: string): SeedBibleCustomization {
+  return {
+    id,
+    name,
+    variants: [{ id: `${id}-light`, name: "Light", base: "light" }],
+    defaultVariantId: `${id}-light`,
+    createdAt: 1_762_041_600_000,
+    updatedAt: 1_762_041_600_000,
+    extensionSettings: {},
+    extensionSettingDefaults: {},
+    extensionSensitiveProxies: {},
+  } as unknown as SeedBibleCustomization;
 }
 
 function photo(id: string): GalleryPhoto {
@@ -307,8 +334,11 @@ describe("YourContentPane", () => {
   let onPlayPlaylist: Mock<(playlist: unknown) => void>;
   let onEditPlaylist: Mock<(playlist: unknown) => void>;
   let onEditAnnotation: Mock<(annotation: unknown) => void>;
+  let onCreatePlaylist: Mock<() => void>;
   let onOpenReadingPlan: Mock<(plan: unknown) => void>;
   let onEditReadingPlan: Mock<(plan: unknown) => void>;
+  let onEditCustomization: Mock<(customizationId: string) => void>;
+  let onCreateCustomization: Mock<() => void>;
 
   beforeEach(() => {
     container = document.createElement("div");
@@ -317,8 +347,11 @@ describe("YourContentPane", () => {
     onPlayPlaylist = vi.fn((_playlist: unknown) => {});
     onEditPlaylist = vi.fn((_playlist: unknown) => {});
     onEditAnnotation = vi.fn((_annotation: unknown) => {});
+    onCreatePlaylist = vi.fn(() => {});
     onOpenReadingPlan = vi.fn((_plan: unknown) => {});
     onEditReadingPlan = vi.fn((_plan: unknown) => {});
+    onEditCustomization = vi.fn((_customizationId: string) => {});
+    onCreateCustomization = vi.fn(() => {});
   });
 
   afterEach(() => {
@@ -335,8 +368,11 @@ describe("YourContentPane", () => {
           onPlayPlaylist={onPlayPlaylist}
           onEditPlaylist={onEditPlaylist}
           onEditAnnotation={onEditAnnotation}
+          onCreatePlaylist={onCreatePlaylist}
           onOpenReadingPlan={onOpenReadingPlan}
           onEditReadingPlan={onEditReadingPlan}
+          onEditCustomization={onEditCustomization}
+          onCreateCustomization={onCreateCustomization}
         />,
         container
       );
@@ -366,6 +402,7 @@ describe("YourContentPane", () => {
       saves: [save("b1")],
       playlists: [playlist("p1", "Morning devotions")],
       readingPlans: [readingPlan("plan-1", "Psalms in a month")],
+      customizations: [customization("c1", "Grace Church")],
       photos: [photo("i1")],
     });
     renderPane(state);
@@ -376,8 +413,99 @@ describe("YourContentPane", () => {
       "Saves",
       "Playlists",
       "Reading plans",
+      "Branding",
       "Images",
     ]);
+  });
+
+  describe("branding", () => {
+    const cardTitles = () =>
+      Array.from(container.querySelectorAll(".sb-cz-card-title")).map(
+        (el) => el.textContent
+      );
+
+    it("loads the user's customizations when it opens", () => {
+      const { state, loadCustomizations } = createState();
+      renderPane(state);
+
+      expect(loadCustomizations).toHaveBeenCalledTimes(1);
+    });
+
+    it("does not load or show branding for a signed-out reader", () => {
+      const { state, loadCustomizations } = createState({
+        userId: null,
+        customizations: [customization("c1", "Grace Church")],
+      });
+      renderPane(state);
+
+      expect(loadCustomizations).not.toHaveBeenCalled();
+      expect(sectionTitles()).not.toContain("Branding");
+    });
+
+    it("previews the first few customizations until See all", () => {
+      const { state, filter } = createState({
+        customizations: [
+          customization("c1", "Grace Church"),
+          customization("c2", "Youth group"),
+          customization("c3", "Small group"),
+          customization("c4", "Family"),
+        ],
+      });
+      renderPane(state);
+
+      expect(cardTitles()).toEqual([
+        "Grace Church",
+        "Youth group",
+        "Small group",
+      ]);
+
+      act(() => {
+        (
+          container.querySelector(".sb-content-see-all") as HTMLButtonElement
+        ).click();
+      });
+
+      expect(filter.value).toBe("branding");
+      expect(cardTitles()).toHaveLength(4);
+    });
+
+    it("opens a customization in its editor when its card is clicked", () => {
+      const { state } = createState({
+        customizations: [customization("c1", "Grace Church")],
+      });
+      renderPane(state);
+
+      act(() => {
+        (
+          container.querySelector(".sb-cz-card-open") as HTMLButtonElement
+        ).click();
+      });
+
+      expect(onEditCustomization).toHaveBeenCalledWith("c1");
+    });
+
+    it("matches a search against the customization's name", () => {
+      const { state, query } = createState({
+        customizations: [
+          customization("c1", "Grace Church"),
+          customization("c2", "Youth group"),
+        ],
+      });
+      query.value = "youth";
+      renderPane(state);
+
+      expect(cardTitles()).toEqual(["Youth group"]);
+    });
+
+    it("says what will show up under the Branding chip when there is none", () => {
+      const { state, filter } = createState({ saves: [save("b1")] });
+      filter.value = "branding";
+      renderPane(state);
+
+      expect(
+        container.querySelector(".sb-content-status")?.textContent
+      ).toContain("Custom Branding you create");
+    });
   });
 
   describe("images", () => {
@@ -806,6 +934,77 @@ describe("YourContentPane", () => {
       document.body.querySelectorAll<HTMLElement>(".sb-context-menu-item")
     );
 
+  const openCreateMenu = () => {
+    const trigger =
+      container.querySelector<HTMLButtonElement>(".sb-content-create");
+    if (!trigger) throw new Error("The Create button did not render.");
+    act(() => {
+      trigger.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+  };
+
+  it("puts the Create button ahead of the filter chips", () => {
+    const { state } = createState();
+    renderPane(state);
+
+    const create = container.querySelector(".sb-content-create");
+    const chips = container.querySelector(".sb-content-chips");
+    if (!create || !chips) throw new Error("The toolbar did not render.");
+    expect(create.textContent).toBe("+ Create");
+    expect(
+      create.compareDocumentPosition(chips) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+  });
+
+  it("offers Playlist and Custom Branding from the Create menu", () => {
+    const { state } = createState();
+    renderPane(state);
+    openCreateMenu();
+
+    expect(menuItems().map((item) => item.textContent)).toEqual([
+      "queue_musicPlaylist",
+      "paletteCustom Branding",
+    ]);
+  });
+
+  it("leaves Custom Branding out of the Create menu when signed out", () => {
+    const { state } = createState({ userId: null });
+    renderPane(state);
+    openCreateMenu();
+
+    expect(menuItems().map((item) => item.textContent)).toEqual([
+      "queue_musicPlaylist",
+    ]);
+  });
+
+  it("starts new custom branding from the Create menu", () => {
+    const { state } = createState();
+    renderPane(state);
+    openCreateMenu();
+
+    const item = menuItems()[1];
+    if (!item) throw new Error("Custom Branding was not in the menu.");
+    act(() => {
+      item.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+
+    expect(onCreateCustomization).toHaveBeenCalledTimes(1);
+  });
+
+  it("starts a new playlist from the Create menu", () => {
+    const { state } = createState();
+    renderPane(state);
+    openCreateMenu();
+
+    const item = menuItems()[0];
+    if (!item) throw new Error("The Create menu had no items.");
+    act(() => {
+      item.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+
+    expect(onCreatePlaylist).toHaveBeenCalledTimes(1);
+  });
+
   it("edits a playlist from its options menu", () => {
     const list = playlist("p1", "Morning devotions");
     const { state } = createState({ playlists: [list] });
@@ -1141,6 +1340,34 @@ describe("YourContentPane", () => {
       expect(onOpenReadingPlan).not.toHaveBeenCalled();
     });
 
+    it("offers the same menu as the Plans pane, with no Share on a draft", () => {
+      const { state } = createState({
+        readingPlans: [readingPlan("plan-1", "Genesis")],
+      });
+      renderPane(state);
+      openPlanMenu();
+
+      expect(menuItems().map((item) => item.textContent)).toEqual([
+        "shareShare plan",
+        "editEdit plan",
+        "deleteDelete",
+      ]);
+
+      act(() => {
+        render(null, container);
+      });
+      const { state: draftState } = createState({
+        readingPlans: [readingPlan("plan-2", "Gospels", { status: "draft" })],
+      });
+      renderPane(draftState);
+      openPlanMenu();
+
+      expect(menuItems().map((item) => item.textContent)).toEqual([
+        "editEdit plan",
+        "deleteDelete",
+      ]);
+    });
+
     /**
      * Renders the confirmation the modal host would show for the last modal
      * opened. Returns the element to click through and a way to clean it up.
@@ -1315,8 +1542,11 @@ describe("YourContentPane save options", () => {
           onPlayPlaylist={vi.fn()}
           onEditPlaylist={vi.fn()}
           onEditAnnotation={vi.fn()}
+          onCreatePlaylist={vi.fn()}
           onOpenReadingPlan={vi.fn()}
           onEditReadingPlan={vi.fn()}
+          onEditCustomization={vi.fn()}
+          onCreateCustomization={vi.fn()}
         />,
         container
       );
@@ -1384,8 +1614,11 @@ describe("YourContentPane save options", () => {
           onPlayPlaylist={vi.fn()}
           onEditPlaylist={vi.fn()}
           onEditAnnotation={vi.fn()}
+          onCreatePlaylist={vi.fn()}
           onOpenReadingPlan={vi.fn()}
           onEditReadingPlan={vi.fn()}
+          onEditCustomization={vi.fn()}
+          onCreateCustomization={vi.fn()}
         />,
         container
       );
@@ -1425,8 +1658,11 @@ describe("YourContentPane clearing a highlight", () => {
           onPlayPlaylist={vi.fn()}
           onEditPlaylist={vi.fn()}
           onEditAnnotation={vi.fn()}
+          onCreatePlaylist={vi.fn()}
           onOpenReadingPlan={vi.fn()}
           onEditReadingPlan={vi.fn()}
+          onEditCustomization={vi.fn()}
+          onCreateCustomization={vi.fn()}
         />,
         container
       );
@@ -1503,8 +1739,11 @@ describe("YourContentPane clearing a highlight", () => {
           onPlayPlaylist={vi.fn()}
           onEditPlaylist={vi.fn()}
           onEditAnnotation={vi.fn()}
+          onCreatePlaylist={vi.fn()}
           onOpenReadingPlan={vi.fn()}
           onEditReadingPlan={vi.fn()}
+          onEditCustomization={vi.fn()}
+          onCreateCustomization={vi.fn()}
         />,
         container
       );

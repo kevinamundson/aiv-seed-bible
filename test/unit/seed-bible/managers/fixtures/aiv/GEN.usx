@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usx version="3.1">
+<book code="GEN" style="id">eng_aiv Amundson Interpretive Version</book>
+
+<para style="h">Genesis</para>
+
+<para style="toc1">Genesis</para>
+
+<para style="toc2">Genesis</para>
+
+<para style="toc3">Gen</para>
+
+<para style="mt1">Genesis</para>
+
+<para style="rem">id=eng_aiv name=Amundson Interpretive Version (AIV) status=draft spec=USFM-USX 3.1.1 export=2026-11-02 char:add=translator-addition-italic char:wj=words-of-Jesus-as-received-unmapped note:f=footnotes para:r=parallel-passage-references para:d=psalm-superscriptions</para>
+
+<chapter number="1" style="c" sid="GEN 1"/>
+
+<para style="s1">The Creation</para>
+
+<para style="r">(John 1:1–5; Hebrews 11:1–3)</para>
+
+<para style="p"><verse number="1" style="v" sid="GEN 1:1"/>In the beginning God created the heavens and the earth. <verse eid="GEN 1:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="GEN 1:2"/>And the earth was formless and void, and darkness <char style="add">was</char> over the face of the deep. And the Spirit of God was hovering over the face of the waters. <verse eid="GEN 1:2"/></para>
+
+<para style="s1">The First Day</para>
+
+<para style="p"><verse number="3" style="v" sid="GEN 1:3"/>And God said, “Let there be light,”<note caller="+" style="f"><char style="fr" closed="false">1.3 </char><char style="ft" closed="false"> Cited in 2 Corinthians 4:6</char></note> and there was light. <verse eid="GEN 1:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="GEN 1:4"/>And God saw the light, that <char style="add">it was</char> good. And God divided between the light and between the darkness. <verse eid="GEN 1:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="GEN 1:5"/>And God called the light “Day,” and the darkness He called “Night.” </para>
+
+<para style="p" vid="GEN 1:5">And there was evening and there was morning—day one. <verse eid="GEN 1:5"/></para>
+
+<para style="s1">The Second Day</para>
+
+<para style="p"><verse number="6" style="v" sid="GEN 1:6"/>And God said, “Let there be a firmament<note caller="+" style="f"><char style="fr" closed="false">1.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a canopy</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">an expanse</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">a vault</char><char style="ft" closed="false">; also in verses 7, 8, 14, 15, 17, and 20</char></note> in the midst of the waters, and let it be dividing between waters <char style="add">and</char> waters.” <verse eid="GEN 1:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="GEN 1:7"/>And God made the firmament, and He divided between the waters that <char style="add">were</char> under the firmament, and between the waters that <char style="add">were</char> above the firmament. And it was so. <verse eid="GEN 1:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="GEN 1:8"/>And God called the firmament “Heavens.” </para>
+
+<para style="p" vid="GEN 1:8">And there was evening and there was morning—the second day. <verse eid="GEN 1:8"/></para>
+
+<para style="s1">The Third Day</para>
+
+<para style="p"><verse number="9" style="v" sid="GEN 1:9"/>And God said, “Let the waters under the heavens be gathered together into one place, and let the dry land be seen.” And it was so. <verse eid="GEN 1:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="GEN 1:10"/>And God called the dry land “Earth,” and the gathering of the waters He called “Seas.” And God saw that <char style="add">it was</char> good. <verse eid="GEN 1:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="GEN 1:11"/>And God said, “Let the earth sprout vegetation: The plant bearing seed <char style="add">and</char> the fruit tree producing fruit according to its kind (whose seed <char style="add">is</char> in it) on the earth.” And it was so. <verse eid="GEN 1:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="GEN 1:12"/>And the earth brought forth vegetation: The plant bearing seed according to its kind, and the tree producing fruit (whose seed <char style="add">is</char> in it) according to its kind. And God saw that <char style="add">it was</char> good. <verse eid="GEN 1:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="GEN 1:13"/>And there was evening and there was morning—the third day. <verse eid="GEN 1:13"/></para>
+
+<para style="s1">The Fourth Day</para>
+
+<para style="p"><verse number="14" style="v" sid="GEN 1:14"/>And God said, “Let there be lights in the firmament of the heavens, to divide between the day and between the night, and let them be for signs and for appointed times and for days and years, <verse eid="GEN 1:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="GEN 1:15"/>and let them be for lights in the firmament of the heavens, to shine upon the earth.” And it was so. <verse eid="GEN 1:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="GEN 1:16"/>And God made the two great lights: The greater light to rule the day, and the lesser light to rule the night—and the stars. <verse eid="GEN 1:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="GEN 1:17"/>And God set them in the firmament of the heavens, to shine upon the earth, <verse eid="GEN 1:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="GEN 1:18"/>and to rule over the day and over the night, and to divide between the light and between the darkness. And God saw that <char style="add">it was</char> good. <verse eid="GEN 1:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="GEN 1:19"/>And there was evening and there was morning—the fourth day. <verse eid="GEN 1:19"/></para>
+
+<para style="s1">The Fifth Day</para>
+
+<para style="p"><verse number="20" style="v" sid="GEN 1:20"/>And God said, “Let the waters swarm <char style="add">with</char> a swarm of living souls, and let the bird fly above the earth, on the face of the firmament of the heavens.” <verse eid="GEN 1:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="GEN 1:21"/>And God created the great sea creatures and every living soul that is crawling, with which the waters swarmed according to their kinds, and every winged bird according to its kind. And God saw that <char style="add">it was</char> good. <verse eid="GEN 1:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="GEN 1:22"/>And God blessed them, saying, “Be fruitful and multiply, and fill the waters in the seas, and let the bird multiply in the earth.” <verse eid="GEN 1:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="GEN 1:23"/>And there was evening and there was morning—the fifth day. <verse eid="GEN 1:23"/></para>
+
+<para style="s1">The Sixth Day</para>
+
+<para style="p"><verse number="24" style="v" sid="GEN 1:24"/>And God said, “Let the earth bring forth the living soul according to its kind: Livestock and the crawling thing and beast of the earth according to its kind.” And it was so. <verse eid="GEN 1:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="GEN 1:25"/>And God made the beast of the earth according to its kind, and the livestock according to its kind, and every crawling thing <char style="add">on</char> the earth according to its kind. And God saw that <char style="add">it was</char> good. <verse eid="GEN 1:25"/></para>
+
+<para style="p"><verse number="26" style="v" sid="GEN 1:26"/>And God said, “Let Us make man in Our image, according to Our likeness, and let them rule over the fish of the sea, and over the bird of the heavens, and over the livestock, and over all the earth,<note caller="+" style="f"><char style="fr" closed="false">1.26 </char><char style="ft" closed="false"> MT; Syriac </char><char style="fq" closed="false">and over all the beasts of the earth</char></note> and over every crawling thing that crawls upon the earth.” <verse eid="GEN 1:26"/></para>
+
+<para style="q1"><verse number="27" style="v" sid="GEN 1:27"/>And God created the man in His image; </para>
+
+<para style="q2" vid="GEN 1:27">in the image of God He created him; </para>
+
+<para style="q2" vid="GEN 1:27">male and female He created them. <note caller="+" style="f"><char style="fr" closed="false">1.27 </char><char style="ft" closed="false"> Cited in Matthew 19:4 and Mark 10:6</char></note><verse eid="GEN 1:27"/></para>
+
+<para style="p"><verse number="28" style="v" sid="GEN 1:28"/>And God blessed them, and God said to them, “Be fruitful and multiply, and fill the earth and subdue it. And rule over the fish of the sea and over the bird of the heavens and over every living thing that is crawling upon the earth.” <verse eid="GEN 1:28"/></para>
+
+<para style="p"><verse number="29" style="v" sid="GEN 1:29"/>And God said, “Behold, I have given to you⁺ every plant bearing seed which <char style="add">is</char> on the face of all the earth, and every tree that <char style="add">has</char> in <char style="add">it</char> the fruit of a tree bearing seed—it shall be for food to you⁺— <verse eid="GEN 1:29"/></para>
+
+<para style="p"><verse number="30" style="v" sid="GEN 1:30"/>and to every beast of the earth, and to every bird of the heavens, and to everything crawling upon the earth which <char style="add">has</char> in it a living soul, every green plant for food.” And it was so. <verse eid="GEN 1:30"/></para>
+
+<para style="p"><verse number="31" style="v" sid="GEN 1:31"/>And God saw everything that He had made, and behold, <char style="add">it was</char> very good! </para>
+
+<para style="p" vid="GEN 1:31">And there was evening and there was morning—the sixth day. <verse eid="GEN 1:31"/></para>
+
+<chapter eid="GEN 1"/>
+<chapter number="2" style="c" sid="GEN 2"/>
+
+<para style="s1">The Seventh Day</para>
+
+<para style="r">(Exodus 16:22–30; Hebrews 4:1–11)</para>
+
+<para style="p"><verse number="1" style="v" sid="GEN 2:1"/>And the heavens and the earth were finished, and all their host. <verse eid="GEN 2:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="GEN 2:2"/>And God finished by the seventh day His work that He had done, and He rested on the seventh day from all His work that He had done. <note caller="+" style="f"><char style="fr" closed="false">2.2 </char><char style="ft" closed="false"> Cited in Hebrews 4:4</char></note><verse eid="GEN 2:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="GEN 2:3"/>And God blessed the seventh day, and He sanctified it, because on it He ceased from all His work that God had created for making. <verse eid="GEN 2:3"/></para>
+
+<para style="s1">Man and Woman in the Garden</para>
+
+<para style="p"><verse number="4" style="v" sid="GEN 2:4"/>These <char style="add">are</char> the generations of the heavens and the earth in their being created, in the day when YHWH<note caller="+" style="f"><char style="fr" closed="false">2.4 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">YHWH</char><char style="ft" closed="false"> represents the proper name of the God of Israel and the one true God, transliterated from the Hebrew as </char><char style="fq" closed="false">YHWH</char><char style="ft" closed="false"> and commonly pronounced as </char><char style="fq" closed="false">Yahweh</char><char style="ft" closed="false">; here and throughout the Scriptures. Many translations represent this name as </char><char style="fq" closed="false">the LORD</char><char style="ft" closed="false">.</char></note> God made the earth and the heavens. <verse eid="GEN 2:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="GEN 2:5"/>And any bush of the field had not yet come to be on the earth, and any plant of the field had not yet sprouted, for YHWH God had not caused it to rain on the earth, and man was not there to work the ground. <verse eid="GEN 2:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="GEN 2:6"/>And a mist<note caller="+" style="f"><char style="fr" closed="false">2.6 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a spring</char></note> went up from the earth and watered the whole face of the ground. <verse eid="GEN 2:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="GEN 2:7"/>And YHWH God formed the man <char style="add">from</char> dust of the ground, and He breathed into his nostrils the breath of life, and the man became a living soul. <note caller="+" style="f"><char style="fr" closed="false">2.7 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">a living being</char><char style="ft" closed="false">; cited in 1 Corinthians 15:45</char></note><verse eid="GEN 2:7"/></para>
+
+<para style="p"><verse number="8" style="v" sid="GEN 2:8"/>And YHWH God planted a garden in Eden, in the east, and He put there the man whom He had formed. <verse eid="GEN 2:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="GEN 2:9"/>And YHWH God made sprout from the ground every tree <char style="add">that</char> is pleasing to the sight and good for food, and the tree of life in the midst of the garden, and the tree of the knowledge of good and evil. <verse eid="GEN 2:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="GEN 2:10"/>And a river went forth from Eden to water the garden, and from there it was divided and became four heads: <verse eid="GEN 2:10"/></para>
+
+<para style="q1"><verse number="11" style="v" sid="GEN 2:11"/>The name of the one <char style="add">is</char> Pishon; it <char style="add">is</char> the one winding <char style="add">through</char> the whole land of the Havilah, where there <char style="add">is</char> the gold. <verse eid="GEN 2:11"/></para>
+
+<para style="q1"><verse number="12" style="v" sid="GEN 2:12"/>And the gold of that land <char style="add">is</char> good, <char style="add">and</char> the bdellium and the onyx stone <char style="add">are</char> there. <verse eid="GEN 2:12"/></para>
+
+<para style="q1"><verse number="13" style="v" sid="GEN 2:13"/>And the name of the second river <char style="add">is</char> Gihon; it <char style="add">is</char> the one winding <char style="add">through</char> the whole land of Cush. <verse eid="GEN 2:13"/></para>
+
+<para style="q1"><verse number="14" style="v" sid="GEN 2:14"/>And the name of the third river <char style="add">is</char> Hiddekel; it <char style="add">is</char> the one going <char style="add">along</char> the east side of Assyria. </para>
+
+<para style="q1" vid="GEN 2:14">And the fourth river, it <char style="add">is</char> the Euphrates. <verse eid="GEN 2:14"/></para>
+
+<para style="p"><verse number="15" style="v" sid="GEN 2:15"/>And YHWH God took the man and He caused him to rest in the garden of Eden, to work it and to keep it. <verse eid="GEN 2:15"/></para>
+
+<para style="p"><verse number="16" style="v" sid="GEN 2:16"/>And YHWH God placed a command upon the man, saying, “From every tree of the garden you may surely eat. <verse eid="GEN 2:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="GEN 2:17"/>And from the tree of the knowledge of good and evil, from it you shall not eat. For in the day of your eating from it, you shall surely die!” <verse eid="GEN 2:17"/></para>
+
+<para style="p"><verse number="18" style="v" sid="GEN 2:18"/>And YHWH God said, “<char style="add">It is</char> not good <char style="add">for</char> the man to be alone; I will make for him a helper as his counterpart.” <verse eid="GEN 2:18"/></para>
+
+<para style="p"><verse number="19" style="v" sid="GEN 2:19"/>And YHWH God formed from the ground every beast of the field and every bird of the heavens, and He brought <char style="add">them</char> to the man to see what he would call it. And whatever the man<note caller="+" style="f"><char style="fr" closed="false">2.19 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">Adam</char><char style="ft" closed="false">; also in verses 20 and 21</char></note> called it—each living soul—that <char style="add">was</char> its name. <verse eid="GEN 2:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="GEN 2:20"/>And the man called names to all the livestock, and to the bird of the heavens, and to every beast of the field. And for the man there was not found a helper as his counterpart. <verse eid="GEN 2:20"/></para>
+
+<para style="p"><verse number="21" style="v" sid="GEN 2:21"/>And YHWH God caused a deep sleep to fall upon the man, and he slept, and He took one from his sides,<note caller="+" style="f"><char style="fr" closed="false">2.21 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">from his ribs</char><char style="ft" closed="false">; similar in verse 22</char></note> and He closed up the flesh in its place. <verse eid="GEN 2:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="GEN 2:22"/>And YHWH God built the side—which He had taken from the man—into a woman, and He brought her to the man. <verse eid="GEN 2:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="GEN 2:23"/>And the man said, </para>
+
+<para style="q1" vid="GEN 2:23">“This at last <char style="add">is</char> bone from my bones </para>
+
+<para style="q2" vid="GEN 2:23">and flesh from my flesh; </para>
+
+<para style="q1" vid="GEN 2:23">for this shall be called ‘Woman,’ </para>
+
+<para style="q2" vid="GEN 2:23">because out of Man this was taken.” <verse eid="GEN 2:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="GEN 2:24"/>Upon thus a man shall leave his father and his mother and shall cleave to his wife, and they shall become one flesh. <note caller="+" style="f"><char style="fr" closed="false">2.24 </char><char style="ft" closed="false"> LXX </char><char style="fq" closed="false">and the two will become one flesh</char><char style="ft" closed="false">; cited in Matthew 19:5, Mark 10:7–8, 1 Corinthians 6:16, and Ephesians 5:31</char></note><verse eid="GEN 2:24"/></para>
+
+<para style="p"><verse number="25" style="v" sid="GEN 2:25"/>And the two of them were naked, the man and his wife, and they were not ashamed. <verse eid="GEN 2:25"/></para>
+
+<chapter eid="GEN 2"/>
+<chapter number="3" style="c" sid="GEN 3"/>
+
+<para style="s1">The Serpent’s Deception</para>
+
+<para style="r">(Romans 5:12–21)</para>
+
+<para style="p"><verse number="1" style="v" sid="GEN 3:1"/>And the serpent<note caller="+" style="f"><char style="fr" closed="false">3.1 </char><char style="ft" closed="false"> Hebrew </char><char style="fq" closed="false">nachash</char><char style="ft" closed="false">, translated in this chapter as </char><char style="fq" closed="false">serpent</char><char style="ft" closed="false">, is translated in most cases as </char><char style="fq" closed="false">snake</char><char style="ft" closed="false">.</char></note> was cunning above every beast of the field that YHWH God had made. And he said to the woman, “<char style="add">Is it</char> true that God has said, ‘You⁺ shall not eat from any tree of the garden?’” <verse eid="GEN 3:1"/></para>
+
+<para style="p"><verse number="2" style="v" sid="GEN 3:2"/>And the woman said to the serpent, “From the fruit of the trees of the garden we may eat, <verse eid="GEN 3:2"/></para>
+
+<para style="p"><verse number="3" style="v" sid="GEN 3:3"/>and from the fruit of the tree which <char style="add">is</char> in the midst of the garden, God has said, ‘You⁺ shall not eat from it, and you⁺ shall not touch it, lest you⁺ die.’” <verse eid="GEN 3:3"/></para>
+
+<para style="p"><verse number="4" style="v" sid="GEN 3:4"/>And the serpent said to the woman, “You⁺ will not surely die! <verse eid="GEN 3:4"/></para>
+
+<para style="p"><verse number="5" style="v" sid="GEN 3:5"/>For God knows that in the day of your⁺ eating from it, your⁺ eyes will be opened and you⁺ will be like God, knowing good and evil.” <verse eid="GEN 3:5"/></para>
+
+<para style="p"><verse number="6" style="v" sid="GEN 3:6"/>And the woman saw that the tree <char style="add">was</char> good for food, and that it <char style="add">was</char> pleasant to the eyes and the tree <char style="add">was</char> desirable to make one wise. And she took from its fruit and ate, and she gave also to her husband with her, and he ate. <verse eid="GEN 3:6"/></para>
+
+<para style="p"><verse number="7" style="v" sid="GEN 3:7"/>And the eyes of the two of them were opened, and they knew that they <char style="add">were</char> naked, and they sewed together leaves of the fig tree and made for themselves loincloths. <verse eid="GEN 3:7"/></para>
+
+<para style="s1">God Arraigns Adam and Eve</para>
+
+<para style="p"><verse number="8" style="v" sid="GEN 3:8"/>And they heard the voice of YHWH God walking about in the garden in the breeze<note caller="+" style="f"><char style="fr" closed="false">3.8 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">in the cool</char><char style="ft" closed="false">; Hebrew </char><char style="fq" closed="false">unto the Ruach</char></note> of the day, and the man and his wife hid themselves from the face of YHWH God in the midst of the trees of the garden. <verse eid="GEN 3:8"/></para>
+
+<para style="p"><verse number="9" style="v" sid="GEN 3:9"/>And YHWH God called to the man, and He said to him, “Where <char style="add">are</char> you?” <verse eid="GEN 3:9"/></para>
+
+<para style="p"><verse number="10" style="v" sid="GEN 3:10"/>And he said, “Your voice I heard in the garden, and I was afraid because I am naked, and I hid myself.” <verse eid="GEN 3:10"/></para>
+
+<para style="p"><verse number="11" style="v" sid="GEN 3:11"/>And He said, “Who told you that you <char style="add">were</char> naked? From the tree of which I commanded you not to eat from it, have you eaten?” <verse eid="GEN 3:11"/></para>
+
+<para style="p"><verse number="12" style="v" sid="GEN 3:12"/>And the man said, “The woman whom You gave <char style="add">to be</char> with me, she gave to me from the tree, and I ate.” <verse eid="GEN 3:12"/></para>
+
+<para style="p"><verse number="13" style="v" sid="GEN 3:13"/>And YHWH God said to the woman, “What <char style="add">is</char> this you have done?” </para>
+
+<para style="p" vid="GEN 3:13">And the woman said, “The serpent deceived me, and I ate.” <verse eid="GEN 3:13"/></para>
+
+<para style="s1">The Fate of the Serpent</para>
+
+<para style="p"><verse number="14" style="v" sid="GEN 3:14"/>And YHWH God said to the serpent: </para>
+
+<para style="q1" vid="GEN 3:14">“Because you have done this, </para>
+
+<para style="q2" vid="GEN 3:14">cursed <char style="add">are</char> you above all the livestock </para>
+
+<para style="q2" vid="GEN 3:14">and above every beast of the field. </para>
+
+<para style="q1" vid="GEN 3:14">On your belly you shall go, </para>
+
+<para style="q2" vid="GEN 3:14">and dust you shall eat, </para>
+
+<para style="q2" vid="GEN 3:14">all the days of your life. <verse eid="GEN 3:14"/></para>
+
+<para style="q1"><verse number="15" style="v" sid="GEN 3:15"/>And enmity I will put between you and between the woman, </para>
+
+<para style="q2" vid="GEN 3:15">and between your seed and between her seed. </para>
+
+<para style="q1" vid="GEN 3:15">He shall bruise you <char style="add">on</char> the head, </para>
+
+<para style="q2" vid="GEN 3:15">and you shall bruise him <char style="add">on</char> the heel.<note caller="+" style="f"><char style="fr" closed="false">3.15 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">He will bruise your head, and you will bruise his heel</char><char style="ft" closed="false">. The same Hebrew root for </char><char style="fq" closed="false">crush</char><char style="ft" closed="false">, </char><char style="fq" closed="false">bruise</char><char style="ft" closed="false">, or </char><char style="fq" closed="false">strike</char><char style="ft" closed="false"> appears twice in this verse.</char></note> <verse eid="GEN 3:15"/></para>
+
+<para style="s1">The Punishment of Mankind</para>
+
+<para style="p"><verse number="16" style="v" sid="GEN 3:16"/>To the woman He said, </para>
+
+<para style="q1" vid="GEN 3:16">“I will surely multiply your pain and your childbearing; </para>
+
+<para style="q2" vid="GEN 3:16">in pain you will bear children. </para>
+
+<para style="q1" vid="GEN 3:16">And toward your husband your desire <char style="add">will be</char>,<note caller="+" style="f"><char style="fr" closed="false">3.16 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">You will desire to control your husband</char></note> </para>
+
+<para style="q2" vid="GEN 3:16">and he will rule over you.” <verse eid="GEN 3:16"/></para>
+
+<para style="p"><verse number="17" style="v" sid="GEN 3:17"/>And to the man He said: </para>
+
+<para style="q1" vid="GEN 3:17">“Because you have listened to the voice of your wife </para>
+
+<para style="q2" vid="GEN 3:17">and ate from the tree of which I commanded you, </para>
+
+<para style="q2" vid="GEN 3:17">saying, ‘you shall not eat from it,’ </para>
+
+<para style="q1" vid="GEN 3:17">cursed is the ground on your account, </para>
+
+<para style="q2" vid="GEN 3:17">in toil you shall eat of it </para>
+
+<para style="q2" vid="GEN 3:17">all the days of your life, <verse eid="GEN 3:17"/></para>
+
+<para style="q1"><verse number="18" style="v" sid="GEN 3:18"/>and thorn and thistle it will cause to grow for you, </para>
+
+<para style="q2" vid="GEN 3:18">and you shall eat the vegetation of the field. <verse eid="GEN 3:18"/></para>
+
+<para style="q1"><verse number="19" style="v" sid="GEN 3:19"/>By the sweat of your nose </para>
+
+<para style="q2" vid="GEN 3:19">you shall eat bread, </para>
+
+<para style="q1" vid="GEN 3:19">until your returning to the ground, </para>
+
+<para style="q2" vid="GEN 3:19">for from it you were taken. </para>
+
+<para style="q1" vid="GEN 3:19">For dust you <char style="add">are</char>, </para>
+
+<para style="q2" vid="GEN 3:19">and to dust you shall return.” <verse eid="GEN 3:19"/></para>
+
+<para style="p"><verse number="20" style="v" sid="GEN 3:20"/>And the man called the name of his wife Eve,<note caller="+" style="f"><char style="fr" closed="false">3.20 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Eve</char><char style="ft" closed="false"> sounds like the Hebrew for </char><char style="fq" closed="false">giving life</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">living</char><char style="ft" closed="false">.</char></note> because she was the mother of all the living. <verse eid="GEN 3:20"/></para>
+
+<para style="s1">The Expulsion from Paradise</para>
+
+<para style="p"><verse number="21" style="v" sid="GEN 3:21"/>And YHWH God made for the man and for his wife tunics of skin, and He clothed them. <verse eid="GEN 3:21"/></para>
+
+<para style="p"><verse number="22" style="v" sid="GEN 3:22"/>And YHWH God said, “Behold, the man has become like one of Us, in knowing good and evil. And now, lest he stretch out his hand and take also from the tree of life and eat, and live forever:” <verse eid="GEN 3:22"/></para>
+
+<para style="p"><verse number="23" style="v" sid="GEN 3:23"/>And YHWH God sent him out of the garden of Eden to work the ground from which he had been taken. <verse eid="GEN 3:23"/></para>
+
+<para style="p"><verse number="24" style="v" sid="GEN 3:24"/>And He drove out the man, and He caused to dwell at the east of the garden of Eden the cherubim and the flame of the sword that turns itself to guard the way to the tree of life. <verse eid="GEN 3:24"/></para>
+
+<chapter eid="GEN 3"/>
+</usx>

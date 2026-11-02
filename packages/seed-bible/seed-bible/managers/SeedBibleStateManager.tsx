@@ -22,6 +22,7 @@ import {
 } from "../managers/TodayManager";
 import { isMinimalEmbedUrl } from "../managers/EmbedMode";
 import { TodayPane, TodayPaneTitle } from "../components/TodayPane/TodayPane";
+import { openExtensionConsentModal } from "../components/ExtensionConsentModal/ExtensionConsentModal";
 import { AboutPage, AboutPaneTitle } from "../components/AboutPage/AboutPage";
 import {
   SharedPageLoadFailedModalContent,
@@ -63,6 +64,10 @@ import {
   YourContentPaneTitle,
 } from "../components/YourContentPane/YourContentPane";
 import {
+  buildCustomizationTutorialSteps,
+  openCustomizationEditPane,
+} from "../components/CustomizationEditPane/CustomizationEditPane";
+import {
   PLAYLIST_HISTORY_PANE_ID,
   PlaylistHistoryPane,
   PlaylistHistoryPaneTitle,
@@ -78,6 +83,12 @@ import {
 } from "../components/FriendsPane/FriendsPane";
 import { setupFriendLinks } from "../components/FriendsPane/FriendLinkPrompts";
 import {
+  EXTENSIONS_PANE_ID,
+  ExtensionsPage,
+  ExtensionsPaneBackButton,
+  ExtensionsPaneTitle,
+} from "../components/ExtensionsPage/ExtensionsPage";
+import {
   createYourContentManager,
   type YourContentManager,
 } from "../managers/YourContentManager";
@@ -91,6 +102,7 @@ import type { OfflineTranslationStore } from "../managers/OfflineTranslationStor
 import {
   createBibleToolsManager,
   openReadingPlansPane,
+  READING_PLANS_PANE_ID,
 } from "../managers/BibleToolsManager";
 import type { ToolsManager } from "../managers/BibleToolsManager";
 import {
@@ -109,7 +121,7 @@ import type {
 import { createLoginManager } from "../managers/LoginManager";
 import type { LoginManager } from "../managers/LoginManager";
 import { createSidebar } from "../managers/SidebarManager";
-import { createTabs } from "../managers/TabsManager";
+import { createTabs, readInitialReadingParams } from "../managers/TabsManager";
 import type { ReaderTab, TabsManager } from "../managers/TabsManager";
 import {
   writeStoredTabsState,
@@ -163,6 +175,10 @@ import {
   createSavesManager,
   type SavesManager,
 } from "../managers/SavesManager";
+import {
+  createBookmarksManager,
+  type BookmarksManager,
+} from "../managers/BookmarksManager";
 import {
   createFriendsManager,
   type FriendsManager,
@@ -282,6 +298,11 @@ export interface ToastOptions {
   onClick?: () => void;
   /** Secondary line telling people what tapping the toast does. */
   hint?: string;
+  /**
+   * Marks toasts that describe the same state, so a newer one replaces an
+   * older one still waiting in the queue.
+   */
+  key?: string;
 }
 
 export interface AppToast extends ToastOptions {
@@ -448,10 +469,17 @@ export interface AppState {
   /** The toast currently shown at the bottom of the screen, or null when none. */
   currentToast: ReadonlySignal<AppToast | null>;
   /**
-   * Shows a toast message at the bottom of the screen for 3.5s (6s when it
-   * has an `onClick`, so there's time to tap it).
-   * Calling again replaces the current toast and restarts the timer
-   * (only one toast is ever visible at a time, always the most recent).
+   * Shows a toast message at the bottom of the screen. Toasts are queued and
+   * shown one at a time. A toast with nothing waiting behind it stays 3.5 s;
+   * once another is waiting, the current one stays only until it has been
+   * visible 1.5 s (or leaves at once if it already has). A toast with an
+   * `onClick` always stays 6 s, waiting or not, so there's time to tap it;
+   * tapping it dismisses it and moves on to the next one.
+   * Toasts sharing a `key` describe the same state, so a new one drops any
+   * waiting toast with that key and joins the end of the queue; the toast on
+   * screen is never dropped. If the toast on screen already has the same key and
+   * message, the new one is not queued at all. Toasts without a key are always
+   * shown.
    */
   toast: (message: string, options?: ToastOptions) => void;
 
@@ -519,6 +547,8 @@ export interface SeedBibleState {
   highlights: HighlightsManager;
   /** Archival saves manager: categorized references to chapters and verses. */
   saves: SavesManager;
+  /** Named, colored chapter markers the user moves as they read. */
+  bookmarks: BookmarksManager;
   /**
    * The signed-in user's friends and pending friend requests. A friendship is
    * a mutual shared permission; for now it only decides whose already-public
@@ -612,6 +642,21 @@ export interface SeedBibleState {
   /** Closes Friends (clears `friends` from the URL). */
   closeFriends: () => void;
 
+  /** True when the full-screen Extensions page is showing (desktop). */
+  isExtensionsOpen: ReadonlySignal<boolean>;
+  /**
+   * The extension whose page is open on the Extensions page, or null while
+   * it lists them all.
+   */
+  extensionsPageEntryId: ReadonlySignal<string | null>;
+  /**
+   * Opens the Extensions page, at `extensionId`'s page when given (reflected
+   * in the URL as `?extensions=open&extension=<id>`).
+   */
+  openExtensions: (extensionId?: string | null) => void;
+  /** Closes the Extensions page (clears `extensions` and `extension`). */
+  closeExtensions: () => void;
+
   /** True when the Profile screen is showing. */
   isProfileOpen: ReadonlySignal<boolean>;
   /** Opens the Profile screen (reflected in the URL as `?profile=open`). */
@@ -646,6 +691,15 @@ export interface SeedBibleState {
   openCodeOfConduct: () => void;
   /** Closes the Code of Conduct modal (clears `conduct` from the URL). */
   closeCodeOfConduct: () => void;
+
+  /**
+   * Releases what this state has registered outside itself (listeners on the
+   * process-wide i18next instance, recurring timers), so it can be garbage
+   * collected. The SSR host creates one state per request and must call this
+   * once the render is done; the client keeps its one state for the page's
+   * lifetime and never needs to.
+   */
+  dispose: () => void;
 }
 
 // Evaluated before the extension bundle below. Bonfire imports
@@ -736,6 +790,13 @@ export interface CreateSeedBibleStateOptions {
   initialCustomizationSeed?: InitialCustomizationSeed;
 
   /**
+   * True when `initialCustomizationSeed` came from a server running a
+   * different build: it's still applied for the first paint, but the record
+   * is downloaded again, since an older build drops fields it doesn't know.
+   */
+  revalidateInitialCustomizationSeed?: boolean;
+
+  /**
    * A prior SSR render's completed playlist-page load, so the new
    * `PlaylistManager` doesn't re-fetch it — see `readInjectedPlaylistPageSeed`
    * in `app/playlistPageSeed.ts`.
@@ -797,6 +858,19 @@ export function createSeedBibleState(
     friendReads,
   });
   const saves = createSavesManager(os, login);
+  const bookmarks = createBookmarksManager(os, login);
+  // The saves and bookmarks panels occupy the same spot in the sidebar, so
+  // opening either one closes the other.
+  effect(() => {
+    if (bookmarks.isPanelOpen.value) {
+      saves.isFilterActive.value = false;
+    }
+  });
+  effect(() => {
+    if (saves.isFilterActive.value) {
+      bookmarks.isPanelOpen.value = false;
+    }
+  });
   const friends = createFriendsManager(os, login);
   const settings = createSettings(os, login, navigation);
   // Persist a user's explicit language selection to their profile. Wiring it
@@ -825,7 +899,8 @@ export function createSeedBibleState(
     navigation,
     customizationVariantSelections,
     customizationExtensionPreferences,
-    options.initialCustomizationSeed
+    options.initialCustomizationSeed,
+    options.revalidateInitialCustomizationSeed
   );
   // The active Customization's chosen default translation, if any — see
   // `createTabs`'s `activeCustomizationDefaultTranslationId` parameter for how
@@ -895,7 +970,6 @@ export function createSeedBibleState(
     annotationRecordKey,
     {
       confirmAdoption: (owner) => askToAdopt(owner, "notes"),
-      isMobile,
       friendIds: friends.friendIds,
       friendReads,
     }
@@ -916,6 +990,13 @@ export function createSeedBibleState(
   );
   const extensions = createExtensionManager(login, {
     defaultExtensions: SEED_BIBLE_EXTENSIONS,
+    requestSandboxConsent: (request) =>
+      openExtensionConsentModal(modals, request, {
+        userId: login.userId,
+        friends,
+      }),
+    records: os,
+    fileRecords: os,
   });
   const extensionSettings = createExtensionSettingsManager(
     os,
@@ -1062,6 +1143,40 @@ export function createSeedBibleState(
     friendsOpen.value = false;
   };
 
+  // The full-screen Extensions page, bound to `?extensions=open` and, while
+  // one extension's page is showing, `?extension=<id>`.
+  const extensionsOpen = signal(
+    import.meta.env.SSR
+      ? false
+      : navigation.currentUrl.value.searchParams.get("extensions") === "open"
+  );
+  const extensionsPageEntry = signal<string | null>(
+    import.meta.env.SSR
+      ? null
+      : navigation.currentUrl.value.searchParams.get("extension")
+  );
+  const isExtensionsOpen = computed(() => extensionsOpen.value);
+  const extensionsPageEntryId = computed(() =>
+    extensionsOpen.value ? extensionsPageEntry.value : null
+  );
+  const openExtensions = (extensionId: string | null = null) => {
+    // Today's URL binding would otherwise turn it straight back on over this
+    // page; see `openProfile` below.
+    if (today.isOpen.peek()) {
+      today.close();
+    }
+    batch(() => {
+      extensionsOpen.value = true;
+      extensionsPageEntry.value = extensionId;
+    });
+  };
+  const closeExtensions = () => {
+    batch(() => {
+      extensionsOpen.value = false;
+      extensionsPageEntry.value = null;
+    });
+  };
+
   // The Profile screen. Two-way bound to `?profile=open` so it can be
   // deep-linked and so the browser's back button leaves it, mirroring Today.
   //
@@ -1136,6 +1251,22 @@ export function createSeedBibleState(
       },
       set value(newValue) {
         friendsOpen.value = newValue === "open";
+      },
+    },
+    extensions: {
+      get value() {
+        return extensionsOpen.value ? "open" : null;
+      },
+      set value(newValue) {
+        extensionsOpen.value = newValue === "open";
+      },
+    },
+    extension: {
+      get value() {
+        return extensionsOpen.value ? extensionsPageEntry.value : null;
+      },
+      set value(newValue) {
+        extensionsPageEntry.value = newValue;
       },
     },
     "edit-profile": {
@@ -1703,6 +1834,12 @@ export function createSeedBibleState(
       if (!tabsRestored.value) {
         return;
       }
+      // The share-sheet preview is this same origin, so it shares the
+      // reader's localStorage. Writing here would replace their tabs with
+      // whatever chapter the preview was left on.
+      if (isMinimalEmbed.value) {
+        return;
+      }
 
       const persistedTabs = buildPersistedTabs();
       const persistableIds = new Set(persistedTabs.map((tab) => tab.id));
@@ -1935,7 +2072,7 @@ export function createSeedBibleState(
 
     const getTitle = () => {
       if (isAboutPage.value) {
-        return `${t("about-title", { defaultValue: "About the Seed Bible" })} | ${seedBibleTitle}`;
+        return `${t("about-title", { defaultValue: "About Seed Bible" })} | ${seedBibleTitle}`;
       }
 
       // Only on the shared page itself: while a playlist plays at its own
@@ -2092,7 +2229,7 @@ export function createSeedBibleState(
     const { t } = i18n;
 
     if (isAboutPage.value) {
-      return t("about-title", { defaultValue: "About the Seed Bible" });
+      return t("about-title", { defaultValue: "About Seed Bible" });
     }
 
     if (sharedPageTitle.value) {
@@ -2198,7 +2335,12 @@ export function createSeedBibleState(
    * it; this caps what that tick can claim to have watched.
    */
   const READING_MAX_TICK_CREDIT_MS = READING_TICK_MS * 2;
-  effect(() => {
+  const disposeReadingTicker = effect(() => {
+    // Same origin as the page around the share preview, so time the preview
+    // sits open must not become the viewer's reading history.
+    if (isMinimalEmbed.value) {
+      return;
+    }
     if (!selectedTab.value) {
       return;
     }
@@ -2212,6 +2354,12 @@ export function createSeedBibleState(
     // were read in, so the offline manager keeps its own first-seen stamp —
     // that's what the "used for a day" download offer is judged against.
     data.offline.noteTranslationInUse(chapter.translation.id);
+
+    // Nobody is reading a server render, and an interval started here would
+    // keep the whole per-request state alive on the SSR host.
+    if (import.meta.env.SSR) {
+      return;
+    }
 
     // Reading time accrues only while the chapter is actually on screen. Each
     // tick credits just the stretch since the last one rather than stretching
@@ -2257,8 +2405,7 @@ export function createSeedBibleState(
       // on the way somewhere else earn a place in history.
     };
 
-    const canWatchVisibility =
-      typeof document !== "undefined" && !import.meta.env.SSR;
+    const canWatchVisibility = typeof document !== "undefined";
     // A visible tab isn't enough: Today (or any fullscreen pane) can cover the
     // reader, and a chapter sitting under Welcome would otherwise be credited
     // every tick — giving a brand-new account history it never read.
@@ -2412,42 +2559,83 @@ export function createSeedBibleState(
     }
   };
 
-  // App-level toast: a single popup shown at the bottom of the screen for 3.5s.
-  // A new call overwrites the current toast and restarts the timer, so only the
-  // most recent message is ever visible. The incrementing id keys the render so
-  // the slide-in animation replays even for a repeated message.
+  // App-level toast queue: popups shown one at a time at the bottom of the
+  // screen, the head of the queue being the one on screen (see `toast` on
+  // `AppState` for the timing and `key` rules). The incrementing id keys the
+  // render so the slide-in animation replays even for a repeated message.
   //
   // Defined here (rather than further down, where it's exposed on `state`)
   // because the host-disconnect handling below also calls it, and that
   // effect runs immediately when constructed.
-  const currentToast = signal<AppToast | null>(null);
   let toastSeq = 0;
-  let toastTimer: ReturnType<typeof setTimeout> | null = null;
-  const dismissToast = () => {
-    if (toastTimer !== null) {
-      clearTimeout(toastTimer);
-      toastTimer = null;
-    }
-    currentToast.value = null;
+  const toastQueue = signal<AppToast[]>([]);
+  const dismissToast = (id: number) => {
+    toastQueue.value = toastQueue.peek().filter((queued) => queued.id !== id);
   };
   const toast = (message: string, options?: ToastOptions) => {
-    if (toastTimer !== null) {
-      clearTimeout(toastTimer);
-    }
+    const id = ++toastSeq;
     const onClick = options?.onClick;
-    currentToast.value = {
-      id: ++toastSeq,
+    const entry: AppToast = {
+      id,
       message,
+      key: options?.key,
       hint: options?.hint,
       onClick: onClick
         ? () => {
-            dismissToast();
+            dismissToast(id);
             onClick();
           }
         : undefined,
     };
-    toastTimer = setTimeout(dismissToast, onClick ? 6000 : 3500);
+    // `peek()`: toast() is called from inside effects, and a tracked read
+    // would subscribe that effect to the queue it is writing.
+    const queue = toastQueue.peek();
+    const key = entry.key;
+    if (key === undefined) {
+      toastQueue.value = [...queue, entry];
+      return;
+    }
+    const [head, ...waiting] = queue;
+    const alreadyOnScreen = head?.key === key && head.message === message;
+    toastQueue.value = [
+      ...(head ? [head] : []),
+      ...waiting.filter((queued) => queued.key !== key),
+      ...(alreadyOnScreen ? [] : [entry]),
+    ];
   };
+
+  const MIN_TOAST_MS = 1500;
+  const FULL_TOAST_MS = 3500;
+  const TAPPABLE_TOAST_MS = 6000;
+  let toastTimer: ReturnType<typeof setTimeout> | null = null;
+  let shownId: number | null = null;
+  let shownAt = 0;
+  const currentToast = computed(() => toastQueue.value[0] ?? null);
+
+  toastQueue.subscribe((queue) => {
+    if (toastTimer !== null) clearTimeout(toastTimer);
+    toastTimer = null;
+
+    const head = queue[0];
+    if (!head) {
+      shownId = null;
+      return;
+    }
+    if (head.id !== shownId) {
+      shownId = head.id;
+      shownAt = Date.now();
+    }
+
+    const duration = head.onClick
+      ? TAPPABLE_TOAST_MS
+      : queue.length > 1
+        ? MIN_TOAST_MS
+        : FULL_TOAST_MS;
+    const remaining = Math.max(0, duration - (Date.now() - shownAt));
+    toastTimer = setTimeout(() => {
+      toastQueue.value = toastQueue.value.slice(1);
+    }, remaining);
+  });
 
   // Wraps a session so that when it's disposed (via tabs.removeTab), its
   // entry is removed from the global shared-sessions registry too. The
@@ -2635,6 +2823,13 @@ export function createSeedBibleState(
   ): boolean =>
     session.isSynced.value &&
     session.connectedUsers.value.some((user) => user.isSelf);
+  // Our own connection and the host's are separate states: a host toast must
+  // never supersede a waiting "you rejoined", or someone told they dropped
+  // would never hear they're back.
+  const sessionSelfToastKey = (sessionId: string): string =>
+    `session-self:${sessionId}`;
+  const sessionHostToastKey = (sessionId: string): string =>
+    `session-host:${sessionId}`;
   effect(() => {
     // Read so this effect re-runs when the self-reconnect settle timer fires.
     const _presenceSettleGeneration = presenceSettleTick.value;
@@ -2689,7 +2884,8 @@ export function createSeedBibleState(
             toast(
               t("session-disconnected", {
                 defaultValue: "You lost connection to the session",
-              })
+              }),
+              { key: sessionSelfToastKey(session.id) }
             );
           }
         }
@@ -2713,7 +2909,8 @@ export function createSeedBibleState(
           toast(
             t("session-reconnected", {
               defaultValue: "You rejoined the session",
-            })
+            }),
+            { key: sessionSelfToastKey(session.id) }
           );
         }
         if (!locallyHostedSessionIds.has(session.id) && !hostIsConnected) {
@@ -2759,7 +2956,8 @@ export function createSeedBibleState(
           toast(
             t("session-host-reconnected", {
               defaultValue: "The host reconnected to the session",
-            })
+            }),
+            { key: sessionHostToastKey(session.id) }
           );
         }
       } else if (
@@ -2780,7 +2978,8 @@ export function createSeedBibleState(
         toast(
           t("session-host-disconnected", {
             defaultValue: "The host disconnected from the session",
-          })
+          }),
+          { key: sessionHostToastKey(sessionId) }
         );
         const timer = setTimeout(() => {
           pendingHostDisconnectTimers.delete(sessionId);
@@ -2864,9 +3063,12 @@ export function createSeedBibleState(
     return session;
   };
 
-  const handleJoinSharedSession = async (id: string) => {
+  const handleJoinSharedSession = async (
+    id: string,
+    startPosition?: SessionStartPosition
+  ) => {
     closeSidebarAndSettings();
-    const session = await sessions.joinSession(id);
+    const session = await sessions.joinSession(id, startPosition);
     captureEvent("join_session", {
       sessionId: session.id,
     });
@@ -2941,7 +3143,73 @@ export function createSeedBibleState(
       return;
     }
 
-    await handleJoinSharedSession(initialSessionId);
+    const linkedPosition = readInitialReadingParams(
+      navigation.initialUrl,
+      navigation.basePath
+    ).specified;
+    const bootTab = tabs.tabs.peek()[0] ?? null;
+    const startPosition =
+      linkedPosition && bootTab
+        ? getSessionStartPosition(bootTab.readingState)
+        : undefined;
+
+    const whenTabsRestored = (run: () => void) => {
+      if (tabsRestored.peek()) {
+        run();
+        return;
+      }
+      const stopWaiting = tabsRestored.subscribe((restored) => {
+        if (restored) {
+          stopWaiting();
+          run();
+        }
+      });
+    };
+
+    try {
+      await handleJoinSharedSession(initialSessionId, startPosition);
+    } catch (error) {
+      console.error("Failed to join the session from the URL:", error);
+      // Destructured for the translation lint rules, which only recognise a
+      // bare `t` — see the sign-out toast below.
+      const { t } = i18n;
+      toast(
+        t("session-join-failed", {
+          defaultValue: "Couldn't join the shared session",
+        })
+      );
+      // Restoring saved tabs skipped the link's chapter, leaving it for the
+      // session to show. With no session, show it in a normal tab instead.
+      if (startPosition) {
+        whenTabsRestored(() => showLinkedChapter(startPosition));
+      }
+      return;
+    }
+
+    if (!startPosition || !bootTab) {
+      return;
+    }
+
+    whenTabsRestored(() => {
+      if (tabs.tabs.peek().includes(bootTab)) {
+        tabs.removeTab(bootTab.id);
+      }
+    });
+  };
+
+  const showLinkedChapter = (position: SessionStartPosition) => {
+    const tab =
+      tabs.tabs
+        .peek()
+        .find(
+          (candidate) =>
+            !candidate.sharedSession &&
+            candidate.readingState.bookId.peek() === position.initialBookId &&
+            candidate.readingState.chapterNumber.peek() ===
+              position.initialChapterNumber
+        ) ?? tabs.addTab(undefined, position);
+    tabs.selectTab(tab.id);
+    tabsLayout.setSelectedSlotTab(tab.id);
   };
 
   // Tell the user when we signed them out for them. `login.sessionEnded` only fires
@@ -3291,6 +3559,7 @@ export function createSeedBibleState(
     navigation,
     search,
     bibleData: data,
+    annotations,
     defaultLanguage: i18n.defaultLanguage,
     currentReadingState,
   });
@@ -3315,6 +3584,7 @@ export function createSeedBibleState(
     readingHistory,
     highlights,
     saves,
+    bookmarks,
     friends,
     annotations,
     chats,
@@ -3347,6 +3617,10 @@ export function createSeedBibleState(
     isFriendsOpen,
     openFriends,
     closeFriends,
+    isExtensionsOpen,
+    extensionsPageEntryId,
+    openExtensions,
+    closeExtensions,
     isProfileOpen,
     openProfile,
     closeProfile,
@@ -3363,6 +3637,10 @@ export function createSeedBibleState(
     openCodeOfConduct,
     closeCodeOfConduct,
     features,
+    dispose: () => {
+      i18n.dispose();
+      disposeReadingTicker();
+    },
     app: {
       createSharedSession: handleCreateSharedSession,
       joinSharedSession: handleJoinSharedSession,
@@ -3501,6 +3779,7 @@ export function createSeedBibleState(
       login={login}
       theme={themeManager.currentTheme}
       isMobile={isMobile}
+      bookmarks={bookmarks.bookmarks}
       onOpenPassage={(target) => openTodayPassage(state, today, target)}
       onOpenBookSelector={openTodayBookSelector}
       onTakeTour={() => tutorial.acceptPrompt()}
@@ -3565,8 +3844,10 @@ export function createSeedBibleState(
   /**
    * Opens the plans pane from one of the Profile screens. False when there is
    * no reader to open it beside, in which case nothing has changed on screen.
+   * `reopen` brings back the screen it came from, which this closes, so the
+   * pane's back button can return there instead of dropping to the reader.
    */
-  const openReadingPlansFullscreen = (): boolean => {
+  const openReadingPlansFullscreen = (reopen: () => void): boolean => {
     const readingState = selectedTab.peek()?.readingState;
     if (!readingState) {
       return false;
@@ -3588,11 +3869,15 @@ export function createSeedBibleState(
       gallery,
       placement: "fullscreen",
       toast,
+      onBack: () => {
+        panes.closePane(READING_PLANS_PANE_ID);
+        reopen();
+      },
     });
     return true;
   };
   const openReadingPlansFromProfile = () => {
-    openReadingPlansFullscreen();
+    openReadingPlansFullscreen(openProfile);
   };
   const continuePlaylistFromProfile = (
     entry: PlaylistPlayHistory
@@ -3705,26 +3990,68 @@ export function createSeedBibleState(
     // uses — rather than growing a second editor on this screen.
     annotations.editAnnotation(annotation);
   };
+  const createPlaylistFromContent = () => {
+    closeYourContent();
+    closeProfile();
+    void playlists.createNewPlaylist();
+  };
+  // The customization editor is a side pane beside the reader, so the
+  // fullscreen screens above it close first, as for the playlist editor.
+  const editCustomizationFromContent = (customizationId: string) => {
+    closeYourContent();
+    closeProfile();
+    openCustomizationEditPane(state, customizationId);
+  };
+  const createCustomizationFromContent = async () => {
+    closeYourContent();
+    closeProfile();
+    let created;
+    try {
+      created = await customizations.create();
+    } catch (error) {
+      console.error("Error creating customization:", error);
+      // Destructured for the translation lint rules, as in the toast above.
+      const { t } = i18n;
+      toast(
+        t("customization-create-failed", {
+          defaultValue:
+            "Couldn't create your Custom Branding. Please try again.",
+        })
+      );
+      return;
+    }
+    openCustomizationEditPane(state, created.id);
+    // First-time-only overview: the customization name and logo, then a
+    // deep-linked tour of the new theme's editor sections.
+    tutorial.startContextual(
+      "customization-created",
+      buildCustomizationTutorialSteps(state, created.defaultVariantId)
+    );
+  };
   // Both land in the plans pane, opened fullscreen the way the Profile card
   // opens it, and then drill straight into the plan so the user doesn't have
   // to find it in the list a second time.
   const openReadingPlanFromContent = (plan: ReadingPlanMetadata) => {
-    if (!openReadingPlansFullscreen()) {
+    if (!openReadingPlansFullscreen(openYourContent)) {
       return;
     }
     // A draft has nothing to read yet, so it picks up where the author left
     // off — in the editor — rather than opening an empty detail view.
     if (plan.status === "draft") {
-      void openReadingPlanEditor(readingPlans, plan);
+      void openReadingPlanEditor(readingPlans, plan, {
+        fromAnotherScreen: true,
+      });
     } else {
-      void openReadingPlanDetail(readingPlans, plan);
+      void openReadingPlanDetail(readingPlans, plan, {
+        fromAnotherScreen: true,
+      });
     }
   };
   const editReadingPlanFromContent = (plan: ReadingPlanMetadata) => {
-    if (!openReadingPlansFullscreen()) {
+    if (!openReadingPlansFullscreen(openYourContent)) {
       return;
     }
-    void openReadingPlanEditor(readingPlans, plan);
+    void openReadingPlanEditor(readingPlans, plan, { fromAnotherScreen: true });
   };
   const renderYourContentPane = () => (
     <YourContentPane
@@ -3733,8 +4060,11 @@ export function createSeedBibleState(
       onPlayPlaylist={playPlaylistFromContent}
       onEditPlaylist={editPlaylistFromContent}
       onEditAnnotation={editAnnotationFromContent}
+      onCreatePlaylist={createPlaylistFromContent}
       onOpenReadingPlan={openReadingPlanFromContent}
       onEditReadingPlan={editReadingPlanFromContent}
+      onEditCustomization={editCustomizationFromContent}
+      onCreateCustomization={() => void createCustomizationFromContent()}
     />
   );
   const renderYourContentPaneTitle = () => <YourContentPaneTitle />;
@@ -3821,6 +4151,35 @@ export function createSeedBibleState(
     );
     if (!paneOpen && isFriendsOpen.peek()) {
       closeFriends();
+    }
+  });
+
+  const renderExtensionsPane = () => <ExtensionsPage state={state} />;
+  const renderExtensionsPaneTitle = () => <ExtensionsPaneTitle />;
+  const renderExtensionsPaneLeading = () => (
+    <ExtensionsPaneBackButton state={state} />
+  );
+
+  effect(() => {
+    if (isExtensionsOpen.value) {
+      panes.openPane({
+        id: EXTENSIONS_PANE_ID,
+        placement: "fullscreen",
+        title: renderExtensionsPaneTitle,
+        leading: renderExtensionsPaneLeading,
+        component: renderExtensionsPane,
+      });
+    } else {
+      panes.closePane(EXTENSIONS_PANE_ID); // no-op when already closed
+    }
+  });
+
+  effect(() => {
+    const paneOpen = panes.panes.value.some(
+      (pane) => pane.id === EXTENSIONS_PANE_ID
+    );
+    if (!paneOpen && isExtensionsOpen.peek()) {
+      closeExtensions();
     }
   });
 

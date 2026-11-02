@@ -6,7 +6,6 @@ import { annotationVerseNumbers } from "../../managers/AnnotationsManager";
 import type { StoredHighlight } from "../../managers/HighlightsManager";
 import type { Save } from "../../managers/SavesManager";
 import type { Playlist } from "../../managers/PlaylistManager";
-import type { ModalManager } from "../../managers/ModalManager";
 import type { TodayPassageTarget } from "../../managers/TodayManager";
 import {
   formatReadingPlanId,
@@ -32,8 +31,11 @@ import {
   ContextMenuWithButton,
 } from "../ContextMenu/ContextMenu";
 import { MaterialIcon } from "../icons";
+import { Spinner } from "../Spinner/Spinner";
+import { ReadingPlanOptionsMenu } from "../ReadingPlansPane/ReadingPlanOptionsMenu";
 import { useI18n } from "../../i18n";
 import { UserImagesGrid } from "./UserImages";
+import { CustomizationCard } from "../CustomizationEditPane/CustomizationCard";
 import "./YourContentPane.css";
 
 export const YOUR_CONTENT_PANE_ID = "your-content-pane";
@@ -51,6 +53,8 @@ export interface YourContentScreenProps {
   onEditPlaylist: (playlist: Playlist) => void;
   /** Opens an annotation in the editor and leaves this screen. */
   onEditAnnotation: (annotation: Annotation) => void;
+  /** Opens a new, empty playlist in the editor and leaves this screen. */
+  onCreatePlaylist: () => void;
   /**
    * Opens a reading plan in the plans pane and leaves this screen. A draft
    * has nothing to read yet, so the caller is expected to open it where the
@@ -59,6 +63,10 @@ export interface YourContentScreenProps {
   onOpenReadingPlan: (plan: ReadingPlanMetadata) => void;
   /** Opens a reading plan in the plan editor and leaves this screen. */
   onEditReadingPlan: (plan: ReadingPlanMetadata) => void;
+  /** Opens a customization in its editor and leaves this screen. */
+  onEditCustomization: (customizationId: string) => void;
+  /** Creates a new customization, opens it in the editor and leaves this screen. */
+  onCreateCustomization: () => void;
 }
 
 /** Pane header title. A component so it can call `useI18n`. */
@@ -423,6 +431,10 @@ function ReadingPlanRow(props: {
   const status = readingPlanStatusLabel(state.readingPlans, plan, t);
   const title =
     plan.title ?? t("untitled-reading-plan", { defaultValue: "Untitled plan" });
+  const full =
+    state.readingPlans.fullReadingPlans.value.find(
+      (p) => p.recordName === plan.recordName && p.address === plan.address
+    ) ?? null;
 
   return (
     // Laid out as a Discover row, like the playlists beside it, so a plan
@@ -439,41 +451,16 @@ function ReadingPlanRow(props: {
           <span className="sb-content-plan-status">{status}</span>
         ) : null}
       </div>
-      <ContextMenuWithButton
+      <ReadingPlanOptionsMenu
+        readingPlans={state.readingPlans}
+        plan={plan}
+        // A draft isn't finished, so there's nothing to share yet.
+        fullPlan={plan.status === "draft" ? null : full}
+        onEdit={props.onEdit}
+        modals={state.modals}
+        toast={state.app.toast}
         buttonClassName="sb-discover-item-menu"
-        aria-label={t("reading-plan-options", { defaultValue: "Plan options" })}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <ContextMenuItem
-          onClick={(e) => {
-            e.stopPropagation();
-            props.onEdit();
-          }}
-        >
-          <MaterialIcon className="sb-context-menu-item-icon">
-            edit
-          </MaterialIcon>
-          {t("edit-reading-plan", { defaultValue: "Edit plan" })}
-        </ContextMenuItem>
-        <ContextMenuItem
-          className="sb-context-menu-item--danger"
-          onClick={(e) => {
-            e.stopPropagation();
-            openDeleteReadingPlanConfirm(
-              state.modals,
-              state.readingPlans,
-              plan,
-              title,
-              state.app.toast
-            );
-          }}
-        >
-          <MaterialIcon className="sb-context-menu-item-icon">
-            delete
-          </MaterialIcon>
-          {t("reading-plan-delete", { defaultValue: "Delete" })}
-        </ContextMenuItem>
-      </ContextMenuWithButton>
+      />
     </li>
   );
 }
@@ -532,103 +519,27 @@ function readingPlanStatusLabel(
   });
 }
 
-function ConfirmDeleteReadingPlanModalContent(props: {
-  readingPlans: ReadingPlansManager;
-  plan: ReadingPlanMetadata;
-  title: string;
-  toast: SeedBibleState["app"]["toast"];
-  onClose: () => void;
-}) {
-  const { readingPlans, plan, title, toast, onClose } = props;
-  const { t } = useI18n();
-
-  const confirm = async () => {
-    try {
-      await readingPlans.deleteReadingPlan(plan);
-    } catch (error) {
-      console.error("Error deleting reading plan:", error);
-      toast(
-        t("delete-reading-plan-failed", {
-          defaultValue: "Couldn't delete the reading plan.",
-        })
-      );
-    }
-    onClose();
-  };
-
-  return (
-    <div className="sb-confirm-delete">
-      <p className="sb-confirm-delete-message">
-        {t("delete-reading-plan-confirm-message", {
-          title,
-          defaultValue: 'Delete "{{title}}"? This can\'t be undone.',
-        })}
-      </p>
-      <div className="sb-confirm-delete-actions">
-        <button
-          type="button"
-          className="sb-session-settings-cancel"
-          onClick={onClose}
-        >
-          {t("cancel")}
-        </button>
-        <button
-          type="button"
-          className="sb-session-settings-end"
-          onClick={() => void confirm()}
-        >
-          {t("delete")}
-        </button>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Asks before deleting a plan, the way the playlist row on this screen does.
- * Deleting erases the plan and the user's progress through it for good, so a
- * tap that was meant to open the menu must not be enough on its own.
- */
-function openDeleteReadingPlanConfirm(
-  modals: ModalManager,
-  readingPlans: ReadingPlansManager,
-  plan: ReadingPlanMetadata,
-  title: string,
-  toast: SeedBibleState["app"]["toast"]
-) {
-  const modalId = `delete-reading-plan-confirm-${plan.address}`;
-  modals.openModal({
-    id: modalId,
-    title: {
-      key: "delete-reading-plan-confirm-title",
-      defaultValue: "Delete reading plan?",
-    },
-    content: () => (
-      <ConfirmDeleteReadingPlanModalContent
-        readingPlans={readingPlans}
-        plan={plan}
-        title={title}
-        toast={toast}
-        onClose={() => modals.closeModal(modalId)}
-      />
-    ),
-  });
-}
-
 /* ------------------------------------------------------------------ screen */
 
 /**
  * The "Your content" screen (issue #1553): everything the reader has made —
- * annotations, highlights, saves, playlists, reading plans and uploaded
- * images — in one place, filtered by a search box and a row of chips.
+ * annotations, highlights, saves, playlists, reading plans, branding
+ * customizations and uploaded images — in one place, filtered by a search box and a row of chips.
  *
  * "All" shows the first few of each section with a "See all" that switches
  * the chips to that one section in full.
  */
 export function YourContentPane(props: YourContentScreenProps) {
   const { state, onOpenPassage } = props;
-  const { yourContent, saves, playlists, annotations, readingPlans, gallery } =
-    state;
+  const {
+    yourContent,
+    saves,
+    playlists,
+    annotations,
+    readingPlans,
+    gallery,
+    customizations,
+  } = state;
   const { t } = useI18n();
   const userId = state.login.userId.value;
 
@@ -648,10 +559,12 @@ export function YourContentPane(props: YourContentScreenProps) {
     void yourContent.load({ force: true });
   }, []);
 
-  // Uploaded images live in the account's gallery, not in what `load` reads.
+  // Uploaded images and customizations each have their own store, not what
+  // `load` reads.
   useEffect(() => {
     if (userId) {
       void gallery.syncPhotos();
+      void customizations.load();
     }
   }, [userId]);
 
@@ -733,6 +646,9 @@ export function YourContentPane(props: YourContentScreenProps) {
         .filter((p) => matches(p.title, p.description))
         .sort((a, b) => b.createdAtMs - a.createdAtMs)
     : [];
+  const visibleCustomizations = userId
+    ? customizations.customizations.value.filter((c) => matches(c.name))
+    : [];
   // An image has no words to search, so any search hides them all.
   const visibleImages =
     userId && needle.length === 0 ? gallery.photos.value : [];
@@ -763,6 +679,8 @@ export function YourContentPane(props: YourContentScreenProps) {
         return t("playlists", { defaultValue: "Playlists" });
       case "reading-plans":
         return t("reading-plans", { defaultValue: "Reading plans" });
+      case "branding":
+        return t("branding", { defaultValue: "Branding" });
       case "images":
         return t("images", { defaultValue: "Images" });
     }
@@ -774,6 +692,7 @@ export function YourContentPane(props: YourContentScreenProps) {
     saves: visibleSaves.length,
     playlists: visiblePlaylists.length,
     "reading-plans": visibleReadingPlans.length,
+    branding: visibleCustomizations.length,
     images: visibleImages.length,
   };
 
@@ -819,6 +738,10 @@ export function YourContentPane(props: YourContentScreenProps) {
         return t("your-content-empty-reading-plans", {
           defaultValue: "Reading plans you create will show up here.",
         });
+      case "branding":
+        return t("your-content-empty-branding", {
+          defaultValue: "Custom Branding you create will show up here.",
+        });
       case "images":
         return t("your-images-empty", {
           defaultValue:
@@ -852,27 +775,54 @@ export function YourContentPane(props: YourContentScreenProps) {
           />
         </div>
 
-        <div className="sb-content-chips" role="tablist">
-          {contentFilters.map((value) => (
-            <button
-              key={value}
-              type="button"
-              role="tab"
-              aria-selected={filter === value}
-              className={`sb-content-chip${
-                filter === value ? " sb-content-chip-active" : ""
-              }`}
-              onClick={() => {
-                yourContent.filter.value = value;
-              }}
-            >
-              {chipLabel(value)}
-            </button>
-          ))}
+        <div className="sb-content-toolbar">
+          {/* Outside the chip strip so it stays put while the chips scroll. */}
+          <ContextMenuWithButton
+            buttonClassName="sb-content-create"
+            aria-label={t("create-menu", { defaultValue: "Create" })}
+            icon={<>+ {t("create-playlist", { defaultValue: "Create" })}</>}
+          >
+            <ContextMenuItem onClick={props.onCreatePlaylist}>
+              <MaterialIcon className="sb-context-menu-item-icon">
+                queue_music
+              </MaterialIcon>
+              {t("create-playlist-menu-item", { defaultValue: "Playlist" })}
+            </ContextMenuItem>
+            {userId ? (
+              <ContextMenuItem onClick={props.onCreateCustomization}>
+                <MaterialIcon className="sb-context-menu-item-icon">
+                  palette
+                </MaterialIcon>
+                {t("create-custom-branding-menu-item", {
+                  defaultValue: "Custom Branding",
+                })}
+              </ContextMenuItem>
+            ) : null}
+          </ContextMenuWithButton>
+
+          <div className="sb-content-chips" role="tablist">
+            {contentFilters.map((value) => (
+              <button
+                key={value}
+                type="button"
+                role="tab"
+                aria-selected={filter === value}
+                className={`sb-content-chip${
+                  filter === value ? " sb-content-chip-active" : ""
+                }`}
+                onClick={() => {
+                  yourContent.filter.value = value;
+                }}
+              >
+                {chipLabel(value)}
+              </button>
+            ))}
+          </div>
         </div>
 
         {status === "loading" || stillSearching ? (
-          <p className="sb-content-status">
+          <p className="sb-content-status sb-content-status--loading">
+            <Spinner />
             {t("loading-your-content", {
               defaultValue: "Gathering your content…",
             })}
@@ -1031,6 +981,27 @@ export function YourContentPane(props: YourContentScreenProps) {
                     plan={plan}
                     onOpen={() => props.onOpenReadingPlan(plan)}
                     onEdit={() => props.onEditReadingPlan(plan)}
+                  />
+                ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {showing("branding") && visibleCustomizations.length > 0 ? (
+          <section className="sb-content-section">
+            <SectionHeader
+              title={t("branding", { defaultValue: "Branding" })}
+              onSeeAll={seeAll("branding", visibleCustomizations)}
+            />
+            <ul className="sb-cz-card-list">
+              {visibleCustomizations
+                .slice(0, limit(visibleCustomizations))
+                .map((customization) => (
+                  <CustomizationCard
+                    key={customization.id}
+                    state={state}
+                    customization={customization}
+                    onOpen={() => props.onEditCustomization(customization.id)}
                   />
                 ))}
             </ul>

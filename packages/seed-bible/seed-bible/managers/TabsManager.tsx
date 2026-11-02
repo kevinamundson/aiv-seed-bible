@@ -8,7 +8,7 @@ import {
 } from "@preact/signals";
 import { debounce } from "es-toolkit";
 import type { BibleDataManager, BookId } from "./BibleDataManager";
-import { canonicalizeBlbDraftTranslationId } from "./BlbDraftAdapter";
+import { canonicalizeAivTranslationId } from "./AivAdapter";
 import {
   DEFAULT_UI_LANGUAGE,
   buildReadingPath,
@@ -153,8 +153,9 @@ function getInitialTranslationId(
     url.searchParams.get("translation") ??
     brandingDefaultTranslationId ??
     getDefaultTranslationForLanguage(language).id;
-  // Heal legacy `blb-draft://local/api/BLB-Draft/books.json` path segments.
-  return canonicalizeBlbDraftTranslationId(raw);
+  // Heal legacy `BLB-Draft` ids / `blb-draft://local/api/BLB-Draft/books.json`
+  // path segments: that draft was replaced by AIV (eng_aiv).
+  return canonicalizeAivTranslationId(raw);
 }
 
 function getInitialFirstTabChapter(url: URL, basePath: string): number {
@@ -210,7 +211,7 @@ function selfHealNonCanonicalPath(navigation: NavigationManager): void {
 
   const correctedPath = buildReadingPath({
     language,
-    translationId: canonicalizeBlbDraftTranslationId(parsed.translationId),
+    translationId: canonicalizeAivTranslationId(parsed.translationId),
     bookId: parsed.bookId,
     chapter: parsed.chapter,
   });
@@ -235,7 +236,7 @@ function getInitialHighlightedVerses(url: URL): number[] {
  * "/en/AAB/john/3") is the modern form; the legacy `?translation=&book=&chapter=`
  * query params are still honored for links made before the path scheme.
  */
-function readInitialReadingParams(
+export function readInitialReadingParams(
   url: URL,
   basePath: string
 ): QueryReadingParams {
@@ -610,10 +611,11 @@ export function createTabs(
     // the live `currentUrl`: by the time this runs the reader has echoed its own
     // position into the address bar in canonical form, which would make "the
     // visitor linked here" indistinguishable from "the app wrote this itself".
-    const query = readInitialReadingParams(
-      navigation.initialUrl,
-      navigation.basePath
-    );
+    const query: QueryReadingParams = navigation.initialUrl.searchParams.has(
+      "sessionId"
+    )
+      ? { translationId: null, bookId: null, chapter: null, specified: false }
+      : readInitialReadingParams(navigation.initialUrl, navigation.basePath);
     const { tabs: descriptors, selectedTabId: restoredSelectedTabId } =
       reconcileStoredTabs(storedState, query, defaultTranslation.id);
 
@@ -1232,7 +1234,10 @@ export function createTabs(
     tabOptions?: { slotOnly?: boolean }
   ) => {
     const currentTabs = tabs.value;
-    const nextNumber = currentTabs.length + 1;
+    let nextNumber = currentTabs.length + 1;
+    while (currentTabs.some((tab) => tab.id === `tab-${nextNumber}`)) {
+      nextNumber++;
+    }
     const sharedSession = isBibleReadingSession(source) ? source : null;
     const sharedChat = createSharedChatOrNull(chatsManager, sharedSession);
     const readingState = !isBibleReadingSession(source) ? source : null;

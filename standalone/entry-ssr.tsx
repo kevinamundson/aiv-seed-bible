@@ -1,8 +1,12 @@
 import { renderToStringAsync } from "preact-render-to-string";
+import { canonicalizeAivTranslationId } from "../packages/seed-bible/seed-bible/managers/AivAdapter";
 import { Main } from "../packages/seed-bible/seed-bible/app/main";
 import type { AppConfig } from "../packages/seed-bible/seed-bible/app/appConfig";
 import { DEFAULT_APP_CONFIG } from "../packages/seed-bible/seed-bible/app/appConfig";
-import { createSeedBibleState } from "@packages/seed-bible/seed-bible/managers/SeedBibleStateManager";
+import {
+  createSeedBibleState,
+  type SeedBibleState,
+} from "@packages/seed-bible/seed-bible/managers/SeedBibleStateManager";
 import {
   findClosestBookId,
   getBookId,
@@ -244,7 +248,8 @@ export function legacyReadingUrlRedirect(
 
     const readingPath = buildReadingPath({
       language: parsed.language.toLowerCase(),
-      translationId: parsed.translationId,
+      // The discontinued BLB-Draft id now reads as AIV (eng_aiv).
+      translationId: canonicalizeAivTranslationId(parsed.translationId),
       bookId: parsed.bookId,
       chapter: parsed.chapter,
     });
@@ -633,7 +638,20 @@ export async function render(
     initialHref: href,
     translationsCache: ssrTranslationsCache,
   });
+  try {
+    return await renderState(state, options, config, href, notFound);
+  } finally {
+    state.dispose();
+  }
+}
 
+async function renderState(
+  state: SeedBibleState,
+  options: RenderOptions,
+  config: AppConfig,
+  href: string,
+  notFound: boolean
+): Promise<{ html: string; notFound?: true }> {
   // Block until the detected language's translations are loaded so the
   // server-rendered HTML (and og:locale meta below) is in the right language
   // rather than the bundled "en" fallback. Also block on the initial tab's
