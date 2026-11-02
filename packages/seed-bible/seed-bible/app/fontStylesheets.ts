@@ -5,7 +5,7 @@
  * extensions run in, so both render with the same fonts.
  */
 export const STATIC_FONT_STYLESHEETS = [
-  "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto&family=Open+Sans&family=Playfair+Display&family=Cormorant+Garamond&display=swap",
+  "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto&family=Open+Sans&family=Playfair+Display&family=Cormorant+Garamond&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap",
   "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0",
 ] as const;
 

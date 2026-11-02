@@ -292,6 +292,7 @@ export const TEXT_FONT_OPTIONS: { value: string; label: string }[] = [
   { value: "'Helvetica Neue', sans-serif", label: "Helvetica Neue" },
   { value: "'Roboto', sans-serif", label: "Roboto" },
   { value: "'Inter', sans-serif", label: "Inter" },
+  { value: "'Vollkorn', serif", label: "Vollkorn" },
 ];
 
 export const TEXT_WEIGHT_OPTIONS: { value: string; label: string }[] = [
@@ -355,7 +356,7 @@ const DEFAULT_TEXT_CONFIG: TextConfig = {
     alignment: "unset",
   },
   verse: {
-    font: "'Plus Jakarta Sans', sans-serif",
+    font: "'Vollkorn', serif",
     weight: "500",
     color: "",
     marginVertical: 0,
