@@ -357,7 +357,7 @@ const DEFAULT_TEXT_CONFIG: TextConfig = {
   },
   verse: {
     font: "'Vollkorn', serif",
-    weight: "500",
+    weight: "400",
     color: "",
     marginVertical: 0,
     marginHorizontal: 0,
