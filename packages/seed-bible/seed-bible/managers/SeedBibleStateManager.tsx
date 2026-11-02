@@ -164,6 +164,10 @@ import {
   type SavesManager,
 } from "../managers/SavesManager";
 import {
+  createBookmarksManager,
+  type BookmarksManager,
+} from "../managers/BookmarksManager";
+import {
   createFriendsManager,
   type FriendsManager,
 } from "../managers/FriendsManager";
@@ -519,6 +523,8 @@ export interface SeedBibleState {
   highlights: HighlightsManager;
   /** Archival saves manager: categorized references to chapters and verses. */
   saves: SavesManager;
+  /** Named, colored chapter markers the user moves as they read. */
+  bookmarks: BookmarksManager;
   /**
    * The signed-in user's friends and pending friend requests. A friendship is
    * a mutual shared permission; for now it only decides whose already-public
@@ -797,6 +803,19 @@ export function createSeedBibleState(
     friendReads,
   });
   const saves = createSavesManager(os, login);
+  const bookmarks = createBookmarksManager(os, login);
+  // The saves and bookmarks panels occupy the same spot in the sidebar, so
+  // opening either one closes the other.
+  effect(() => {
+    if (bookmarks.isPanelOpen.value) {
+      saves.isFilterActive.value = false;
+    }
+  });
+  effect(() => {
+    if (saves.isFilterActive.value) {
+      bookmarks.isPanelOpen.value = false;
+    }
+  });
   const friends = createFriendsManager(os, login);
   const settings = createSettings(os, login, navigation);
   // Persist a user's explicit language selection to their profile. Wiring it
@@ -1935,7 +1954,7 @@ export function createSeedBibleState(
 
     const getTitle = () => {
       if (isAboutPage.value) {
-        return `${t("about-title", { defaultValue: "About the Seed Bible" })} | ${seedBibleTitle}`;
+        return `${t("about-title", { defaultValue: "About Seed Bible" })} | ${seedBibleTitle}`;
       }
 
       // Only on the shared page itself: while a playlist plays at its own
@@ -2092,7 +2111,7 @@ export function createSeedBibleState(
     const { t } = i18n;
 
     if (isAboutPage.value) {
-      return t("about-title", { defaultValue: "About the Seed Bible" });
+      return t("about-title", { defaultValue: "About Seed Bible" });
     }
 
     if (sharedPageTitle.value) {
@@ -3315,6 +3334,7 @@ export function createSeedBibleState(
     readingHistory,
     highlights,
     saves,
+    bookmarks,
     friends,
     annotations,
     chats,
@@ -3501,6 +3521,7 @@ export function createSeedBibleState(
       login={login}
       theme={themeManager.currentTheme}
       isMobile={isMobile}
+      bookmarks={bookmarks.bookmarks}
       onOpenPassage={(target) => openTodayPassage(state, today, target)}
       onOpenBookSelector={openTodayBookSelector}
       onTakeTour={() => tutorial.acceptPrompt()}
