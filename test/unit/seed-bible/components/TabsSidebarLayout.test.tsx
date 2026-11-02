@@ -16,9 +16,10 @@ import {
   translations,
 } from "../managers/testUtils/mockBibleApiData";
 
-// The app defaults to the private API endpoint, so book data has to be mocked
+// The AIV fork defaults to the public Free Use Bible API endpoint (see
+// getDefaultAPIEndpoint in FreeUseBibleAPI.tsx), so book data has to be mocked
 // there for a tab to resolve its book name.
-const PRIVATE_API_ENDPOINT = "https://vmfnri.helloao.org";
+const API_ENDPOINT = "https://bible.helloao.org";
 
 describe("Sidebar collapsed layout", () => {
   let container: HTMLDivElement;
@@ -85,11 +86,11 @@ describe("Sidebar collapsed layout", () => {
   it("names the full book on a collapsed tile's hover title and label", async () => {
     const state = await createState({
       responses: {
-        [makeUrl("/api/available_translations.json", PRIVATE_API_ENDPOINT)]:
+        [makeUrl("/api/available_translations.json", API_ENDPOINT)]:
           createResponse(translations),
-        [makeUrl("/api/AAB/books.json", PRIVATE_API_ENDPOINT)]:
+        [makeUrl("/api/AAB/books.json", API_ENDPOINT)]:
           createResponse(aabBooks),
-        [makeUrl("/api/AAB/GEN/1.json", PRIVATE_API_ENDPOINT)]: createResponse(
+        [makeUrl("/api/AAB/GEN/1.json", API_ENDPOINT)]: createResponse(
           makeChapter(aabBooks, "GEN", 1)
         ),
       },
