@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usx version="3.1">
+<book code="PSA" style="id">eng_aiv Amundson Interpretive Version</book>
+
+<para style="h">Psalms</para>
+
+<para style="toc1">Psalms</para>
+
+<para style="toc2">Psalms</para>
+
+<para style="toc3">Ps</para>
+
+<para style="mt1">Psalms</para>
+
+<para style="rem">id=eng_aiv name=Amundson Interpretive Version (AIV) status=draft spec=USFM-USX 3.1.1 export=2026-11-02 char:add=translator-addition-italic char:wj=words-of-Jesus-as-received-unmapped note:f=footnotes para:r=parallel-passage-references para:d=psalm-superscriptions</para>
+
+<chapter number="3" style="c" sid="PSA 3"/>
+
+<para style="s1">Deliver Me, O LORD!</para>
+
+<para style="r">(2 Samuel 15:13–29)</para>
+
+<para style="d">A Psalm of David, in his fleeing from the face of Absalom his son.</para>
+
+<para style="q1"><verse number="1" style="v" sid="PSA 3:1"/> O YHWH, how many are my adversaries! </para>
+
+<para style="q2" vid="PSA 3:1">Many <char style="add">are</char> rising up against me! <verse eid="PSA 3:1"/></para>
+
+<para style="q1"><verse number="2" style="v" sid="PSA 3:2"/>Many are saying of my soul, </para>
+
+<para style="q2" vid="PSA 3:2">“There is no salvation for him in God.” </para>
+
+<para style="qs" vid="PSA 3:2">Selah<note caller="+" style="f"><char style="fr" closed="false">3.2 </char><char style="ft" closed="false"> </char><char style="fq" closed="false">Selah</char><char style="ft" closed="false"> or </char><char style="fq" closed="false">Interlude</char><char style="ft" closed="false"> is probably a musical or literary term; here and throughout the Psalms.</char></note> <verse eid="PSA 3:2"/></para>
+
+<para style="q1"><verse number="3" style="v" sid="PSA 3:3"/>and You, O YHWH, are a shield behind me, </para>
+
+<para style="q2" vid="PSA 3:3">my glory, and One lifting high my head. <verse eid="PSA 3:3"/></para>
+
+<para style="q1"><verse number="4" style="v" sid="PSA 3:4"/>With my voice I cry to YHWH, </para>
+
+<para style="q2" vid="PSA 3:4">and He answers me from the mountain of His holiness. </para>
+
+<para style="qs" vid="PSA 3:4">Selah <verse eid="PSA 3:4"/></para>
+
+<para style="q1"><verse number="5" style="v" sid="PSA 3:5"/>I lie down and sleep; </para>
+
+<para style="q2" vid="PSA 3:5">I awake, for YHWH sustains me. <verse eid="PSA 3:5"/></para>
+
+<para style="q1"><verse number="6" style="v" sid="PSA 3:6"/>I shall not fear the multitudes of people, </para>
+
+<para style="q2" vid="PSA 3:6">who have set <char style="add">themselves</char> all around against me. <verse eid="PSA 3:6"/></para>
+
+<para style="q1"><verse number="7" style="v" sid="PSA 3:7"/>Arise, O YHWH! </para>
+
+<para style="q2" vid="PSA 3:7">Save me, O my God! </para>
+
+<para style="q1" vid="PSA 3:7">O that You would strike all my enemies <char style="add">on</char> the jaw; </para>
+
+<para style="q2" vid="PSA 3:7">may you break the teeth of the wicked! <verse eid="PSA 3:7"/></para>
+
+<para style="q1"><verse number="8" style="v" sid="PSA 3:8"/>Unto YHWH <char style="add">is</char> the salvation; </para>
+
+<para style="q2" vid="PSA 3:8">may Your blessing <char style="add">be</char> upon Your people. </para>
+
+<para style="qs" vid="PSA 3:8">Selah <verse eid="PSA 3:8"/></para>
+
+<chapter eid="PSA 3"/>
+</usx>

@@ -27,6 +27,11 @@ import {
   type WebResponseMap,
 } from "./testUtils/mockBibleApiData";
 import type { Mock } from "vitest";
+import {
+  AIV_MANIFEST_URL,
+  AIV_METADATA_URL,
+  resetAivCaches,
+} from "@packages/seed-bible/seed-bible/managers/AivAdapter";
 
 const ALT_ENDPOINT = "https://alt-two.example";
 
@@ -299,16 +304,38 @@ describe("createBibleDataManager", () => {
     );
   });
 
-  it("buildTranslationId() keeps BLB-Draft as a plain id (not blb-draft:// URL)", async () => {
-    // getTranslationBooks routes BLB through the local adapter and records
-    // endpoint blb-draft://local — which must NOT be encoded into the path.
+  it("buildTranslationId() keeps eng_aiv as a plain id and maps legacy BLB-Draft to it", async () => {
+    // getTranslationBooks routes AIV through the live aivbible adapter and
+    // records the synthetic endpoint aiv://live — which must NOT be encoded
+    // into the reading path.
+    resetAivCaches();
+    const live = (payload: unknown) =>
+      ({
+        ok: true,
+        status: 200,
+        text: () => Promise.resolve(JSON.stringify(payload)),
+      }) as unknown as WebResponseMap[string];
+    setWebResponses({
+      [AIV_MANIFEST_URL]: live({
+        id: "eng_aiv",
+        books: [{ usfm: "GEN", name: "Genesis", chapters: 50, verses: 1533 }],
+      }),
+      [AIV_METADATA_URL]: live({
+        id: "eng_aiv",
+        name: "Amundson Interpretive Version",
+        shortName: "AIV",
+      }),
+    });
     const manager = createManager();
-    await manager.getTranslationBooks("BLB-Draft");
+    const books = await manager.getTranslationBooks("BLB-Draft");
 
-    expect(manager.buildTranslationId("BLB-Draft")).toBe("BLB-Draft");
+    expect(books.translation.id).toBe("eng_aiv");
+    expect(books.books.map((b) => b.id)).toEqual(["GEN"]);
+    expect(manager.buildTranslationId("eng_aiv")).toBe("eng_aiv");
+    expect(manager.buildTranslationId("BLB-Draft")).toBe("eng_aiv");
     expect(
       manager.buildTranslationId("blb-draft://local/api/BLB-Draft/books.json")
-    ).toBe("BLB-Draft");
+    ).toBe("eng_aiv");
   });
 
   describe("translationsCache option", () => {

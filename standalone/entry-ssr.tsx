@@ -1,4 +1,5 @@
 import { renderToStringAsync } from "preact-render-to-string";
+import { canonicalizeAivTranslationId } from "../packages/seed-bible/seed-bible/managers/AivAdapter";
 import { Main } from "../packages/seed-bible/seed-bible/app/main";
 import type { AppConfig } from "../packages/seed-bible/seed-bible/app/appConfig";
 import { DEFAULT_APP_CONFIG } from "../packages/seed-bible/seed-bible/app/appConfig";
@@ -244,7 +245,8 @@ export function legacyReadingUrlRedirect(
 
     const readingPath = buildReadingPath({
       language: parsed.language.toLowerCase(),
-      translationId: parsed.translationId,
+      // The discontinued BLB-Draft id now reads as AIV (eng_aiv).
+      translationId: canonicalizeAivTranslationId(parsed.translationId),
       bookId: parsed.bookId,
       chapter: parsed.chapter,
     });

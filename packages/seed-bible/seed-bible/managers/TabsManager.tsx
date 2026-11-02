@@ -8,7 +8,7 @@ import {
 } from "@preact/signals";
 import { debounce } from "es-toolkit";
 import type { BibleDataManager, BookId } from "./BibleDataManager";
-import { canonicalizeBlbDraftTranslationId } from "./BlbDraftAdapter";
+import { canonicalizeAivTranslationId } from "./AivAdapter";
 import {
   DEFAULT_UI_LANGUAGE,
   buildReadingPath,
@@ -153,8 +153,9 @@ function getInitialTranslationId(
     url.searchParams.get("translation") ??
     brandingDefaultTranslationId ??
     getDefaultTranslationForLanguage(language).id;
-  // Heal legacy `blb-draft://local/api/BLB-Draft/books.json` path segments.
-  return canonicalizeBlbDraftTranslationId(raw);
+  // Heal legacy `BLB-Draft` ids / `blb-draft://local/api/BLB-Draft/books.json`
+  // path segments: that draft was replaced by AIV (eng_aiv).
+  return canonicalizeAivTranslationId(raw);
 }
 
 function getInitialFirstTabChapter(url: URL, basePath: string): number {
@@ -210,7 +211,7 @@ function selfHealNonCanonicalPath(navigation: NavigationManager): void {
 
   const correctedPath = buildReadingPath({
     language,
-    translationId: canonicalizeBlbDraftTranslationId(parsed.translationId),
+    translationId: canonicalizeAivTranslationId(parsed.translationId),
     bookId: parsed.bookId,
     chapter: parsed.chapter,
   });

@@ -12,11 +12,10 @@
  * Extensions that identify a request for a *file* rather than an app route.
  * Mirrors `ASSET_PATH_RE` in `server/index.ts` (which decides what the host
  * reverse-proxies to the asset host) minus `.map`, since there is no reason to
- * spend cache space on source maps. Includes `.usx` so BLB-Draft book files are
- * treated as assets (not app-shell navigations) when fetched on demand.
+ * spend cache space on source maps.
  */
 export const STATIC_FILE_RE =
-  /\.(js|mjs|cjs|css|wasm|json|webmanifest|woff2?|ttf|otf|eot|png|jpe?g|gif|svg|webp|avif|ico|txt|xml|usx)$/i;
+  /\.(js|mjs|cjs|css|wasm|json|webmanifest|woff2?|ttf|otf|eot|png|jpe?g|gif|svg|webp|avif|ico|txt|xml)$/i;
 
 export interface AppShellNavigationInput {
   /** The requested URL. */

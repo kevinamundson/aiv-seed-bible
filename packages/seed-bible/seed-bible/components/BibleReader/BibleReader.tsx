@@ -1201,10 +1201,21 @@ function renderChapterContent(
       const heading = (entry.content as unknown[])
         .filter((item) => typeof item === "string")
         .join(" ");
+      // USFM `r` (parallel-passage references) sits under its section heading
+      // as a smaller, non-heading line; everything else is a section heading.
       nodes.push(
-        <h3 key={`heading-${i}`} className="sb-chapter-heading">
-          {heading}
-        </h3>
+        (entry as { style?: string }).style === "r" ? (
+          <p
+            key={`heading-${i}`}
+            className="sb-chapter-heading sb-parallel-refs"
+          >
+            {heading}
+          </p>
+        ) : (
+          <h3 key={`heading-${i}`} className="sb-chapter-heading">
+            {heading}
+          </h3>
+        )
       );
       previousWasVerse = false;
       i += 1;

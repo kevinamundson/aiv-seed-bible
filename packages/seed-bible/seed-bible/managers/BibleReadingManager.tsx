@@ -13,10 +13,10 @@ import {
   type VerseRef,
 } from "../managers/BibleDataManager";
 import {
-  BLB_DRAFT_ID,
-  canonicalizeBlbDraftTranslationId,
-  isBlbDraftTranslationId,
-} from "../managers/BlbDraftAdapter";
+  AIV_ID,
+  canonicalizeAivTranslationId,
+  isAivTranslationId,
+} from "../managers/AivAdapter";
 import {
   batch,
   computed,
@@ -2069,16 +2069,19 @@ export function createBibleReadingState(
   };
 
   const resolveTranslationInput = async (input: string): Promise<string> => {
-    // Never treat the synthetic blb-draft:// endpoint as a HelloAO host —
-    // fetching available_translations from it fails and leaves Chapter unavailable.
-    if (isBlbDraftTranslationId(input)) {
-      return BLB_DRAFT_ID;
+    // Never treat the synthetic AIV (or legacy blb-draft://) endpoint as a
+    // HelloAO host — fetching available_translations from it fails and leaves
+    // Chapter unavailable. Legacy BLB-Draft ids resolve to eng_aiv.
+    if (isAivTranslationId(input)) {
+      return AIV_ID;
     }
     const parsedInput = parseTranslationInput(input);
-    if (parsedInput.endpoint && parsedInput.endpoint.startsWith("blb-draft:")) {
-      return canonicalizeBlbDraftTranslationId(
-        parsedInput.translationId ?? input
-      );
+    if (
+      parsedInput.endpoint &&
+      (parsedInput.endpoint.startsWith("blb-draft:") ||
+        parsedInput.endpoint.startsWith("aiv:"))
+    ) {
+      return canonicalizeAivTranslationId(parsedInput.translationId ?? input);
     }
     if (!parsedInput.endpoint) {
       return parsedInput.translationId ?? input;

@@ -654,6 +654,16 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+/* USFM `r`: parallel-passage references under a section heading. */
+.sb-chapter-heading.sb-parallel-refs {
+  font-size: 0.85em;
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.3;
+  margin-top: 0;
+  opacity: 0.8;
+}
+
 .sb-line-break {
   height: 0.625em;
 }

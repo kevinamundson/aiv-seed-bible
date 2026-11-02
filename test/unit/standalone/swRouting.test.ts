@@ -66,7 +66,6 @@ describe("isAppShellNavigation()", () => {
     expect(navigation(`${ORIGIN}/manifest.webmanifest`)).toBe(false);
     expect(navigation(`${ORIGIN}/robots.txt`)).toBe(false);
     expect(navigation(`${ORIGIN}/assets/index-AAA.js`)).toBe(false);
-    expect(navigation(`${ORIGIN}/assets/GEN-hash.usx`)).toBe(false);
   });
 
   it("is not fooled by an extension appearing in the query string", () => {
@@ -81,8 +80,17 @@ describe("isCacheableStaticAsset()", () => {
     expect(cacheable(`${ASSET_BASE_HREF}assets/index-AAA.js`)).toBe(true);
     expect(cacheable(`${ASSET_BASE_HREF}assets/index-DDD.css`)).toBe(true);
     expect(cacheable(`${ASSET_BASE_HREF}assets/DMSans-JJJ.woff2`)).toBe(true);
-    // BLB-Draft USX is fetched on demand from hashed same-origin assets.
-    expect(cacheable(`${ASSET_BASE_HREF}assets/GEN-hash.usx`)).toBe(true);
+  });
+
+  it("never caches the live AIV text from aivbible", () => {
+    // AIV is fetched cross-origin and revalidated on every load, so edits on
+    // aivbible.kevinamundson.me show up without a Seed Bible redeploy.
+    expect(cacheable("https://aivbible.kevinamundson.me/usx/GEN.usx")).toBe(
+      false
+    );
+    expect(cacheable("https://aivbible.kevinamundson.me/manifest.json")).toBe(
+      false
+    );
   });
 
   it("refuses another build's assets on the same asset host", () => {
