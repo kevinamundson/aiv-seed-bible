@@ -357,7 +357,12 @@ function collectPlain(node: XmlEl | string): string {
 /** Book-level / non-rendered paragraph styles (they precede chapter 1). */
 const IGNORED_PARA_STYLES =
   /^(?:h|toc\d*|toca\d*|mt\d*|mte\d*|imt\d*|rem|ide|sts|restore|cl|cd)$/;
-/** Section headings (incl. acrostic letters, `qa`). Parallel refs `r` are separate. */
+/**
+ * Section headings (incl. acrostic letters, `qa`). A `qa` paragraph is a
+ * heading when it sits before the next verse's first milestone (Psalm 119
+ * ALEPH) and when it only carries the previous verse's end milestone
+ * (BETH–TAW). Parallel refs `r` are separate.
+ */
 const HEADING_PARA_STYLES = /^(?:s\d*|ms\d*|mr|sr|qa|sp)$/;
 
 /** Heading text without any note bodies, whitespace-collapsed. */

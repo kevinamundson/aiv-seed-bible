@@ -24,12 +24,41 @@ import type {
   Translation,
 } from "../../../../packages/seed-bible/seed-bible/managers/FreeUseBibleAPI";
 
-// Excerpts of https://aivbible.kevinamundson.me/usx/{GEN,PSA}.usx (2026-11-02
-// export): GEN 1–3 and PSA 3 with their book-level header paras.
+// Excerpts of https://aivbible.kevinamundson.me/usx/{GEN,PSA}.usx (pass 6,
+// export 2026-11-02): GEN 1–3, PSA 3, and PSA 119 with their book-level header
+// paras. Psalm 119 ALEPH is a bare `qa` paragraph before the verse 1
+// milestone; BETH–TAW are `qa` paragraphs that only close the previous verse.
 const fixture = (name: string) =>
   readFileSync(resolve(__dirname, "fixtures/aiv", name), "utf8");
 const GEN_USX = fixture("GEN.usx");
 const PSA_USX = fixture("PSA.usx");
+const PSA119_USX = fixture("PSA119.usx");
+
+/** English names of Psalm 119's 22 acrostic headings, in stanza order. */
+const PSALM_119_LETTERS = [
+  "ALEPH",
+  "BETH",
+  "GIMEL",
+  "DALETH",
+  "HE",
+  "WAW",
+  "ZAYIN",
+  "HETH",
+  "TETH",
+  "YODH",
+  "KAPH",
+  "LAMEDH",
+  "MEM",
+  "NUN",
+  "SAMEKH",
+  "AYIN",
+  "PE",
+  "TZADE",
+  "KOPH",
+  "RESH",
+  "SIN and SHIN",
+  "TAW",
+] as const;
 
 const MANIFEST: AivManifest = {
   id: AIV_ID,
@@ -152,6 +181,44 @@ describe("convertAivChapterFromUsx()", () => {
     expect(
       vs[1]!.content.some((p) => typeof p !== "string" && "noteId" in p)
     ).toBe(true);
+  });
+
+  it("renders Psalm 119's 22 acrostic letters as headings, ALEPH included", () => {
+    const content = convertAivChapterFromUsx(PSA119_USX, "PSA", 119, MANIFEST)
+      .chapter.content;
+    const sectionHeadings = content.filter(
+      (c): c is Extract<ChapterContent, { type: "heading" }> =>
+        c.type === "heading" && !c.style
+    );
+    // Same shape as BETH–TAW: a section heading, not a parallel-ref line
+    // and not verse text. The Hebrew letter is part of the published line.
+    const letters = sectionHeadings
+      .map((h) => h.content.join(" "))
+      .filter((text) => PSALM_119_LETTERS.some((name) => text.endsWith(name)));
+    expect(
+      letters.map((text) => text.replace(/^\p{Script=Hebrew}/u, ""))
+    ).toEqual([...PSALM_119_LETTERS]);
+    expect(letters.every((text) => /^\p{Script=Hebrew}/u.test(text))).toBe(
+      true
+    );
+
+    const verse1 = content.findIndex(
+      (c) => c.type === "verse" && c.number === 1
+    );
+    expect(content[verse1 - 1]).toEqual({
+      type: "heading",
+      content: [letters[0]],
+    });
+
+    const vs = verses(content);
+    expect(vs.map((v) => v.number)).toEqual(
+      Array.from({ length: 176 }, (_, i) => i + 1)
+    );
+    const verseText = vs.map((v) => plain(v)).join("\n");
+    expect(verseText).not.toContain("ALEPH");
+    for (const name of PSALM_119_LETTERS) {
+      expect(verseText).not.toContain(name);
+    }
   });
 
   it("handles pass-4 markers: chapter-end d postscript, d holding a verse, cls colophon", () => {

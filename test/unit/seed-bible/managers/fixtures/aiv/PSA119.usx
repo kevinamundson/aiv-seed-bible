@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usx version="3.1">
+<book code="PSA" style="id">eng_aiv Amundson Interpretive Version</book>
+
+<para style="h">Psalms</para>
+
+<para style="toc1">Psalms</para>
+
+<para style="toc2">Psalms</para>
+
+<para style="toc3">Ps</para>
+
+<para style="mt1">Psalms</para>
+
+<para style="rem">id=eng_aiv name=Amundson Interpretive Version (AIV) status=draft spec=USFM-USX 3.1.1 export=2026-11-02 char:add=translator-addition-italic char:wj=words-of-Jesus-as-received-unmapped note:f=footnotes para:r=parallel-passage-references para:d=psalm-superscriptions</para>
+
+<chapter number="119" style="c" sid="PSA 119"/>
+
+<para style="s1">Your Word Is a Lamp to My Feet</para>
+
+<para style="qa">אALEPH</para>
+
+<para style="q1"><verse number="1" style="v" sid="PSA 119:1"/>Blessed <char style="add">are</char><note caller="+" style="f"><char style="fr" closed="false">119.1 </char><char style="ft" closed="false"> This psalm is an acrostic poem of twenty-two stanzas, following the letters of the Hebrew alphabet; within a stanza, each verse begins with the same Hebrew letter.</char></note> those complete in the way, </para>
+
+<para style="q2" vid="PSA 119:1">those walking in the law of YHWH. <verse eid="PSA 119:1"/></para>
+
+<para style="q1"><verse number="2" style="v" sid="PSA 119:2"/>Blessed <char style="add">are</char> those keeping His testimonies; </para>
+
+<para style="q2" vid="PSA 119:2">with all the heart they seek Him. <verse eid="PSA 119:2"/></para>
+
+<para style="q1"><verse number="3" style="v" sid="PSA 119:3"/>Also they do not do injustice; </para>
+
+<para style="q2" vid="PSA 119:3">in His ways they walk. <verse eid="PSA 119:3"/></para>
+
+<para style="q1"><verse number="4" style="v" sid="PSA 119:4"/>You have commanded Your precepts, </para>
+
+<para style="q2" vid="PSA 119:4">to be kept diligently. <verse eid="PSA 119:4"/></para>
+
+<para style="q1"><verse number="5" style="v" sid="PSA 119:5"/>Oh, that my ways were set firm </para>
+
+<para style="q2" vid="PSA 119:5">to keep Your statutes! <verse eid="PSA 119:5"/></para>
+
+<para style="q1"><verse number="6" style="v" sid="PSA 119:6"/>Then I would not be ashamed, </para>
+
+<para style="q2" vid="PSA 119:6">in my looking to all Your commandments. <verse eid="PSA 119:6"/></para>
+
+<para style="q1"><verse number="7" style="v" sid="PSA 119:7"/>I will praise You with uprightness of heart, </para>
+
+<para style="q2" vid="PSA 119:7">in my learning the judgments of Your righteousness. <verse eid="PSA 119:7"/></para>
+
+<para style="q1"><verse number="8" style="v" sid="PSA 119:8"/>Your statutes I will keep; </para>
+
+<para style="q2" vid="PSA 119:8">may You not even to exceedingly forsake me! </para>
+
+<para style="qa" vid="PSA 119:8">בBETH<verse eid="PSA 119:8"/></para>
+
+<para style="q1"><verse number="9" style="v" sid="PSA 119:9"/>How can a young man keep pure his way? </para>
+
+<para style="q2" vid="PSA 119:9">By guarding <char style="add">it</char> according to Your word. <verse eid="PSA 119:9"/></para>
+
+<para style="q1"><verse number="10" style="v" sid="PSA 119:10"/>With all my heart I have sought You; </para>
+
+<para style="q2" vid="PSA 119:10">do not let me stray from Your commandments. <verse eid="PSA 119:10"/></para>
+
+<para style="q1"><verse number="11" style="v" sid="PSA 119:11"/>In my heart I have hidden Your word, </para>
+
+<para style="q2" vid="PSA 119:11">that I should not sin against You. <verse eid="PSA 119:11"/></para>
+
+<para style="q1"><verse number="12" style="v" sid="PSA 119:12"/>Blessed <char style="add">are</char> You, O YHWH; </para>
+
+<para style="q2" vid="PSA 119:12">teach me Your statutes. <verse eid="PSA 119:12"/></para>
+
+<para style="q1"><verse number="13" style="v" sid="PSA 119:13"/>With my lips I have recounted </para>
+
+<para style="q2" vid="PSA 119:13">all the judgments of Your mouth. <verse eid="PSA 119:13"/></para>
+
+<para style="q1"><verse number="14" style="v" sid="PSA 119:14"/>In the way of Your testimonies I rejoice, </para>
+
+<para style="q2" vid="PSA 119:14">more than in all wealth. <verse eid="PSA 119:14"/></para>
+
+<para style="q1"><verse number="15" style="v" sid="PSA 119:15"/>May I meditate on Your precepts </para>
+
+<para style="q2" vid="PSA 119:15">and look upon Your paths. <verse eid="PSA 119:15"/></para>
+
+<para style="q1"><verse number="16" style="v" sid="PSA 119:16"/>In Your statutes I will delight myself; </para>
+
+<para style="q2" vid="PSA 119:16">I will not forget Your word. </para>
+
+<para style="qa" vid="PSA 119:16">גGIMEL<verse eid="PSA 119:16"/></para>
+
+<para style="q1"><verse number="17" style="v" sid="PSA 119:17"/>Deal bountifully with Your servant, </para>
+
+<para style="q2" vid="PSA 119:17"><char style="add">that</char> I may live and keep Your word. <verse eid="PSA 119:17"/></para>
+
+<para style="q1"><verse number="18" style="v" sid="PSA 119:18"/>Open my eyes, </para>
+
+<para style="q2" vid="PSA 119:18">that I may see the wonders from Your law. <verse eid="PSA 119:18"/></para>
+
+<para style="q1"><verse number="19" style="v" sid="PSA 119:19"/>I <char style="add">am</char> a sojourner on the earth; </para>
+
+<para style="q2" vid="PSA 119:19">do not hide from me Your commandments! <verse eid="PSA 119:19"/></para>
+
+<para style="q1"><verse number="20" style="v" sid="PSA 119:20"/>My soul is crushed with longing </para>
+
+<para style="q2" vid="PSA 119:20">for Your judgments at all times. <verse eid="PSA 119:20"/></para>
+
+<para style="q1"><verse number="21" style="v" sid="PSA 119:21"/>You rebuke the arrogant ones, </para>
+
+<para style="q2" vid="PSA 119:21">the accursed ones, those going astray from Your commandments. <verse eid="PSA 119:21"/></para>
+
+<para style="q1"><verse number="22" style="v" sid="PSA 119:22"/>Remove from me scorn and contempt, </para>
+
+<para style="q2" vid="PSA 119:22">for I have kept Your testimonies. <verse eid="PSA 119:22"/></para>
+
+<para style="q1"><verse number="23" style="v" sid="PSA 119:23"/>Though princes sit against me and slander, </para>
+
+<para style="q2" vid="PSA 119:23">Your servant meditates on Your statutes. <verse eid="PSA 119:23"/></para>
+
+<para style="q1"><verse number="24" style="v" sid="PSA 119:24"/>Your testimonies also <char style="add">are</char> my delight—</para>
+
+<para style="q2" vid="PSA 119:24">the men of my counsel. </para>
+
+<para style="qa" vid="PSA 119:24">דDALETH<verse eid="PSA 119:24"/></para>
+
+<para style="q1"><verse number="25" style="v" sid="PSA 119:25"/>My soul clings to the dust; </para>
+
+<para style="q2" vid="PSA 119:25">revive me according to Your word! <verse eid="PSA 119:25"/></para>
+
+<para style="q1"><verse number="26" style="v" sid="PSA 119:26"/>My ways I recounted, and You answered me; </para>
+
+<para style="q2" vid="PSA 119:26">teach me Your statutes. <verse eid="PSA 119:26"/></para>
+
+<para style="q1"><verse number="27" style="v" sid="PSA 119:27"/>Make me understand the way of Your precepts, </para>
+
+<para style="q2" vid="PSA 119:27">that I may meditate on Your wonders. <verse eid="PSA 119:27"/></para>
+
+<para style="q1"><verse number="28" style="v" sid="PSA 119:28"/>My soul drips from sorrow; </para>
+
+<para style="q2" vid="PSA 119:28">establish me according to Your word! <verse eid="PSA 119:28"/></para>
+
+<para style="q1"><verse number="29" style="v" sid="PSA 119:29"/>Turn away from me the path of deceit, </para>
+
+<para style="q2" vid="PSA 119:29">and <char style="add">with</char> Your law show favor to me. <verse eid="PSA 119:29"/></para>
+
+<para style="q1"><verse number="30" style="v" sid="PSA 119:30"/>The way of truth I have chosen; </para>
+
+<para style="q2" vid="PSA 119:30">Your ordinances I have set. <verse eid="PSA 119:30"/></para>
+
+<para style="q1"><verse number="31" style="v" sid="PSA 119:31"/>I cling to Your testimonies, O YHWH; </para>
+
+<para style="q2" vid="PSA 119:31">let me not be put to shame! <verse eid="PSA 119:31"/></para>
+
+<para style="q1"><verse number="32" style="v" sid="PSA 119:32"/>The way of Your commandments I will run, </para>
+
+<para style="q2" vid="PSA 119:32">for You will enlarge my heart. </para>
+
+<para style="qa" vid="PSA 119:32">הHE<verse eid="PSA 119:32"/></para>
+
+<para style="q1"><verse number="33" style="v" sid="PSA 119:33"/>Teach me, O YHWH, the way of Your statutes, </para>
+
+<para style="q2" vid="PSA 119:33">and I will keep it <char style="add">to</char> the end.<note caller="+" style="f"><char style="fr" closed="false">119.33 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">keep it as my reward</char></note> <verse eid="PSA 119:33"/></para>
+
+<para style="q1"><verse number="34" style="v" sid="PSA 119:34"/>Give me understanding, and I will guard Your law, </para>
+
+<para style="q2" vid="PSA 119:34">and I will keep it with all <char style="add">my</char> heart. <verse eid="PSA 119:34"/></para>
+
+<para style="q1"><verse number="35" style="v" sid="PSA 119:35"/>Cause me to tread in the path of Your commandments, </para>
+
+<para style="q2" vid="PSA 119:35">for in it I delight. <verse eid="PSA 119:35"/></para>
+
+<para style="q1"><verse number="36" style="v" sid="PSA 119:36"/>Incline my heart toward Your testimonies, </para>
+
+<para style="q2" vid="PSA 119:36">and not toward dishonest gain. <verse eid="PSA 119:36"/></para>
+
+<para style="q1"><verse number="37" style="v" sid="PSA 119:37"/>Make my eyes pass from seeing the vain <char style="add">thing</char>; </para>
+
+<para style="q2" vid="PSA 119:37">with Your word<note caller="+" style="f"><char style="fr" closed="false">119.37 </char><char style="ft" closed="false"> Two MT manuscripts and DSS; most MT manuscripts </char><char style="fq" closed="false">in Your way</char></note> revive me. <verse eid="PSA 119:37"/></para>
+
+<para style="q1"><verse number="38" style="v" sid="PSA 119:38"/>Make Your word stand for Your servant, </para>
+
+<para style="q2" vid="PSA 119:38">which <char style="add">is</char> for the fearing of You. <verse eid="PSA 119:38"/></para>
+
+<para style="q1"><verse number="39" style="v" sid="PSA 119:39"/>Remove the reproach that I dread, </para>
+
+<para style="q2" vid="PSA 119:39">for Your judgments <char style="add">are</char> good. <verse eid="PSA 119:39"/></para>
+
+<para style="q1"><verse number="40" style="v" sid="PSA 119:40"/>Behold, I long for Your precepts; </para>
+
+<para style="q2" vid="PSA 119:40">Revive me in Your righteousness! </para>
+
+<para style="qa" vid="PSA 119:40">וWAW<verse eid="PSA 119:40"/></para>
+
+<para style="q1"><verse number="41" style="v" sid="PSA 119:41"/>And may Your loving devotion come to me, O YHWH, </para>
+
+<para style="q2" vid="PSA 119:41">Your salvation according to Your word. <verse eid="PSA 119:41"/></para>
+
+<para style="q1"><verse number="42" style="v" sid="PSA 119:42"/>Then I will answer with a word for the one reproaching me, </para>
+
+<para style="q2" vid="PSA 119:42">for I trust in Your word. <verse eid="PSA 119:42"/></para>
+
+<para style="q1"><verse number="43" style="v" sid="PSA 119:43"/>And do not take away from my mouth the word of truth even to exceedingly! </para>
+
+<para style="q2" vid="PSA 119:43">For in Your judgments I have hoped. <verse eid="PSA 119:43"/></para>
+
+<para style="q1"><verse number="44" style="v" sid="PSA 119:44"/>And I will keep Your law continually, </para>
+
+<para style="q2" vid="PSA 119:44">forever and ever, <verse eid="PSA 119:44"/></para>
+
+<para style="q1"><verse number="45" style="v" sid="PSA 119:45"/>and I will walk in a broad place, </para>
+
+<para style="q2" vid="PSA 119:45">for Your precepts I have sought. <verse eid="PSA 119:45"/></para>
+
+<para style="q1"><verse number="46" style="v" sid="PSA 119:46"/>And I will speak of Your testimonies before kings, </para>
+
+<para style="q2" vid="PSA 119:46">and I will not be ashamed. <verse eid="PSA 119:46"/></para>
+
+<para style="q1"><verse number="47" style="v" sid="PSA 119:47"/>And I will delight myself in Your commandments, </para>
+
+<para style="q2" vid="PSA 119:47">which I have loved. <verse eid="PSA 119:47"/></para>
+
+<para style="q1"><verse number="48" style="v" sid="PSA 119:48"/>And I will lift up my hands to Your commandments, which I have loved, </para>
+
+<para style="q2" vid="PSA 119:48">and I will meditate on Your statutes. </para>
+
+<para style="qa" vid="PSA 119:48">זZAYIN<verse eid="PSA 119:48"/></para>
+
+<para style="q1"><verse number="49" style="v" sid="PSA 119:49"/>Remember the word to Your servant, </para>
+
+<para style="q2" vid="PSA 119:49">upon that You have caused me to hope. <verse eid="PSA 119:49"/></para>
+
+<para style="q1"><verse number="50" style="v" sid="PSA 119:50"/>This <char style="add">is</char> my comfort in my affliction, </para>
+
+<para style="q2" vid="PSA 119:50">for Your word has given me life. <verse eid="PSA 119:50"/></para>
+
+<para style="q1"><verse number="51" style="v" sid="PSA 119:51"/>The arrogant ones mock me even to exceedingly; </para>
+
+<para style="q2" vid="PSA 119:51">from Your law I do not stretch away. <verse eid="PSA 119:51"/></para>
+
+<para style="q1"><verse number="52" style="v" sid="PSA 119:52"/>I remember Your judgments from old, O YHWH, </para>
+
+<para style="q2" vid="PSA 119:52">and I am comforted. <verse eid="PSA 119:52"/></para>
+
+<para style="q1"><verse number="53" style="v" sid="PSA 119:53"/>Indignation has seized me, </para>
+
+<para style="q2" vid="PSA 119:53">from the wicked forsaking Your law. <verse eid="PSA 119:53"/></para>
+
+<para style="q1"><verse number="54" style="v" sid="PSA 119:54"/>Your statutes have been songs to me, </para>
+
+<para style="q2" vid="PSA 119:54">in the house of my sojourning. <verse eid="PSA 119:54"/></para>
+
+<para style="q1"><verse number="55" style="v" sid="PSA 119:55"/>I remember Your name in the night, O YHWH, </para>
+
+<para style="q2" vid="PSA 119:55">and I keep Your law. <verse eid="PSA 119:55"/></para>
+
+<para style="q1"><verse number="56" style="v" sid="PSA 119:56"/>This has come to be for me, </para>
+
+<para style="q2" vid="PSA 119:56">for I have kept Your precepts. </para>
+
+<para style="qa" vid="PSA 119:56">חHETH<verse eid="PSA 119:56"/></para>
+
+<para style="q1"><verse number="57" style="v" sid="PSA 119:57"/>YHWH <char style="add">is</char> my portion; </para>
+
+<para style="q2" vid="PSA 119:57">I have said I would keep Your words. <verse eid="PSA 119:57"/></para>
+
+<para style="q1"><verse number="58" style="v" sid="PSA 119:58"/>I appeased Your face with all <char style="add">my</char> heart; </para>
+
+<para style="q2" vid="PSA 119:58">be gracious to me according to Your word. <verse eid="PSA 119:58"/></para>
+
+<para style="q1"><verse number="59" style="v" sid="PSA 119:59"/>I have considered my paths, </para>
+
+<para style="q2" vid="PSA 119:59">and turned back my feet to Your testimonies. <verse eid="PSA 119:59"/></para>
+
+<para style="q1"><verse number="60" style="v" sid="PSA 119:60"/>I hurried and did not delay </para>
+
+<para style="q2" vid="PSA 119:60">to keep Your commandments. <verse eid="PSA 119:60"/></para>
+
+<para style="q1"><verse number="61" style="v" sid="PSA 119:61"/>The cords of the wicked have surrounded me, </para>
+
+<para style="q2" vid="PSA 119:61">Your law I have not forgotten. <verse eid="PSA 119:61"/></para>
+
+<para style="q1"><verse number="62" style="v" sid="PSA 119:62"/><char style="add">In</char> the middle of the night, I rise to give thanks to You, </para>
+
+<para style="q2" vid="PSA 119:62">upon the judgments of Your righteousness. <verse eid="PSA 119:62"/></para>
+
+<para style="q1"><verse number="63" style="v" sid="PSA 119:63"/>I <char style="add">am</char> a companion to all who fear You, </para>
+
+<para style="q2" vid="PSA 119:63">and to those keeping Your precepts. <verse eid="PSA 119:63"/></para>
+
+<para style="q1"><verse number="64" style="v" sid="PSA 119:64"/>O YHWH, with Your loving devotion the earth is full; </para>
+
+<para style="q2" vid="PSA 119:64">teach me Your statutes. </para>
+
+<para style="qa" vid="PSA 119:64">טTETH<verse eid="PSA 119:64"/></para>
+
+<para style="q1"><verse number="65" style="v" sid="PSA 119:65"/>You have done well with Your servant, O YHWH, </para>
+
+<para style="q2" vid="PSA 119:65">according to Your word. <verse eid="PSA 119:65"/></para>
+
+<para style="q1"><verse number="66" style="v" sid="PSA 119:66"/>So may You teach me good judgment and knowledge, </para>
+
+<para style="q2" vid="PSA 119:66">for in Your commandments I have believed. <verse eid="PSA 119:66"/></para>
+
+<para style="q1"><verse number="67" style="v" sid="PSA 119:67"/>Before I was afflicted, I was going astray; </para>
+
+<para style="q2" vid="PSA 119:67">and now I have kept Your word. <verse eid="PSA 119:67"/></para>
+
+<para style="q1"><verse number="68" style="v" sid="PSA 119:68"/>You <char style="add">are</char> good, and the One doing good; </para>
+
+<para style="q2" vid="PSA 119:68">may You teach me Your statutes. <verse eid="PSA 119:68"/></para>
+
+<para style="q1"><verse number="69" style="v" sid="PSA 119:69"/>The arrogant ones have smeared a lie over me; </para>
+
+<para style="q2" vid="PSA 119:69">I, with all <char style="add">my</char> heart, will guard Your precepts. <verse eid="PSA 119:69"/></para>
+
+<para style="q1"><verse number="70" style="v" sid="PSA 119:70"/>Their heart is unfeeling like fat;<note caller="+" style="f"><char style="fr" closed="false">119.70 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">fat</char></note> </para>
+
+<para style="q2" vid="PSA 119:70">I have delighted in Your law. <verse eid="PSA 119:70"/></para>
+
+<para style="q1"><verse number="71" style="v" sid="PSA 119:71"/><char style="add">It is</char> good for me that I was afflicted, </para>
+
+<para style="q2" vid="PSA 119:71">so that I might learn Your statutes. <verse eid="PSA 119:71"/></para>
+
+<para style="q1"><verse number="72" style="v" sid="PSA 119:72"/>The law from Your mouth <char style="add">is</char> better to me </para>
+
+<para style="q2" vid="PSA 119:72">than thousands of gold and silver. </para>
+
+<para style="qa" vid="PSA 119:72">יYODH<verse eid="PSA 119:72"/></para>
+
+<para style="q1"><verse number="73" style="v" sid="PSA 119:73"/>Your hands have made me and established me; </para>
+
+<para style="q2" vid="PSA 119:73">give me understanding to learn Your commandments. <verse eid="PSA 119:73"/></para>
+
+<para style="q1"><verse number="74" style="v" sid="PSA 119:74"/>Those fearing You see me and rejoice, </para>
+
+<para style="q2" vid="PSA 119:74">because in Your word I have hoped. <verse eid="PSA 119:74"/></para>
+
+<para style="q1"><verse number="75" style="v" sid="PSA 119:75"/>I know, O YHWH, that Your judgments <char style="add">are</char> righteous, </para>
+
+<para style="q2" vid="PSA 119:75">and in faithfulness You have afflicted me. <verse eid="PSA 119:75"/></para>
+
+<para style="q1"><verse number="76" style="v" sid="PSA 119:76"/>Your loving devotion, may it be, please, to comfort me, </para>
+
+<para style="q2" vid="PSA 119:76">according to Your word to Your servant. <verse eid="PSA 119:76"/></para>
+
+<para style="q1"><verse number="77" style="v" sid="PSA 119:77"/>May Your compassions come to me, that I may live, </para>
+
+<para style="q2" vid="PSA 119:77">for Your law <char style="add">is</char> my delight. <verse eid="PSA 119:77"/></para>
+
+<para style="q1"><verse number="78" style="v" sid="PSA 119:78"/>May the arrogant ones be put to shame, for with a lie they dealt perversely with me; </para>
+
+<para style="q2" vid="PSA 119:78">I will meditate on Your precepts. <verse eid="PSA 119:78"/></para>
+
+<para style="q1"><verse number="79" style="v" sid="PSA 119:79"/>Let those who fear You turn to me, </para>
+
+<para style="q2" vid="PSA 119:79">and those who know Your testimonies. <verse eid="PSA 119:79"/></para>
+
+<para style="q1"><verse number="80" style="v" sid="PSA 119:80"/>May my heart be perfect in Your statutes, </para>
+
+<para style="q2" vid="PSA 119:80">so that I may not be ashamed. </para>
+
+<para style="qa" vid="PSA 119:80">כKAPH<verse eid="PSA 119:80"/></para>
+
+<para style="q1"><verse number="81" style="v" sid="PSA 119:81"/>My soul faints for Your salvation; </para>
+
+<para style="q2" vid="PSA 119:81">for Your word I wait. <verse eid="PSA 119:81"/></para>
+
+<para style="q1"><verse number="82" style="v" sid="PSA 119:82"/>My eyes fail for your word, </para>
+
+<para style="q2" vid="PSA 119:82">saying, “When will You comfort me?” <verse eid="PSA 119:82"/></para>
+
+<para style="q1"><verse number="83" style="v" sid="PSA 119:83"/>For, I have become like a wineskin in smoke; </para>
+
+<para style="q2" vid="PSA 119:83">Your statutes I have not forgotten. <verse eid="PSA 119:83"/></para>
+
+<para style="q1"><verse number="84" style="v" sid="PSA 119:84"/>How many <char style="add">are</char> the days of Your servant?<note caller="+" style="f"><char style="fr" closed="false">119.84 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">How many days must Your servant wait?</char></note> </para>
+
+<para style="q2" vid="PSA 119:84">When will You execute judgment on my pursuers? <verse eid="PSA 119:84"/></para>
+
+<para style="q1"><verse number="85" style="v" sid="PSA 119:85"/>The arrogant ones have dug pits for me </para>
+
+<para style="q2" vid="PSA 119:85">that <char style="add">are</char> not according to Your law. <verse eid="PSA 119:85"/></para>
+
+<para style="q1"><verse number="86" style="v" sid="PSA 119:86"/>All Your commandments <char style="add">are</char> firm, </para>
+
+<para style="q2" vid="PSA 119:86">falsely they pursue me—Help me! <verse eid="PSA 119:86"/></para>
+
+<para style="q1"><verse number="87" style="v" sid="PSA 119:87"/>Almost they consumed me on the earth; </para>
+
+<para style="q2" vid="PSA 119:87">and I have not forsaken Your precepts. <verse eid="PSA 119:87"/></para>
+
+<para style="q1"><verse number="88" style="v" sid="PSA 119:88"/>According to Your loving devotion, revive me, </para>
+
+<para style="q2" vid="PSA 119:88">that I may keep the testimony of Your mouth. </para>
+
+<para style="qa" vid="PSA 119:88">לLAMEDH<verse eid="PSA 119:88"/></para>
+
+<para style="q1"><verse number="89" style="v" sid="PSA 119:89"/>Forever, O YHWH, <char style="add">is</char> Your word, </para>
+
+<para style="q2" vid="PSA 119:89">standing fixed in the heavens. <verse eid="PSA 119:89"/></para>
+
+<para style="q1"><verse number="90" style="v" sid="PSA 119:90"/>For generation and generation <char style="add">is</char> Your faithfulness; </para>
+
+<para style="q2" vid="PSA 119:90">You established the earth, and it stands. <verse eid="PSA 119:90"/></para>
+
+<para style="q1"><verse number="91" style="v" sid="PSA 119:91"/>According to Your ordinances, they stand this day,<note caller="+" style="f"><char style="fr" closed="false">119.91 </char><char style="ft" closed="false"> Or </char><char style="fq" closed="false">They stand to this day</char></note> </para>
+
+<para style="q2" vid="PSA 119:91">for all things <char style="add">are</char> Your servants. <verse eid="PSA 119:91"/></para>
+
+<para style="q1"><verse number="92" style="v" sid="PSA 119:92"/>Had Your law not been my delight, </para>
+
+<para style="q2" vid="PSA 119:92">then I would have perished in my affliction. <verse eid="PSA 119:92"/></para>
+
+<para style="q1"><verse number="93" style="v" sid="PSA 119:93"/>Forever, I will not forget Your precepts, </para>
+
+<para style="q2" vid="PSA 119:93">for by them You have revived me. <verse eid="PSA 119:93"/></para>
+
+<para style="q1"><verse number="94" style="v" sid="PSA 119:94"/>Unto You I am—save me! </para>
+
+<para style="q2" vid="PSA 119:94">For I have sought Your precepts. <verse eid="PSA 119:94"/></para>
+
+<para style="q1"><verse number="95" style="v" sid="PSA 119:95"/>The wicked wait for me to destroy me; </para>
+
+<para style="q2" vid="PSA 119:95">Your testimonies I will consider. <verse eid="PSA 119:95"/></para>
+
+<para style="q1"><verse number="96" style="v" sid="PSA 119:96"/>To all perfection I have seen an end; </para>
+
+<para style="q2" vid="PSA 119:96">broad <char style="add">is</char> Your commandment exceedingly. </para>
+
+<para style="qa" vid="PSA 119:96">מMEM<verse eid="PSA 119:96"/></para>
+
+<para style="q1"><verse number="97" style="v" sid="PSA 119:97"/>Oh, how I love Your law! </para>
+
+<para style="q2" vid="PSA 119:97">All the day, it <char style="add">is</char> my meditation. <verse eid="PSA 119:97"/></para>
+
+<para style="q1"><verse number="98" style="v" sid="PSA 119:98"/><char style="add">By</char> Your commandment You make me wiser than my enemies; </para>
+
+<para style="q2" vid="PSA 119:98">for, it <char style="add">is</char> with me forever. <verse eid="PSA 119:98"/></para>
+
+<para style="q1"><verse number="99" style="v" sid="PSA 119:99"/>I have insight above all my teachers, </para>
+
+<para style="q2" vid="PSA 119:99">for Your testimonies <char style="add">are</char> a meditation to me. <verse eid="PSA 119:99"/></para>
+
+<para style="q1"><verse number="100" style="v" sid="PSA 119:100"/>I understand above elders, </para>
+
+<para style="q2" vid="PSA 119:100">for Your precepts I have kept. <verse eid="PSA 119:100"/></para>
+
+<para style="q1"><verse number="101" style="v" sid="PSA 119:101"/>From every path of evil I have restrained my feet, </para>
+
+<para style="q2" vid="PSA 119:101">that I may keep Your word. <verse eid="PSA 119:101"/></para>
+
+<para style="q1"><verse number="102" style="v" sid="PSA 119:102"/>From Your ordinances I have not turned aside, </para>
+
+<para style="q2" vid="PSA 119:102">for You have instructed me. <verse eid="PSA 119:102"/></para>
+
+<para style="q1"><verse number="103" style="v" sid="PSA 119:103"/>How smooth are Your words to my palate, </para>
+
+<para style="q2" vid="PSA 119:103">more than honey to my mouth! <verse eid="PSA 119:103"/></para>
+
+<para style="q1"><verse number="104" style="v" sid="PSA 119:104"/>From Your precepts I gain understanding; </para>
+
+<para style="q2" vid="PSA 119:104">upon thus, I hate every path of deception! </para>
+
+<para style="qa" vid="PSA 119:104">נNUN<verse eid="PSA 119:104"/></para>
+
+<para style="q1"><verse number="105" style="v" sid="PSA 119:105"/>Your word <char style="add">is</char> a lamp to my feet, </para>
+
+<para style="q2" vid="PSA 119:105">and a light to my path. <verse eid="PSA 119:105"/></para>
+
+<para style="q1"><verse number="106" style="v" sid="PSA 119:106"/>I have sworn and confirmed: </para>
+
+<para style="q2" vid="PSA 119:106">I will keep the judgments of Your righteousness. <verse eid="PSA 119:106"/></para>
+
+<para style="q1"><verse number="107" style="v" sid="PSA 119:107"/>I am afflicted even exceedingly, O YHWH; </para>
+
+<para style="q2" vid="PSA 119:107">revive me according to Your word! <verse eid="PSA 119:107"/></para>
+
+<para style="q1"><verse number="108" style="v" sid="PSA 119:108"/>May You accept the freewill offerings of my mouth, please, O YHWH, </para>
+
+<para style="q2" vid="PSA 119:108">and may You teach me Your judgments. <verse eid="PSA 119:108"/></para>
+
+<para style="q1"><verse number="109" style="v" sid="PSA 119:109"/>My soul <char style="add">is</char> in my hand continually, </para>
+
+<para style="q2" vid="PSA 119:109">and I do not forget Your law. <verse eid="PSA 119:109"/></para>
+
+<para style="q1"><verse number="110" style="v" sid="PSA 119:110"/>The wicked have set a snare for me, </para>
+
+<para style="q2" vid="PSA 119:110">and from Your precepts I do not go astray. <verse eid="PSA 119:110"/></para>
+
+<para style="q1"><verse number="111" style="v" sid="PSA 119:111"/>I have inherited Your testimonies forever; </para>
+
+<para style="q2" vid="PSA 119:111">for they <char style="add">are</char> the joy of my heart. <verse eid="PSA 119:111"/></para>
+
+<para style="q1"><verse number="112" style="v" sid="PSA 119:112"/>I have inclined my heart to perform Your statutes </para>
+
+<para style="q2" vid="PSA 119:112">forever, <char style="add">to</char> the end! </para>
+
+<para style="qa" vid="PSA 119:112">סSAMEKH<verse eid="PSA 119:112"/></para>
+
+<para style="q1"><verse number="113" style="v" sid="PSA 119:113"/>The double-minded I hate, </para>
+
+<para style="q2" vid="PSA 119:113">and Your law I love. <verse eid="PSA 119:113"/></para>
+
+<para style="q1"><verse number="114" style="v" sid="PSA 119:114"/>You <char style="add">are</char> my hiding place and my shield; </para>
+
+<para style="q2" vid="PSA 119:114">in Your word I hope. <verse eid="PSA 119:114"/></para>
+
+<para style="q1"><verse number="115" style="v" sid="PSA 119:115"/>Turn away from me, O evildoers! </para>
+
+<para style="q2" vid="PSA 119:115">And I will keep the commandments of my God. <verse eid="PSA 119:115"/></para>
+
+<para style="q1"><verse number="116" style="v" sid="PSA 119:116"/>Uphold me according to Your word, and l will live; </para>
+
+<para style="q2" vid="PSA 119:116">and do not make me ashamed of my hope! <verse eid="PSA 119:116"/></para>
+
+<para style="q1"><verse number="117" style="v" sid="PSA 119:117"/>Support me, and I will be saved; </para>
+
+<para style="q2" vid="PSA 119:117">and I will gaze on Your statutes continually. <verse eid="PSA 119:117"/></para>
+
+<para style="q1"><verse number="118" style="v" sid="PSA 119:118"/>You have trodden down all those going astray from Your statutes, </para>
+
+<para style="q2" vid="PSA 119:118">for their treachery <char style="add">is</char> falsehood. <verse eid="PSA 119:118"/></para>
+
+<para style="q1"><verse number="119" style="v" sid="PSA 119:119"/>Like dross You put an end to all the wicked of the earth; </para>
+
+<para style="q2" vid="PSA 119:119">therefore I love Your testimonies. <verse eid="PSA 119:119"/></para>
+
+<para style="q1"><verse number="120" style="v" sid="PSA 119:120"/>My flesh bristles from dread of You, </para>
+
+<para style="q2" vid="PSA 119:120">and of your judgments I have been afraid. </para>
+
+<para style="qa" vid="PSA 119:120">עAYIN<verse eid="PSA 119:120"/></para>
+
+<para style="q1"><verse number="121" style="v" sid="PSA 119:121"/>I have done justice and righteousness; </para>
+
+<para style="q2" vid="PSA 119:121">do not leave me to my oppressors! <verse eid="PSA 119:121"/></para>
+
+<para style="q1"><verse number="122" style="v" sid="PSA 119:122"/>Ensure Your servant for good; </para>
+
+<para style="q2" vid="PSA 119:122">do not let the arrogant ones oppress me. <verse eid="PSA 119:122"/></para>
+
+<para style="q1"><verse number="123" style="v" sid="PSA 119:123"/>My eyes fail for Your salvation, </para>
+
+<para style="q2" vid="PSA 119:123">and for the word of Your righteousness. <verse eid="PSA 119:123"/></para>
+
+<para style="q1"><verse number="124" style="v" sid="PSA 119:124"/>Deal with Your servant according to Your loving devotion, </para>
+
+<para style="q2" vid="PSA 119:124">and teach me Your statutes. <verse eid="PSA 119:124"/></para>
+
+<para style="q1"><verse number="125" style="v" sid="PSA 119:125"/>I <char style="add">am</char> Your servant—give me understanding, </para>
+
+<para style="q2" vid="PSA 119:125">that I may know Your testimonies. <verse eid="PSA 119:125"/></para>
+
+<para style="q1"><verse number="126" style="v" sid="PSA 119:126"/><char style="add">It is</char> time, O YHWH, to act; </para>
+
+<para style="q2" vid="PSA 119:126">they have broken Your law! <verse eid="PSA 119:126"/></para>
+
+<para style="q1"><verse number="127" style="v" sid="PSA 119:127"/>Upon thus, I love Your commandments more than gold, </para>
+
+<para style="q2" vid="PSA 119:127">and more than fine gold. <verse eid="PSA 119:127"/></para>
+
+<para style="q1"><verse number="128" style="v" sid="PSA 119:128"/>Upon thus, all the precepts I have declared wholly right; </para>
+
+<para style="q2" vid="PSA 119:128">every path of deception I hate. </para>
+
+<para style="qa" vid="PSA 119:128">פPE<verse eid="PSA 119:128"/></para>
+
+<para style="q1"><verse number="129" style="v" sid="PSA 119:129"/>Wonderful <char style="add">are</char> Your testimonies; </para>
+
+<para style="q2" vid="PSA 119:129">upon thus, my soul has kept watch <char style="add">over</char> them. <verse eid="PSA 119:129"/></para>
+
+<para style="q1"><verse number="130" style="v" sid="PSA 119:130"/>The opening of Your words gives light, </para>
+
+<para style="q2" vid="PSA 119:130">giving understanding to the simple ones. <verse eid="PSA 119:130"/></para>
+
+<para style="q1"><verse number="131" style="v" sid="PSA 119:131"/>I have opened my mouth and I pant—</para>
+
+<para style="q2" vid="PSA 119:131">for I have longed for Your commandments! <verse eid="PSA 119:131"/></para>
+
+<para style="q1"><verse number="132" style="v" sid="PSA 119:132"/>Turn to me and be gracious to me, </para>
+
+<para style="q2" vid="PSA 119:132">according to justice to those loving Your name. <verse eid="PSA 119:132"/></para>
+
+<para style="q1"><verse number="133" style="v" sid="PSA 119:133"/>Establish my steps by Your word, </para>
+
+<para style="q2" vid="PSA 119:133">and do not let any iniquity rule over me. <verse eid="PSA 119:133"/></para>
+
+<para style="q1"><verse number="134" style="v" sid="PSA 119:134"/>Redeem me from the oppression of man, </para>
+
+<para style="q2" vid="PSA 119:134">that I may keep Your precepts. <verse eid="PSA 119:134"/></para>
+
+<para style="q1"><verse number="135" style="v" sid="PSA 119:135"/>Make Your face shine on Your servant, </para>
+
+<para style="q2" vid="PSA 119:135">and teach me Your statutes. <verse eid="PSA 119:135"/></para>
+
+<para style="q1"><verse number="136" style="v" sid="PSA 119:136"/>Streams of waters run down from my eyes, </para>
+
+<para style="q2" vid="PSA 119:136">because they have not kept Your law. </para>
+
+<para style="qa" vid="PSA 119:136">צTZADE<verse eid="PSA 119:136"/></para>
+
+<para style="q1"><verse number="137" style="v" sid="PSA 119:137"/>You <char style="add">are</char> righteous, O YHWH, </para>
+
+<para style="q2" vid="PSA 119:137">and Your judgments <char style="add">are</char> upright. <verse eid="PSA 119:137"/></para>
+
+<para style="q1"><verse number="138" style="v" sid="PSA 119:138"/>You have appointed your righteous testimonies, </para>
+
+<para style="q2" vid="PSA 119:138">and exceedingly faithful. <verse eid="PSA 119:138"/></para>
+
+<para style="q1"><verse number="139" style="v" sid="PSA 119:139"/>My zeal has cut me off, </para>
+
+<para style="q2" vid="PSA 119:139">because my adversaries have forgotten Your words. <verse eid="PSA 119:139"/></para>
+
+<para style="q1"><verse number="140" style="v" sid="PSA 119:140"/>Your word <char style="add">is</char> exceedingly pure, </para>
+
+<para style="q2" vid="PSA 119:140">and Your servant has loved it. <verse eid="PSA 119:140"/></para>
+
+<para style="q1"><verse number="141" style="v" sid="PSA 119:141"/>I <char style="add">am</char> little and despised; </para>
+
+<para style="q2" vid="PSA 119:141">I do not forget Your precepts. <verse eid="PSA 119:141"/></para>
+
+<para style="q1"><verse number="142" style="v" sid="PSA 119:142"/>Your righteousness <char style="add">is</char> righteous forever, </para>
+
+<para style="q2" vid="PSA 119:142">and Your law <char style="add">is</char> truth. <verse eid="PSA 119:142"/></para>
+
+<para style="q1"><verse number="143" style="v" sid="PSA 119:143"/>Trouble and distress have found me; </para>
+
+<para style="q2" vid="PSA 119:143">Your commandments <char style="add">are</char> my delight. <verse eid="PSA 119:143"/></para>
+
+<para style="q1"><verse number="144" style="v" sid="PSA 119:144"/>The righteousness of Your testimonies <char style="add">is</char> forever; </para>
+
+<para style="q2" vid="PSA 119:144">give me understanding, that I may live! </para>
+
+<para style="qa" vid="PSA 119:144">קKOPH<verse eid="PSA 119:144"/></para>
+
+<para style="q1"><verse number="145" style="v" sid="PSA 119:145"/>I cry out with all <char style="add">my</char> heart; </para>
+
+<para style="q2" vid="PSA 119:145">answer me, O YHWH! </para>
+
+<para style="q2" vid="PSA 119:145">Your statutes I will guard. <verse eid="PSA 119:145"/></para>
+
+<para style="q1"><verse number="146" style="v" sid="PSA 119:146"/>I call out to You, save me, </para>
+
+<para style="q2" vid="PSA 119:146">that I may keep Your testimonies! <verse eid="PSA 119:146"/></para>
+
+<para style="q1"><verse number="147" style="v" sid="PSA 119:147"/>I went ahead at the dawn, and I cried out, </para>
+
+<para style="q2" vid="PSA 119:147"><char style="add">and</char> for Your word I have hoped. <verse eid="PSA 119:147"/></para>
+
+<para style="q1"><verse number="148" style="v" sid="PSA 119:148"/>My eyes have gone before the watches </para>
+
+<para style="q2" vid="PSA 119:148">to meditate on Your word. <verse eid="PSA 119:148"/></para>
+
+<para style="q1"><verse number="149" style="v" sid="PSA 119:149"/>Hear my voice, O YHWH, according to Your loving devotion; </para>
+
+<para style="q2" vid="PSA 119:149">according to Your justice, preserve my life! <verse eid="PSA 119:149"/></para>
+
+<para style="q1"><verse number="150" style="v" sid="PSA 119:150"/>They draw near, those pursuing wickedness! </para>
+
+<para style="q2" vid="PSA 119:150">From Your law they are far. <verse eid="PSA 119:150"/></para>
+
+<para style="q1"><verse number="151" style="v" sid="PSA 119:151"/>You <char style="add">are</char> near, O YHWH, </para>
+
+<para style="q2" vid="PSA 119:151">and all Your commandments <char style="add">are</char> truth. <verse eid="PSA 119:151"/></para>
+
+<para style="q1"><verse number="152" style="v" sid="PSA 119:152"/>I have known of Your testimonies of old, </para>
+
+<para style="q2" vid="PSA 119:152">that forever You have founded them. </para>
+
+<para style="qa" vid="PSA 119:152">רRESH<verse eid="PSA 119:152"/></para>
+
+<para style="q1"><verse number="153" style="v" sid="PSA 119:153"/>See my affliction and rescue me! </para>
+
+<para style="q2" vid="PSA 119:153">For I have not forgotten Your law. <verse eid="PSA 119:153"/></para>
+
+<para style="q1"><verse number="154" style="v" sid="PSA 119:154"/>Plead my plea and redeem me; </para>
+
+<para style="q2" vid="PSA 119:154">according to Your word, revive me! <verse eid="PSA 119:154"/></para>
+
+<para style="q1"><verse number="155" style="v" sid="PSA 119:155"/>Far from the wicked <char style="add">is</char> salvation, </para>
+
+<para style="q2" vid="PSA 119:155">because they have not sought Your statutes. <verse eid="PSA 119:155"/></para>
+
+<para style="q1"><verse number="156" style="v" sid="PSA 119:156"/>Your mercies <char style="add">are</char> great, O YHWH; </para>
+
+<para style="q2" vid="PSA 119:156">according to Your ordinances, revive me! <verse eid="PSA 119:156"/></para>
+
+<para style="q1"><verse number="157" style="v" sid="PSA 119:157"/>Many <char style="add">are</char> my pursuers and my adversaries; </para>
+
+<para style="q2" vid="PSA 119:157">from Your testimonies I have not turned aside. <verse eid="PSA 119:157"/></para>
+
+<para style="q1"><verse number="158" style="v" sid="PSA 119:158"/>I have seen those acting treacherously, and I felt loathing, </para>
+
+<para style="q2" vid="PSA 119:158">because they have not kept Your word. <verse eid="PSA 119:158"/></para>
+
+<para style="q1"><verse number="159" style="v" sid="PSA 119:159"/>See, how I love Your precepts, O YHWH; </para>
+
+<para style="q2" vid="PSA 119:159">according to Your loving devotion, revive me! <verse eid="PSA 119:159"/></para>
+
+<para style="q1"><verse number="160" style="v" sid="PSA 119:160"/>The head of Your word <char style="add">is</char> truth, </para>
+
+<para style="q2" vid="PSA 119:160">and every judgment of Your righteousness <char style="add">is</char> forever. </para>
+
+<para style="qa" vid="PSA 119:160">שSIN and SHIN<verse eid="PSA 119:160"/></para>
+
+<para style="q1"><verse number="161" style="v" sid="PSA 119:161"/>Princes may pursue me without cause, </para>
+
+<para style="q2" vid="PSA 119:161">and of Your word my heart was afraid. <verse eid="PSA 119:161"/></para>
+
+<para style="q1"><verse number="162" style="v" sid="PSA 119:162"/>I <char style="add">am</char> rejoicing over Your word </para>
+
+<para style="q2" vid="PSA 119:162">like one finding great plunder. <verse eid="PSA 119:162"/></para>
+
+<para style="q1"><verse number="163" style="v" sid="PSA 119:163"/>Deception I hate and abhor; </para>
+
+<para style="q2" vid="PSA 119:163">Your law I do love. <verse eid="PSA 119:163"/></para>
+
+<para style="q1"><verse number="164" style="v" sid="PSA 119:164"/>Seven times in the day I praise You, </para>
+
+<para style="q2" vid="PSA 119:164">because of the judgments of Your righteousness. <verse eid="PSA 119:164"/></para>
+
+<para style="q1"><verse number="165" style="v" sid="PSA 119:165"/>Great prosperity <char style="add">is</char> unto those loving Your law, </para>
+
+<para style="q2" vid="PSA 119:165">and nothing to them <char style="add">is</char> a stumbling block. <verse eid="PSA 119:165"/></para>
+
+<para style="q1"><verse number="166" style="v" sid="PSA 119:166"/>I wait for Your salvation, O YHWH, </para>
+
+<para style="q2" vid="PSA 119:166">and Your commandments I have done. <verse eid="PSA 119:166"/></para>
+
+<para style="q1"><verse number="167" style="v" sid="PSA 119:167"/>My soul has kept Your testimonies, </para>
+
+<para style="q2" vid="PSA 119:167">and I love them exceedingly. <verse eid="PSA 119:167"/></para>
+
+<para style="q1"><verse number="168" style="v" sid="PSA 119:168"/>I have kept Your precepts and Your testimonies, </para>
+
+<para style="q2" vid="PSA 119:168">because all my ways <char style="add">are</char> before You. </para>
+
+<para style="qa" vid="PSA 119:168">תTAW<verse eid="PSA 119:168"/></para>
+
+<para style="q1"><verse number="169" style="v" sid="PSA 119:169"/>Let my cry come before You, O YHWH; </para>
+
+<para style="q2" vid="PSA 119:169">according to Your word, give me understanding. <verse eid="PSA 119:169"/></para>
+
+<para style="q1"><verse number="170" style="v" sid="PSA 119:170"/>Let my supplication come before You; </para>
+
+<para style="q2" vid="PSA 119:170">according to Your word, deliver me. <verse eid="PSA 119:170"/></para>
+
+<para style="q1"><verse number="171" style="v" sid="PSA 119:171"/>Let my lips pour forth praise, </para>
+
+<para style="q2" vid="PSA 119:171">for You teach me Your statutes. <verse eid="PSA 119:171"/></para>
+
+<para style="q1"><verse number="172" style="v" sid="PSA 119:172"/>Let my tongue sing out Your word, </para>
+
+<para style="q2" vid="PSA 119:172">for all Your commandments <char style="add">are</char> righteous. <verse eid="PSA 119:172"/></para>
+
+<para style="q1"><verse number="173" style="v" sid="PSA 119:173"/>Let Your hand be to help me, </para>
+
+<para style="q2" vid="PSA 119:173">for Your precepts I have chosen. <verse eid="PSA 119:173"/></para>
+
+<para style="q1"><verse number="174" style="v" sid="PSA 119:174"/>I long for Your salvation, O YHWH, </para>
+
+<para style="q2" vid="PSA 119:174">and Your law <char style="add">is</char> my delight. <verse eid="PSA 119:174"/></para>
+
+<para style="q1"><verse number="175" style="v" sid="PSA 119:175"/>Let my soul live, and it shall praise You; </para>
+
+<para style="q2" vid="PSA 119:175">and may Your judgments help me. <verse eid="PSA 119:175"/></para>
+
+<para style="q1"><verse number="176" style="v" sid="PSA 119:176"/>I have gone astray, getting lost like a sheep; </para>
+
+<para style="q2" vid="PSA 119:176">may You seek Your servant, </para>
+
+<para style="q2" vid="PSA 119:176">for Your commandments I have not forgotten. <verse eid="PSA 119:176"/></para>
+
+<chapter eid="PSA 119"/>
+</usx>
