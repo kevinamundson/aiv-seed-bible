@@ -19,3 +19,7 @@ secrets.json
 .pnpm-store/*
 *.local.*
 temp
+
+# Cloudflare Wrangler
+.wrangler/
+.dev.vars*

@@ -1,0 +1,10 @@
+{
+  // Workers Static Assets for the Vite client build (same output as Vercel).
+  // Do not attach a custom domain in this branch; deploy only to workers.dev.
+  "name": "aiv-seed-bible",
+  "compatibility_date": "2026-11-19",
+  "assets": {
+    "directory": "./standalone/dist/client",
+    "not_found_handling": "single-page-application"
+  }
+}
