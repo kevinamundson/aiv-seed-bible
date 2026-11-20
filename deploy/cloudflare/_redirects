@@ -1,0 +1,5 @@
+# Same rules as vercel.json (permanent: false → 302).
+# Vite publicDir is false, so these are copied into standalone/dist/client after build:client.
+/:lang/BLB-Draft /:lang/eng_aiv 302
+/:lang/BLB-Draft/ /:lang/eng_aiv 302
+/:lang/BLB-Draft/* /:lang/eng_aiv/:splat 302

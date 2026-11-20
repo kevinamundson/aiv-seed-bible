@@ -38,7 +38,9 @@
     "format": "prettier --write \"packages/**/*.{js,jsx,ts,tsx,css}\"",
     "format:changed": "pretty-quick",
     "prepare": "husky && tsx script/setupMergeDriver.ts",
-    "preview": "tsx script/preview.ts"
+    "preview": "tsx script/preview.ts",
+    "cf:prepare": "bash deploy/cloudflare/prepare.sh",
+    "cf:deploy": "pnpm build:client && pnpm cf:prepare && wrangler deploy"
   },
   "repository": {
     "type": "git",
